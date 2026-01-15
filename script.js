@@ -3,23 +3,53 @@
 var searchIndex = [];
 var classIndex = [];
 var packageIndex = [];
+var basePath = '';
 
 function OnLoad(frameset) {
+    // Calculate base path from current location using the document URL
+    var scripts = document.getElementsByTagName('script');
+    for (var i = 0; i < scripts.length; i++) {
+        if (scripts[i].src.indexOf('script.js') !== -1) {
+            var src = scripts[i].src;
+            // Get the directory of the script
+            basePath = src.substring(0, src.lastIndexOf('/') + 1);
+            break;
+        }
+    }
+
+    // Also resolve against document location to handle relative paths correctly
+    var docPath = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+    // If basePath is relative, resolve it against the document path
+    if (basePath.indexOf('://') === -1 && basePath.indexOf('://') === -1) {
+        basePath = new URL(basePath, docPath).href;
+    }
+
     initializeIndices();
     setupSearch();
 }
 
 function initializeIndices() {
-    // Load search index from JSON file
-    var script = document.createElement('script');
-    script.src = 'search-index.js';
-    script.onload = function() {
-        if (typeof searchData !== 'undefined') {
-            searchIndex = searchData;
-            populateIndices();
+    // Load search index from the base path
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', basePath + 'search-index.js', true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                try {
+                    // Parse the search data from the JS file
+                    var response = xhr.responseText;
+                    var match = response.match(/var searchData = (\[[\s\S]*?\]);/);
+                    if (match) {
+                        searchIndex = JSON.parse(match[1]);
+                        populateIndices();
+                    }
+                } catch (e) {
+                    console.error('Error loading search index:', e);
+                }
+            }
         }
     };
-    document.head.appendChild(script);
+    xhr.send();
 }
 
 function populateIndices() {
@@ -128,12 +158,12 @@ function showSearchResults(results, inputId, resultsId) {
     if (!searchInput || !resultsDiv) return;
     
     var rect = searchInput.getBoundingClientRect();
-    resultsDiv.style.top = (rect.bottom + window.scrollY) + 'px';
+    resultsDiv.style.top = (rect.bottom + window.scrollY + 5) + 'px';
     resultsDiv.style.left = rect.left + 'px';
     resultsDiv.style.width = rect.width + 'px';
     
     if (results.length === 0) {
-        resultsDiv.innerHTML = '<div style="padding: 10px; color: #666;">No results found.</div>';
+        resultsDiv.innerHTML = '<div class="no-results">No results found.</div>';
     } else {
         var html = '';
         for (var i = 0; i < results.length; i++) {
@@ -144,8 +174,8 @@ function showSearchResults(results, inputId, resultsId) {
                            result.kind === 'field' ? 'Field' : result.kind;
             html += '<a href="' + result.href + '">' +
                     '<strong>' + result.name + '</strong> ' +
-                    '<span style="color: #666; font-size: 12px;">(' + kindLabel + ')</span>' +
-                    '<br><span style="color: #999; font-size: 11px;">' + result.package + '</span>' +
+                    '<span class="kind">' + kindLabel + '</span>' +
+                    '<span class="package">' + result.package + '</span>' +
                     '</a>';
         }
         resultsDiv.innerHTML = html;
