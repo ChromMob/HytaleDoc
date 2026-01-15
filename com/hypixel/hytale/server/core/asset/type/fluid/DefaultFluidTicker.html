@@ -24,7 +24,7 @@
     </div>
     
     <div class="content">
-        <pre class="signature">public class <a href="DefaultFluidTicker.html" class="type-link">DefaultFluidTicker</a> extends <a href="FluidTicker.html" class="type-link">FluidTicker</a></pre>
+        <pre class="signature">public class <a href="DefaultFluidTicker.html" class="type-link">DefaultFluidTicker</a> extends <a href="FluidTicker.html" class="type-link" data-class="FluidTicker"><code>FluidTicker</code></a></pre>
         
         <div class="description">
             <div class="block">
@@ -481,15 +481,51 @@
                 <h4 class="methodName">spread</h4>
                 <div class="memberSignature">
                     <span class="modifiers">protected</span>
-                    <span class="returnType"><a href="BlockTickStrategy.html" class="type-link"><code>BlockTickStrategy</code></a></span>
+                    <span class="returnType"><a href="../blocktick/BlockTickStrategy.html" class="type-link"><code>BlockTickStrategy</code></a></span>
                     <span class="memberName">spread</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><code>final long</code> <span class="param-name">tick</span></span>, <span class="param"><code>@Nonnull final Accessor</code> <span class="param-name">accessor</span></span>, <span class="param"><a href="../../../universe/world/chunk/section/FluidSection.html" class="type-link"><code>@Nonnull final FluidSection</code></a> <span class="param-name">fluidSection</span></span>, <span class="param"><a href="../../../universe/world/chunk/section/BlockSection.html" class="type-link"><code>final BlockSection</code></a> <span class="param-name">blockSection</span></span>, <span class="param"><a href="Fluid.html" class="type-link"><code>@Nonnull final Fluid</code></a> <span class="param-name">fluid</span></span>, <span class="param"><code>final int</code> <span class="param-name">fluidId</span></span>, <span class="param"><code>final byte</code> <span class="param-name">fluidLevel</span></span>, <span class="param"><code>final int</code> <span class="param-name">worldX</span></span>, <span class="param"><code>final int</code> <span class="param-name">worldY</span></span>, <span class="param"><code>final int</code> <span class="param-name">worldZ</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method spread.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><code>final long</code> <b>tick</b></dd>
+<dd><code>@Nonnull final Accessor</code> <b>accessor</b></dd>
+<dd><a href="../../../universe/world/chunk/section/FluidSection.html" class="type-link"><code>@Nonnull final FluidSection</code></a> <b>fluidSection</b></dd>
+<dd><a href="../../../universe/world/chunk/section/BlockSection.html" class="type-link"><code>final BlockSection</code></a> <b>blockSection</b></dd>
+<dd><a href="Fluid.html" class="type-link"><code>@Nonnull final Fluid</code></a> <b>fluid</b></dd>
+<dd><code>final int</code> <b>fluidId</b></dd>
+<dd><code>final byte</code> <b>fluidLevel</b></dd>
+<dd><code>final int</code> <b>worldX</b></dd>
+<dd><code>final int</code> <b>worldY</b></dd>
+<dd><code>final int</code> <b>worldZ</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="executeCollision">
+                <h4 class="methodName">executeCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">executeCollision</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><code>@Nonnull final Accessor</code> <span class="param-name">accessor</span></span>, <span class="param"><a href="../../../universe/world/chunk/section/FluidSection.html" class="type-link"><code>@Nonnull final FluidSection</code></a> <span class="param-name">fluidSection</span></span>, <span class="param"><a href="../../../universe/world/chunk/section/BlockSection.html" class="type-link"><code>final BlockSection</code></a> <span class="param-name">blockSection</span></span>, <span class="param"><code>@Nonnull final FluidCollisionConfig</code> <span class="param-name">config</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockX</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockY</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockZ</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method executeCollision.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><code>@Nonnull final Accessor</code> <b>accessor</b></dd>
+<dd><a href="../../../universe/world/chunk/section/FluidSection.html" class="type-link"><code>@Nonnull final FluidSection</code></a> <b>fluidSection</b></dd>
+<dd><a href="../../../universe/world/chunk/section/BlockSection.html" class="type-link"><code>final BlockSection</code></a> <b>blockSection</b></dd>
+<dd><code>@Nonnull final FluidCollisionConfig</code> <b>config</b></dd>
+<dd><code>final int</code> <b>blockX</b></dd>
+<dd><code>final int</code> <b>blockY</b></dd>
+<dd><code>final int</code> <b>blockZ</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="isSelfFluid">
@@ -498,13 +534,16 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>boolean</code></span>
                     <span class="memberName">isSelfFluid</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">selfFluidId</span></span>, <span class="param"><code>final int</code> <span class="param-name">otherFluidId</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method isSelfFluid.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>selfFluidId</b></dd>
+<dd><code>final int</code> <b>otherFluidId</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="getSpreadFluidId">
@@ -513,13 +552,15 @@
                     <span class="modifiers">private</span>
                     <span class="returnType"><code>int</code></span>
                     <span class="memberName">getSpreadFluidId</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">fluidId</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method getSpreadFluidId.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>fluidId</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="getCollisionMap">
@@ -535,6 +576,25 @@
                 </div>
                 <dl class="notes">
                     
+                </dl>
+            </div>
+            <div class="methodDetail" id="KeyedCodec">
+                <h4 class="methodName">KeyedCodec</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">KeyedCodec</span>
+                    <span class="arguments">(<span class="param">"Collisions"</span>, <span class="param"><code>new</code> <span class="param-name">MapCodec(FluidCollisionConfig.CODEC</span></span>, <span class="param">HashMap::new</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method KeyedCodec.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Collisions"</code> <b>"Collisions"</b></dd>
+<dd><code>new</code> <b>MapCodec(FluidCollisionConfig.CODEC</b></dd>
+<dd><code>HashMap::new</code> <b>HashMap::new</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="FluidCollisionConfig">

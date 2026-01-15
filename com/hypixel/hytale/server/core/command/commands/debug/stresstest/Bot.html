@@ -24,7 +24,7 @@
     </div>
     
     <div class="content">
-        <pre class="signature">public class <a href="Bot.html" class="type-link">Bot</a> extends <a href="SimpleChannelInboundHandler<Packet>.html" class="type-link">SimpleChannelInboundHandler<Packet></a></pre>
+        <pre class="signature">public class <a href="Bot.html" class="type-link">Bot</a> extends <code>SimpleChannelInboundHandler</code></pre>
         
         <div class="description">
             <div class="block">
@@ -33,7 +33,7 @@
         </div>
         
         <div class="inheritance">
-            <h3>java.lang.Object &gt; SimpleChannelInboundHandler<Packet> &gt; Bot</h3>
+            <h3>java.lang.Object &gt; SimpleChannelInboundHandler &gt; Bot</h3>
         </div>
         
         <div class="summary">
@@ -281,16 +281,32 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>public</code></span>
                     <span class="memberName">Bot</span>
-                    <span class="arguments">(<span class="param">InterruptedException</span>, <span class="param">SocketException</span>)</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">name</span></span>, <span class="param"><a href="BotConfig.html" class="type-link"><code>@Nonnull final BotConfig</code></a> <span class="param-name">config</span></span>, <span class="param"><code>final int</code> <span class="param-name">tickStepNanos</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method Bot.</p>
                 </div>
                 <dl class="notes">
                     <dt>Parameters:</dt>
-<dd><code>InterruptedException</code> <b>InterruptedException</b></dd>
-<dd><code>SocketException</code> <b>SocketException</b></dd>
+<dd><code>final String</code> <b>name</b></dd>
+<dd><a href="BotConfig.html" class="type-link"><code>@Nonnull final BotConfig</code></a> <b>config</b></dd>
+<dd><code>final int</code> <b>tickStepNanos</b></dd>
 
+                </dl>
+            </div>
+            <div class="methodDetail" id="Bootstrap">
+                <h4 class="methodName">Bootstrap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Bootstrap</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method Bootstrap.</p>
+                </div>
+                <dl class="notes">
+                    
                 </dl>
             </div>
             <div class="methodDetail" id="initChannel">
@@ -299,10 +315,42 @@
                     <span class="modifiers">protected</span>
                     <span class="returnType"><code>void</code></span>
                     <span class="memberName">initChannel</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final SocketChannel</code> <span class="param-name">channel</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method initChannel.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final SocketChannel</code> <b>channel</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PacketDecoder">
+                <h4 class="methodName">PacketDecoder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PacketDecoder</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PacketDecoder.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="PacketEncoder">
+                <h4 class="methodName">PacketEncoder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PacketEncoder</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PacketEncoder.</p>
                 </div>
                 <dl class="notes">
                     
@@ -329,13 +377,33 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>void</code></span>
                     <span class="memberName">tick</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method tick.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Pong">
+                <h4 class="methodName">Pong</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Pong</span>
+                    <span class="arguments">(<span class="param">packet.id</span>, <span class="param">WorldTimeResource.instantToInstantData(Instant.now(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Pong.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>packet.id</code> <b>packet.id</b></dd>
+<dd><code>WorldTimeResource.instantToInstantData(Instant.now(</code> <b>WorldTimeResource.instantToInstantData(Instant.now(</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="channelActive">
@@ -344,13 +412,37 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>void</code></span>
                     <span class="memberName">channelActive</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ChannelHandlerContext</code> <span class="param-name">ctx</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method channelActive.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ChannelHandlerContext</code> <b>ctx</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Connect">
+                <h4 class="methodName">Connect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Connect</span>
+                    <span class="arguments">(<span class="param">"6708f121966c1c443f4b0eb525b2f81d0a8dc61f5003a692a8fa157e5e02cea9"</span>, <span class="param">ClientType.Game</span>, <span class="param">"en"</span>, <span class="param">null</span>, <span class="param">uuid</span>, <span class="param">this.name</span>, <span class="param">null</span>, <span class="param">null</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Connect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"6708f121966c1c443f4b0eb525b2f81d0a8dc61f5003a692a8fa157e5e02cea9"</code> <b>"6708f121966c1c443f4b0eb525b2f81d0a8dc61f5003a692a8fa157e5e02cea9"</b></dd>
+<dd><code>ClientType.Game</code> <b>ClientType.Game</b></dd>
+<dd><code>"en"</code> <b>"en"</b></dd>
+<dd><code>null</code> <b>null</b></dd>
+<dd><code>uuid</code> <b>uuid</b></dd>
+<dd><code>this.name</code> <b>this.name</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="channelInactive">
@@ -359,13 +451,15 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>void</code></span>
                     <span class="memberName">channelInactive</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>final ChannelHandlerContext</code> <span class="param-name">ctx</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method channelInactive.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>final ChannelHandlerContext</code> <b>ctx</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="exceptionCaught">
@@ -374,13 +468,33 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>void</code></span>
                     <span class="memberName">exceptionCaught</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ChannelHandlerContext</code> <span class="param-name">ctx</span></span>, <span class="param"><code>@Nonnull final Throwable</code> <span class="param-name">cause</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method exceptionCaught.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ChannelHandlerContext</code> <b>ctx</b></dd>
+<dd><code>@Nonnull final Throwable</code> <b>cause</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Disconnect">
+                <h4 class="methodName">Disconnect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Disconnect</span>
+                    <span class="arguments">(<span class="param">cause.getMessage(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Disconnect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>cause.getMessage(</code> <b>cause.getMessage(</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="channelRead0">
@@ -389,13 +503,85 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>void</code></span>
                     <span class="memberName">channelRead0</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ChannelHandlerContext</code> <span class="param-name">ctx</span></span>, <span class="param"><code>@Nonnull final Packet</code> <span class="param-name">packet</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method channelRead0.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ChannelHandlerContext</code> <b>ctx</b></dd>
+<dd><code>@Nonnull final Packet</code> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="RequestAssets">
+                <h4 class="methodName">RequestAssets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">RequestAssets</span>
+                    <span class="arguments">(<span class="param">Bot.EMPTY_ASSET_ARRAY</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method RequestAssets.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Bot.EMPTY_ASSET_ARRAY</code> <b>Bot.EMPTY_ASSET_ARRAY</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ViewRadius">
+                <h4 class="methodName">ViewRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ViewRadius</span>
+                    <span class="arguments">(<span class="param">this.config.viewRadius</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ViewRadius.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.config.viewRadius</code> <b>this.config.viewRadius</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlayerOptions">
+                <h4 class="methodName">PlayerOptions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PlayerOptions</span>
+                    <span class="arguments">(<span class="param">CosmeticsModule.get(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PlayerOptions.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>CosmeticsModule.get(</code> <b>CosmeticsModule.get(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ClientReady">
+                <h4 class="methodName">ClientReady</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ClientReady</span>
+                    <span class="arguments">(<span class="param">true</span>, <span class="param"><code>this.id !=</code> <span class="param-name">-1</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ClientReady.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>true</code> <b>true</b></dd>
+<dd><code>this.id !=</code> <b>-1</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="updateModelTransform">
@@ -404,13 +590,15 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>void</code></span>
                     <span class="memberName">updateModelTransform</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ModelTransform</code> <span class="param-name">modelTransform</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method updateModelTransform.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ModelTransform</code> <b>modelTransform</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="updateRotation">
@@ -419,13 +607,15 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>void</code></span>
                     <span class="memberName">updateRotation</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Direction</code> <span class="param-name">lookOrientation</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method updateRotation.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Direction</code> <b>lookOrientation</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="createMovementPacket">
@@ -456,6 +646,24 @@
                 </div>
                 <dl class="notes">
                     
+                </dl>
+            </div>
+            <div class="methodDetail" id="findEntityUpdate">
+                <h4 class="methodName">findEntityUpdate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>EntityUpdate</code></span>
+                    <span class="memberName">findEntityUpdate</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final EntityUpdates</code> <span class="param-name">bulkList</span></span>, <span class="param"><code>final int</code> <span class="param-name">id</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method findEntityUpdate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final EntityUpdates</code> <b>bulkList</b></dd>
+<dd><code>final int</code> <b>id</b></dd>
+
                 </dl>
             </div>
         </div>

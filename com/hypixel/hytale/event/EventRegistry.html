@@ -24,7 +24,7 @@
     </div>
     
     <div class="content">
-        <pre class="signature">public class <a href="EventRegistry.html" class="type-link">EventRegistry</a> extends <a href="Registry<EventRegistration<.html" class="type-link">Registry<EventRegistration<</a></pre>
+        <pre class="signature">public class <a href="EventRegistry.html" class="type-link">EventRegistry</a> extends <code>Registry</code></pre>
         
         <div class="description">
             <div class="block">
@@ -33,7 +33,7 @@
         </div>
         
         <div class="inheritance">
-            <h3>java.lang.Object &gt; Registry<EventRegistration< &gt; EventRegistry</h3>
+            <h3>java.lang.Object &gt; Registry &gt; EventRegistry</h3>
         </div>
         
         <div class="summary">
@@ -50,13 +50,18 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>public</code></span>
                     <span class="memberName">EventRegistry</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final List<BooleanConsumer></code> <span class="param-name">registrations</span></span>, <span class="param"><code>@Nonnull final BooleanSupplier</code> <span class="param-name">precondition</span></span>, <span class="param"><code>final String</code> <span class="param-name">preconditionMessage</span></span>, <span class="param"><a href="IEventRegistry.html" class="type-link"><code>@Nonnull final IEventRegistry</code></a> <span class="param-name">parent</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method EventRegistry.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final List<BooleanConsumer></code> <b>registrations</b></dd>
+<dd><code>@Nonnull final BooleanSupplier</code> <b>precondition</b></dd>
+<dd><code>final String</code> <b>preconditionMessage</b></dd>
+<dd><a href="IEventRegistry.html" class="type-link"><code>@Nonnull final IEventRegistry</code></a> <b>parent</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="getParent">
@@ -72,6 +77,113 @@
                 </div>
                 <dl class="notes">
                     
+                </dl>
+            </div>
+            <div class="methodDetail" id="register">
+                <h4 class="methodName">register</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EventType></code></span>
+                    <span class="memberName">register</span>
+                    <span class="arguments">(<span class="param"><a href="EventRegistration.html" class="type-link"><code>@Nonnull final EventRegistration<KeyType, EventType></code></a> <span class="param-name">evt</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method register.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EventRegistration.html" class="type-link"><code>@Nonnull final EventRegistration<KeyType, EventType></code></a> <b>evt</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerAsync">
+                <h4 class="methodName">registerAsync</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EventType></code></span>
+                    <span class="memberName">registerAsync</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Class<? super EventType></code> <span class="param-name">eventClass</span></span>, <span class="param"><code>@Nonnull final Function<CompletableFuture<EventType>, CompletableFuture<EventType>></code> <span class="param-name">function</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registerAsync.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Class<? super EventType></code> <b>eventClass</b></dd>
+<dd><code>@Nonnull final Function<CompletableFuture<EventType>, CompletableFuture<EventType>></code> <b>function</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerGlobal">
+                <h4 class="methodName">registerGlobal</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EventType></code></span>
+                    <span class="memberName">registerGlobal</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Class<? super EventType></code> <span class="param-name">eventClass</span></span>, <span class="param"><code>@Nonnull final Consumer<EventType></code> <span class="param-name">consumer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registerGlobal.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Class<? super EventType></code> <b>eventClass</b></dd>
+<dd><code>@Nonnull final Consumer<EventType></code> <b>consumer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerAsyncGlobal">
+                <h4 class="methodName">registerAsyncGlobal</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EventType></code></span>
+                    <span class="memberName">registerAsyncGlobal</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Class<? super EventType></code> <span class="param-name">eventClass</span></span>, <span class="param"><code>@Nonnull final Function<CompletableFuture<EventType>, CompletableFuture<EventType>></code> <span class="param-name">function</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registerAsyncGlobal.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Class<? super EventType></code> <b>eventClass</b></dd>
+<dd><code>@Nonnull final Function<CompletableFuture<EventType>, CompletableFuture<EventType>></code> <b>function</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerUnhandled">
+                <h4 class="methodName">registerUnhandled</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EventType></code></span>
+                    <span class="memberName">registerUnhandled</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Class<? super EventType></code> <span class="param-name">eventClass</span></span>, <span class="param"><code>@Nonnull final Consumer<EventType></code> <span class="param-name">consumer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registerUnhandled.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Class<? super EventType></code> <b>eventClass</b></dd>
+<dd><code>@Nonnull final Consumer<EventType></code> <b>consumer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerAsyncUnhandled">
+                <h4 class="methodName">registerAsyncUnhandled</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EventType></code></span>
+                    <span class="memberName">registerAsyncUnhandled</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Class<? super EventType></code> <span class="param-name">eventClass</span></span>, <span class="param"><code>@Nonnull final Function<CompletableFuture<EventType>, CompletableFuture<EventType>></code> <span class="param-name">function</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registerAsyncUnhandled.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Class<? super EventType></code> <b>eventClass</b></dd>
+<dd><code>@Nonnull final Function<CompletableFuture<EventType>, CompletableFuture<EventType>></code> <b>function</b></dd>
+
                 </dl>
             </div>
         </div>

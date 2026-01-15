@@ -358,13 +358,17 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>public</code></span>
                     <span class="memberName">JWTValidator</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><a href="SessionServiceClient.html" class="type-link"><code>@Nonnull final SessionServiceClient</code></a> <span class="param-name">sessionServiceClient</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">expectedIssuer</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">expectedAudience</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method JWTValidator.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><a href="SessionServiceClient.html" class="type-link"><code>@Nonnull final SessionServiceClient</code></a> <b>sessionServiceClient</b></dd>
+<dd><code>@Nonnull final String</code> <b>expectedIssuer</b></dd>
+<dd><code>@Nonnull final String</code> <b>expectedAudience</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="validateToken">
@@ -373,13 +377,50 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>JWTClaims</code></span>
                     <span class="memberName">validateToken</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">accessToken</span></span>, <span class="param"><code>@Nullable final X509Certificate</code> <span class="param-name">clientCert</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method validateToken.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>accessToken</b></dd>
+<dd><code>@Nullable final X509Certificate</code> <b>clientCert</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="expired">
+                <h4 class="methodName">expired</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Token</code></span>
+                    <span class="memberName">expired</span>
+                    <span class="arguments">(<span class="param"><code>exp:</code> <span class="param-name">%d</span></span>, <span class="param"><code>now:</code> <span class="param-name">%d</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method expired.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>now:</code> <b>%d</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="valid">
+                <h4 class="methodName">valid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>yet</code></span>
+                    <span class="memberName">valid</span>
+                    <span class="arguments">(<span class="param"><code>nbf:</code> <span class="param-name">%d</span></span>, <span class="param"><code>now:</code> <span class="param-name">%d</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method valid.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>now:</code> <b>%d</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="verifySignature">
@@ -388,13 +429,16 @@
                     <span class="modifiers">private</span>
                     <span class="returnType"><code>boolean</code></span>
                     <span class="memberName">verifySignature</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>final SignedJWT</code> <span class="param-name">signedJWT</span></span>, <span class="param"><code>final JWKSet</code> <span class="param-name">jwkSet</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method verifySignature.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>final SignedJWT</code> <b>signedJWT</b></dd>
+<dd><code>final JWKSet</code> <b>jwkSet</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="getJwkSet">
@@ -410,6 +454,23 @@
                 </div>
                 <dl class="notes">
                     
+                </dl>
+            </div>
+            <div class="methodDetail" id="cache">
+                <h4 class="methodName">cache</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>JWKS</code></span>
+                    <span class="memberName">cache</span>
+                    <span class="arguments">(<span class="param"><code>key rotation or verification</code> <span class="param-name">failure</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method cache.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>key rotation or verification</code> <b>failure</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="fetchJwksFromService">
@@ -433,13 +494,15 @@
                     <span class="modifiers">private</span>
                     <span class="returnType"><code>boolean</code></span>
                     <span class="memberName">verifySignatureWithRetry</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>final SignedJWT</code> <span class="param-name">signedJWT</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method verifySignatureWithRetry.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>final SignedJWT</code> <b>signedJWT</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="convertToJWK">
@@ -448,13 +511,15 @@
                     <span class="modifiers">private</span>
                     <span class="returnType"><code>JWK</code></span>
                     <span class="memberName">convertToJWK</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>final SessionServiceClient.JwkKey</code> <span class="param-name">key</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method convertToJWK.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>final SessionServiceClient.JwkKey</code> <b>key</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="invalidateJwksCache">
@@ -478,13 +543,32 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>IdentityTokenClaims</code></span>
                     <span class="memberName">validateIdentityToken</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">identityToken</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method validateIdentityToken.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>identityToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="future">
+                <h4 class="methodName">future</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>the</code></span>
+                    <span class="memberName">future</span>
+                    <span class="arguments">(<span class="param"><code>iat:</code> <span class="param-name">%d</span></span>, <span class="param"><code>now:</code> <span class="param-name">%d</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method future.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>now:</code> <b>%d</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="validateSessionToken">
@@ -493,13 +577,15 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>SessionTokenClaims</code></span>
                     <span class="memberName">validateSessionToken</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">sessionToken</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method validateSessionToken.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>sessionToken</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="getSubjectAsUUID">
@@ -538,13 +624,15 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>boolean</code></span>
                     <span class="memberName">hasScope</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">targetScope</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method hasScope.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>targetScope</b></dd>
+
                 </dl>
             </div>
         </div>

@@ -24,7 +24,7 @@
     </div>
     
     <div class="content">
-        <pre class="signature">public class <a href="ChunkUnloadingSystem.html" class="type-link">ChunkUnloadingSystem</a> extends <a href="TickingSystem<ChunkStore> implements RunWhenPausedSystem<ChunkStore>.html" class="type-link">TickingSystem<ChunkStore> implements RunWhenPausedSystem<ChunkStore></a></pre>
+        <pre class="signature">public class <a href="ChunkUnloadingSystem.html" class="type-link">ChunkUnloadingSystem</a> extends <a href="../../../../../../component/system/tick/TickingSystem.html" class="type-link" data-class="TickingSystem"><code>TickingSystem</code></a></pre>
         
         <div class="description">
             <div class="block">
@@ -33,7 +33,7 @@
         </div>
         
         <div class="inheritance">
-            <h3>java.lang.Object &gt; TickingSystem<ChunkStore> implements RunWhenPausedSystem<ChunkStore> &gt; ChunkUnloadingSystem</h3>
+            <h3>java.lang.Object &gt; TickingSystem &gt; ChunkUnloadingSystem</h3>
         </div>
         
         <div class="summary">
@@ -285,13 +285,91 @@
                     <span class="modifiers">public</span>
                     <span class="returnType"><code>void</code></span>
                     <span class="memberName">tick</span>
-                    <span class="arguments">()</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>, <span class="param"><code>final int</code> <span class="param-name">systemIndex</span></span>, <span class="param"><a href="../../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <span class="param-name">store</span></span>)</span>
                 </div>
                 <div class="block">
                     <p>Method tick.</p>
                 </div>
                 <dl class="notes">
-                    
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+<dd><code>final int</code> <b>systemIndex</b></dd>
+<dd><a href="../../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryUnload">
+                <h4 class="methodName">tryUnload</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tryUnload</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><a href="../../../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<ChunkStore></code></a> <span class="param-name">archetypeChunk</span></span>, <span class="param"><a href="../../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<ChunkStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryUnload.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><a href="../../../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<ChunkStore></code></a> <b>archetypeChunk</b></dd>
+<dd><a href="../../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<ChunkStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChunkVisibility">
+                <h4 class="methodName">getChunkVisibility</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>ChunkTracker.ChunkVisibility</code></span>
+                    <span class="memberName">getChunkVisibility</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final List<ChunkTracker></code> <span class="param-name">playerChunkTrackers</span></span>, <span class="param"><code>final long</code> <span class="param-name">chunkIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getChunkVisibility.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final List<ChunkTracker></code> <b>playerChunkTrackers</b></dd>
+<dd><code>final long</code> <b>chunkIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isChunkInBox">
+                <h4 class="methodName">isChunkInBox</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isChunkInBox</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Box2D</code> <span class="param-name">box</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isChunkInBox.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Box2D</code> <b>box</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="collectTrackers">
+                <h4 class="methodName">collectTrackers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">collectTrackers</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <span class="param-name">archetypeChunk</span></span>, <span class="param"><a href="../../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method collectTrackers.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <b>archetypeChunk</b></dd>
+<dd><a href="../../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
                 </dl>
             </div>
             <div class="methodDetail" id="Data">
@@ -313,7 +391,7 @@
                 <h4 class="methodName">clone</h4>
                 <div class="memberSignature">
                     <span class="modifiers">public</span>
-                    <span class="returnType"><a href="Resource.html" class="type-link"><code>Resource<ChunkStore></code></a></span>
+                    <span class="returnType"><a href="../../../../../../component/Resource.html" class="type-link"><code>Resource<ChunkStore></code></a></span>
                     <span class="memberName">clone</span>
                     <span class="arguments">()</span>
                 </div>
