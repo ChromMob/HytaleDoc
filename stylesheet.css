@@ -1,21 +1,18 @@
-/* Hytale Javadoc Stylesheet */
-/* Based on classic Javadoc styling with modern improvements */
-
+/* Hytale Javadoc Stylesheet - Classic Javadoc Design */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+html, body {
+    height: 100%;
     font-family: DejaVu Sans, Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: #333;
     background-color: #fff;
-    line-height: 1.5;
 }
 
-/* Links */
 a {
     color: #4D7A97;
     text-decoration: none;
@@ -27,6 +24,27 @@ a:hover {
 
 a:visited {
     color: #6A8FA8;
+}
+
+/* Frames Layout */
+.frameset {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.frame-left {
+    width: 20%;
+    min-width: 200px;
+    height: 100%;
+    overflow: auto;
+    border-right: 1px solid #ccc;
+}
+
+.frame-right {
+    flex: 1;
+    height: 100%;
+    overflow: auto;
 }
 
 /* Navigation Header */
@@ -64,12 +82,12 @@ a:visited {
     margin: 0;
 }
 
-/* Description Section */
-.description {
+/* Documentation Content */
+.content {
     padding: 15px 20px;
-    border-bottom: 1px solid #e0e0e0;
 }
 
+/* Class Signature */
 .signature {
     font-family: Consolas, Monaco, 'Courier New', monospace;
     font-size: 14px;
@@ -77,30 +95,36 @@ a:visited {
     padding: 10px 15px;
     border: 1px solid #e0e0e0;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin: 10px 0;
     white-space: pre-wrap;
     word-wrap: break-word;
 }
 
-.block {
+/* Description Block */
+.description {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.description .block {
     margin: 10px 0;
     line-height: 1.6;
 }
 
-.block p {
+.description .block p {
     margin: 8px 0;
 }
 
-.block ul {
+.description .block ul {
     margin: 8px 0;
     padding-left: 25px;
 }
 
-.block li {
+.description .block li {
     margin: 4px 0;
 }
 
-.block pre {
+.description .block pre {
     font-family: Consolas, Monaco, 'Courier New', monospace;
     font-size: 12px;
     background-color: #f5f5f5;
@@ -111,7 +135,7 @@ a:visited {
     margin: 10px 0;
 }
 
-.block code {
+.description .block code {
     font-family: Consolas, Monaco, 'Courier New', monospace;
     font-size: 13px;
     background-color: #f0f0f0;
@@ -135,7 +159,7 @@ a:visited {
     margin: 0;
 }
 
-/* Summary and Details Sections */
+/* Summary Sections */
 .summary, .details {
     padding: 15px 20px;
 }
@@ -257,17 +281,6 @@ a:visited {
     margin: 3px 0;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    font-size: 11px;
-    color: #666;
-    padding: 15px;
-    border-top: 1px solid #e0e0e0;
-    background-color: #f5f5f5;
-    margin-top: 20px;
-}
-
 /* Help Page */
 .helpContent {
     padding: 20px;
@@ -300,9 +313,83 @@ footer {
     margin: 5px 0;
 }
 
+/* Search Box */
+.searchBox {
+    padding: 10px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.searchBox input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.searchResults {
+    display: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+    width: 100%;
+    z-index: 1000;
+}
+
+.searchResults.show {
+    display: block;
+}
+
+.searchResults a {
+    display: block;
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.searchResults a:hover {
+    background: #f5f5f5;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 11px;
+    color: #666;
+    padding: 15px;
+    border-top: 1px solid #e0e0e0;
+    background-color: #f5f5f5;
+    margin-top: 20px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+th, td {
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #4D7A97;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
 /* Print Styles */
 @media print {
-    .navHeader, footer {
+    .navHeader, footer, .searchBox {
         display: none;
     }
     
@@ -330,4 +417,32 @@ footer {
         font-size: 12px;
         overflow-x: auto;
     }
+    
+    .frame-left {
+        width: 30%;
+    }
+}
+
+/* Animation for search */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4D7A97;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    z-index: 9999;
+    animation: fadeIn 0.3s;
 }

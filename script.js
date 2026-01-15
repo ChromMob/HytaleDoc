@@ -6,58 +6,109 @@ var packageIndex = [];
 
 function OnLoad(frameset) {
     initializeIndices();
+    setupSearch();
 }
 
 function initializeIndices() {
-    // Initialize search index from meta tags
-    var metaTags = document.getElementsByTagName('meta');
-    for (var i = 0; i < metaTags.length; i++) {
-        var name = metaTags[i].getAttribute('name');
-        if (name === 'searchIndex') {
-            try {
-                searchIndex = JSON.parse(metaTags[i].getAttribute('content'));
-            } catch (e) {
-                searchIndex = [];
-            }
+    // Load search index from JSON file
+    var script = document.createElement('script');
+    script.src = 'search-index.js';
+    script.onload = function() {
+        if (typeof searchData !== 'undefined') {
+            searchIndex = searchData;
+            populateIndices();
+        }
+    };
+    document.head.appendChild(script);
+}
+
+function populateIndices() {
+    // Populate class and package indices from search index
+    for (var i = 0; i < searchIndex.length; i++) {
+        var item = searchIndex[i];
+        if (item.kind === 'class' || item.kind === 'interface') {
+            classIndex.push(item);
         }
     }
     
-    // Populate class and package indices
-    var allLinks = document.getElementsByTagName('a');
-    for (var i = 0; i < allLinks.length; i++) {
-        var href = allLinks[i].getAttribute('href');
-        if (href && href.endsWith('.html')) {
-            var text = allLinks[i].textContent || allLinks[i].innerText;
-            if (href.indexOf('/package-') !== -1) {
-                packageIndex.push({name: text, href: href});
-            } else if (href.indexOf('.html') !== -1 && href.indexOf('/') !== -1) {
-                classIndex.push({name: text, href: href});
+    // Extract unique packages
+    var packages = {};
+    for (var i = 0; i < searchIndex.length; i++) {
+        var item = searchIndex[i];
+        packages[item.package] = true;
+    }
+    
+    packageIndex = Object.keys(packages).sort();
+}
+
+function setupSearch() {
+    // Setup search box if it exists
+    var searchInput = document.getElementById('searchBox');
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            var query = e.target.value.trim();
+            if (query.length >= 2) {
+                var results = searchDocumentation(query);
+                showSearchResults(results, 'searchBox', 'searchResults');
+            } else {
+                hideSearchResults('searchResults');
             }
-        }
+        });
+        
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                hideSearchResults('searchResults');
+                searchInput.blur();
+            }
+        });
+        
+        // Close search results when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.searchBox')) {
+                hideSearchResults('searchResults');
+            }
+        });
     }
 }
 
 function searchDocumentation(query) {
-    if (!query || query.length < 2) {
+    if (!query || query.length < 2 || searchIndex.length === 0) {
         return [];
     }
     
     query = query.toLowerCase();
     var results = [];
     
-    // Search through indexed terms
+    // Search through index
     for (var i = 0; i < searchIndex.length; i++) {
         var item = searchIndex[i];
-        if (item.terms && item.terms.some(function(term) {
-            return term.toLowerCase().indexOf(query) !== -1;
-        })) {
+        var score = 0;
+        
+        // Check name (highest priority)
+        if (item.name.toLowerCase().indexOf(query) !== -1) {
+            score += 10;
+            if (item.name.toLowerCase().startsWith(query)) {
+                score += 5;
+            }
+        }
+        
+        // Check description
+        if (item.description && item.description.toLowerCase().indexOf(query) !== -1) {
+            score += 2;
+        }
+        
+        // Check package
+        if (item.package.toLowerCase().indexOf(query) !== -1) {
+            score += 1;
+        }
+        
+        if (score > 0) {
             results.push({
                 name: item.name,
                 href: item.href,
-                type: item.type,
-                score: item.terms.reduce(function(acc, term) {
-                    return acc + (term.toLowerCase().indexOf(query) !== -1 ? 1 : 0);
-                }, 0)
+                kind: item.kind,
+                package: item.package,
+                score: score
             });
         }
     }
@@ -70,34 +121,43 @@ function searchDocumentation(query) {
     return results.slice(0, 20);
 }
 
-function showSearchResults(results, searchBoxId, resultsId) {
-    var searchBox = document.getElementById(searchBoxId);
+function showSearchResults(results, inputId, resultsId) {
+    var searchInput = document.getElementById(inputId);
     var resultsDiv = document.getElementById(resultsId);
     
-    if (!searchBox || !resultsDiv) return;
+    if (!searchInput || !resultsDiv) return;
+    
+    var rect = searchInput.getBoundingClientRect();
+    resultsDiv.style.top = (rect.bottom + window.scrollY) + 'px';
+    resultsDiv.style.left = rect.left + 'px';
+    resultsDiv.style.width = rect.width + 'px';
     
     if (results.length === 0) {
-        resultsDiv.innerHTML = '<p>No results found.</p>';
+        resultsDiv.innerHTML = '<div style="padding: 10px; color: #666;">No results found.</div>';
     } else {
-        var html = '<ul>';
+        var html = '';
         for (var i = 0; i < results.length; i++) {
             var result = results[i];
-            var typeLabel = result.type === 'class' ? 'Class' : 
-                           result.type === 'method' ? 'Method' : 
-                           result.type === 'field' ? 'Field' : 'Package';
-            html += '<li><a href="' + result.href + '">' + result.name + '</a> (' + typeLabel + ')</li>';
+            var kindLabel = result.kind === 'class' ? 'Class' : 
+                           result.kind === 'interface' ? 'Interface' : 
+                           result.kind === 'method' ? 'Method' : 
+                           result.kind === 'field' ? 'Field' : result.kind;
+            html += '<a href="' + result.href + '">' +
+                    '<strong>' + result.name + '</strong> ' +
+                    '<span style="color: #666; font-size: 12px;">(' + kindLabel + ')</span>' +
+                    '<br><span style="color: #999; font-size: 11px;">' + result.package + '</span>' +
+                    '</a>';
         }
-        html += '</ul>';
         resultsDiv.innerHTML = html;
     }
     
-    resultsDiv.style.display = 'block';
+    resultsDiv.classList.add('show');
 }
 
 function hideSearchResults(resultsId) {
     var resultsDiv = document.getElementById(resultsId);
     if (resultsDiv) {
-        resultsDiv.style.display = 'none';
+        resultsDiv.classList.remove('show');
     }
 }
 
@@ -112,7 +172,7 @@ function copyCode(elementId) {
                 console.error('Failed to copy:', err);
             });
         } else {
-            // Fallback for older browsers
+            // Fallback
             var textArea = document.createElement('textarea');
             textArea.value = text;
             textArea.style.position = 'fixed';
@@ -134,8 +194,6 @@ function showNotification(message) {
     var notification = document.createElement('div');
     notification.className = 'notification';
     notification.textContent = message;
-    notification.style.cssText = 'position:fixed;top:20px;right:20px;background:#4D7A97;color:#fff;' +
-                                 'padding:10px 20px;border-radius:4px;z-index:9999;animation:fadeIn 0.3s;';
     document.body.appendChild(notification);
     
     setTimeout(function() {
@@ -157,69 +215,7 @@ function toggleSection(elementId) {
     }
 }
 
-function highlightSearchTerms(query) {
-    if (!query || query.length < 2) return;
-    
-    query = query.toLowerCase();
-    var elements = document.querySelectorAll('.methodName, .fieldName, .block p, .title');
-    
-    for (var i = 0; i < elements.length; i++) {
-        var element = elements[i];
-        var text = element.textContent || element.innerText;
-        if (text.toLowerCase().indexOf(query) !== -1) {
-            element.style.backgroundColor = '#ffffcc';
-            setTimeout(function(el) {
-                el.style.backgroundColor = '';
-            }, 2000, element);
-        }
-    }
-}
-
-function navigateToClass(className) {
-    // Find the class in the class frame
-    var classFrame = window.frames['classFrame'];
-    if (classFrame) {
-        classFrame.location.href = className + '.html';
-    }
-}
-
-function showAllClasses() {
-    var content = '<div class="indexContainer">' +
-                  '<h2 title="Classes">All Classes and Interfaces</h2>' +
-                  '<ul title="Classes">';
-    
-    classIndex.sort(function(a, b) {
-        return a.name.localeCompare(b.name);
-    });
-    
-    for (var i = 0; i < classIndex.length; i++) {
-        content += '<li><a href="' + classIndex[i].href + '" target="classFrame">' + 
-                   classIndex[i].name + '</a></li>';
-    }
-    
-    content += '</ul></div>';
-    document.body.innerHTML = content;
-}
-
-function showAllPackages() {
-    var content = '<div class="indexContainer">' +
-                  '<h2 title="Packages">All Packages</h2>' +
-                  '<ul title="Packages">';
-    
-    packageIndex.sort(function(a, b) {
-        return a.name.localeCompare(b.name);
-    });
-    
-    for (var i = 0; i < packageIndex.length; i++) {
-        content += '<li><a href="' + packageIndex[i].href + '" target="packageFrame">' + 
-                   packageIndex[i].name + '</a></li>';
-    }
-    
-    content += '</ul></div>';
-    document.body.innerHTML = content;
-}
-
-// Add keyboard shortcuts
+// Keyboard shortcuts
 document.addEventListener('keydown', function(e) {
     // Ctrl/Cmd + F for search
     if ((e.ctrlKey || e.metaKey) && e.keyCode === 70) {
@@ -233,7 +229,11 @@ document.addEventListener('keydown', function(e) {
 
 // Initialize on page load
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeIndices);
+    document.addEventListener('DOMContentLoaded', function() {
+        OnLoad();
+        setupSearch();
+    });
 } else {
-    initializeIndices();
+    OnLoad();
+    setupSearch();
 }
