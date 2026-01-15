@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WorldMapManager (Hytale Plugin API)</title>
+    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../overview-frame.html">Overview</a> &gt; 
+            <a href="../package-summary.html">com.hypixel.hytale.server.core.universe.world.worldmap</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="header">
+        <h2 class="title">WorldMapManager</h2>
+    </div>
+    
+    <div class="description">
+        <pre class="signature">public class WorldMapManager extends TickingThread</pre>
+        <div class="block">
+            <p>Class WorldMapManager.
+        
+            Provides worldmapmanager functionality for the Hytale server.</p>
+        </div>
+    </div>
+    
+    <div class="inheritance">
+        <h3>java.lang.Object > TickingThread > WorldMapManager</h3>
+    </div>
+    
+    <div class="summary">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Field Summary</h3>
+                
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldMapSettings</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">WorldMapSettings</span>
+                    <span class="memberName">worldMapSettings</span>
+                </div>
+                <div class="block">
+                    <p>Field worldMapSettings.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">generator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">IWorldMap</span>
+                    <span class="memberName">generator</span>
+                </div>
+                <div class="block">
+                    <p>Field generator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">generatorLoaded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">generatorLoaded</span>
+                </div>
+                <div class="block">
+                    <p>Field generatorLoaded.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">unloadDelay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">unloadDelay</span>
+                </div>
+                <div class="block">
+                    <p>Field unloadDelay.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">before</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">before</span>
+                </div>
+                <div class="block">
+                    <p>Field before.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">imagesCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">imagesCount</span>
+                </div>
+                <div class="block">
+                    <p>Field imagesCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">players</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<Player></span>
+                    <span class="memberName">players</span>
+                </div>
+                <div class="block">
+                    <p>Field players.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">toRemove</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LongSet</span>
+                    <span class="memberName">toRemove</span>
+                </div>
+                <div class="block">
+                    <p>Field toRemove.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">toRemoveSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">toRemoveSize</span>
+                </div>
+                <div class="block">
+                    <p>Field toRemoveSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">viewRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">viewRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field viewRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pair</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ImageEntry</span>
+                    <span class="memberName">pair</span>
+                </div>
+                <div class="block">
+                    <p>Field pair.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">image</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MapImage</span>
+                    <span class="memberName">image</span>
+                </div>
+                <div class="block">
+                    <p>Field image.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">gen</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CompletableFuture<MapImage></span>
+                    <span class="memberName">gen</span>
+                </div>
+                <div class="block">
+                    <p>Field gen.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">imageSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">imageSize</span>
+                </div>
+                <div class="block">
+                    <p>Field imageSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunksToGenerate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LongSet</span>
+                    <span class="memberName">chunksToGenerate</span>
+                </div>
+                <div class="block">
+                    <p>Field chunksToGenerate.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">future</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CompletableFuture<MapImage></span>
+                    <span class="memberName">future</span>
+                </div>
+                <div class="block">
+                    <p>Field future.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">after</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">after</span>
+                </div>
+                <div class="block">
+                    <p>Field after.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">playerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">uuidComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUIDComponent</span>
+                    <span class="memberName">uuidComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field uuidComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">perWorldData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerWorldData</span>
+                    <span class="memberName">perWorldData</span>
+                </div>
+                <div class="block">
+                    <p>Field perWorldData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldMapMarkers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MapMarker[]</span>
+                    <span class="memberName">worldMapMarkers</span>
+                </div>
+                <div class="block">
+                    <p>Field worldMapMarkers.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">player</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">player</span>
+                </div>
+                <div class="block">
+                    <p>Field player.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">markerId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">markerId</span>
+                </div>
+                <div class="block">
+                    <p>Field markerId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">playerRef</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">data</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerConfigData</span>
+                    <span class="memberName">data</span>
+                </div>
+                <div class="block">
+                    <p>Field data.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newWorldMapMarkers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MapMarker[]</span>
+                    <span class="memberName">newWorldMapMarkers</span>
+                </div>
+                <div class="block">
+                    <p>Field newWorldMapMarkers.</p>
+                </div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="details">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Method Detail</h3>
+                
+            <div class="methodDetail" id="WorldMapManager">
+                <h4 class="methodName">WorldMapManager</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">public</span>
+                    <span class="memberName">WorldMapManager</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method WorldMapManager.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getGenerator">
+                <h4 class="methodName">getGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">IWorldMap</span>
+                    <span class="memberName">getGenerator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getGenerator.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setGenerator">
+                <h4 class="methodName">setGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setGenerator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setGenerator.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isIdle">
+                <h4 class="methodName">isIdle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isIdle</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isIdle.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tick">
+                <h4 class="methodName">tick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">tick</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Called every game tick.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>void</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="onShutdown">
+                <h4 class="methodName">onShutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">onShutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method onShutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unloadImages">
+                <h4 class="methodName">unloadImages</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">unloadImages</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unloadImages.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isWorldMapEnabled">
+                <h4 class="methodName">isWorldMapEnabled</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isWorldMapEnabled</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isWorldMapEnabled.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWorld">
+                <h4 class="methodName">getWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">getWorld</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getWorld.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWorldMapSettings">
+                <h4 class="methodName">getWorldMapSettings</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">WorldMapSettings</span>
+                    <span class="memberName">getWorldMapSettings</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getWorldMapSettings.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addMarkerProvider">
+                <h4 class="methodName">addMarkerProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">addMarkerProvider</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method addMarkerProvider.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getImageIfInMemory">
+                <h4 class="methodName">getImageIfInMemory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">MapImage</span>
+                    <span class="memberName">getImageIfInMemory</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getImageIfInMemory.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getImageAsync">
+                <h4 class="methodName">getImageAsync</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CompletableFuture<MapImage></span>
+                    <span class="memberName">getImageAsync</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getImageAsync.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="generate">
+                <h4 class="methodName">generate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">generate</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method generate.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendSettings">
+                <h4 class="methodName">sendSettings</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">sendSettings</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method sendSettings.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="shouldTick">
+                <h4 class="methodName">shouldTick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">shouldTick</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shouldTick.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateTickingState">
+                <h4 class="methodName">updateTickingState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">updateTickingState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method updateTickingState.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearImages">
+                <h4 class="methodName">clearImages</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">clearImages</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearImages.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearImagesInChunks">
+                <h4 class="methodName">clearImagesInChunks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">clearImagesInChunks</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearImagesInChunks.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlayerMarkerReference">
+                <h4 class="methodName">PlayerMarkerReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">private</span>
+                    <span class="memberName">PlayerMarkerReference</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PlayerMarkerReference.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayer">
+                <h4 class="methodName">getPlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">getPlayer</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayer.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeMarkerFromOnlinePlayer">
+                <h4 class="methodName">removeMarkerFromOnlinePlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">removeMarkerFromOnlinePlayer</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method removeMarkerFromOnlinePlayer.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeMarkerFromOfflinePlayer">
+                <h4 class="methodName">removeMarkerFromOfflinePlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">removeMarkerFromOfflinePlayer</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method removeMarkerFromOfflinePlayer.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ImageEntry">
+                <h4 class="methodName">ImageEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">public</span>
+                    <span class="memberName">ImageEntry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ImageEntry.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    
+    
+    <footer>
+        <small>Copyright 2024 Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

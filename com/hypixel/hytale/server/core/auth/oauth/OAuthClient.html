@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OAuthClient (Hytale Plugin API)</title>
+    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../overview-frame.html">Overview</a> &gt; 
+            <a href="../package-summary.html">com.hypixel.hytale.server.core.auth.oauth</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="header">
+        <h2 class="title">OAuthClient</h2>
+    </div>
+    
+    <div class="description">
+        <pre class="signature">public class OAuthClient</pre>
+        <div class="block">
+            <p>Class OAuthClient.
+        
+            Provides oauthclient functionality for the Hytale server.</p>
+        </div>
+    </div>
+    
+    <div class="inheritance">
+        <h3>java.lang.Object > OAuthClient</h3>
+    </div>
+    
+    <div class="summary">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Field Summary</h3>
+                
+            <div class="fieldDetail">
+                <h4 class="fieldName">cancelled</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AtomicBoolean</span>
+                    <span class="memberName">cancelled</span>
+                </div>
+                <div class="block">
+                    <p>Field cancelled.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">csrfState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">csrfState</span>
+                </div>
+                <div class="block">
+                    <p>Field csrfState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">codeVerifier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">codeVerifier</span>
+                </div>
+                <div class="block">
+                    <p>Field codeVerifier.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">codeChallenge</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">codeChallenge</span>
+                </div>
+                <div class="block">
+                    <p>Field codeChallenge.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">port</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">port</span>
+                </div>
+                <div class="block">
+                    <p>Field port.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">encodedState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">encodedState</span>
+                </div>
+                <div class="block">
+                    <p>Field encodedState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">redirectUri</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">redirectUri</span>
+                </div>
+                <div class="block">
+                    <p>Field redirectUri.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">authCodeFuture</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CompletableFuture<String></span>
+                    <span class="memberName">authCodeFuture</span>
+                </div>
+                <div class="block">
+                    <p>Field authCodeFuture.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">finalServer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HttpServer</span>
+                    <span class="memberName">finalServer</span>
+                </div>
+                <div class="block">
+                    <p>Field finalServer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">expectedState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">expectedState</span>
+                </div>
+                <div class="block">
+                    <p>Field expectedState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">query</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">query</span>
+                </div>
+                <div class="block">
+                    <p>Field query.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">code</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">code</span>
+                </div>
+                <div class="block">
+                    <p>Field code.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">returnedEncodedState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">returnedEncodedState</span>
+                </div>
+                <div class="block">
+                    <p>Field returnedEncodedState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">error</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">error</span>
+                </div>
+                <div class="block">
+                    <p>Field error.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">errorMsg</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">errorMsg</span>
+                </div>
+                <div class="block">
+                    <p>Field errorMsg.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">authUrl</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">authUrl</span>
+                </div>
+                <div class="block">
+                    <p>Field authUrl.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">authCode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">authCode</span>
+                </div>
+                <div class="block">
+                    <p>Field authCode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oauthTokens</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TokenResponse</span>
+                    <span class="memberName">oauthTokens</span>
+                </div>
+                <div class="block">
+                    <p>Field oauthTokens.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deviceAuth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">DeviceAuthResponse</span>
+                    <span class="memberName">deviceAuth</span>
+                </div>
+                <div class="block">
+                    <p>Field deviceAuth.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deadline</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">deadline</span>
+                </div>
+                <div class="block">
+                    <p>Field deadline.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tokens</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TokenResponse</span>
+                    <span class="memberName">tokens</span>
+                </div>
+                <div class="block">
+                    <p>Field tokens.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">body</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">body</span>
+                </div>
+                <div class="block">
+                    <p>Field body.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">request</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HttpRequest</span>
+                    <span class="memberName">request</span>
+                </div>
+                <div class="block">
+                    <p>Field request.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">response</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HttpResponse<String></span>
+                    <span class="memberName">response</span>
+                </div>
+                <div class="block">
+                    <p>Field response.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bytes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">byte[]</span>
+                    <span class="memberName">bytes</span>
+                </div>
+                <div class="block">
+                    <p>Field bytes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">digest</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MessageDigest</span>
+                    <span class="memberName">digest</span>
+                </div>
+                <div class="block">
+                    <p>Field digest.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hash</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">byte[]</span>
+                    <span class="memberName">hash</span>
+                </div>
+                <div class="block">
+                    <p>Field hash.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pattern</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Pattern</span>
+                    <span class="memberName">pattern</span>
+                </div>
+                <div class="block">
+                    <p>Field pattern.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">matcher</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Matcher</span>
+                    <span class="memberName">matcher</span>
+                </div>
+                <div class="block">
+                    <p>Field matcher.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">json</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">json</span>
+                </div>
+                <div class="block">
+                    <p>Field json.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">obj</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonObject</span>
+                    <span class="memberName">obj</span>
+                </div>
+                <div class="block">
+                    <p>Field obj.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">elem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonElement</span>
+                    <span class="memberName">elem</span>
+                </div>
+                <div class="block">
+                    <p>Field elem.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">detail</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">detail</span>
+                </div>
+                <div class="block">
+                    <p>Field detail.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iconClass</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">iconClass</span>
+                </div>
+                <div class="block">
+                    <p>Field iconClass.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iconSvg</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">iconSvg</span>
+                </div>
+                <div class="block">
+                    <p>Field iconSvg.</p>
+                </div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="details">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Method Detail</h3>
+                
+            <div class="methodDetail" id="OAuthClient">
+                <h4 class="methodName">OAuthClient</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">public</span>
+                    <span class="memberName">OAuthClient</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method OAuthClient.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="startFlow">
+                <h4 class="methodName">startFlow</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Runnable</span>
+                    <span class="memberName">startFlow</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method startFlow.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">else</span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="refreshTokens">
+                <h4 class="methodName">refreshTokens</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">TokenResponse</span>
+                    <span class="memberName">refreshTokens</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method refreshTokens.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="buildAuthUrl">
+                <h4 class="methodName">buildAuthUrl</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">buildAuthUrl</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method buildAuthUrl.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="exchangeCodeForTokens">
+                <h4 class="methodName">exchangeCodeForTokens</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">TokenResponse</span>
+                    <span class="memberName">exchangeCodeForTokens</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method exchangeCodeForTokens.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="requestDeviceAuthorization">
+                <h4 class="methodName">requestDeviceAuthorization</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">DeviceAuthResponse</span>
+                    <span class="memberName">requestDeviceAuthorization</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method requestDeviceAuthorization.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="pollDeviceToken">
+                <h4 class="methodName">pollDeviceToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">TokenResponse</span>
+                    <span class="memberName">pollDeviceToken</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method pollDeviceToken.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateRandomString">
+                <h4 class="methodName">generateRandomString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">generateRandomString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method generateRandomString.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateCodeChallenge">
+                <h4 class="methodName">generateCodeChallenge</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">generateCodeChallenge</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method generateCodeChallenge.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="extractParam">
+                <h4 class="methodName">extractParam</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">extractParam</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method extractParam.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="encodeStateWithPort">
+                <h4 class="methodName">encodeStateWithPort</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">encodeStateWithPort</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method encodeStateWithPort.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="parseTokenResponse">
+                <h4 class="methodName">parseTokenResponse</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">TokenResponse</span>
+                    <span class="memberName">parseTokenResponse</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method parseTokenResponse.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="parseDeviceAuthResponse">
+                <h4 class="methodName">parseDeviceAuthResponse</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">DeviceAuthResponse</span>
+                    <span class="memberName">parseDeviceAuthResponse</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method parseDeviceAuthResponse.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="DeviceAuthResponse">
+                <h4 class="methodName">DeviceAuthResponse</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">record</span>
+                    <span class="memberName">DeviceAuthResponse</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method DeviceAuthResponse.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="TokenResponse">
+                <h4 class="methodName">TokenResponse</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">record</span>
+                    <span class="memberName">TokenResponse</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method TokenResponse.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isSuccess">
+                <h4 class="methodName">isSuccess</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isSuccess</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isSuccess.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="accessToken">
+                <h4 class="methodName">accessToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">accessToken</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method accessToken.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="refreshToken">
+                <h4 class="methodName">refreshToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">refreshToken</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method refreshToken.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="idToken">
+                <h4 class="methodName">idToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">idToken</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method idToken.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="error">
+                <h4 class="methodName">error</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">error</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method error.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    
+    
+    <footer>
+        <small>Copyright 2024 Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

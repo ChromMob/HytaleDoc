@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ParserContext (Hytale Plugin API)</title>
+    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../overview-frame.html">Overview</a> &gt; 
+            <a href="../package-summary.html">com.hypixel.hytale.server.core.command.system</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="header">
+        <h2 class="title">ParserContext</h2>
+    </div>
+    
+    <div class="description">
+        <pre class="signature">public class ParserContext</pre>
+        <div class="block">
+            <p>Class ParserContext.
+        
+            Provides parsercontext functionality for the Hytale server.</p>
+        </div>
+    </div>
+    
+    <div class="inheritance">
+        <h3>java.lang.Object > ParserContext</h3>
+    </div>
+    
+    <div class="summary">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Field Summary</h3>
+                
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastInsertedOptionalArgName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">lastInsertedOptionalArgName</span>
+                </div>
+                <div class="block">
+                    <p>Field lastInsertedOptionalArgName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">numPreOptSingleValueTokensBeforeListTokens</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">numPreOptSingleValueTokensBeforeListTokens</span>
+                </div>
+                <div class="block">
+                    <p>Field numPreOptSingleValueTokensBeforeListTokens.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">subCommandIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">subCommandIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field subCommandIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">token</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">token</span>
+                </div>
+                <div class="block">
+                    <p>Field token.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isListEndingAndStartingNew</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isListEndingAndStartingNew</span>
+                </div>
+                <div class="block">
+                    <p>Field isListEndingAndStartingNew.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stringBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">stringBuilder</span>
+                </div>
+                <div class="block">
+                    <p>Field stringBuilder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">args</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<List<String>></span>
+                    <span class="memberName">args</span>
+                </div>
+                <div class="block">
+                    <p>Field args.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">values</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<String></span>
+                    <span class="memberName">values</span>
+                </div>
+                <div class="block">
+                    <p>Field values.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">preOptionalListContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PreOptionalListContext</span>
+                    <span class="memberName">preOptionalListContext</span>
+                </div>
+                <div class="block">
+                    <p>Field preOptionalListContext.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hasReachedFirstMultiArgSeparator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasReachedFirstMultiArgSeparator</span>
+                </div>
+                <div class="block">
+                    <p>Field hasReachedFirstMultiArgSeparator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">numTokensPerArgument</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">numTokensPerArgument</span>
+                </div>
+                <div class="block">
+                    <p>Field numTokensPerArgument.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">numTokensSinceLastSeparator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">numTokensSinceLastSeparator</span>
+                </div>
+                <div class="block">
+                    <p>Field numTokensSinceLastSeparator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">numberOfListItems</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">numberOfListItems</span>
+                </div>
+                <div class="block">
+                    <p>Field numberOfListItems.</p>
+                </div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="details">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Method Detail</h3>
+                
+            <div class="methodDetail" id="ParserContext">
+                <h4 class="methodName">ParserContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">public</span>
+                    <span class="memberName">ParserContext</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ParserContext.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="contextualizeTokens">
+                <h4 class="methodName">contextualizeTokens</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">contextualizeTokens</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method contextualizeTokens.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">else</span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addNewOptionalArg">
+                <h4 class="methodName">addNewOptionalArg</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">addNewOptionalArg</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method addNewOptionalArg.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="appendOptionalParameter">
+                <h4 class="methodName">appendOptionalParameter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">appendOptionalParameter</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method appendOptionalParameter.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInputString">
+                <h4 class="methodName">getInputString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getInputString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getInputString.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isListToken">
+                <h4 class="methodName">isListToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isListToken</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isListToken.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNumPreOptSingleValueTokensBeforeListTokens">
+                <h4 class="methodName">getNumPreOptSingleValueTokensBeforeListTokens</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getNumPreOptSingleValueTokensBeforeListTokens</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNumPreOptSingleValueTokensBeforeListTokens.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNumPreOptionalTokens">
+                <h4 class="methodName">getNumPreOptionalTokens</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getNumPreOptionalTokens</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNumPreOptionalTokens.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPreOptionalSingleValueToken">
+                <h4 class="methodName">getPreOptionalSingleValueToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getPreOptionalSingleValueToken</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPreOptionalSingleValueToken.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPreOptionalListToken">
+                <h4 class="methodName">getPreOptionalListToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">PreOptionalListContext</span>
+                    <span class="memberName">getPreOptionalListToken</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPreOptionalListToken.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFirstToken">
+                <h4 class="methodName">getFirstToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getFirstToken</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getFirstToken.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isHelpSpecified">
+                <h4 class="methodName">isHelpSpecified</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isHelpSpecified</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isHelpSpecified.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isConfirmationSpecified">
+                <h4 class="methodName">isConfirmationSpecified</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isConfirmationSpecified</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isConfirmationSpecified.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="convertToSubCommand">
+                <h4 class="methodName">convertToSubCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">convertToSubCommand</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method convertToSubCommand.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="PreOptionalListContext">
+                <h4 class="methodName">PreOptionalListContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">public</span>
+                    <span class="memberName">PreOptionalListContext</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PreOptionalListContext.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addToken">
+                <h4 class="methodName">addToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">PreOptionalListContext</span>
+                    <span class="memberName">addToken</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method addToken.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getStringRepresentation">
+                <h4 class="methodName">getStringRepresentation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getStringRepresentation</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getStringRepresentation.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="verifyNumberOfListItems">
+                <h4 class="methodName">verifyNumberOfListItems</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">verifyNumberOfListItems</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method verifyNumberOfListItems.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTokens">
+                <h4 class="methodName">getTokens</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">getTokens</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTokens.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNumTokensPerArgument">
+                <h4 class="methodName">getNumTokensPerArgument</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getNumTokensPerArgument</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNumTokensPerArgument.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNumberOfListItems">
+                <h4 class="methodName">getNumberOfListItems</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getNumberOfListItems</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNumberOfListItems.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    
+    
+    <footer>
+        <small>Copyright 2024 Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

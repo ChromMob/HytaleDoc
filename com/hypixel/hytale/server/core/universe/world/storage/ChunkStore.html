@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChunkStore (Hytale Plugin API)</title>
+    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../overview-frame.html">Overview</a> &gt; 
+            <a href="../package-summary.html">com.hypixel.hytale.server.core.universe.world.storage</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="header">
+        <h2 class="title">ChunkStore</h2>
+    </div>
+    
+    <div class="description">
+        <pre class="signature">public class ChunkStore implements WorldProvider</pre>
+        <div class="block">
+            <p>Class ChunkStore.
+        
+            Provides chunkstore functionality for the Hytale server.</p>
+        </div>
+    </div>
+    
+    <div class="inheritance">
+        <h3>java.lang.Object > ChunkStore</h3>
+    </div>
+    
+    <div class="summary">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Field Summary</h3>
+                
+            <div class="fieldDetail">
+                <h4 class="fieldName">store</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Store<ChunkStore></span>
+                    <span class="memberName">store</span>
+                </div>
+                <div class="block">
+                    <p>Field store.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">loader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">IChunkLoader</span>
+                    <span class="memberName">loader</span>
+                </div>
+                <div class="block">
+                    <p>Field loader.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">saver</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">IChunkSaver</span>
+                    <span class="memberName">saver</span>
+                </div>
+                <div class="block">
+                    <p>Field saver.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">generator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">IWorldGen</span>
+                    <span class="memberName">generator</span>
+                </div>
+                <div class="block">
+                    <p>Field generator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">generatorLoaded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">generatorLoaded</span>
+                </div>
+                <div class="block">
+                    <p>Field generatorLoaded.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">start</span>
+                </div>
+                <div class="block">
+                    <p>Field start.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkLoadState</span>
+                    <span class="memberName">chunkState</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">stamp</span>
+                </div>
+                <div class="block">
+                    <p>Field stamp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">future</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CompletableFuture<Ref<ChunkStore>></span>
+                    <span class="memberName">future</span>
+                </div>
+                <div class="block">
+                    <p>Field future.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldChunkComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">worldChunkComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field worldChunkComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldWorldChunkComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">oldWorldChunkComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field oldWorldChunkComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ref</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<ChunkStore></span>
+                    <span class="memberName">ref</span>
+                </div>
+                <div class="block">
+                    <p>Field ref.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">index</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">index</span>
+                </div>
+                <div class="block">
+                    <p>Field index.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">reference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<ChunkStore></span>
+                    <span class="memberName">reference</span>
+                </div>
+                <div class="block">
+                    <p>Field reference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkColumnComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkColumn</span>
+                    <span class="memberName">chunkColumnComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkColumnComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldChunkComponent2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">worldChunkComponent2</span>
+                </div>
+                <div class="block">
+                    <p>Field worldChunkComponent2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nanosSince</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">nanosSince</span>
+                </div>
+                <div class="block">
+                    <p>Field nanosSince.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">count</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">count</span>
+                </div>
+                <div class="block">
+                    <p>Field count.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isNew</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isNew</span>
+                </div>
+                <div class="block">
+                    <p>Field isNew.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">x</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">x</span>
+                </div>
+                <div class="block">
+                    <p>Field x.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">z</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">z</span>
+                </div>
+                <div class="block">
+                    <p>Field z.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkLoadState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkLoadState</span>
+                    <span class="memberName">chunkLoadState</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkLoadState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">seed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">seed</span>
+                </div>
+                <div class="block">
+                    <p>Field seed.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkLoadState2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkLoadState</span>
+                    <span class="memberName">chunkLoadState2</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkLoadState2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkLoadState3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkLoadState</span>
+                    <span class="memberName">chunkLoadState3</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkLoadState3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldChunkComponent3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">worldChunkComponent3</span>
+                </div>
+                <div class="block">
+                    <p>Field worldChunkComponent3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockChunk</span>
+                    <span class="memberName">blockChunk</span>
+                </div>
+                <div class="block">
+                    <p>Field blockChunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">event</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkPreLoadProcessEvent</span>
+                    <span class="memberName">event</span>
+                </div>
+                <div class="block">
+                    <p>Field event.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">end</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">end</span>
+                </div>
+                <div class="block">
+                    <p>Field end.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">diff</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">diff</span>
+                </div>
+                <div class="block">
+                    <p>Field diff.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">static1</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CodecStore</span>
+                    <span class="memberName">static1</span>
+                </div>
+                <div class="block">
+                    <p>Field static1.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder_CODEC_KEY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CodecKey<Holder<ChunkStore>></span>
+                    <span class="memberName">holder_CODEC_KEY</span>
+                </div>
+                <div class="block">
+                    <p>Field holder_CODEC_KEY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">registry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ComponentRegistry<ChunkStore></span>
+                    <span class="memberName">registry</span>
+                </div>
+                <div class="block">
+                    <p>Field registry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">flags</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">flags</span>
+                </div>
+                <div class="block">
+                    <p>Field flags.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">throwable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Throwable</span>
+                    <span class="memberName">throwable</span>
+                </div>
+                <div class="block">
+                    <p>Field throwable.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">failedWhen</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">failedWhen</span>
+                </div>
+                <div class="block">
+                    <p>Field failedWhen.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">failedCounter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">failedCounter</span>
+                </div>
+                <div class="block">
+                    <p>Field failedCounter.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">data</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkStore</span>
+                    <span class="memberName">data</span>
+                </div>
+                <div class="block">
+                    <p>Field data.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkStorageProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IChunkStorageProvider</span>
+                    <span class="memberName">chunkStorageProvider</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkStorageProvider.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldLoader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IChunkLoader</span>
+                    <span class="memberName">oldLoader</span>
+                </div>
+                <div class="block">
+                    <p>Field oldLoader.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldSaver</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IChunkSaver</span>
+                    <span class="memberName">oldSaver</span>
+                </div>
+                <div class="block">
+                    <p>Field oldSaver.</p>
+                </div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="details">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Method Detail</h3>
+                
+            <div class="methodDetail" id="ChunkStore">
+                <h4 class="methodName">ChunkStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">public</span>
+                    <span class="memberName">ChunkStore</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ChunkStore.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWorld">
+                <h4 class="methodName">getWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">getWorld</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getWorld.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getStore">
+                <h4 class="methodName">getStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Store<ChunkStore></span>
+                    <span class="memberName">getStore</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getStore.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLoader">
+                <h4 class="methodName">getLoader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">IChunkLoader</span>
+                    <span class="memberName">getLoader</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLoader.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSaver">
+                <h4 class="methodName">getSaver</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">IChunkSaver</span>
+                    <span class="memberName">getSaver</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSaver.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getGenerator">
+                <h4 class="methodName">getGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">IWorldGen</span>
+                    <span class="memberName">getGenerator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getGenerator.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setGenerator">
+                <h4 class="methodName">setGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setGenerator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setGenerator.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChunkIndexes">
+                <h4 class="methodName">getChunkIndexes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">LongSet</span>
+                    <span class="memberName">getChunkIndexes</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChunkIndexes.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLoadedChunksCount">
+                <h4 class="methodName">getLoadedChunksCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getLoadedChunksCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLoadedChunksCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTotalGeneratedChunksCount">
+                <h4 class="methodName">getTotalGeneratedChunksCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getTotalGeneratedChunksCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTotalGeneratedChunksCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTotalLoadedChunksCount">
+                <h4 class="methodName">getTotalLoadedChunksCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getTotalLoadedChunksCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTotalLoadedChunksCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="start">
+                <h4 class="methodName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">start</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Called during plugin start.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>void</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="waitForLoadingChunks">
+                <h4 class="methodName">waitForLoadingChunks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">waitForLoadingChunks</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method waitForLoadingChunks.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdown">
+                <h4 class="methodName">shutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">shutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Called during plugin shutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>void</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="add">
+                <h4 class="methodName">add</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Ref<ChunkStore></span>
+                    <span class="memberName">add</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method add.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="remove">
+                <h4 class="methodName">remove</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">remove</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method remove.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChunkReference">
+                <h4 class="methodName">getChunkReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Ref<ChunkStore></span>
+                    <span class="memberName">getChunkReference</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChunkReference.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChunkSectionReference">
+                <h4 class="methodName">getChunkSectionReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Ref<ChunkStore></span>
+                    <span class="memberName">getChunkSectionReference</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChunkSectionReference.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChunkSectionReferenceAsync">
+                <h4 class="methodName">getChunkSectionReferenceAsync</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CompletableFuture<Ref<ChunkStore>></span>
+                    <span class="memberName">getChunkSectionReferenceAsync</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChunkSectionReferenceAsync.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChunkReferenceAsync">
+                <h4 class="methodName">getChunkReferenceAsync</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CompletableFuture<Ref<ChunkStore>></span>
+                    <span class="memberName">getChunkReferenceAsync</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChunkReferenceAsync.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isChunkStillNeeded">
+                <h4 class="methodName">isChunkStillNeeded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isChunkStillNeeded</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isChunkStillNeeded.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isChunkOnBackoff">
+                <h4 class="methodName">isChunkOnBackoff</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isChunkOnBackoff</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isChunkOnBackoff.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="preLoadChunkAsync">
+                <h4 class="methodName">preLoadChunkAsync</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Holder<ChunkStore></span>
+                    <span class="memberName">preLoadChunkAsync</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method preLoadChunkAsync.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="postLoadChunk">
+                <h4 class="methodName">postLoadChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Ref<ChunkStore></span>
+                    <span class="memberName">postLoadChunk</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method postLoadChunk.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ChunkLoadState">
+                <h4 class="methodName">ChunkLoadState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">private</span>
+                    <span class="memberName">ChunkLoadState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ChunkLoadState.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="fail">
+                <h4 class="methodName">fail</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">fail</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method fail.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getGroup">
+                <h4 class="methodName">getGroup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">SystemGroup<ChunkStore></span>
+                    <span class="memberName">getGroup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getGroup.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onSystemAddedToStore">
+                <h4 class="methodName">onSystemAddedToStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">onSystemAddedToStore</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method onSystemAddedToStore.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onSystemRemovedFromStore">
+                <h4 class="methodName">onSystemRemovedFromStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">onSystemRemovedFromStore</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method onSystemRemovedFromStore.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    
+    
+    <footer>
+        <small>Copyright 2024 Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

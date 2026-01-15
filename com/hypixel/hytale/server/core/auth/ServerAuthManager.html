@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ServerAuthManager (Hytale Plugin API)</title>
+    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../overview-frame.html">Overview</a> &gt; 
+            <a href="../package-summary.html">com.hypixel.hytale.server.core.auth</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="header">
+        <h2 class="title">ServerAuthManager</h2>
+    </div>
+    
+    <div class="description">
+        <pre class="signature">public class ServerAuthManager</pre>
+        <div class="block">
+            <p>Class ServerAuthManager.
+        
+            Provides serverauthmanager functionality for the Hytale server.</p>
+        </div>
+    </div>
+    
+    <div class="inheritance">
+        <h3>java.lang.Object > ServerAuthManager</h3>
+    </div>
+    
+    <div class="summary">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Field Summary</h3>
+                
+            <div class="fieldDetail">
+                <h4 class="fieldName">oauthClient</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">OAuthClient</span>
+                    <span class="memberName">oauthClient</span>
+                </div>
+                <div class="block">
+                    <p>Field oauthClient.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">refreshTask</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ScheduledFuture<?></span>
+                    <span class="memberName">refreshTask</span>
+                </div>
+                <div class="block">
+                    <p>Field refreshTask.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cancelActiveFlow</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Runnable</span>
+                    <span class="memberName">cancelActiveFlow</span>
+                </div>
+                <div class="block">
+                    <p>Field cancelActiveFlow.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">t</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Thread</span>
+                    <span class="memberName">t</span>
+                </div>
+                <div class="block">
+                    <p>Field t.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">optionSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">OptionSet</span>
+                    <span class="memberName">optionSet</span>
+                </div>
+                <div class="block">
+                    <p>Field optionSet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ownerProfile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SessionServiceClient.GameProfile</span>
+                    <span class="memberName">ownerProfile</span>
+                </div>
+                <div class="block">
+                    <p>Field ownerProfile.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">envToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">envToken</span>
+                </div>
+                <div class="block">
+                    <p>Field envToken.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">session</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SessionServiceClient.GameSessionResponse</span>
+                    <span class="memberName">session</span>
+                </div>
+                <div class="block">
+                    <p>Field session.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">provider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AuthCredentialStoreProvider</span>
+                    <span class="memberName">provider</span>
+                </div>
+                <div class="block">
+                    <p>Field provider.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">store</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IAuthCredentialStore</span>
+                    <span class="memberName">store</span>
+                </div>
+                <div class="block">
+                    <p>Field store.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tokens</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IAuthCredentialStore.OAuthTokens</span>
+                    <span class="memberName">tokens</span>
+                </div>
+                <div class="block">
+                    <p>Field tokens.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">result</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AuthResult</span>
+                    <span class="memberName">result</span>
+                </div>
+                <div class="block">
+                    <p>Field result.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cert</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">X509Certificate</span>
+                    <span class="memberName">cert</span>
+                </div>
+                <div class="block">
+                    <p>Field cert.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IAuthCredentialStore</span>
+                    <span class="memberName">oldStore</span>
+                </div>
+                <div class="block">
+                    <p>Field oldStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IAuthCredentialStore</span>
+                    <span class="memberName">newStore</span>
+                </div>
+                <div class="block">
+                    <p>Field newStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">profile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">profile</span>
+                </div>
+                <div class="block">
+                    <p>Field profile.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">accessToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">accessToken</span>
+                </div>
+                <div class="block">
+                    <p>Field accessToken.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">profiles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SessionServiceClient.GameProfile[]</span>
+                    <span class="memberName">profiles</span>
+                </div>
+                <div class="block">
+                    <p>Field profiles.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">profile2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SessionServiceClient.GameProfile</span>
+                    <span class="memberName">profile2</span>
+                </div>
+                <div class="block">
+                    <p>Field profile2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">expiresAt</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">expiresAt</span>
+                </div>
+                <div class="block">
+                    <p>Field expiresAt.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">refreshToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">refreshToken</span>
+                </div>
+                <div class="block">
+                    <p>Field refreshToken.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newTokens</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">OAuthClient.TokenResponse</span>
+                    <span class="memberName">newTokens</span>
+                </div>
+                <div class="block">
+                    <p>Field newTokens.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">requestedUuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">requestedUuid</span>
+                </div>
+                <div class="block">
+                    <p>Field requestedUuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">profileUuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">profileUuid</span>
+                </div>
+                <div class="block">
+                    <p>Field profileUuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newSession</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SessionServiceClient.GameSessionResponse</span>
+                    <span class="memberName">newSession</span>
+                </div>
+                <div class="block">
+                    <p>Field newSession.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">expiresAtInstant</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">expiresAtInstant</span>
+                </div>
+                <div class="block">
+                    <p>Field expiresAtInstant.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">secondsUntilExpiry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">secondsUntilExpiry</span>
+                </div>
+                <div class="block">
+                    <p>Field secondsUntilExpiry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">mode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AuthMode</span>
+                    <span class="memberName">mode</span>
+                </div>
+                <div class="block">
+                    <p>Field mode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">selected</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SessionServiceClient.GameProfile</span>
+                    <span class="memberName">selected</span>
+                </div>
+                <div class="block">
+                    <p>Field selected.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">validator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JWTValidator</span>
+                    <span class="memberName">validator</span>
+                </div>
+                <div class="block">
+                    <p>Field validator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">claims</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JWTValidator.IdentityTokenClaims</span>
+                    <span class="memberName">claims</span>
+                </div>
+                <div class="block">
+                    <p>Field claims.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">claims2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JWTValidator.SessionTokenClaims</span>
+                    <span class="memberName">claims2</span>
+                </div>
+                <div class="block">
+                    <p>Field claims2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">expiry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">expiry</span>
+                </div>
+                <div class="block">
+                    <p>Field expiry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">idToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">idToken</span>
+                </div>
+                <div class="block">
+                    <p>Field idToken.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parts</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">parts</span>
+                </div>
+                <div class="block">
+                    <p>Field parts.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">payload</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">payload</span>
+                </div>
+                <div class="block">
+                    <p>Field payload.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">json</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonObject</span>
+                    <span class="memberName">json</span>
+                </div>
+                <div class="block">
+                    <p>Field json.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">exp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">exp</span>
+                </div>
+                <div class="block">
+                    <p>Field exp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">secondsUntilExpiry2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">secondsUntilExpiry2</span>
+                </div>
+                <div class="block">
+                    <p>Field secondsUntilExpiry2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">refreshDelay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">refreshDelay</span>
+                </div>
+                <div class="block">
+                    <p>Field refreshDelay.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentSessionToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">currentSessionToken</span>
+                </div>
+                <div class="block">
+                    <p>Field currentSessionToken.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">response</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SessionServiceClient.GameSessionResponse</span>
+                    <span class="memberName">response</span>
+                </div>
+                <div class="block">
+                    <p>Field response.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">supported</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">supported</span>
+                </div>
+                <div class="block">
+                    <p>Field supported.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentProfile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">currentProfile</span>
+                </div>
+                <div class="block">
+                    <p>Field currentProfile.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sb</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">sb</span>
+                </div>
+                <div class="block">
+                    <p>Field sb.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">secondsRemaining</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">secondsRemaining</span>
+                </div>
+                <div class="block">
+                    <p>Field secondsRemaining.</p>
+                </div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="details">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Method Detail</h3>
+                
+            <div class="methodDetail" id="ServerAuthManager">
+                <h4 class="methodName">ServerAuthManager</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">private</span>
+                    <span class="memberName">ServerAuthManager</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ServerAuthManager.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="initialize">
+                <h4 class="methodName">initialize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">initialize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method initialize.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="initializeCredentialStore">
+                <h4 class="methodName">initializeCredentialStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">initializeCredentialStore</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method initializeCredentialStore.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">else</span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getGameSession">
+                <h4 class="methodName">getGameSession</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">SessionServiceClient.GameSessionResponse</span>
+                    <span class="memberName">getGameSession</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getGameSession.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getIdentityToken">
+                <h4 class="methodName">getIdentityToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getIdentityToken</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getIdentityToken.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSessionToken">
+                <h4 class="methodName">getSessionToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getSessionToken</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSessionToken.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setGameSession">
+                <h4 class="methodName">setGameSession</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setGameSession</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setGameSession.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasIdentityToken">
+                <h4 class="methodName">hasIdentityToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasIdentityToken</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method hasIdentityToken.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasSessionToken">
+                <h4 class="methodName">hasSessionToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasSessionToken</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method hasSessionToken.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setServerCertificate">
+                <h4 class="methodName">setServerCertificate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setServerCertificate</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setServerCertificate.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getServerCertificate">
+                <h4 class="methodName">getServerCertificate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">X509Certificate</span>
+                    <span class="memberName">getServerCertificate</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getServerCertificate.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getServerCertificateFingerprint">
+                <h4 class="methodName">getServerCertificateFingerprint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getServerCertificateFingerprint</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getServerCertificateFingerprint.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getServerSessionId">
+                <h4 class="methodName">getServerSessionId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">getServerSessionId</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getServerSessionId.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="startFlowAsync">
+                <h4 class="methodName">startFlowAsync</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CompletableFuture<AuthResult></span>
+                    <span class="memberName">startFlowAsync</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method startFlowAsync.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerCredentialStore">
+                <h4 class="methodName">registerCredentialStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CompletableFuture<AuthResult></span>
+                    <span class="memberName">registerCredentialStore</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method registerCredentialStore.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="swapCredentialStoreProvider">
+                <h4 class="methodName">swapCredentialStoreProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">swapCredentialStoreProvider</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method swapCredentialStoreProvider.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="createGameSessionFromOAuth">
+                <h4 class="methodName">createGameSessionFromOAuth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">AuthResult</span>
+                    <span class="memberName">createGameSessionFromOAuth</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method createGameSessionFromOAuth.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="refreshOAuthTokens">
+                <h4 class="methodName">refreshOAuthTokens</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">refreshOAuthTokens</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method refreshOAuthTokens.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryAutoSelectProfile">
+                <h4 class="methodName">tryAutoSelectProfile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">SessionServiceClient.GameProfile</span>
+                    <span class="memberName">tryAutoSelectProfile</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method tryAutoSelectProfile.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="completeAuthWithProfile">
+                <h4 class="methodName">completeAuthWithProfile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">completeAuthWithProfile</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method completeAuthWithProfile.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPendingProfiles">
+                <h4 class="methodName">getPendingProfiles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">SessionServiceClient.GameProfile[]</span>
+                    <span class="memberName">getPendingProfiles</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPendingProfiles.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasPendingProfiles">
+                <h4 class="methodName">hasPendingProfiles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasPendingProfiles</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method hasPendingProfiles.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="selectPendingProfile">
+                <h4 class="methodName">selectPendingProfile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">selectPendingProfile</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method selectPendingProfile.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="selectPendingProfileByUsername">
+                <h4 class="methodName">selectPendingProfileByUsername</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">selectPendingProfileByUsername</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method selectPendingProfileByUsername.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearPendingProfiles">
+                <h4 class="methodName">clearPendingProfiles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">clearPendingProfiles</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearPendingProfiles.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="cancelActiveFlow">
+                <h4 class="methodName">cancelActiveFlow</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">cancelActiveFlow</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method cancelActiveFlow.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="validateInitialTokens">
+                <h4 class="methodName">validateInitialTokens</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">validateInitialTokens</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method validateInitialTokens.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="parseAndScheduleRefresh">
+                <h4 class="methodName">parseAndScheduleRefresh</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">parseAndScheduleRefresh</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method parseAndScheduleRefresh.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="scheduleRefresh">
+                <h4 class="methodName">scheduleRefresh</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">scheduleRefresh</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method scheduleRefresh.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="doRefresh">
+                <h4 class="methodName">doRefresh</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">doRefresh</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method doRefresh.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="refreshGameSession">
+                <h4 class="methodName">refreshGameSession</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">refreshGameSession</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method refreshGameSession.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="refreshGameSessionViaOAuth">
+                <h4 class="methodName">refreshGameSessionViaOAuth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">refreshGameSessionViaOAuth</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method refreshGameSessionViaOAuth.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="createGameSession">
+                <h4 class="methodName">createGameSession</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">SessionServiceClient.GameSessionResponse</span>
+                    <span class="memberName">createGameSession</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method createGameSession.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="logout">
+                <h4 class="methodName">logout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">logout</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method logout.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAuthMode">
+                <h4 class="methodName">getAuthMode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">AuthMode</span>
+                    <span class="memberName">getAuthMode</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAuthMode.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isSingleplayer">
+                <h4 class="methodName">isSingleplayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isSingleplayer</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isSingleplayer.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isOwner">
+                <h4 class="methodName">isOwner</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isOwner</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isOwner.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSelectedProfile">
+                <h4 class="methodName">getSelectedProfile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">SessionServiceClient.GameProfile</span>
+                    <span class="memberName">getSelectedProfile</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSelectedProfile.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTokenExpiry">
+                <h4 class="methodName">getTokenExpiry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">getTokenExpiry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTokenExpiry.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAuthStatus">
+                <h4 class="methodName">getAuthStatus</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getAuthStatus</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAuthStatus.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdown">
+                <h4 class="methodName">shutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">shutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Called during plugin shutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>void</dd>
+                </dl>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    
+    
+    <footer>
+        <small>Copyright 2024 Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

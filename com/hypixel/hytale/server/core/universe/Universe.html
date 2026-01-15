@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Universe (Hytale Plugin API)</title>
+    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../overview-frame.html">Overview</a> &gt; 
+            <a href="../package-summary.html">com.hypixel.hytale.server.core.universe</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="header">
+        <h2 class="title">Universe</h2>
+    </div>
+    
+    <div class="description">
+        <pre class="signature">public class Universe extends JavaPlugin implements IMessageReceiver, MetricProvider</pre>
+        <div class="block">
+            <p>Class Universe.
+        
+            Provides universe functionality for the Hytale server.</p>
+        </div>
+    </div>
+    
+    <div class="inheritance">
+        <h3>java.lang.Object > JavaPlugin implements IMessageReceiver, MetricProvider > Universe</h3>
+    </div>
+    
+    <div class="summary">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Field Summary</h3>
+                
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerStorage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">PlayerStorage</span>
+                    <span class="memberName">playerStorage</span>
+                </div>
+                <div class="block">
+                    <p>Field playerStorage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldConfigProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">WorldConfigProvider</span>
+                    <span class="memberName">worldConfigProvider</span>
+                </div>
+                <div class="block">
+                    <p>Field worldConfigProvider.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">universeReady</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">universeReady</span>
+                </div>
+                <div class="block">
+                    <p>Field universeReady.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">frequencyMinutes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">frequencyMinutes</span>
+                </div>
+                <div class="block">
+                    <p>Field frequencyMinutes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">componentStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<ChunkStore></span>
+                    <span class="memberName">componentStore</span>
+                </div>
+                <div class="block">
+                    <p>Field componentStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">data</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkSavingSystems.Data</span>
+                    <span class="memberName">data</span>
+                </div>
+                <div class="block">
+                    <p>Field data.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">componentStore2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<ChunkStore></span>
+                    <span class="memberName">componentStore2</span>
+                </div>
+                <div class="block">
+                    <p>Field componentStore2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">data2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkSavingSystems.Data</span>
+                    <span class="memberName">data2</span>
+                </div>
+                <div class="block">
+                    <p>Field data2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">eventRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EventRegistry</span>
+                    <span class="memberName">eventRegistry</span>
+                </div>
+                <div class="block">
+                    <p>Field eventRegistry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkStoreRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ComponentRegistryProxy<ChunkStore></span>
+                    <span class="memberName">chunkStoreRegistry</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkStoreRegistry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityStoreRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ComponentRegistryProxy<EntityStore></span>
+                    <span class="memberName">entityStoreRegistry</span>
+                </div>
+                <div class="block">
+                    <p>Field entityStoreRegistry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">commandRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CommandRegistry</span>
+                    <span class="memberName">commandRegistry</span>
+                </div>
+                <div class="block">
+                    <p>Field commandRegistry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">config</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HytaleServerConfig</span>
+                    <span class="memberName">config</span>
+                </div>
+                <div class="block">
+                    <p>Field config.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">defaultConfigProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldConfigProvider.Default</span>
+                    <span class="memberName">defaultConfigProvider</span>
+                </div>
+                <div class="block">
+                    <p>Field defaultConfigProvider.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">event</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrepareUniverseEvent</span>
+                    <span class="memberName">event</span>
+                </div>
+                <div class="block">
+                    <p>Field event.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockIdMapPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">blockIdMapPath</span>
+                </div>
+                <div class="block">
+                    <p>Field blockIdMapPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">path</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">path</span>
+                </div>
+                <div class="block">
+                    <p>Field path.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bsonDocument</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BsonDocument</span>
+                    <span class="memberName">bsonDocument</span>
+                </div>
+                <div class="block">
+                    <p>Field bsonDocument.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">loadingWorlds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<CompletableFuture<?>></span>
+                    <span class="memberName">loadingWorlds</span>
+                </div>
+                <div class="block">
+                    <p>Field loadingWorlds.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldsPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">worldsPath</span>
+                </div>
+                <div class="block">
+                    <p>Field worldsPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">name</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">name</span>
+                </div>
+                <div class="block">
+                    <p>Field name.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">worldName</span>
+                </div>
+                <div class="block">
+                    <p>Field worldName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iterator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Iterator<World></span>
+                    <span class="memberName">iterator</span>
+                </div>
+                <div class="block">
+                    <p>Field iterator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">savePath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">savePath</span>
+                </div>
+                <div class="block">
+                    <p>Field savePath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">provider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IWorldGenProvider</span>
+                    <span class="memberName">provider</span>
+                </div>
+                <div class="block">
+                    <p>Field provider.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">provider2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IChunkStorageProvider</span>
+                    <span class="memberName">provider2</span>
+                </div>
+                <div class="block">
+                    <p>Field provider2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pluginManager</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PluginManager</span>
+                    <span class="memberName">pluginManager</span>
+                </div>
+                <div class="block">
+                    <p>Field pluginManager.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldWorldByName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">oldWorldByName</span>
+                </div>
+                <div class="block">
+                    <p>Field oldWorldByName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldWorldByUuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">oldWorldByUuid</span>
+                </div>
+                <div class="block">
+                    <p>Field oldWorldByUuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nameLower</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">nameLower</span>
+                </div>
+                <div class="block">
+                    <p>Field nameLower.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerConnection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">GamePacketHandler</span>
+                    <span class="memberName">playerConnection</span>
+                </div>
+                <div class="block">
+                    <p>Field playerConnection.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkTrackerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkTracker</span>
+                    <span class="memberName">chunkTrackerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkTrackerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRefComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">playerRefComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRefComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">playerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerConfigData</span>
+                    <span class="memberName">playerConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field playerConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityViewerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EntityTrackerSystems.EntityViewer</span>
+                    <span class="memberName">entityViewerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field entityViewerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityViewerComponent2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EntityTrackerSystems.EntityViewer</span>
+                    <span class="memberName">entityViewerComponent2</span>
+                </div>
+                <div class="block">
+                    <p>Field entityViewerComponent2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">existingPlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">existingPlayer</span>
+                </div>
+                <div class="block">
+                    <p>Field existingPlayer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastWorldName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">lastWorldName</span>
+                </div>
+                <div class="block">
+                    <p>Field lastWorldName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">lastWorld</span>
+                </div>
+                <div class="block">
+                    <p>Field lastWorld.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerConnectEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerConnectEvent</span>
+                    <span class="memberName">playerConnectEvent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerConnectEvent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ref</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">ref</span>
+                </div>
+                <div class="block">
+                    <p>Field ref.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerComponent2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">playerComponent2</span>
+                </div>
+                <div class="block">
+                    <p>Field playerComponent2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">uuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">uuid</span>
+                </div>
+                <div class="block">
+                    <p>Field uuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldPlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">oldPlayer</span>
+                </div>
+                <div class="block">
+                    <p>Field oldPlayer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newPlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">newPlayer</span>
+                </div>
+                <div class="block">
+                    <p>Field newPlayer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">leaveWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">leaveWorld</span>
+                </div>
+                <div class="block">
+                    <p>Field leaveWorld.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">viewer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EntityTrackerSystems.EntityViewer</span>
+                    <span class="memberName">viewer</span>
+                </div>
+                <div class="block">
+                    <p>Field viewer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">viewer2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EntityTrackerSystems.EntityViewer</span>
+                    <span class="memberName">viewer2</span>
+                </div>
+                <div class="block">
+                    <p>Field viewer2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">optionSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">OptionSet</span>
+                    <span class="memberName">optionSet</span>
+                </div>
+                <div class="block">
+                    <p>Field optionSet.</p>
+                </div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="details">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Method Detail</h3>
+                
+            <div class="methodDetail" id="Universe">
+                <h4 class="methodName">Universe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">public</span>
+                    <span class="memberName">Universe</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method Universe.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="runBackup">
+                <h4 class="methodName">runBackup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">runBackup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method runBackup.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Called during plugin setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>void</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="start">
+                <h4 class="methodName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">start</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Called during plugin start.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>void</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdown">
+                <h4 class="methodName">shutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">shutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Called during plugin shutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>void</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="disconnectAllPLayers">
+                <h4 class="methodName">disconnectAllPLayers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">disconnectAllPLayers</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method disconnectAllPLayers.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdownAllWorlds">
+                <h4 class="methodName">shutdownAllWorlds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">shutdownAllWorlds</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shutdownAllWorlds.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="toMetricResults">
+                <h4 class="methodName">toMetricResults</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">MetricResults</span>
+                    <span class="memberName">toMetricResults</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toMetricResults.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getUniverseReady">
+                <h4 class="methodName">getUniverseReady</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">getUniverseReady</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getUniverseReady.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isWorldLoadable">
+                <h4 class="methodName">isWorldLoadable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isWorldLoadable</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isWorldLoadable.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addWorld">
+                <h4 class="methodName">addWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CompletableFuture<World></span>
+                    <span class="memberName">addWorld</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method addWorld.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="makeWorld">
+                <h4 class="methodName">makeWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CompletableFuture<World></span>
+                    <span class="memberName">makeWorld</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method makeWorld.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadWorldFromStart">
+                <h4 class="methodName">loadWorldFromStart</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">loadWorldFromStart</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method loadWorldFromStart.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadWorld">
+                <h4 class="methodName">loadWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CompletableFuture<World></span>
+                    <span class="memberName">loadWorld</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method loadWorld.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWorld">
+                <h4 class="methodName">getWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">getWorld</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getWorld.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDefaultWorld">
+                <h4 class="methodName">getDefaultWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">getDefaultWorld</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDefaultWorld.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeWorld">
+                <h4 class="methodName">removeWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">removeWorld</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method removeWorld.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeWorldExceptionally">
+                <h4 class="methodName">removeWorldExceptionally</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">removeWorldExceptionally</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method removeWorldExceptionally.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPath">
+                <h4 class="methodName">getPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">getPath</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPath.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayers">
+                <h4 class="methodName">getPlayers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">List<PlayerRef></span>
+                    <span class="memberName">getPlayers</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayers.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayer">
+                <h4 class="methodName">getPlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">getPlayer</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayer.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayerByUsername">
+                <h4 class="methodName">getPlayerByUsername</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">getPlayerByUsername</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayerByUsername.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayerCount">
+                <h4 class="methodName">getPlayerCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getPlayerCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayerCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addPlayer">
+                <h4 class="methodName">addPlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CompletableFuture<PlayerRef></span>
+                    <span class="memberName">addPlayer</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method addPlayer.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlayerConnectEvent">
+                <h4 class="methodName">PlayerConnectEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">new</span>
+                    <span class="memberName">PlayerConnectEvent</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PlayerConnectEvent.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">else</span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="removePlayer">
+                <h4 class="methodName">removePlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">removePlayer</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method removePlayer.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="finalizePlayerRemoval">
+                <h4 class="methodName">finalizePlayerRemoval</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">finalizePlayerRemoval</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method finalizePlayerRemoval.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="resetPlayer">
+                <h4 class="methodName">resetPlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CompletableFuture<PlayerRef></span>
+                    <span class="memberName">resetPlayer</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method resetPlayer.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendMessage">
+                <h4 class="methodName">sendMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">sendMessage</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method sendMessage.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="broadcastPacket">
+                <h4 class="methodName">broadcastPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">broadcastPacket</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method broadcastPacket.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="broadcastPacketNoCache">
+                <h4 class="methodName">broadcastPacketNoCache</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">broadcastPacketNoCache</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method broadcastPacketNoCache.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayerStorage">
+                <h4 class="methodName">getPlayerStorage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">PlayerStorage</span>
+                    <span class="memberName">getPlayerStorage</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayerStorage.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setPlayerStorage">
+                <h4 class="methodName">setPlayerStorage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setPlayerStorage</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setPlayerStorage.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWorldConfigProvider">
+                <h4 class="methodName">getWorldConfigProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">WorldConfigProvider</span>
+                    <span class="memberName">getWorldConfigProvider</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getWorldConfigProvider.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    
+    
+    <footer>
+        <small>Copyright 2024 Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

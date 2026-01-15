@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BlockChunk (Hytale Plugin API)</title>
+    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../overview-frame.html">Overview</a> &gt; 
+            <a href="../package-summary.html">com.hypixel.hytale.server.core.universe.world.chunk</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="header">
+        <h2 class="title">BlockChunk</h2>
+    </div>
+    
+    <div class="description">
+        <pre class="signature">public class BlockChunk implements Component<ChunkStore></pre>
+        <div class="block">
+            <p>Class BlockChunk.
+        
+            Provides blockchunk functionality for the Hytale server.</p>
+        </div>
+    </div>
+    
+    <div class="inheritance">
+        <h3>java.lang.Object > BlockChunk</h3>
+    </div>
+    
+    <div class="summary">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Field Summary</h3>
+                
+            <div class="fieldDetail">
+                <h4 class="fieldName">index</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">index</span>
+                </div>
+                <div class="block">
+                    <p>Field index.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">x</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">x</span>
+                </div>
+                <div class="block">
+                    <p>Field x.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">z</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">z</span>
+                </div>
+                <div class="block">
+                    <p>Field z.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkSections</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">BlockSection[]</span>
+                    <span class="memberName">chunkSections</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkSections.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">migratedChunkSections</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">BlockSection[]</span>
+                    <span class="memberName">migratedChunkSections</span>
+                </div>
+                <div class="block">
+                    <p>Field migratedChunkSections.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environments</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">EnvironmentChunk</span>
+                    <span class="memberName">environments</span>
+                </div>
+                <div class="block">
+                    <p>Field environments.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">needsPhysics</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">needsPhysics</span>
+                </div>
+                <div class="block">
+                    <p>Field needsPhysics.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">needsSaving</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">needsSaving</span>
+                </div>
+                <div class="block">
+                    <p>Field needsSaving.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">section</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockSection</span>
+                    <span class="memberName">section</span>
+                </div>
+                <div class="block">
+                    <p>Field section.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">blockId</span>
+                </div>
+                <div class="block">
+                    <p>Field blockId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">type</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockType</span>
+                    <span class="memberName">type</span>
+                </div>
+                <div class="block">
+                    <p>Field type.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">column</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkColumn</span>
+                    <span class="memberName">column</span>
+                </div>
+                <div class="block">
+                    <p>Field column.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sections</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<ChunkStore>[]</span>
+                    <span class="memberName">sections</span>
+                </div>
+                <div class="block">
+                    <p>Field sections.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sectionIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">sectionIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field sectionIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">changed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">changed</span>
+                </div>
+                <div class="block">
+                    <p>Field changed.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">map</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Int2IntMap</span>
+                    <span class="memberName">map</span>
+                </div>
+                <div class="block">
+                    <p>Field map.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">count</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">short</span>
+                    <span class="memberName">count</span>
+                </div>
+                <div class="block">
+                    <p>Field count.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">set</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntSet</span>
+                    <span class="memberName">set</span>
+                </div>
+                <div class="block">
+                    <p>Field set.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">wx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">wx</span>
+                </div>
+                <div class="block">
+                    <p>Field wx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">wz</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">wz</span>
+                </div>
+                <div class="block">
+                    <p>Field wz.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">wy</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">wy</span>
+                </div>
+                <div class="block">
+                    <p>Field wy.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">out</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">out</span>
+                </div>
+                <div class="block">
+                    <p>Field out.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">old</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">old</span>
+                </div>
+                <div class="block">
+                    <p>Field old.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">temp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockSection[]</span>
+                    <span class="memberName">temp</span>
+                </div>
+                <div class="block">
+                    <p>Field temp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">buf</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ByteBuf</span>
+                    <span class="memberName">buf</span>
+                </div>
+                <div class="block">
+                    <p>Field buf.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ref</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SoftReference<CompletableFuture<CachedPacket<SetChunkHeightmap>>></span>
+                    <span class="memberName">ref</span>
+                </div>
+                <div class="block">
+                    <p>Field ref.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SetChunkHeightmap</span>
+                    <span class="memberName">packet</span>
+                </div>
+                <div class="block">
+                    <p>Field packet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">component</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockChunk</span>
+                    <span class="memberName">component</span>
+                </div>
+                <div class="block">
+                    <p>Field component.</p>
+                </div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="details">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Method Detail</h3>
+                
+            <div class="methodDetail" id="BlockChunk">
+                <h4 class="methodName">BlockChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">private</span>
+                    <span class="memberName">BlockChunk</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method BlockChunk.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="load">
+                <h4 class="methodName">load</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">load</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method load.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clone">
+                <h4 class="methodName">clone</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Component<ChunkStore></span>
+                    <span class="memberName">clone</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clone.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="cloneSerializable">
+                <h4 class="methodName">cloneSerializable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Component<ChunkStore></span>
+                    <span class="memberName">cloneSerializable</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method cloneSerializable.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getIndex">
+                <h4 class="methodName">getIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">getIndex</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getIndex.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getX">
+                <h4 class="methodName">getX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getX</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getX.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getZ">
+                <h4 class="methodName">getZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getZ</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getZ.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEnvironmentChunk">
+                <h4 class="methodName">getEnvironmentChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">EnvironmentChunk</span>
+                    <span class="memberName">getEnvironmentChunk</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEnvironmentChunk.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setEnvironmentChunk">
+                <h4 class="methodName">setEnvironmentChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setEnvironmentChunk</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setEnvironmentChunk.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getHeight">
+                <h4 class="methodName">getHeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">short</span>
+                    <span class="memberName">getHeight</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getHeight.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setHeight">
+                <h4 class="methodName">setHeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setHeight</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setHeight.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateHeightmap">
+                <h4 class="methodName">updateHeightmap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">updateHeightmap</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method updateHeightmap.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateHeight">
+                <h4 class="methodName">updateHeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">short</span>
+                    <span class="memberName">updateHeight</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method updateHeight.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadFromHolder">
+                <h4 class="methodName">loadFromHolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">loadFromHolder</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method loadFromHolder.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSectionAtIndex">
+                <h4 class="methodName">getSectionAtIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">BlockSection</span>
+                    <span class="memberName">getSectionAtIndex</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSectionAtIndex.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSectionAtBlockY">
+                <h4 class="methodName">getSectionAtBlockY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">BlockSection</span>
+                    <span class="memberName">getSectionAtBlockY</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSectionAtBlockY.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChunkSections">
+                <h4 class="methodName">getChunkSections</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">BlockSection[]</span>
+                    <span class="memberName">getChunkSections</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChunkSections.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSectionCount">
+                <h4 class="methodName">getSectionCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getSectionCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSectionCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTint">
+                <h4 class="methodName">getTint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getTint</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTint.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setTint">
+                <h4 class="methodName">setTint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setTint</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setTint.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEnvironment">
+                <h4 class="methodName">getEnvironment</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getEnvironment</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEnvironment.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEnvironmentColumn">
+                <h4 class="methodName">getEnvironmentColumn</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">EnvironmentColumn</span>
+                    <span class="memberName">getEnvironmentColumn</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEnvironmentColumn.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setEnvironment">
+                <h4 class="methodName">setEnvironment</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setEnvironment</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setEnvironment.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRedBlockLight">
+                <h4 class="methodName">getRedBlockLight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">byte</span>
+                    <span class="memberName">getRedBlockLight</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRedBlockLight.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getGreenBlockLight">
+                <h4 class="methodName">getGreenBlockLight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">byte</span>
+                    <span class="memberName">getGreenBlockLight</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getGreenBlockLight.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlueBlockLight">
+                <h4 class="methodName">getBlueBlockLight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">byte</span>
+                    <span class="memberName">getBlueBlockLight</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlueBlockLight.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlockLight">
+                <h4 class="methodName">getBlockLight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">short</span>
+                    <span class="memberName">getBlockLight</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlockLight.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSkyLight">
+                <h4 class="methodName">getSkyLight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">byte</span>
+                    <span class="memberName">getSkyLight</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSkyLight.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlockLightIntensity">
+                <h4 class="methodName">getBlockLightIntensity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">byte</span>
+                    <span class="memberName">getBlockLightIntensity</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlockLightIntensity.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlock">
+                <h4 class="methodName">getBlock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getBlock</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlock.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setBlock">
+                <h4 class="methodName">setBlock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">setBlock</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setBlock.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="contains">
+                <h4 class="methodName">contains</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">contains</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method contains.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="count">
+                <h4 class="methodName">count</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">count</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method count.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="blockCounts">
+                <h4 class="methodName">blockCounts</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Int2IntMap</span>
+                    <span class="memberName">blockCounts</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method blockCounts.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="blocks">
+                <h4 class="methodName">blocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">IntSet</span>
+                    <span class="memberName">blocks</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method blocks.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="blockCount">
+                <h4 class="methodName">blockCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">blockCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method blockCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="preTick">
+                <h4 class="methodName">preTick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">preTick</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method preTick.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="forEachTicking">
+                <h4 class="methodName">forEachTicking</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">forEachTicking</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method forEachTicking.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="mergeTickingBlocks">
+                <h4 class="methodName">mergeTickingBlocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">mergeTickingBlocks</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method mergeTickingBlocks.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setTicking">
+                <h4 class="methodName">setTicking</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">setTicking</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setTicking.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isTicking">
+                <h4 class="methodName">isTicking</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isTicking</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isTicking.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTickingBlocksCount">
+                <h4 class="methodName">getTickingBlocksCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getTickingBlocksCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTickingBlocksCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNeighbourBlocksTicking">
+                <h4 class="methodName">setNeighbourBlocksTicking</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">setNeighbourBlocksTicking</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setNeighbourBlocksTicking.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="markNeedsSaving">
+                <h4 class="methodName">markNeedsSaving</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">markNeedsSaving</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method markNeedsSaving.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNeedsSaving">
+                <h4 class="methodName">getNeedsSaving</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">getNeedsSaving</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNeedsSaving.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="consumeNeedsSaving">
+                <h4 class="methodName">consumeNeedsSaving</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">consumeNeedsSaving</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method consumeNeedsSaving.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="markNeedsPhysics">
+                <h4 class="methodName">markNeedsPhysics</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">markNeedsPhysics</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method markNeedsPhysics.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="consumeNeedsPhysics">
+                <h4 class="methodName">consumeNeedsPhysics</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">consumeNeedsPhysics</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method consumeNeedsPhysics.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="invalidateChunkSection">
+                <h4 class="methodName">invalidateChunkSection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">invalidateChunkSection</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method invalidateChunkSection.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="takeMigratedSections">
+                <h4 class="methodName">takeMigratedSections</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">BlockSection[]</span>
+                    <span class="memberName">takeMigratedSections</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method takeMigratedSections.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMigratedSections">
+                <h4 class="methodName">getMigratedSections</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">BlockSection[]</span>
+                    <span class="memberName">getMigratedSections</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMigratedSections.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="serialize">
+                <h4 class="methodName">serialize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">byte[]</span>
+                    <span class="memberName">serialize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method serialize.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="deserialize">
+                <h4 class="methodName">deserialize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">deserialize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method deserialize.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCachedHeightmapPacket">
+                <h4 class="methodName">getCachedHeightmapPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CompletableFuture<CachedPacket<SetChunkHeightmap>></span>
+                    <span class="memberName">getCachedHeightmapPacket</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCachedHeightmapPacket.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCachedTintsPacket">
+                <h4 class="methodName">getCachedTintsPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CompletableFuture<CachedPacket<SetChunkTintmap>></span>
+                    <span class="memberName">getCachedTintsPacket</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCachedTintsPacket.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCachedEnvironmentsPacket">
+                <h4 class="methodName">getCachedEnvironmentsPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CompletableFuture<CachedPacket<SetChunkEnvironments>></span>
+                    <span class="memberName">getCachedEnvironmentsPacket</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCachedEnvironmentsPacket.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="LoadBlockChunkPacketSystem">
+                <h4 class="methodName">LoadBlockChunkPacketSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">public</span>
+                    <span class="memberName">LoadBlockChunkPacketSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method LoadBlockChunkPacketSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getQuery">
+                <h4 class="methodName">getQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Query<ChunkStore></span>
+                    <span class="memberName">getQuery</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getQuery.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="fetch">
+                <h4 class="methodName">fetch</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">fetch</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method fetch.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    
+    
+    <footer>
+        <small>Copyright 2024 Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

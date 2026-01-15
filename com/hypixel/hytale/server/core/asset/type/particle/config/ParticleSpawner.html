@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ParticleSpawner (Hytale Plugin API)</title>
+    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../overview-frame.html">Overview</a> &gt; 
+            <a href="../package-summary.html">com.hypixel.hytale.server.core.asset.type.particle.config</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="header">
+        <h2 class="title">ParticleSpawner</h2>
+    </div>
+    
+    <div class="description">
+        <pre class="signature">public class ParticleSpawner implements JsonAssetWithMap<String, DefaultAssetMap<String, ParticleSpawner>>, NetworkSerializable<com.hypixel.hytale.protocol.ParticleSpawner></pre>
+        <div class="block">
+            <p>Class ParticleSpawner.
+        
+            Provides particlespawner functionality for the Hytale server.</p>
+        </div>
+    </div>
+    
+    <div class="inheritance">
+        <h3>java.lang.Object > ParticleSpawner</h3>
+    </div>
+    
+    <div class="summary">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Field Summary</h3>
+                
+            <div class="fieldDetail">
+                <h4 class="fieldName">data</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">AssetExtraInfo.Data</span>
+                    <span class="memberName">data</span>
+                </div>
+                <div class="block">
+                    <p>Field data.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">id</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">id</span>
+                </div>
+                <div class="block">
+                    <p>Field id.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">particle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Particle</span>
+                    <span class="memberName">particle</span>
+                </div>
+                <div class="block">
+                    <p>Field particle.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">renderMode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">FXRenderMode</span>
+                    <span class="memberName">renderMode</span>
+                </div>
+                <div class="block">
+                    <p>Field renderMode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">shape</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">EmitShape</span>
+                    <span class="memberName">shape</span>
+                </div>
+                <div class="block">
+                    <p>Field shape.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">emitOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">RangeVector3f</span>
+                    <span class="memberName">emitOffset</span>
+                </div>
+                <div class="block">
+                    <p>Field emitOffset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">useEmitDirection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">useEmitDirection</span>
+                </div>
+                <div class="block">
+                    <p>Field useEmitDirection.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cameraOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">cameraOffset</span>
+                </div>
+                <div class="block">
+                    <p>Field cameraOffset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">particleRotationInfluence</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">ParticleRotationInfluence</span>
+                    <span class="memberName">particleRotationInfluence</span>
+                </div>
+                <div class="block">
+                    <p>Field particleRotationInfluence.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">particleRotateWithSpawner</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">particleRotateWithSpawner</span>
+                </div>
+                <div class="block">
+                    <p>Field particleRotateWithSpawner.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isLowRes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isLowRes</span>
+                </div>
+                <div class="block">
+                    <p>Field isLowRes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">trailSpawnerPositionMultiplier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">trailSpawnerPositionMultiplier</span>
+                </div>
+                <div class="block">
+                    <p>Field trailSpawnerPositionMultiplier.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">trailSpawnerRotationMultiplier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">trailSpawnerRotationMultiplier</span>
+                </div>
+                <div class="block">
+                    <p>Field trailSpawnerRotationMultiplier.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">particleCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">ParticleCollision</span>
+                    <span class="memberName">particleCollision</span>
+                </div>
+                <div class="block">
+                    <p>Field particleCollision.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lightInfluence</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">lightInfluence</span>
+                </div>
+                <div class="block">
+                    <p>Field lightInfluence.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">linearFiltering</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">linearFiltering</span>
+                </div>
+                <div class="block">
+                    <p>Field linearFiltering.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalParticles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Range</span>
+                    <span class="memberName">totalParticles</span>
+                </div>
+                <div class="block">
+                    <p>Field totalParticles.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lifeSpan</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">lifeSpan</span>
+                </div>
+                <div class="block">
+                    <p>Field lifeSpan.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxConcurrentParticles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxConcurrentParticles</span>
+                </div>
+                <div class="block">
+                    <p>Field maxConcurrentParticles.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">particleLifeSpan</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Rangef</span>
+                    <span class="memberName">particleLifeSpan</span>
+                </div>
+                <div class="block">
+                    <p>Field particleLifeSpan.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnRate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Rangef</span>
+                    <span class="memberName">spawnRate</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnRate.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnBurst</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">spawnBurst</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnBurst.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">waveDelay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Rangef</span>
+                    <span class="memberName">waveDelay</span>
+                </div>
+                <div class="block">
+                    <p>Field waveDelay.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">initialVelocity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">InitialVelocity</span>
+                    <span class="memberName">initialVelocity</span>
+                </div>
+                <div class="block">
+                    <p>Field initialVelocity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">velocityStretchMultiplier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">velocityStretchMultiplier</span>
+                </div>
+                <div class="block">
+                    <p>Field velocityStretchMultiplier.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">uvMotion</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">UVMotion</span>
+                    <span class="memberName">uvMotion</span>
+                </div>
+                <div class="block">
+                    <p>Field uvMotion.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">attractors</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">ParticleAttractor[]</span>
+                    <span class="memberName">attractors</span>
+                </div>
+                <div class="block">
+                    <p>Field attractors.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">intersectionHighlight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">IntersectionHighlight</span>
+                    <span class="memberName">intersectionHighlight</span>
+                </div>
+                <div class="block">
+                    <p>Field intersectionHighlight.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cachedPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">SoftReference<com.hypixel.hytale.protocol.ParticleSpawner></span>
+                    <span class="memberName">cachedPacket</span>
+                </div>
+                <div class="block">
+                    <p>Field cachedPacket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cached</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">com.hypixel.hytale.protocol.ParticleSpawner</span>
+                    <span class="memberName">cached</span>
+                </div>
+                <div class="block">
+                    <p>Field cached.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">com.hypixel.hytale.protocol.ParticleSpawner</span>
+                    <span class="memberName">packet</span>
+                </div>
+                <div class="block">
+                    <p>Field packet.</p>
+                </div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="details">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Method Detail</h3>
+                
+            <div class="methodDetail" id="getAssetStore">
+                <h4 class="methodName">getAssetStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">return</span>
+                    <span class="memberName">getAssetStore</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAssetStore.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ParticleSpawner">
+                <h4 class="methodName">ParticleSpawner</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">public</span>
+                    <span class="memberName">ParticleSpawner</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ParticleSpawner.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="toPacket">
+                <h4 class="methodName">toPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">com.hypixel.hytale.protocol.ParticleSpawner</span>
+                    <span class="memberName">toPacket</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toPacket.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getId">
+                <h4 class="methodName">getId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getId</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getId.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getParticle">
+                <h4 class="methodName">getParticle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Particle</span>
+                    <span class="memberName">getParticle</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getParticle.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRenderMode">
+                <h4 class="methodName">getRenderMode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">FXRenderMode</span>
+                    <span class="memberName">getRenderMode</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRenderMode.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getShape">
+                <h4 class="methodName">getShape</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">EmitShape</span>
+                    <span class="memberName">getShape</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getShape.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEmitOffset">
+                <h4 class="methodName">getEmitOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">RangeVector3f</span>
+                    <span class="memberName">getEmitOffset</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEmitOffset.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getUseEmitDirection">
+                <h4 class="methodName">getUseEmitDirection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">getUseEmitDirection</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getUseEmitDirection.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCameraOffset">
+                <h4 class="methodName">getCameraOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">getCameraOffset</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCameraOffset.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getParticleRotationInfluence">
+                <h4 class="methodName">getParticleRotationInfluence</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">ParticleRotationInfluence</span>
+                    <span class="memberName">getParticleRotationInfluence</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getParticleRotationInfluence.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isParticleRotateWithSpawner">
+                <h4 class="methodName">isParticleRotateWithSpawner</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isParticleRotateWithSpawner</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isParticleRotateWithSpawner.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isLowRes">
+                <h4 class="methodName">isLowRes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isLowRes</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isLowRes.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTrailSpawnerPositionMultiplier">
+                <h4 class="methodName">getTrailSpawnerPositionMultiplier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">getTrailSpawnerPositionMultiplier</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTrailSpawnerPositionMultiplier.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTrailSpawnerRotationMultiplier">
+                <h4 class="methodName">getTrailSpawnerRotationMultiplier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">getTrailSpawnerRotationMultiplier</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTrailSpawnerRotationMultiplier.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getParticleCollision">
+                <h4 class="methodName">getParticleCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">ParticleCollision</span>
+                    <span class="memberName">getParticleCollision</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getParticleCollision.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLightInfluence">
+                <h4 class="methodName">getLightInfluence</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">getLightInfluence</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLightInfluence.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isLinearFiltering">
+                <h4 class="methodName">isLinearFiltering</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isLinearFiltering</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isLinearFiltering.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTotalParticles">
+                <h4 class="methodName">getTotalParticles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Range</span>
+                    <span class="memberName">getTotalParticles</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTotalParticles.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLifeSpan">
+                <h4 class="methodName">getLifeSpan</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">getLifeSpan</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLifeSpan.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMaxConcurrentParticles">
+                <h4 class="methodName">getMaxConcurrentParticles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getMaxConcurrentParticles</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMaxConcurrentParticles.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getParticleLifeSpan">
+                <h4 class="methodName">getParticleLifeSpan</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Rangef</span>
+                    <span class="memberName">getParticleLifeSpan</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getParticleLifeSpan.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnRate">
+                <h4 class="methodName">getSpawnRate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Rangef</span>
+                    <span class="memberName">getSpawnRate</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnRate.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isSpawnBurst">
+                <h4 class="methodName">isSpawnBurst</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isSpawnBurst</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isSpawnBurst.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWaveDelay">
+                <h4 class="methodName">getWaveDelay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Rangef</span>
+                    <span class="memberName">getWaveDelay</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getWaveDelay.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInitialVelocity">
+                <h4 class="methodName">getInitialVelocity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">InitialVelocity</span>
+                    <span class="memberName">getInitialVelocity</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getInitialVelocity.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getVelocityStretchMultiplier">
+                <h4 class="methodName">getVelocityStretchMultiplier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">getVelocityStretchMultiplier</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getVelocityStretchMultiplier.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getUVMotion">
+                <h4 class="methodName">getUVMotion</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">UVMotion</span>
+                    <span class="memberName">getUVMotion</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getUVMotion.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAttractors">
+                <h4 class="methodName">getAttractors</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">ParticleAttractor[]</span>
+                    <span class="memberName">getAttractors</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAttractors.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getIntersectionHighlight">
+                <h4 class="methodName">getIntersectionHighlight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">IntersectionHighlight</span>
+                    <span class="memberName">getIntersectionHighlight</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getIntersectionHighlight.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="toString">
+                <h4 class="methodName">toString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">toString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toString.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    
+    
+    <footer>
+        <small>Copyright 2024 Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

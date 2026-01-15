@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AbstractCommand (Hytale Plugin API)</title>
+    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../overview-frame.html">Overview</a> &gt; 
+            <a href="../package-summary.html">com.hypixel.hytale.server.core.command.system</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="header">
+        <h2 class="title">AbstractCommand</h2>
+    </div>
+    
+    <div class="description">
+        <pre class="signature">abstract class AbstractCommand</pre>
+        <div class="block">
+            <p>Base class for all server commands.
+            
+            Provides command registration, argument parsing, permission handling,
+            tab completion, and subcommand support.</p>
+        </div>
+    </div>
+    
+    <div class="inheritance">
+        <h3>java.lang.Object > AbstractCommand</h3>
+    </div>
+    
+    <div class="summary">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Field Summary</h3>
+                
+            <div class="fieldDetail">
+                <h4 class="fieldName">parentCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">AbstractCommand</span>
+                    <span class="memberName">parentCommand</span>
+                </div>
+                <div class="block">
+                    <p>Field parentCommand.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">owner</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CommandOwner</span>
+                    <span class="memberName">owner</span>
+                </div>
+                <div class="block">
+                    <p>Field owner.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">permission</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">permission</span>
+                </div>
+                <div class="block">
+                    <p>Field permission.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">permissionGroups</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">List<String></span>
+                    <span class="memberName">permissionGroups</span>
+                </div>
+                <div class="block">
+                    <p>Field permissionGroups.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalNumRequiredParameters</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">totalNumRequiredParameters</span>
+                </div>
+                <div class="block">
+                    <p>Field totalNumRequiredParameters.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">unavailableInSingleplayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">unavailableInSingleplayer</span>
+                </div>
+                <div class="block">
+                    <p>Field unavailableInSingleplayer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allowsExtraArguments</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">allowsExtraArguments</span>
+                </div>
+                <div class="block">
+                    <p>Field allowsExtraArguments.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hasBeenRegistered</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasBeenRegistered</span>
+                </div>
+                <div class="block">
+                    <p>Field hasBeenRegistered.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">selfNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">selfNode</span>
+                </div>
+                <div class="block">
+                    <p>Field selfNode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parentPermission</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">parentPermission</span>
+                </div>
+                <div class="block">
+                    <p>Field parentPermission.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">descriptionMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">descriptionMessage</span>
+                </div>
+                <div class="block">
+                    <p>Field descriptionMessage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">description</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">description</span>
+                </div>
+                <div class="block">
+                    <p>Field description.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">usageDescription</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">usageDescription</span>
+                </div>
+                <div class="block">
+                    <p>Field usageDescription.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">result</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MatchResult</span>
+                    <span class="memberName">result</span>
+                </div>
+                <div class="block">
+                    <p>Field result.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">defaultArg</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">DefaultArg<?></span>
+                    <span class="memberName">defaultArg</span>
+                </div>
+                <div class="block">
+                    <p>Field defaultArg.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">variantWithSameNumRequiredParameters</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AbstractCommand</span>
+                    <span class="memberName">variantWithSameNumRequiredParameters</span>
+                </div>
+                <div class="block">
+                    <p>Field variantWithSameNumRequiredParameters.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">numberOfPreOptionalTokens</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">numberOfPreOptionalTokens</span>
+                </div>
+                <div class="block">
+                    <p>Field numberOfPreOptionalTokens.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">completableFutureBooleanPair</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectBooleanPair<CompletableFuture<Void>></span>
+                    <span class="memberName">completableFutureBooleanPair</span>
+                </div>
+                <div class="block">
+                    <p>Field completableFutureBooleanPair.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">commandNames</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HashSet<String></span>
+                    <span class="memberName">commandNames</span>
+                </div>
+                <div class="block">
+                    <p>Field commandNames.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">firstToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">firstToken</span>
+                </div>
+                <div class="block">
+                    <p>Field firstToken.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">commandSuggestionPrefix</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">commandSuggestionPrefix</span>
+                </div>
+                <div class="block">
+                    <p>Field commandSuggestionPrefix.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">suggestedCommands</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">suggestedCommands</span>
+                </div>
+                <div class="block">
+                    <p>Field suggestedCommands.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">commandContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CommandContext</span>
+                    <span class="memberName">commandContext</span>
+                </div>
+                <div class="block">
+                    <p>Field commandContext.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">subCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AbstractCommand</span>
+                    <span class="memberName">subCommand</span>
+                </div>
+                <div class="block">
+                    <p>Field subCommand.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">alias</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">alias</span>
+                </div>
+                <div class="block">
+                    <p>Field alias.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">commandVariant</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AbstractCommand</span>
+                    <span class="memberName">commandVariant</span>
+                </div>
+                <div class="block">
+                    <p>Field commandVariant.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">preOptionalTokenContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ParserContext.PreOptionalListContext</span>
+                    <span class="memberName">preOptionalTokenContext</span>
+                </div>
+                <div class="block">
+                    <p>Field preOptionalTokenContext.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">argParameters</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">argParameters</span>
+                </div>
+                <div class="block">
+                    <p>Field argParameters.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">optionalArgValues</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<List<String>></span>
+                    <span class="memberName">optionalArgValues</span>
+                </div>
+                <div class="block">
+                    <p>Field optionalArgValues.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">optionalArgParseValues</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">optionalArgParseValues</span>
+                </div>
+                <div class="block">
+                    <p>Field optionalArgParseValues.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">values</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<String></span>
+                    <span class="memberName">values</span>
+                </div>
+                <div class="block">
+                    <p>Field values.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">requiredArgsMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">requiredArgsMessage</span>
+                </div>
+                <div class="block">
+                    <p>Field requiredArgsMessage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">requiresConfirmationMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">requiresConfirmationMessage</span>
+                </div>
+                <div class="block">
+                    <p>Field requiresConfirmationMessage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">flagArg</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">FlagArg</span>
+                    <span class="memberName">flagArg</span>
+                </div>
+                <div class="block">
+                    <p>Field flagArg.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ignored</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">OptionalArg</span>
+                    <span class="memberName">ignored</span>
+                </div>
+                <div class="block">
+                    <p>Field ignored.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ignored2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">DefaultArg</span>
+                    <span class="memberName">ignored2</span>
+                </div>
+                <div class="block">
+                    <p>Field ignored2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ignored3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">FlagArg</span>
+                    <span class="memberName">ignored3</span>
+                </div>
+                <div class="block">
+                    <p>Field ignored3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">variantsMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">variantsMessage</span>
+                </div>
+                <div class="block">
+                    <p>Field variantsMessage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">subcommandsMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">subcommandsMessage</span>
+                </div>
+                <div class="block">
+                    <p>Field subcommandsMessage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">argTypesMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">argTypesMessage</span>
+                </div>
+                <div class="block">
+                    <p>Field argTypesMessage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allArgumentTypes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HashSet<ArgumentType<?>></span>
+                    <span class="memberName">allArgumentTypes</span>
+                </div>
+                <div class="block">
+                    <p>Field allArgumentTypes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">indent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">indent</span>
+                </div>
+                <div class="block">
+                    <p>Field indent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">prefix</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">prefix</span>
+                </div>
+                <div class="block">
+                    <p>Field prefix.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">message</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">message</span>
+                </div>
+                <div class="block">
+                    <p>Field message.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fullyQualifiedName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">fullyQualifiedName</span>
+                </div>
+                <div class="block">
+                    <p>Field fullyQualifiedName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">handle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MethodHandle</span>
+                    <span class="memberName">handle</span>
+                </div>
+                <div class="block">
+                    <p>Field handle.</p>
+                </div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="details">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Method Detail</h3>
+                
+            <div class="methodDetail" id="AbstractCommand">
+                <h4 class="methodName">AbstractCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">protected</span>
+                    <span class="memberName">AbstractCommand</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method AbstractCommand.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setOwner">
+                <h4 class="methodName">setOwner</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setOwner</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setOwner.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="canGeneratePermission">
+                <h4 class="methodName">canGeneratePermission</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">canGeneratePermission</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method canGeneratePermission.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="generatePermissionNode">
+                <h4 class="methodName">generatePermissionNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">generatePermissionNode</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method generatePermissionNode.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="generatePermission">
+                <h4 class="methodName">generatePermission</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">generatePermission</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method generatePermission.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPermissionGroups">
+                <h4 class="methodName">getPermissionGroups</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">List<String></span>
+                    <span class="memberName">getPermissionGroups</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPermissionGroups.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setPermissionGroups">
+                <h4 class="methodName">setPermissionGroups</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setPermissionGroups</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setPermissionGroups.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setPermissionGroup">
+                <h4 class="methodName">setPermissionGroup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setPermissionGroup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setPermissionGroup.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="putRecursivePermissionGroups">
+                <h4 class="methodName">putRecursivePermissionGroups</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">putRecursivePermissionGroups</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method putRecursivePermissionGroups.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setUnavailableInSingleplayer">
+                <h4 class="methodName">setUnavailableInSingleplayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setUnavailableInSingleplayer</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setUnavailableInSingleplayer.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setAllowsExtraArguments">
+                <h4 class="methodName">setAllowsExtraArguments</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setAllowsExtraArguments</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setAllowsExtraArguments.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="matches">
+                <h4 class="methodName">matches</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">MatchResult</span>
+                    <span class="memberName">matches</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method matches.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="completeRegistration">
+                <h4 class="methodName">completeRegistration</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">completeRegistration</span>
+                    <span class="arguments">(GeneralCommandException)</span>
+                </div>
+                <div class="block">
+                    <p>Method completeRegistration.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>GeneralCommandException</code> GeneralCommandException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="createOptionalArgumentAbbreviationMap">
+                <h4 class="methodName">createOptionalArgumentAbbreviationMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">createOptionalArgumentAbbreviationMap</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method createOptionalArgumentAbbreviationMap.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="validateVariantNumberOfRequiredParameters">
+                <h4 class="methodName">validateVariantNumberOfRequiredParameters</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">validateVariantNumberOfRequiredParameters</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method validateVariantNumberOfRequiredParameters.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="validateDefaultArguments">
+                <h4 class="methodName">validateDefaultArguments</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">validateDefaultArguments</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method validateDefaultArguments.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="requirePermission">
+                <h4 class="methodName">requirePermission</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">requirePermission</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method requirePermission.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFullyQualifiedName">
+                <h4 class="methodName">getFullyQualifiedName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getFullyQualifiedName</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getFullyQualifiedName.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="countParents">
+                <h4 class="methodName">countParents</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">countParents</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method countParents.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addAliases">
+                <h4 class="methodName">addAliases</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">addAliases</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method addAliases.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addSubCommand">
+                <h4 class="methodName">addSubCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">addSubCommand</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method addSubCommand.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addUsageVariant">
+                <h4 class="methodName">addUsageVariant</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">addUsageVariant</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method addUsageVariant.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="acceptCall">
+                <h4 class="methodName">acceptCall</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">acceptCall</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method acceptCall.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="acceptCall0">
+                <h4 class="methodName">acceptCall0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">acceptCall0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method acceptCall0.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">else</span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasPermission">
+                <h4 class="methodName">hasPermission</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasPermission</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method hasPermission.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="checkForExecutingSubcommands">
+                <h4 class="methodName">checkForExecutingSubcommands</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ObjectBooleanPair<CompletableFuture<Void>></span>
+                    <span class="memberName">checkForExecutingSubcommands</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method checkForExecutingSubcommands.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="processRequiredArguments">
+                <h4 class="methodName">processRequiredArguments</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">processRequiredArguments</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method processRequiredArguments.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="processOptionalArguments">
+                <h4 class="methodName">processOptionalArguments</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">processOptionalArguments</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method processOptionalArguments.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getUsageString">
+                <h4 class="methodName">getUsageString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">getUsageString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getUsageString.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getUsageShort">
+                <h4 class="methodName">getUsageShort</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">getUsageShort</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getUsageShort.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="withRequiredArg">
+                <h4 class="methodName">withRequiredArg</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">RequiredArg<D></span>
+                    <span class="memberName">withRequiredArg</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method withRequiredArg.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="withListRequiredArg">
+                <h4 class="methodName">withListRequiredArg</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">RequiredArg<List<D>></span>
+                    <span class="memberName">withListRequiredArg</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method withListRequiredArg.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="withDefaultArg">
+                <h4 class="methodName">withDefaultArg</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">DefaultArg<D></span>
+                    <span class="memberName">withDefaultArg</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method withDefaultArg.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="withListDefaultArg">
+                <h4 class="methodName">withListDefaultArg</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">DefaultArg<List<D>></span>
+                    <span class="memberName">withListDefaultArg</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method withListDefaultArg.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="withOptionalArg">
+                <h4 class="methodName">withOptionalArg</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">OptionalArg<D></span>
+                    <span class="memberName">withOptionalArg</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method withOptionalArg.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="withListOptionalArg">
+                <h4 class="methodName">withListOptionalArg</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">OptionalArg<List<D>></span>
+                    <span class="memberName">withListOptionalArg</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method withListOptionalArg.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="withFlagArg">
+                <h4 class="methodName">withFlagArg</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">FlagArg</span>
+                    <span class="memberName">withFlagArg</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method withFlagArg.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isVariant">
+                <h4 class="methodName">isVariant</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isVariant</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isVariant.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getName">
+                <h4 class="methodName">getName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getName</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Returns the plugin name.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>String</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAliases">
+                <h4 class="methodName">getAliases</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Set<String></span>
+                    <span class="memberName">getAliases</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAliases.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDescription">
+                <h4 class="methodName">getDescription</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getDescription</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDescription.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOwner">
+                <h4 class="methodName">getOwner</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CommandOwner</span>
+                    <span class="memberName">getOwner</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getOwner.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPermission">
+                <h4 class="methodName">getPermission</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getPermission</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPermission.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRequiredArguments">
+                <h4 class="methodName">getRequiredArguments</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">List<RequiredArg<?>></span>
+                    <span class="memberName">getRequiredArguments</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRequiredArguments.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasBeenRegistered">
+                <h4 class="methodName">hasBeenRegistered</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasBeenRegistered</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method hasBeenRegistered.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    
+            <dl class="notes">
+                <dt>See Also:</dt>
+                <dd><ul class="seeList"><li><a href="CommandBase.html">CommandBase</a></li><li><a href="AbstractAsyncCommand.html">AbstractAsyncCommand</a></li><li><a href="ArgTypes.html">ArgTypes</a></li></ul></dd>
+            </dl>
+    
+    <footer>
+        <small>Copyright 2024 Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

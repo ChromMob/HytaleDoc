@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PluginBase (Hytale Plugin API)</title>
+    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../overview-frame.html">Overview</a> &gt; 
+            <a href="../package-summary.html">com.hypixel.hytale.server.core.plugin</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="header">
+        <h2 class="title">PluginBase</h2>
+    </div>
+    
+    <div class="description">
+        <pre class="signature">abstract class PluginBase implements CommandOwner</pre>
+        <div class="block">
+            <p>The abstract base class for all plugins and modules.
+            
+            Provides common functionality for:
+            <ul>
+            <li>Plugin lifecycle management (setup, start, shutdown)</li>
+            <li>Access to registries for events, commands, components, etc.</li>
+            <li>Configuration management with built-in support for BuilderCodec</li>
+            <li>Permission handling and generation</li>
+            <li>Logging via plugin-specific logger</li>
+            </ul></p>
+        </div>
+    </div>
+    
+    <div class="inheritance">
+        <h3>java.lang.Object > PluginBase</h3>
+    </div>
+    
+    <div class="summary">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Field Summary</h3>
+                
+            <div class="fieldDetail">
+                <h4 class="fieldName">state</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">PluginState</span>
+                    <span class="memberName">state</span>
+                </div>
+                <div class="block">
+                    <p>Field state.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pluginManifest</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PluginManifest</span>
+                    <span class="memberName">pluginManifest</span>
+                </div>
+                <div class="block">
+                    <p>Field pluginManifest.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pluginName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">pluginName</span>
+                </div>
+                <div class="block">
+                    <p>Field pluginName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isPlugin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isPlugin</span>
+                </div>
+                <div class="block">
+                    <p>Field isPlugin.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">config</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Config<T></span>
+                    <span class="memberName">config</span>
+                </div>
+                <div class="block">
+                    <p>Field config.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">futures</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CompletableFuture<?>[]</span>
+                    <span class="memberName">futures</span>
+                </div>
+                <div class="block">
+                    <p>Field futures.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">registry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IRegistry</span>
+                    <span class="memberName">registry</span>
+                </div>
+                <div class="block">
+                    <p>Field registry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">b</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">b</span>
+                </div>
+                <div class="block">
+                    <p>Field b.</p>
+                </div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="details">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Method Detail</h3>
+                
+            <div class="methodDetail" id="PluginBase">
+                <h4 class="methodName">PluginBase</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">public</span>
+                    <span class="memberName">PluginBase</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PluginBase.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="preLoad">
+                <h4 class="methodName">preLoad</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">preLoad</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method preLoad.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getName">
+                <h4 class="methodName">getName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getName</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Returns the plugin name.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>String</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLogger">
+                <h4 class="methodName">getLogger</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">HytaleLogger</span>
+                    <span class="memberName">getLogger</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Returns the plugin-specific logger.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>HytaleLogger</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="getIdentifier">
+                <h4 class="methodName">getIdentifier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">PluginIdentifier</span>
+                    <span class="memberName">getIdentifier</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Returns the plugin identifier.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>PluginIdentifier</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="getManifest">
+                <h4 class="methodName">getManifest</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">PluginManifest</span>
+                    <span class="memberName">getManifest</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Returns the plugin manifest.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>PluginManifest</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDataDirectory">
+                <h4 class="methodName">getDataDirectory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">getDataDirectory</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Returns data storage directory.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>Path</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="getState">
+                <h4 class="methodName">getState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">PluginState</span>
+                    <span class="memberName">getState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getState.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getClientFeatureRegistry">
+                <h4 class="methodName">getClientFeatureRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">ClientFeatureRegistry</span>
+                    <span class="memberName">getClientFeatureRegistry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getClientFeatureRegistry.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCommandRegistry">
+                <h4 class="methodName">getCommandRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">CommandRegistry</span>
+                    <span class="memberName">getCommandRegistry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCommandRegistry.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEventRegistry">
+                <h4 class="methodName">getEventRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">EventRegistry</span>
+                    <span class="memberName">getEventRegistry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEventRegistry.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlockStateRegistry">
+                <h4 class="methodName">getBlockStateRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">BlockStateRegistry</span>
+                    <span class="memberName">getBlockStateRegistry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlockStateRegistry.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEntityRegistry">
+                <h4 class="methodName">getEntityRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">EntityRegistry</span>
+                    <span class="memberName">getEntityRegistry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEntityRegistry.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTaskRegistry">
+                <h4 class="methodName">getTaskRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">TaskRegistry</span>
+                    <span class="memberName">getTaskRegistry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTaskRegistry.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEntityStoreRegistry">
+                <h4 class="methodName">getEntityStoreRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">ComponentRegistryProxy<EntityStore></span>
+                    <span class="memberName">getEntityStoreRegistry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEntityStoreRegistry.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChunkStoreRegistry">
+                <h4 class="methodName">getChunkStoreRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">ComponentRegistryProxy<ChunkStore></span>
+                    <span class="memberName">getChunkStoreRegistry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChunkStoreRegistry.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAssetRegistry">
+                <h4 class="methodName">getAssetRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">AssetRegistry</span>
+                    <span class="memberName">getAssetRegistry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAssetRegistry.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCodecRegistry">
+                <h4 class="methodName">getCodecRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">MapKeyMapRegistry<V></span>
+                    <span class="memberName">getCodecRegistry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCodecRegistry.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isDisabled">
+                <h4 class="methodName">isDisabled</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isDisabled</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isDisabled.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isEnabled">
+                <h4 class="methodName">isEnabled</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isEnabled</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isEnabled.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup0">
+                <h4 class="methodName">setup0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setup0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setup0.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Called during plugin setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>void</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="start0">
+                <h4 class="methodName">start0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">start0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method start0.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="start">
+                <h4 class="methodName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">start</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Called during plugin start.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>void</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdown0">
+                <h4 class="methodName">shutdown0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">shutdown0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shutdown0.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdown">
+                <h4 class="methodName">shutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">shutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Called during plugin shutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>void</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="cleanup">
+                <h4 class="methodName">cleanup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">cleanup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method cleanup.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    
+            <dl class="notes">
+                <dt>See Also:</dt>
+                <dd><ul class="seeList"><li><a href="JavaPlugin.html">JavaPlugin</a></li><li><a href="PluginManifest.html">PluginManifest</a></li><li><a href="PluginState.html">PluginState</a></li></ul></dd>
+            </dl>
+    
+    <footer>
+        <small>Copyright 2024 Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

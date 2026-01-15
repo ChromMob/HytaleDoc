@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RawJsonReader (Hytale Plugin API)</title>
+    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../overview-frame.html">Overview</a> &gt; 
+            <a href="../package-summary.html">com.hypixel.hytale.codec.util</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="header">
+        <h2 class="title">RawJsonReader</h2>
+    </div>
+    
+    <div class="description">
+        <pre class="signature">public class RawJsonReader implements AutoCloseable</pre>
+        <div class="block">
+            <p>Class RawJsonReader.
+        
+            Provides rawjsonreader functionality for the Hytale server.</p>
+        </div>
+    </div>
+    
+    <div class="inheritance">
+        <h3>java.lang.Object > RawJsonReader</h3>
+    </div>
+    
+    <div class="summary">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Field Summary</h3>
+                
+            <div class="fieldDetail">
+                <h4 class="fieldName">streamIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">streamIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field streamIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">in</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Reader</span>
+                    <span class="memberName">in</span>
+                </div>
+                <div class="block">
+                    <p>Field in.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">buffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">char[]</span>
+                    <span class="memberName">buffer</span>
+                </div>
+                <div class="block">
+                    <p>Field buffer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bufferIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">bufferIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field bufferIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bufferSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">bufferSize</span>
+                </div>
+                <div class="block">
+                    <p>Field bufferSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">markIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">markIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field markIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">markLine</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">markLine</span>
+                </div>
+                <div class="block">
+                    <p>Field markLine.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">markLineStart</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">markLineStart</span>
+                </div>
+                <div class="block">
+                    <p>Field markLineStart.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempSb</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">tempSb</span>
+                </div>
+                <div class="block">
+                    <p>Field tempSb.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">line</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">line</span>
+                </div>
+                <div class="block">
+                    <p>Field line.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lineStart</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">lineStart</span>
+                </div>
+                <div class="block">
+                    <p>Field lineStart.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spaceInBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">spaceInBuffer</span>
+                </div>
+                <div class="block">
+                    <p>Field spaceInBuffer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">delta</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">delta</span>
+                </div>
+                <div class="block">
+                    <p>Field delta.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">newSize</span>
+                </div>
+                <div class="block">
+                    <p>Field newSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ncb</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">char[]</span>
+                    <span class="memberName">ncb</span>
+                </div>
+                <div class="block">
+                    <p>Field ncb.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">n2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">n2</span>
+                </div>
+                <div class="block">
+                    <p>Field n2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">n</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">n</span>
+                </div>
+                <div class="block">
+                    <p>Field n.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">c</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">char</span>
+                    <span class="memberName">c</span>
+                </div>
+                <div class="block">
+                    <p>Field c.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">charsInBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">charsInBuffer</span>
+                </div>
+                <div class="block">
+                    <p>Field charsInBuffer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">charsToSkip</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">charsToSkip</span>
+                </div>
+                <div class="block">
+                    <p>Field charsToSkip.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">negativeBufferIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">negativeBufferIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field negativeBufferIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">skipped</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">skipped</span>
+                </div>
+                <div class="block">
+                    <p>Field skipped.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">read</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">char</span>
+                    <span class="memberName">read</span>
+                </div>
+                <div class="block">
+                    <p>Field read.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ch</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">char</span>
+                    <span class="memberName">ch</span>
+                </div>
+                <div class="block">
+                    <p>Field ch.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">string</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">string</span>
+                </div>
+                <div class="block">
+                    <p>Field string.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">c1</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">char</span>
+                    <span class="memberName">c1</span>
+                </div>
+                <div class="block">
+                    <p>Field c1.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">c2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">char</span>
+                    <span class="memberName">c2</span>
+                </div>
+                <div class="block">
+                    <p>Field c2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">c3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">char</span>
+                    <span class="memberName">c3</span>
+                </div>
+                <div class="block">
+                    <p>Field c3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">c4</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">char</span>
+                    <span class="memberName">c4</span>
+                </div>
+                <div class="block">
+                    <p>Field c4.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">offset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">offset</span>
+                </div>
+                <div class="block">
+                    <p>Field offset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">value</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">value</span>
+                </div>
+                <div class="block">
+                    <p>Field value.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">mask</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">mask</span>
+                </div>
+                <div class="block">
+                    <p>Field mask.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">start</span>
+                </div>
+                <div class="block">
+                    <p>Field start.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">value2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">value2</span>
+                </div>
+                <div class="block">
+                    <p>Field value2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">s</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">s</span>
+                </div>
+                <div class="block">
+                    <p>Field s.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">u1</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">char</span>
+                    <span class="memberName">u1</span>
+                </div>
+                <div class="block">
+                    <p>Field u1.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">u2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">char</span>
+                    <span class="memberName">u2</span>
+                </div>
+                <div class="block">
+                    <p>Field u2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sb</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">sb</span>
+                </div>
+                <div class="block">
+                    <p>Field sb.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">search1Index</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">search1Index</span>
+                </div>
+                <div class="block">
+                    <p>Field search1Index.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">reader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RawJsonReader</span>
+                    <span class="memberName">reader</span>
+                </div>
+                <div class="block">
+                    <p>Field reader.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">extraInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ExtraInfo</span>
+                    <span class="memberName">extraInfo</span>
+                </div>
+                <div class="block">
+                    <p>Field extraInfo.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">char[]</span>
+                    <span class="memberName">newBuffer</span>
+                </div>
+                <div class="block">
+                    <p>Field newBuffer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">backupPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">backupPath</span>
+                </div>
+                <div class="block">
+                    <p>Field backupPath.</p>
+                </div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="details">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Method Detail</h3>
+                
+            <div class="methodDetail" id="RawJsonReader">
+                <h4 class="methodName">RawJsonReader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">public</span>
+                    <span class="memberName">RawJsonReader</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method RawJsonReader.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBuffer">
+                <h4 class="methodName">getBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">char[]</span>
+                    <span class="memberName">getBuffer</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBuffer.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBufferIndex">
+                <h4 class="methodName">getBufferIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getBufferIndex</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBufferIndex.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBufferSize">
+                <h4 class="methodName">getBufferSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getBufferSize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBufferSize.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLine">
+                <h4 class="methodName">getLine</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getLine</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLine.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getColumn">
+                <h4 class="methodName">getColumn</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getColumn</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getColumn.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ensure">
+                <h4 class="methodName">ensure</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">ensure</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method ensure.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="fill">
+                <h4 class="methodName">fill</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">fill</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method fill.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="peek">
+                <h4 class="methodName">peek</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">peek</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method peek.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="read">
+                <h4 class="methodName">read</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">read</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method read.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skip">
+                <h4 class="methodName">skip</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">skip</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skip.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="findOffset">
+                <h4 class="methodName">findOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">findOffset</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method findOffset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skipOrThrow">
+                <h4 class="methodName">skipOrThrow</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">skipOrThrow</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skipOrThrow.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ready">
+                <h4 class="methodName">ready</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">ready</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method ready.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="markSupported">
+                <h4 class="methodName">markSupported</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">markSupported</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method markSupported.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="mark">
+                <h4 class="methodName">mark</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">mark</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method mark.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isMarked">
+                <h4 class="methodName">isMarked</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isMarked</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isMarked.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unmark">
+                <h4 class="methodName">unmark</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">unmark</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unmark.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMarkDistance">
+                <h4 class="methodName">getMarkDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getMarkDistance</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMarkDistance.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="cloneMark">
+                <h4 class="methodName">cloneMark</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">char[]</span>
+                    <span class="memberName">cloneMark</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method cloneMark.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="reset">
+                <h4 class="methodName">reset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">reset</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method reset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="close">
+                <h4 class="methodName">close</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">close</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method close.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="closeAndTakeBuffer">
+                <h4 class="methodName">closeAndTakeBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">char[]</span>
+                    <span class="memberName">closeAndTakeBuffer</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method closeAndTakeBuffer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="peekFor">
+                <h4 class="methodName">peekFor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">peekFor</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method peekFor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryConsume">
+                <h4 class="methodName">tryConsume</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">tryConsume</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryConsume.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryConsumeString">
+                <h4 class="methodName">tryConsumeString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">tryConsumeString</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryConsumeString.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryConsumeSome">
+                <h4 class="methodName">tryConsumeSome</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">tryConsumeSome</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryConsumeSome.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="expect">
+                <h4 class="methodName">expect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">expect</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method expect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryConsumeOrExpect">
+                <h4 class="methodName">tryConsumeOrExpect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">tryConsumeOrExpect</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryConsumeOrExpect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="consumeWhiteSpace">
+                <h4 class="methodName">consumeWhiteSpace</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">consumeWhiteSpace</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method consumeWhiteSpace.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="consumeIgnoreCase">
+                <h4 class="methodName">consumeIgnoreCase</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">consumeIgnoreCase</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method consumeIgnoreCase.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="readString">
+                <h4 class="methodName">readString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">readString</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method readString.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="readRemainingString">
+                <h4 class="methodName">readRemainingString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">readRemainingString</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method readRemainingString.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skipString">
+                <h4 class="methodName">skipString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">skipString</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skipString.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skipRemainingString">
+                <h4 class="methodName">skipRemainingString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">skipRemainingString</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skipRemainingString.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="readStringPartAsLong">
+                <h4 class="methodName">readStringPartAsLong</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">readStringPartAsLong</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method readStringPartAsLong.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="readStringPartAsLongSlow">
+                <h4 class="methodName">readStringPartAsLongSlow</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">readStringPartAsLongSlow</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method readStringPartAsLongSlow.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="readStringPartAsLongUnsafe">
+                <h4 class="methodName">readStringPartAsLongUnsafe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">readStringPartAsLongUnsafe</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method readStringPartAsLongUnsafe.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="readBooleanValue">
+                <h4 class="methodName">readBooleanValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">readBooleanValue</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method readBooleanValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="switch">
+                <h4 class="methodName">switch</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">return</span>
+                    <span class="memberName">switch</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method switch.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skipBooleanValue">
+                <h4 class="methodName">skipBooleanValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">skipBooleanValue</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skipBooleanValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="readNullValue">
+                <h4 class="methodName">readNullValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Void</span>
+                    <span class="memberName">readNullValue</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method readNullValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skipNullValue">
+                <h4 class="methodName">skipNullValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">skipNullValue</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skipNullValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="readDoubleValue">
+                <h4 class="methodName">readDoubleValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">readDoubleValue</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method readDoubleValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skipDoubleValue">
+                <h4 class="methodName">skipDoubleValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">skipDoubleValue</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skipDoubleValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="readFloatValue">
+                <h4 class="methodName">readFloatValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">readFloatValue</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method readFloatValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skipFloatValue">
+                <h4 class="methodName">skipFloatValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">skipFloatValue</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skipFloatValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="readLongValue">
+                <h4 class="methodName">readLongValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">readLongValue</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method readLongValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skipLongValue">
+                <h4 class="methodName">skipLongValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">skipLongValue</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skipLongValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="readIntValue">
+                <h4 class="methodName">readIntValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">readIntValue</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method readIntValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="readByteValue">
+                <h4 class="methodName">readByteValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">byte</span>
+                    <span class="memberName">readByteValue</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method readByteValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skipIntValue">
+                <h4 class="methodName">skipIntValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">skipIntValue</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skipIntValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skipObject">
+                <h4 class="methodName">skipObject</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">skipObject</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skipObject.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skipObjectContinued">
+                <h4 class="methodName">skipObjectContinued</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">skipObjectContinued</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skipObjectContinued.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skipArray">
+                <h4 class="methodName">skipArray</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">skipArray</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skipArray.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skipArrayContinued">
+                <h4 class="methodName">skipArrayContinued</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">skipArrayContinued</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skipArrayContinued.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="skipValue">
+                <h4 class="methodName">skipValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">skipValue</span>
+                    <span class="arguments">(IOException)</span>
+                </div>
+                <div class="block">
+                    <p>Method skipValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dt><code>IOException</code> IOException</dt>
+
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unexpectedEOF">
+                <h4 class="methodName">unexpectedEOF</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">IOException</span>
+                    <span class="memberName">unexpectedEOF</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unexpectedEOF.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unexpectedChar">
+                <h4 class="methodName">unexpectedChar</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">IOException</span>
+                    <span class="memberName">unexpectedChar</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unexpectedChar.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="expecting">
+                <h4 class="methodName">expecting</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">IOException</span>
+                    <span class="memberName">expecting</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method expecting.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="expectingWhile">
+                <h4 class="methodName">expectingWhile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">IOException</span>
+                    <span class="memberName">expectingWhile</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method expectingWhile.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="toString">
+                <h4 class="methodName">toString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">toString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toString.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="findLineStart">
+                <h4 class="methodName">findLineStart</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">findLineStart</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method findLineStart.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="appendLine">
+                <h4 class="methodName">appendLine</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">appendLine</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method appendLine.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="appendProblemLine">
+                <h4 class="methodName">appendProblemLine</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">appendProblemLine</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method appendProblemLine.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="fromBuffer">
+                <h4 class="methodName">fromBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">return</span>
+                    <span class="memberName">fromBuffer</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method fromBuffer.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    
+    
+    <footer>
+        <small>Copyright 2024 Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

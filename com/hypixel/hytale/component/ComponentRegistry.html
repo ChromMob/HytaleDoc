@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ComponentRegistry (Hytale Plugin API)</title>
+    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../overview-frame.html">Overview</a> &gt; 
+            <a href="../package-summary.html">com.hypixel.hytale.component</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="header">
+        <h2 class="title">ComponentRegistry</h2>
+    </div>
+    
+    <div class="description">
+        <pre class="signature">public class ComponentRegistry</pre>
+        <div class="block">
+            <p>Registry for managing component registration.
+            
+            Provides methods to register and query component items.</p>
+        </div>
+    </div>
+    
+    <div class="inheritance">
+        <h3>java.lang.Object > ComponentRegistry</h3>
+    </div>
+    
+    <div class="summary">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Field Summary</h3>
+                
+            <div class="fieldDetail">
+                <h4 class="fieldName">shutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">shutdown</span>
+                </div>
+                <div class="block">
+                    <p>Field shutdown.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">componentSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">componentSize</span>
+                </div>
+                <div class="block">
+                    <p>Field componentSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">componentIds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">componentIds</span>
+                </div>
+                <div class="block">
+                    <p>Field componentIds.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">resourceSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">resourceSize</span>
+                </div>
+                <div class="block">
+                    <p>Field resourceSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">resourceIds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">resourceIds</span>
+                </div>
+                <div class="block">
+                    <p>Field resourceIds.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">systemTypeSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">systemTypeSize</span>
+                </div>
+                <div class="block">
+                    <p>Field systemTypeSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">systemTypeToSystemIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">BitSet[]</span>
+                    <span class="memberName">systemTypeToSystemIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field systemTypeToSystemIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">systemGroupSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">systemGroupSize</span>
+                </div>
+                <div class="block">
+                    <p>Field systemGroupSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">systemGroups</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">SystemGroup<ECS_TYPE>[]</span>
+                    <span class="memberName">systemGroups</span>
+                </div>
+                <div class="block">
+                    <p>Field systemGroups.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">systemSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">systemSize</span>
+                </div>
+                <div class="block">
+                    <p>Field systemSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">systems</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ISystem<ECS_TYPE>[]</span>
+                    <span class="memberName">systems</span>
+                </div>
+                <div class="block">
+                    <p>Field systems.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sortedSystems</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ISystem<ECS_TYPE>[]</span>
+                    <span class="memberName">sortedSystems</span>
+                </div>
+                <div class="block">
+                    <p>Field sortedSystems.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">storeSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">storeSize</span>
+                </div>
+                <div class="block">
+                    <p>Field storeSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stores</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Store<ECS_TYPE>[]</span>
+                    <span class="memberName">stores</span>
+                </div>
+                <div class="block">
+                    <p>Field stores.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">data</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Data<ECS_TYPE></span>
+                    <span class="memberName">data</span>
+                </div>
+                <div class="block">
+                    <p>Field data.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">lock</span>
+                </div>
+                <div class="block">
+                    <p>Field lock.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">store</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<ECS_TYPE></span>
+                    <span class="memberName">store</span>
+                </div>
+                <div class="block">
+                    <p>Field store.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">extraInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ExtraInfo</span>
+                    <span class="memberName">extraInfo</span>
+                </div>
+                <div class="block">
+                    <p>Field extraInfo.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">changes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<DataChange></span>
+                    <span class="memberName">changes</span>
+                </div>
+                <div class="block">
+                    <p>Field changes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">system</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ISystem<ECS_TYPE></span>
+                    <span class="memberName">system</span>
+                </div>
+                <div class="block">
+                    <p>Field system.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">archetypeSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">QuerySystem<ECS_TYPE></span>
+                    <span class="memberName">archetypeSystem</span>
+                </div>
+                <div class="block">
+                    <p>Field archetypeSystem.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">query</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Query<ECS_TYPE></span>
+                    <span class="memberName">query</span>
+                </div>
+                <div class="block">
+                    <p>Field query.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">systemGroup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SystemGroup<ECS_TYPE></span>
+                    <span class="memberName">systemGroup</span>
+                </div>
+                <div class="block">
+                    <p>Field systemGroup.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">readWriteQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ReadWriteArchetypeQuery<ECS_TYPE></span>
+                    <span class="memberName">readWriteQuery</span>
+                </div>
+                <div class="block">
+                    <p>Field readWriteQuery.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">theSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">System<ECS_TYPE></span>
+                    <span class="memberName">theSystem</span>
+                </div>
+                <div class="block">
+                    <p>Field theSystem.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">systemIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">systemIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field systemIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">unsortedSystemIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">unsortedSystemIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field unsortedSystemIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<ECS_TYPE></span>
+                    <span class="memberName">holder</span>
+                </div>
+                <div class="block">
+                    <p>Field holder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">version</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Optional<Integer></span>
+                    <span class="memberName">version</span>
+                </div>
+                <div class="block">
+                    <p>Field version.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">document</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BsonDocument</span>
+                    <span class="memberName">document</span>
+                </div>
+                <div class="block">
+                    <p>Field document.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">newLength</span>
+                </div>
+                <div class="block">
+                    <p>Field newLength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">componentIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">componentIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field componentIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">highestUsedIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">highestUsedIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field highestUsedIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">resourceIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">resourceIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field resourceIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tClass</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Class<T></span>
+                    <span class="memberName">tClass</span>
+                </div>
+                <div class="block">
+                    <p>Field tClass.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">systemTypeIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">systemTypeIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field systemTypeIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">eClass</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Class<T></span>
+                    <span class="memberName">eClass</span>
+                </div>
+                <div class="block">
+                    <p>Field eClass.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">index</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">index</span>
+                </div>
+                <div class="block">
+                    <p>Field index.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">systemGroupIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">systemGroupIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field systemGroupIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">lastIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field lastIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ISystem<ECS_TYPE></span>
+                    <span class="memberName">lastSystem</span>
+                </div>
+                <div class="block">
+                    <p>Field lastSystem.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bypassClassCheck</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">bypassClassCheck</span>
+                </div>
+                <div class="block">
+                    <p>Field bypassClassCheck.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">storeIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">storeIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field storeIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<ECS_TYPE></span>
+                    <span class="memberName">lastStore</span>
+                </div>
+                <div class="block">
+                    <p>Field lastStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">n</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">n</span>
+                </div>
+                <div class="block">
+                    <p>Field n.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">set</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BitSet</span>
+                    <span class="memberName">set</span>
+                </div>
+                <div class="block">
+                    <p>Field set.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bitSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BitSet</span>
+                    <span class="memberName">bitSet</span>
+                </div>
+                <div class="block">
+                    <p>Field bitSet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Data<ECS_TYPE></span>
+                    <span class="memberName">oldData</span>
+                </div>
+                <div class="block">
+                    <p>Field oldData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">registry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ComponentRegistry<ECS_TYPE></span>
+                    <span class="memberName">registry</span>
+                </div>
+                <div class="block">
+                    <p>Field registry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">systemTypeClassToIndexInt</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">systemTypeClassToIndexInt</span>
+                </div>
+                <div class="block">
+                    <p>Field systemTypeClassToIndexInt.</p>
+                </div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="details">
+        <ul class="blockList">
+            <li class="blockList">
+                <h3>Method Detail</h3>
+                
+            <div class="methodDetail" id="ComponentRegistry">
+                <h4 class="methodName">ComponentRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">public</span>
+                    <span class="memberName">ComponentRegistry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ComponentRegistry.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isShutdown">
+                <h4 class="methodName">isShutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isShutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isShutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdown">
+                <h4 class="methodName">shutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">shutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Called during plugin shutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>void</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdown0">
+                <h4 class="methodName">shutdown0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">shutdown0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shutdown0.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDataUpdateLock">
+                <h4 class="methodName">getDataUpdateLock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">ReadWriteLock</span>
+                    <span class="memberName">getDataUpdateLock</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDataUpdateLock.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unregisterEntityEventType">
+                <h4 class="methodName">unregisterEntityEventType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">unregisterEntityEventType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unregisterEntityEventType.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unregisterWorldEventType">
+                <h4 class="methodName">unregisterWorldEventType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">unregisterWorldEventType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unregisterWorldEventType.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerSystemGroup">
+                <h4 class="methodName">registerSystemGroup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">SystemGroup<ECS_TYPE></span>
+                    <span class="memberName">registerSystemGroup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method registerSystemGroup.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unregisterSystemGroup">
+                <h4 class="methodName">unregisterSystemGroup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">unregisterSystemGroup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unregisterSystemGroup.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerSystem">
+                <h4 class="methodName">registerSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">registerSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Registers a system.</p>
+                </div>
+                <dl class="notes">
+                    
+                    <dt>Returns:</dt><dd>void</dd>
+                </dl>
+            </div>
+            <div class="methodDetail" id="unregisterSystem">
+                <h4 class="methodName">unregisterSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">unregisterSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unregisterSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addStore">
+                <h4 class="methodName">addStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Store<ECS_TYPE></span>
+                    <span class="memberName">addStore</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method addStore.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeStore">
+                <h4 class="methodName">removeStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">removeStore</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method removeStore.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="newHolder">
+                <h4 class="methodName">newHolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Holder<ECS_TYPE></span>
+                    <span class="memberName">newHolder</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method newHolder.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="_internal_newEntityHolder">
+                <h4 class="methodName">_internal_newEntityHolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Holder<ECS_TYPE></span>
+                    <span class="memberName">_internal_newEntityHolder</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method _internal_newEntityHolder.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="_internal_getData">
+                <h4 class="methodName">_internal_getData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Data<ECS_TYPE></span>
+                    <span class="memberName">_internal_getData</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method _internal_getData.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getData">
+                <h4 class="methodName">getData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Data<ECS_TYPE></span>
+                    <span class="memberName">getData</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getData.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEntityCodec">
+                <h4 class="methodName">getEntityCodec</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">BuilderCodec<Holder<ECS_TYPE>></span>
+                    <span class="memberName">getEntityCodec</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEntityCodec.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="assertInStoreThread">
+                <h4 class="methodName">assertInStoreThread</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">assertInStoreThread</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method assertInStoreThread.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="deserialize">
+                <h4 class="methodName">deserialize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Holder<ECS_TYPE></span>
+                    <span class="memberName">deserialize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method deserialize.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="serialize">
+                <h4 class="methodName">serialize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">BsonDocument</span>
+                    <span class="memberName">serialize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method serialize.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasSystem">
+                <h4 class="methodName">hasSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method hasSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasSystemGroup">
+                <h4 class="methodName">hasSystemGroup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasSystemGroup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method hasSystemGroup.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unregisterEntityEventType0">
+                <h4 class="methodName">unregisterEntityEventType0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">unregisterEntityEventType0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unregisterEntityEventType0.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unregisterWorldEventType0">
+                <h4 class="methodName">unregisterWorldEventType0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">unregisterWorldEventType0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unregisterWorldEventType0.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerSystemGroup0">
+                <h4 class="methodName">registerSystemGroup0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">SystemGroup<ECS_TYPE></span>
+                    <span class="memberName">registerSystemGroup0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method registerSystemGroup0.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unregisterSystemGroup0">
+                <h4 class="methodName">unregisterSystemGroup0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">unregisterSystemGroup0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unregisterSystemGroup0.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerSystem0">
+                <h4 class="methodName">registerSystem0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">registerSystem0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method registerSystem0.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unregisterSystem0">
+                <h4 class="methodName">unregisterSystem0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">unregisterSystem0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unregisterSystem0.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addStore0">
+                <h4 class="methodName">addStore0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Store<ECS_TYPE></span>
+                    <span class="memberName">addStore0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method addStore0.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeStore0">
+                <h4 class="methodName">removeStore0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">removeStore0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method removeStore0.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="doDataUpdate">
+                <h4 class="methodName">doDataUpdate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Data<ECS_TYPE></span>
+                    <span class="memberName">doDataUpdate</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method doDataUpdate.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateData0">
+                <h4 class="methodName">updateData0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">updateData0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method updateData0.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="toString">
+                <h4 class="methodName">toString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">toString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toString.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="Data">
+                <h4 class="methodName">Data</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">private</span>
+                    <span class="memberName">Data</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method Data.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="createCodec">
+                <h4 class="methodName">createCodec</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">BuilderCodec<Holder<ECS_TYPE>></span>
+                    <span class="memberName">createCodec</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method createCodec.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getVersion">
+                <h4 class="methodName">getVersion</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getVersion</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getVersion.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRegistry">
+                <h4 class="methodName">getRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">ComponentRegistry<ECS_TYPE></span>
+                    <span class="memberName">getRegistry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRegistry.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getComponentSize">
+                <h4 class="methodName">getComponentSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getComponentSize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getComponentSize.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getComponentId">
+                <h4 class="methodName">getComponentId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getComponentId</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getComponentId.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getResourceSize">
+                <h4 class="methodName">getResourceSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getResourceSize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getResourceSize.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getResourceId">
+                <h4 class="methodName">getResourceId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">getResourceId</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getResourceId.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSystemTypeSize">
+                <h4 class="methodName">getSystemTypeSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getSystemTypeSize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSystemTypeSize.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSystemSize">
+                <h4 class="methodName">getSystemSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getSystemSize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSystemSize.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSystem">
+                <h4 class="methodName">getSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">ISystem<ECS_TYPE></span>
+                    <span class="memberName">getSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="indexOf">
+                <h4 class="methodName">indexOf</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">indexOf</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method indexOf.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDataChangeCount">
+                <h4 class="methodName">getDataChangeCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">getDataChangeCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDataChangeCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDataChange">
+                <h4 class="methodName">getDataChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">DataChange</span>
+                    <span class="memberName">getDataChange</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDataChange.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="equals">
+                <h4 class="methodName">equals</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">equals</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method equals.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="hashCode">
+                <h4 class="methodName">hashCode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">hashCode</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method hashCode.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="appendDump">
+                <h4 class="methodName">appendDump</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">void</span>
+                    <span class="memberName">appendDump</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method appendDump.</p>
+                </div>
+                <dl class="notes">
+                    
+                    
+                </dl>
+            </div>
+            </li>
+        </ul>
+    </div>
+    
+    
+    
+    <footer>
+        <small>Copyright 2024 Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>
