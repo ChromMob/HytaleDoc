@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StashPlugin (com.hypixel.hytale.builtin.adventure.stash)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/builtin/adventure/stash/package-summary.html">com.hypixel.hytale.builtin.adventure.stash</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">StashPlugin</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="StashPlugin.html" class="type-link">StashPlugin</a> extends <a href="../../../server/core/plugin/JavaPlugin.html" class="type-link" data-class="JavaPlugin"><code>JavaPlugin</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>The main plugin class for Stash. This plugin provides gameplay features for the Hytale server. Extend this class to create a plugin.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; JavaPlugin &gt; StashPlugin</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">droplist</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">droplist</span>
+                </div>
+                <div class="block">
+                    <p>Field droplist.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stacks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<ItemStack></span>
+                    <span class="memberName">stacks</span>
+                </div>
+                <div class="block">
+                    <p>Field stacks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemContainer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemContainer</span>
+                    <span class="memberName">itemContainer</span>
+                </div>
+                <div class="block">
+                    <p>Field itemContainer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">capacity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">short</span>
+                    <span class="memberName">capacity</span>
+                </div>
+                <div class="block">
+                    <p>Field capacity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">slots</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ShortArrayList</span>
+                    <span class="memberName">slots</span>
+                </div>
+                <div class="block">
+                    <p>Field slots.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">blockPosition</span>
+                </div>
+                <div class="block">
+                    <p>Field blockPosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">positionHash</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">positionHash</span>
+                </div>
+                <div class="block">
+                    <p>Field positionHash.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rnd</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Random</span>
+                    <span class="memberName">rnd</span>
+                </div>
+                <div class="block">
+                    <p>Field rnd.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">slot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">short</span>
+                    <span class="memberName">slot</span>
+                </div>
+                <div class="block">
+                    <p>Field slot.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transaction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStackSlotTransaction</span>
+                    <span class="memberName">transaction</span>
+                </div>
+                <div class="block">
+                    <p>Field transaction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stashGameplayConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StashGameplayConfig</span>
+                    <span class="memberName">stashGameplayConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field stashGameplayConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">clearContainerDropList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">clearContainerDropList</span>
+                </div>
+                <div class="block">
+                    <p>Field clearContainerDropList.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="StashPlugin">
+                <h4 class="methodName">StashPlugin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">StashPlugin</span>
+                    <span class="arguments">(<span class="param"><a href="../../../server/core/plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <span class="param-name">init</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method StashPlugin.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../server/core/plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <b>init</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="StashSystem">
+                <h4 class="methodName">StashSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">StashSystem</span>
+                    <span class="arguments">(<span class="param">BlockStateModule.get(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method StashSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>BlockStateModule.get(</code> <b>BlockStateModule.get(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="stash">
+                <h4 class="methodName">stash</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../../server/core/inventory/transaction/ListTransaction.html" class="type-link"><code>ListTransaction<ItemStackTransaction></code></a></span>
+                    <span class="memberName">stash</span>
+                    <span class="arguments">(<span class="param"><a href="../../../server/core/universe/world/meta/state/ItemContainerState.html" class="type-link"><code>@Nonnull final ItemContainerState</code></a> <span class="param-name">containerState</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">clearDropList</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method stash.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../server/core/universe/world/meta/state/ItemContainerState.html" class="type-link"><code>@Nonnull final ItemContainerState</code></a> <b>containerState</b></dd>
+<dd><code>final boolean</code> <b>clearDropList</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SystemDependency">
+                <h4 class="methodName">SystemDependency</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SystemDependency</span>
+                    <span class="arguments">(<span class="param">Order.AFTER</span>, <span class="param">BlockStateModule.LegacyBlockStateRefSystem.class</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SystemDependency.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Order.AFTER</code> <b>Order.AFTER</b></dd>
+<dd><code>BlockStateModule.LegacyBlockStateRefSystem.class</code> <b>BlockStateModule.LegacyBlockStateRefSystem.class</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getQuery">
+                <h4 class="methodName">getQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../component/query/Query.html" class="type-link"><code>Query<ChunkStore></code></a></span>
+                    <span class="memberName">getQuery</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getQuery.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEntityAdded">
+                <h4 class="methodName">onEntityAdded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEntityAdded</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<ChunkStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/AddReason.html" class="type-link"><code>@Nonnull final AddReason</code></a> <span class="param-name">reason</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<ChunkStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEntityAdded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<ChunkStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/AddReason.html" class="type-link"><code>@Nonnull final AddReason</code></a> <b>reason</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <b>store</b></dd>
+<dd><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<ChunkStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEntityRemove">
+                <h4 class="methodName">onEntityRemove</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEntityRemove</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<ChunkStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/RemoveReason.html" class="type-link"><code>@Nonnull final RemoveReason</code></a> <span class="param-name">reason</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<ChunkStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEntityRemove.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<ChunkStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/RemoveReason.html" class="type-link"><code>@Nonnull final RemoveReason</code></a> <b>reason</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <b>store</b></dd>
+<dd><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<ChunkStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDependencies">
+                <h4 class="methodName">getDependencies</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Set<Dependency<ChunkStore>></code></span>
+                    <span class="memberName">getDependencies</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDependencies.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

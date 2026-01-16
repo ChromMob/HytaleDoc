@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HytaleGenerator (com.hypixel.hytale.builtin.hytalegenerator.plugin)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/builtin/hytalegenerator/plugin/package-summary.html">com.hypixel.hytale.builtin.hytalegenerator.plugin</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">HytaleGenerator</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="HytaleGenerator.html" class="type-link">HytaleGenerator</a> extends <a href="../../../server/core/plugin/JavaPlugin.html" class="type-link" data-class="JavaPlugin"><code>JavaPlugin</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class HytaleGenerator. Provides hytalegenerator functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; JavaPlugin &gt; HytaleGenerator</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">assetManager</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">AssetManager</span>
+                    <span class="memberName">assetManager</span>
+                </div>
+                <div class="block">
+                    <p>Field assetManager.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">assetReloadListener</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Runnable</span>
+                    <span class="memberName">assetReloadListener</span>
+                </div>
+                <div class="block">
+                    <p>Field assetReloadListener.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">concurrency</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">concurrency</span>
+                </div>
+                <div class="block">
+                    <p>Field concurrency.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">mainExecutor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ExecutorService</span>
+                    <span class="memberName">mainExecutor</span>
+                </div>
+                <div class="block">
+                    <p>Field mainExecutor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">concurrentExecutor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ThreadPoolExecutor</span>
+                    <span class="memberName">concurrentExecutor</span>
+                </div>
+                <div class="block">
+                    <p>Field concurrentExecutor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">generator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkGenerator</span>
+                    <span class="memberName">generator</span>
+                </div>
+                <div class="block">
+                    <p>Field generator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">workerIndexer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorkerIndexer</span>
+                    <span class="memberName">workerIndexer</span>
+                </div>
+                <div class="block">
+                    <p>Field workerIndexer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">seed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SeedBox</span>
+                    <span class="memberName">seed</span>
+                </div>
+                <div class="block">
+                    <p>Field seed.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">materialCache</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MaterialCache</span>
+                    <span class="memberName">materialCache</span>
+                </div>
+                <div class="block">
+                    <p>Field materialCache.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">biomeMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BiomeMap<SolidMaterial></span>
+                    <span class="memberName">biomeMap</span>
+                </div>
+                <div class="block">
+                    <p>Field biomeMap.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">generatorBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NStagedChunkGenerator.Builder</span>
+                    <span class="memberName">generatorBuilder</span>
+                </div>
+                <div class="block">
+                    <p>Field generatorBuilder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allBiomes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<BiomeType></span>
+                    <span class="memberName">allBiomes</span>
+                </div>
+                <div class="block">
+                    <p>Field allBiomes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allRuntimes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<Integer></span>
+                    <span class="memberName">allRuntimes</span>
+                </div>
+                <div class="block">
+                    <p>Field allRuntimes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">biome_bufferType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NParametrizedBufferType</span>
+                    <span class="memberName">biome_bufferType</span>
+                </div>
+                <div class="block">
+                    <p>Field biome_bufferType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">biomeStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NStage</span>
+                    <span class="memberName">biomeStage</span>
+                </div>
+                <div class="block">
+                    <p>Field biomeStage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">biomeDistance_bufferType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NParametrizedBufferType</span>
+                    <span class="memberName">biomeDistance_bufferType</span>
+                </div>
+                <div class="block">
+                    <p>Field biomeDistance_bufferType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">MAX_BIOME_DISTANCE_RADIUS</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">MAX_BIOME_DISTANCE_RADIUS</span>
+                </div>
+                <div class="block">
+                    <p>Field MAX_BIOME_DISTANCE_RADIUS.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">interpolationRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">interpolationRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field interpolationRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">biomeEdgeRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">biomeEdgeRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field biomeEdgeRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field maxDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">biomeDistanceStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NStage</span>
+                    <span class="memberName">biomeDistanceStage</span>
+                </div>
+                <div class="block">
+                    <p>Field biomeDistanceStage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">terrainStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NStage</span>
+                    <span class="memberName">terrainStage</span>
+                </div>
+                <div class="block">
+                    <p>Field terrainStage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">runtime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">runtime</span>
+                </div>
+                <div class="block">
+                    <p>Field runtime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">runtimeString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">runtimeString</span>
+                </div>
+                <div class="block">
+                    <p>Field runtimeString.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">materialOutput_bufferType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NParametrizedBufferType</span>
+                    <span class="memberName">materialOutput_bufferType</span>
+                </div>
+                <div class="block">
+                    <p>Field materialOutput_bufferType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityOutput_bufferType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NBufferType</span>
+                    <span class="memberName">entityOutput_bufferType</span>
+                </div>
+                <div class="block">
+                    <p>Field entityOutput_bufferType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">propStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NStage</span>
+                    <span class="memberName">propStage</span>
+                </div>
+                <div class="block">
+                    <p>Field propStage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">runtime2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">runtime2</span>
+                </div>
+                <div class="block">
+                    <p>Field runtime2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">runtimeString2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">runtimeString2</span>
+                </div>
+                <div class="block">
+                    <p>Field runtimeString2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">propStage2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NStage</span>
+                    <span class="memberName">propStage2</span>
+                </div>
+                <div class="block">
+                    <p>Field propStage2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tintStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NStage</span>
+                    <span class="memberName">tintStage</span>
+                </div>
+                <div class="block">
+                    <p>Field tintStage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environmentStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NStage</span>
+                    <span class="memberName">environmentStage</span>
+                </div>
+                <div class="block">
+                    <p>Field environmentStage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bufferCapacityFactor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">bufferCapacityFactor</span>
+                </div>
+                <div class="block">
+                    <p>Field bufferCapacityFactor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetViewDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">targetViewDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field targetViewDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetPlayerCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">targetPlayerCount</span>
+                </div>
+                <div class="block">
+                    <p>Field targetPlayerCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">statsCheckpoints</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set<Integer></span>
+                    <span class="memberName">statsCheckpoints</span>
+                </div>
+                <div class="block">
+                    <p>Field statsCheckpoints.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldStructureAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldStructureAsset</span>
+                    <span class="memberName">worldStructureAsset</span>
+                </div>
+                <div class="block">
+                    <p>Field worldStructureAsset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">settingsAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SettingsAsset</span>
+                    <span class="memberName">settingsAsset</span>
+                </div>
+                <div class="block">
+                    <p>Field settingsAsset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newConcurrency</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">newConcurrency</span>
+                </div>
+                <div class="block">
+                    <p>Field newConcurrency.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">t</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Thread</span>
+                    <span class="memberName">t</span>
+                </div>
+                <div class="block">
+                    <p>Field t.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">concurrencySetting</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">concurrencySetting</span>
+                </div>
+                <div class="block">
+                    <p>Field concurrencySetting.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">availableProcessors</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">availableProcessors</span>
+                </div>
+                <div class="block">
+                    <p>Field availableProcessors.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="start">
+                <h4 class="methodName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">start</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method start.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="submitChunkRequest">
+                <h4 class="methodName">submitChunkRequest</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>CompletableFuture<GeneratedChunk></code></span>
+                    <span class="memberName">submitChunkRequest</span>
+                    <span class="arguments">(<span class="param"><a href="../chunkgenerator/ChunkRequest.html" class="type-link"><code>@Nonnull final ChunkRequest</code></a> <span class="param-name">request</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method submitChunkRequest.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../chunkgenerator/ChunkRequest.html" class="type-link"><code>@Nonnull final ChunkRequest</code></a> <b>request</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="createStagedChunkGenerator">
+                <h4 class="methodName">createStagedChunkGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../newsystem/NStagedChunkGenerator.html" class="type-link"><code>NStagedChunkGenerator</code></a></span>
+                    <span class="memberName">createStagedChunkGenerator</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ChunkRequest.GeneratorProfile</code> <span class="param-name">generatorProfile</span></span>, <span class="param"><a href="../assets/worldstructures/WorldStructureAsset.html" class="type-link"><code>@Nonnull final WorldStructureAsset</code></a> <span class="param-name">worldStructureAsset</span></span>, <span class="param"><a href="../assets/SettingsAsset.html" class="type-link"><code>@Nonnull final SettingsAsset</code></a> <span class="param-name">settingsAsset</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createStagedChunkGenerator.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ChunkRequest.GeneratorProfile</code> <b>generatorProfile</b></dd>
+<dd><a href="../assets/worldstructures/WorldStructureAsset.html" class="type-link"><code>@Nonnull final WorldStructureAsset</code></a> <b>worldStructureAsset</b></dd>
+<dd><a href="../assets/SettingsAsset.html" class="type-link"><code>@Nonnull final SettingsAsset</code></a> <b>settingsAsset</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SeedBox">
+                <h4 class="methodName">SeedBox</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SeedBox</span>
+                    <span class="arguments">(<span class="param">generatorProfile.seed(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SeedBox.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>generatorProfile.seed(</code> <b>generatorProfile.seed(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NParametrizedBufferType">
+                <h4 class="methodName">NParametrizedBufferType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NParametrizedBufferType</span>
+                    <span class="arguments">(<span class="param">"Biome"</span>, <span class="param">bufferTypeIndexCounter++</span>, <span class="param">(Class</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NParametrizedBufferType.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Biome"</code> <b>"Biome"</b></dd>
+<dd><code>bufferTypeIndexCounter++</code> <b>bufferTypeIndexCounter++</b></dd>
+<dd><code>(Class</code> <b>(Class</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NCountedPixelBuffer">
+                <h4 class="methodName">NCountedPixelBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NCountedPixelBuffer</span>
+                    <span class="arguments">(<span class="param">(Class<Object></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NCountedPixelBuffer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>(Class<Object></code> <b>(Class<Object></b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NSimplePixelBuffer">
+                <h4 class="methodName">NSimplePixelBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NSimplePixelBuffer</span>
+                    <span class="arguments">(<span class="param">(Class<Object></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NSimplePixelBuffer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>(Class<Object></code> <b>(Class<Object></b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NVoxelBuffer">
+                <h4 class="methodName">NVoxelBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NVoxelBuffer</span>
+                    <span class="arguments">(<span class="param">(Class<Object></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NVoxelBuffer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>(Class<Object></code> <b>(Class<Object></b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NBufferType">
+                <h4 class="methodName">NBufferType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NBufferType</span>
+                    <span class="arguments">(<span class="param"><code>"Entity" +</code> <span class="param-name">materialBufferIndexCounter</span></span>, <span class="param">bufferTypeIndexCounter++</span>, <span class="param">(Class</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NBufferType.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Entity" +</code> <b>materialBufferIndexCounter</b></dd>
+<dd><code>bufferTypeIndexCounter++</code> <b>bufferTypeIndexCounter++</b></dd>
+<dd><code>(Class</code> <b>(Class</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAllPossibleRuntimeIndices">
+                <h4 class="methodName">getAllPossibleRuntimeIndices</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>Set<Integer></code></span>
+                    <span class="memberName">getAllPossibleRuntimeIndices</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final List<BiomeType></code> <span class="param-name">biomes</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getAllPossibleRuntimeIndices.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final List<BiomeType></code> <b>biomes</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getGenerator">
+                <h4 class="methodName">getGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../../server/worldgen/chunk/ChunkGenerator.html" class="type-link"><code>ChunkGenerator</code></a></span>
+                    <span class="memberName">getGenerator</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ChunkRequest.GeneratorProfile</code> <span class="param-name">profile</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getGenerator.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ChunkRequest.GeneratorProfile</code> <b>profile</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadExecutors">
+                <h4 class="methodName">loadExecutors</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">loadExecutors</span>
+                    <span class="arguments">(<span class="param"><a href="../assets/SettingsAsset.html" class="type-link"><code>@Nonnull final SettingsAsset</code></a> <span class="param-name">settingsAsset</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadExecutors.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../assets/SettingsAsset.html" class="type-link"><code>@Nonnull final SettingsAsset</code></a> <b>settingsAsset</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ThreadPoolExecutor">
+                <h4 class="methodName">ThreadPoolExecutor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ThreadPoolExecutor</span>
+                    <span class="arguments">(<span class="param">this.concurrency</span>, <span class="param">this.concurrency</span>, <span class="param">0L</span>, <span class="param">TimeUnit.MILLISECONDS</span>, <span class="param"><code>new</code> <span class="param-name">LinkedBlockingQueue<Runnable>(</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ThreadPoolExecutor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.concurrency</code> <b>this.concurrency</b></dd>
+<dd><code>0L</code> <b>0L</b></dd>
+<dd><code>TimeUnit.MILLISECONDS</code> <b>TimeUnit.MILLISECONDS</b></dd>
+<dd><code>new</code> <b>LinkedBlockingQueue<Runnable>(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getConcurrency">
+                <h4 class="methodName">getConcurrency</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getConcurrency</span>
+                    <span class="arguments">(<span class="param"><a href="../assets/SettingsAsset.html" class="type-link"><code>@Nonnull final SettingsAsset</code></a> <span class="param-name">settingsAsset</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getConcurrency.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../assets/SettingsAsset.html" class="type-link"><code>@Nonnull final SettingsAsset</code></a> <b>settingsAsset</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="reloadGenerators">
+                <h4 class="methodName">reloadGenerators</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">reloadGenerators</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method reloadGenerators.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="HytaleGenerator">
+                <h4 class="methodName">HytaleGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">HytaleGenerator</span>
+                    <span class="arguments">(<span class="param"><a href="../../../server/core/plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <span class="param-name">init</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method HytaleGenerator.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../server/core/plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <b>init</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BrushConfigCommandExecutor (com.hypixel.hytale.builtin.buildertools.scriptedbrushes)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/builtin/buildertools/scriptedbrushes/package-summary.html">com.hypixel.hytale.builtin.buildertools.scriptedbrushes</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">BrushConfigCommandExecutor</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="BrushConfigCommandExecutor.html" class="type-link">BrushConfigCommandExecutor</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class BrushConfigCommandExecutor. Provides brushconfigcommandexecutor functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; BrushConfigCommandExecutor</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentOperationIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">currentOperationIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field currentOperationIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inDebugSteppingMode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">inDebugSteppingMode</span>
+                </div>
+                <div class="block">
+                    <p>Field inDebugSteppingMode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">printOperations</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">printOperations</span>
+                </div>
+                <div class="block">
+                    <p>Field printOperations.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">enableBreakpoints</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">enableBreakpoints</span>
+                </div>
+                <div class="block">
+                    <p>Field enableBreakpoints.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">debugOutputTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">DebugOutputTarget</span>
+                    <span class="memberName">debugOutputTarget</span>
+                </div>
+                <div class="block">
+                    <p>Field debugOutputTarget.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">breakOnError</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">breakOnError</span>
+                </div>
+                <div class="block">
+                    <p>Field breakOnError.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allowOverwritingSavedSnapshots</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">allowOverwritingSavedSnapshots</span>
+                </div>
+                <div class="block">
+                    <p>Field allowOverwritingSavedSnapshots.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ignoreExistingBrushData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">ignoreExistingBrushData</span>
+                </div>
+                <div class="block">
+                    <p>Field ignoreExistingBrushData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">edit</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">BrushConfigEditStore</span>
+                    <span class="memberName">edit</span>
+                </div>
+                <div class="block">
+                    <p>Field edit.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">startTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">startTime</span>
+                </div>
+                <div class="block">
+                    <p>Field startTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">playerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">uuidComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUIDComponent</span>
+                    <span class="memberName">uuidComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field uuidComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">prototypePlayerBuilderToolSettings</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrototypePlayerBuilderToolSettings</span>
+                    <span class="memberName">prototypePlayerBuilderToolSettings</span>
+                </div>
+                <div class="block">
+                    <p>Field prototypePlayerBuilderToolSettings.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">brushOperation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SequenceBrushOperation</span>
+                    <span class="memberName">brushOperation</span>
+                </div>
+                <div class="block">
+                    <p>Field brushOperation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRefComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">playerRefComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRefComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRefComponent2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">playerRefComponent2</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRefComponent2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">returnEdit</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BrushConfigEditStore</span>
+                    <span class="memberName">returnEdit</span>
+                </div>
+                <div class="block">
+                    <p>Field returnEdit.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">header</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">header</span>
+                </div>
+                <div class="block">
+                    <p>Field header.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">items</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set<Message></span>
+                    <span class="memberName">items</span>
+                </div>
+                <div class="block">
+                    <p>Field items.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">newIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field newIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">loadedBrushConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BrushConfig</span>
+                    <span class="memberName">loadedBrushConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field loadedBrushConfig.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="BrushConfigCommandExecutor">
+                <h4 class="methodName">BrushConfigCommandExecutor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">BrushConfigCommandExecutor</span>
+                    <span class="arguments">(<span class="param"><a href="BrushConfig.html" class="type-link"><code>final BrushConfig</code></a> <span class="param-name">brushConfig</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BrushConfigCommandExecutor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="BrushConfig.html" class="type-link"><code>final BrushConfig</code></a> <b>brushConfig</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="resetInternalState">
+                <h4 class="methodName">resetInternalState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">resetInternalState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method resetInternalState.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="execute">
+                <h4 class="methodName">execute</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">execute</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <span class="param-name">origin</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">isHoldDownInteraction</span></span>, <span class="param"><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <span class="param-name">interactionType</span></span>, <span class="param"><code>@Nullable final Consumer<BrushConfig></code> <span class="param-name">existingBrushDataLoadingConsumer</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method execute.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><a href="../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <b>origin</b></dd>
+<dd><code>final boolean</code> <b>isHoldDownInteraction</b></dd>
+<dd><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <b>interactionType</b></dd>
+<dd><code>@Nullable final Consumer<BrushConfig></code> <b>existingBrushDataLoadingConsumer</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BrushConfigEditStore">
+                <h4 class="methodName">BrushConfigEditStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BrushConfigEditStore</span>
+                    <span class="arguments">(<span class="param">prototypePlayerBuilderToolSettings.addIgnoredPaintOperation(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BrushConfigEditStore.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>prototypePlayerBuilderToolSettings.addIgnoredPaintOperation(</code> <b>prototypePlayerBuilderToolSettings.addIgnoredPaintOperation(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="step">
+                <h4 class="methodName">step</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>BrushConfig.BCExecutionStatus</code></span>
+                    <span class="memberName">step</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">placePreviewAfterStep</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method step.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><code>final boolean</code> <b>placePreviewAfterStep</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="completeStep">
+                <h4 class="methodName">completeStep</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>BrushConfig.BCExecutionStatus</code></span>
+                    <span class="memberName">completeStep</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">placePreviewAfterStep</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method completeStep.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><code>final boolean</code> <b>placePreviewAfterStep</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="exitExecution">
+                <h4 class="methodName">exitExecution</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">exitExecution</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method exitExecution.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendExecutionErrorMessage">
+                <h4 class="methodName">sendExecutionErrorMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">sendExecutionErrorMessage</span>
+                    <span class="arguments">(<span class="param"><a href="../../../server/core/universe/PlayerRef.html" class="type-link"><code>final PlayerRef</code></a> <span class="param-name">playerRef</span></span>, <span class="param"><a href="operations/system/SequenceBrushOperation.html" class="type-link"><code>@Nonnull final SequenceBrushOperation</code></a> <span class="param-name">brushOperation</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method sendExecutionErrorMessage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../server/core/universe/PlayerRef.html" class="type-link"><code>final PlayerRef</code></a> <b>playerRef</b></dd>
+<dd><a href="operations/system/SequenceBrushOperation.html" class="type-link"><code>@Nonnull final SequenceBrushOperation</code></a> <b>brushOperation</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="storeOperatingIndex">
+                <h4 class="methodName">storeOperatingIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">storeOperatingIndex</span>
+                    <span class="arguments">(<span class="param"><code>String</code> <span class="param-name">name</span></span>, <span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method storeOperatingIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>String</code> <b>name</b></dd>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadOperatingIndex">
+                <h4 class="methodName">loadOperatingIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">loadOperatingIndex</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">name</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadOperatingIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>name</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearAllPersistentVariables">
+                <h4 class="methodName">clearAllPersistentVariables</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearAllPersistentVariables</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearAllPersistentVariables.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearPersistentVariable">
+                <h4 class="methodName">clearPersistentVariable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearPersistentVariable</span>
+                    <span class="arguments">(<span class="param"><code>String</code> <span class="param-name">variableName</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method clearPersistentVariable.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>String</code> <b>variableName</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setPersistentVariable">
+                <h4 class="methodName">setPersistentVariable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setPersistentVariable</span>
+                    <span class="arguments">(<span class="param"><code>String</code> <span class="param-name">variableName</span></span>, <span class="param"><code>final int</code> <span class="param-name">value</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setPersistentVariable.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>String</code> <b>variableName</b></dd>
+<dd><code>final int</code> <b>value</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPersistentVariableOrDefault">
+                <h4 class="methodName">getPersistentVariableOrDefault</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getPersistentVariableOrDefault</span>
+                    <span class="arguments">(<span class="param"><code>String</code> <span class="param-name">variableName</span></span>, <span class="param"><code>final int</code> <span class="param-name">defaultValue</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getPersistentVariableOrDefault.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>String</code> <b>variableName</b></dd>
+<dd><code>final int</code> <b>defaultValue</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="storeBrushConfigSnapshot">
+                <h4 class="methodName">storeBrushConfigSnapshot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">storeBrushConfigSnapshot</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">name</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method storeBrushConfigSnapshot.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>name</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BrushConfig">
+                <h4 class="methodName">BrushConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BrushConfig</span>
+                    <span class="arguments">(<span class="param">this.brushConfig</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BrushConfig.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.brushConfig</code> <b>this.brushConfig</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadBrushConfigSnapshot">
+                <h4 class="methodName">loadBrushConfigSnapshot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">loadBrushConfigSnapshot</span>
+                    <span class="arguments">(<span class="param"><code>String</code> <span class="param-name">name</span></span>, <span class="param"><code>@Nonnull final BrushConfig.DataSettingFlags...</code> <span class="param-name">dataToLoad</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadBrushConfigSnapshot.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>String</code> <b>name</b></dd>
+<dd><code>@Nonnull final BrushConfig.DataSettingFlags...</code> <b>dataToLoad</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setAllowOverwritingSavedSnapshots">
+                <h4 class="methodName">setAllowOverwritingSavedSnapshots</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setAllowOverwritingSavedSnapshots</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">allowOverwritingSavedSnapshots</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setAllowOverwritingSavedSnapshots.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>allowOverwritingSavedSnapshots</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSequentialOperations">
+                <h4 class="methodName">getSequentialOperations</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<SequenceBrushOperation></code></span>
+                    <span class="memberName">getSequentialOperations</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSequentialOperations.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getGlobalOperations">
+                <h4 class="methodName">getGlobalOperations</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>GlobalBrushOperation></code></span>
+                    <span class="memberName">getGlobalOperations</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getGlobalOperations.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isIgnoreExistingBrushData">
+                <h4 class="methodName">isIgnoreExistingBrushData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isIgnoreExistingBrushData</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isIgnoreExistingBrushData.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isInDebugSteppingMode">
+                <h4 class="methodName">isInDebugSteppingMode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isInDebugSteppingMode</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isInDebugSteppingMode.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEdit">
+                <h4 class="methodName">getEdit</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BrushConfigEditStore.html" class="type-link"><code>BrushConfigEditStore</code></a></span>
+                    <span class="memberName">getEdit</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEdit.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setInDebugSteppingMode">
+                <h4 class="methodName">setInDebugSteppingMode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setInDebugSteppingMode</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">inDebugSteppingMode</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setInDebugSteppingMode.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>inDebugSteppingMode</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setPrintOperations">
+                <h4 class="methodName">setPrintOperations</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setPrintOperations</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">printOperations</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setPrintOperations.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>printOperations</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setIgnoreExistingBrushData">
+                <h4 class="methodName">setIgnoreExistingBrushData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setIgnoreExistingBrushData</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">ignoreExistingBrushData</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setIgnoreExistingBrushData.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>ignoreExistingBrushData</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setCurrentlyExecutingActionIndex">
+                <h4 class="methodName">setCurrentlyExecutingActionIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setCurrentlyExecutingActionIndex</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">newCurrentOperationIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setCurrentlyExecutingActionIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>newCurrentOperationIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCurrentOperationIndex">
+                <h4 class="methodName">getCurrentOperationIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getCurrentOperationIndex</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCurrentOperationIndex.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isEnableBreakpoints">
+                <h4 class="methodName">isEnableBreakpoints</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isEnableBreakpoints</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isEnableBreakpoints.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setEnableBreakpoints">
+                <h4 class="methodName">setEnableBreakpoints</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setEnableBreakpoints</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">enableBreakpoints</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setEnableBreakpoints.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>enableBreakpoints</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDebugOutputTarget">
+                <h4 class="methodName">getDebugOutputTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>DebugOutputTarget</code></span>
+                    <span class="memberName">getDebugOutputTarget</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDebugOutputTarget.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDebugOutputTarget">
+                <h4 class="methodName">setDebugOutputTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDebugOutputTarget</span>
+                    <span class="arguments">(<span class="param"><code>final DebugOutputTarget</code> <span class="param-name">debugOutputTarget</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setDebugOutputTarget.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final DebugOutputTarget</code> <b>debugOutputTarget</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isBreakOnError">
+                <h4 class="methodName">isBreakOnError</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isBreakOnError</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isBreakOnError.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setBreakOnError">
+                <h4 class="methodName">setBreakOnError</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setBreakOnError</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">breakOnError</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setBreakOnError.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>breakOnError</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

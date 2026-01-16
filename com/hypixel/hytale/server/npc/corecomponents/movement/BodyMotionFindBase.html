@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BodyMotionFindBase (com.hypixel.hytale.server.npc.corecomponents.movement)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/npc/corecomponents/movement/package-summary.html">com.hypixel.hytale.server.npc.corecomponents.movement</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">BodyMotionFindBase</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">abstract class <a href="BodyMotionFindBase.html" class="type-link">BodyMotionFindBase</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class BodyMotionFindBase. Provides bodymotionfindbase functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; BodyMotionFindBase</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">sharedNodePoolProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">AStarNodePoolProvider</span>
+                    <span class="memberName">sharedNodePoolProvider</span>
+                </div>
+                <div class="block">
+                    <p>Field sharedNodePoolProvider.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">throttleCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">throttleCount</span>
+                </div>
+                <div class="block">
+                    <p>Field throttleCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">throttleTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">throttleTime</span>
+                </div>
+                <div class="block">
+                    <p>Field throttleTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetDeltaSquared</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">targetDeltaSquared</span>
+                </div>
+                <div class="block">
+                    <p>Field targetDeltaSquared.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">wasSteering</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">wasSteering</span>
+                </div>
+                <div class="block">
+                    <p>Field wasSteering.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">throttleDelay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">throttleDelay</span>
+                </div>
+                <div class="block">
+                    <p>Field throttleDelay.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">passedWaypoint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">passedWaypoint</span>
+                </div>
+                <div class="block">
+                    <p>Field passedWaypoint.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">wasAvoidingBlockDamage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">wasAvoidingBlockDamage</span>
+                </div>
+                <div class="block">
+                    <p>Field wasAvoidingBlockDamage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dbgDisplayString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">dbgDisplayString</span>
+                </div>
+                <div class="block">
+                    <p>Field dbgDisplayString.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">debugString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">debugString</span>
+                </div>
+                <div class="block">
+                    <p>Field debugString.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">throttleDelayRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double[]</span>
+                    <span class="memberName">throttleDelayRange</span>
+                </div>
+                <div class="block">
+                    <p>Field throttleDelayRange.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">debugFlags</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EnumSet<DebugFlags></span>
+                    <span class="memberName">debugFlags</span>
+                </div>
+                <div class="block">
+                    <p>Field debugFlags.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">activeMotionController</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MotionController</span>
+                    <span class="memberName">activeMotionController</span>
+                </div>
+                <div class="block">
+                    <p>Field activeMotionController.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">unobstructed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">unobstructed</span>
+                </div>
+                <div class="block">
+                    <p>Field unobstructed.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">mustRecomputePath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">mustRecomputePath</span>
+                </div>
+                <div class="block">
+                    <p>Field mustRecomputePath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">forceRecomputePath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">forceRecomputePath</span>
+                </div>
+                <div class="block">
+                    <p>Field forceRecomputePath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">targetPosition</span>
+                </div>
+                <div class="block">
+                    <p>Field targetPosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">progress2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AStarBase.Progress</span>
+                    <span class="memberName">progress2</span>
+                </div>
+                <div class="block">
+                    <p>Field progress2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pathLengthSquared</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">pathLengthSquared</span>
+                </div>
+                <div class="block">
+                    <p>Field pathLengthSquared.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">motionController</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MotionController</span>
+                    <span class="memberName">motionController</span>
+                </div>
+                <div class="block">
+                    <p>Field motionController.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">approachDesiredHeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">approachDesiredHeight</span>
+                </div>
+                <div class="block">
+                    <p>Field approachDesiredHeight.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">withinRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">withinRange</span>
+                </div>
+                <div class="block">
+                    <p>Field withinRange.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">desiredAltitudeRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MotionController.VerticalRange</span>
+                    <span class="memberName">desiredAltitudeRange</span>
+                </div>
+                <div class="block">
+                    <p>Field desiredAltitudeRange.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dirX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">dirX</span>
+                </div>
+                <div class="block">
+                    <p>Field dirX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dirZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">dirZ</span>
+                </div>
+                <div class="block">
+                    <p>Field dirZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">length</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">length</span>
+                </div>
+                <div class="block">
+                    <p>Field length.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">aStarPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AStarNode</span>
+                    <span class="memberName">aStarPath</span>
+                </div>
+                <div class="block">
+                    <p>Field aStarPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">avoidingBlockDamage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">avoidingBlockDamage</span>
+                </div>
+                <div class="block">
+                    <p>Field avoidingBlockDamage.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="BodyMotionFindBase">
+                <h4 class="methodName">BodyMotionFindBase</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">BodyMotionFindBase</span>
+                    <span class="arguments">(<span class="param"><a href="builders/BuilderBodyMotionFindBase.html" class="type-link"><code>@Nonnull final BuilderBodyMotionFindBase</code></a> <span class="param-name">builderBodyMotionFindBase</span></span>, <span class="param"><a href="../../asset/builder/BuilderSupport.html" class="type-link"><code>@Nonnull final BuilderSupport</code></a> <span class="param-name">support</span></span>, <span class="param"><code>@Nonnull final T</code> <span class="param-name">aStar</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BodyMotionFindBase.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="builders/BuilderBodyMotionFindBase.html" class="type-link"><code>@Nonnull final BuilderBodyMotionFindBase</code></a> <b>builderBodyMotionFindBase</b></dd>
+<dd><a href="../../asset/builder/BuilderSupport.html" class="type-link"><code>@Nonnull final BuilderSupport</code></a> <b>support</b></dd>
+<dd><code>@Nonnull final T</code> <b>aStar</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="activate">
+                <h4 class="methodName">activate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">activate</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method activate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <b>role</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="deactivate">
+                <h4 class="methodName">deactivate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">deactivate</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method deactivate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <b>role</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="computeSteering">
+                <h4 class="methodName">computeSteering</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">computeSteering</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="../../sensorinfo/InfoProvider.html" class="type-link"><code>@Nullable final InfoProvider</code></a> <span class="param-name">infoProvider</span></span>, <span class="param"><code>final double</code> <span class="param-name">dt</span></span>, <span class="param"><a href="../../movement/Steering.html" class="type-link"><code>@Nonnull final Steering</code></a> <span class="param-name">desiredSteering</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method computeSteering.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <b>role</b></dd>
+<dd><a href="../../sensorinfo/InfoProvider.html" class="type-link"><code>@Nullable final InfoProvider</code></a> <b>infoProvider</b></dd>
+<dd><code>final double</code> <b>dt</b></dd>
+<dd><a href="../../movement/Steering.html" class="type-link"><code>@Nonnull final Steering</code></a> <b>desiredSteering</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">!this.aStar.isComputing(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>!this.aStar.isComputing(</code> <b>!this.aStar.isComputing(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="startPathFinder">
+                <h4 class="methodName">startPathFinder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">startPathFinder</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../role/Role.html" class="type-link"><code>final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">activeMotionController</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method startPathFinder.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../role/Role.html" class="type-link"><code>final Role</code></a> <b>role</b></dd>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>activeMotionController</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="continuePathFinder">
+                <h4 class="methodName">continuePathFinder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">continuePathFinder</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">activeMotionController</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method continuePathFinder.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>activeMotionController</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updatePathFollower">
+                <h4 class="methodName">updatePathFollower</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">updatePathFollower</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">activeMotionController</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updatePathFollower.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>activeMotionController</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="canSwitchToSteering">
+                <h4 class="methodName">canSwitchToSteering</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">canSwitchToSteering</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <span class="param-name">motionController</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method canSwitchToSteering.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <b>motionController</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="shouldSkipSteering">
+                <h4 class="methodName">shouldSkipSteering</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">shouldSkipSteering</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <span class="param-name">activeMotionController</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method shouldSkipSteering.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <b>activeMotionController</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="scaleSteering">
+                <h4 class="methodName">scaleSteering</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">scaleSteering</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="../../movement/steeringforces/SteeringForceWithTarget.html" class="type-link"><code>@Nonnull final SteeringForceWithTarget</code></a> <span class="param-name">steeringForce</span></span>, <span class="param"><a href="../../movement/Steering.html" class="type-link"><code>@Nonnull final Steering</code></a> <span class="param-name">desiredSteering</span></span>, <span class="param"><code>final double</code> <span class="param-name">desiredAltitudeWeight</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method scaleSteering.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <b>role</b></dd>
+<dd><a href="../../movement/steeringforces/SteeringForceWithTarget.html" class="type-link"><code>@Nonnull final SteeringForceWithTarget</code></a> <b>steeringForce</b></dd>
+<dd><a href="../../movement/Steering.html" class="type-link"><code>@Nonnull final Steering</code></a> <b>desiredSteering</b></dd>
+<dd><code>final double</code> <b>desiredAltitudeWeight</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="computeDesiredYTranslation">
+                <h4 class="methodName">computeDesiredYTranslation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">computeDesiredYTranslation</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/Steering.html" class="type-link"><code>@Nonnull final Steering</code></a> <span class="param-name">desiredSteering</span></span>, <span class="param"><code>final float</code> <span class="param-name">maxAngle</span></span>, <span class="param"><code>final double</code> <span class="param-name">desiredAltitudeWeight</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method computeDesiredYTranslation.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/Steering.html" class="type-link"><code>@Nonnull final Steering</code></a> <b>desiredSteering</b></dd>
+<dd><code>final float</code> <b>maxAngle</b></dd>
+<dd><code>final double</code> <b>desiredAltitudeWeight</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onNoPathFound">
+                <h4 class="methodName">onNoPathFound</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onNoPathFound</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onNoPathFound.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onBlockedPath">
+                <h4 class="methodName">onBlockedPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onBlockedPath</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method onBlockedPath.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onSteering">
+                <h4 class="methodName">onSteering</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onSteering</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <span class="param-name">activeMotionController</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onSteering.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <b>activeMotionController</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onThrottling">
+                <h4 class="methodName">onThrottling</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onThrottling</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <span class="param-name">motionController</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../movement/Steering.html" class="type-link"><code>final Steering</code></a> <span class="param-name">steering</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onThrottling.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <b>motionController</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../movement/Steering.html" class="type-link"><code>final Steering</code></a> <b>steering</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onDeferring">
+                <h4 class="methodName">onDeferring</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onDeferring</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <span class="param-name">motionController</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../movement/Steering.html" class="type-link"><code>final Steering</code></a> <span class="param-name">steering</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onDeferring.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <b>motionController</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../movement/Steering.html" class="type-link"><code>final Steering</code></a> <b>steering</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="mustAbortThrottling">
+                <h4 class="methodName">mustAbortThrottling</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">mustAbortThrottling</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <span class="param-name">motionController</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method mustAbortThrottling.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <b>motionController</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <b>ref</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNavState">
+                <h4 class="methodName">setNavState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNavState</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/NavState.html" class="type-link"><code>final NavState</code></a> <span class="param-name">state</span></span>, <span class="param"><code>final String</code> <span class="param-name">label</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">reset</span></span>, <span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">activeMotionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setNavState.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/NavState.html" class="type-link"><code>final NavState</code></a> <b>state</b></dd>
+<dd><code>final String</code> <b>label</b></dd>
+<dd><code>final boolean</code> <b>reset</b></dd>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>activeMotionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="decorateDebugString">
+                <h4 class="methodName">decorateDebugString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">decorateDebugString</span>
+                    <span class="arguments">(<span class="param"><code>final StringBuilder</code> <span class="param-name">dbgString</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method decorateDebugString.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final StringBuilder</code> <b>dbgString</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNavStateInit">
+                <h4 class="methodName">setNavStateInit</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNavStateInit</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setNavStateInit.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNavStateComputing">
+                <h4 class="methodName">setNavStateComputing</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNavStateComputing</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setNavStateComputing.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNavStateDeferred">
+                <h4 class="methodName">setNavStateDeferred</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNavStateDeferred</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setNavStateDeferred.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNavStateAtGoal">
+                <h4 class="methodName">setNavStateAtGoal</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNavStateAtGoal</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setNavStateAtGoal.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNavStateFollowing">
+                <h4 class="methodName">setNavStateFollowing</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNavStateFollowing</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setNavStateFollowing.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNavStateSteering">
+                <h4 class="methodName">setNavStateSteering</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNavStateSteering</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setNavStateSteering.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNavStateBlocked">
+                <h4 class="methodName">setNavStateBlocked</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNavStateBlocked</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setNavStateBlocked.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNavStateAborted">
+                <h4 class="methodName">setNavStateAborted</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNavStateAborted</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setNavStateAborted.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNavStateThrottling">
+                <h4 class="methodName">setNavStateThrottling</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNavStateThrottling</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setNavStateThrottling.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setPath">
+                <h4 class="methodName">setPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setPath</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">activeMotionController</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setPath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>activeMotionController</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="resetThrottleCount">
+                <h4 class="methodName">resetThrottleCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">resetThrottleCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method resetThrottleCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="startComputePath">
+                <h4 class="methodName">startComputePath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>AStarBase.Progress</code></span>
+                    <span class="memberName">startComputePath</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../role/Role.html" class="type-link"><code>final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">activeMotionController</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method startComputePath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../role/Role.html" class="type-link"><code>final Role</code></a> <b>role</b></dd>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>activeMotionController</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="shouldDeferPathComputation">
+                <h4 class="methodName">shouldDeferPathComputation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">shouldDeferPathComputation</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <span class="param-name">motionController</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method shouldDeferPathComputation.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <b>motionController</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="canComputeMotion">
+                <h4 class="methodName">canComputeMotion</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">canComputeMotion</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="../../sensorinfo/InfoProvider.html" class="type-link"><code>@Nullable final InfoProvider</code></a> <span class="param-name">positionProvider</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method canComputeMotion.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <b>role</b></dd>
+<dd><a href="../../sensorinfo/InfoProvider.html" class="type-link"><code>@Nullable final InfoProvider</code></a> <b>positionProvider</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="mustRecomputePath">
+                <h4 class="methodName">mustRecomputePath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">mustRecomputePath</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">activeMotionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method mustRecomputePath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>activeMotionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRelativeSpeed">
+                <h4 class="methodName">getRelativeSpeed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getRelativeSpeed</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRelativeSpeed.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="forceRecomputePath">
+                <h4 class="methodName">forceRecomputePath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">forceRecomputePath</span>
+                    <span class="arguments">(<span class="param"><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <span class="param-name">activeMotionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method forceRecomputePath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <b>activeMotionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="DebugFlags">
+                <h4 class="methodName">DebugFlags</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>private</code></span>
+                    <span class="memberName">DebugFlags</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">description</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method DebugFlags.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>description</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="get">
+                <h4 class="methodName">get</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">get</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method get.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BlockHealthModule (com.hypixel.hytale.server.core.modules.blockhealth)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/core/modules/blockhealth/package-summary.html">com.hypixel.hytale.server.core.modules.blockhealth</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">BlockHealthModule</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="BlockHealthModule.html" class="type-link">BlockHealthModule</a> extends <a href="../../plugin/JavaPlugin.html" class="type-link" data-class="JavaPlugin"><code>JavaPlugin</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class BlockHealthModule. Provides blockhealthmodule functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; JavaPlugin &gt; BlockHealthModule</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkStoreRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ComponentRegistryProxy<ChunkStore></span>
+                    <span class="memberName">chunkStoreRegistry</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkStoreRegistry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockLocation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">blockLocation</span>
+                </div>
+                <div class="block">
+                    <p>Field blockLocation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkComponentStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkStore</span>
+                    <span class="memberName">chunkComponentStore</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkComponentStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">chunkIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<ChunkStore></span>
+                    <span class="memberName">chunkReference</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkReference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockHealthComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockHealthChunk</span>
+                    <span class="memberName">blockHealthComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field blockHealthComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldGameplayConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldConfig</span>
+                    <span class="memberName">worldGameplayConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field worldGameplayConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockPlacementFragilityTimer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">blockPlacementFragilityTimer</span>
+                </div>
+                <div class="block">
+                    <p>Field blockPlacementFragilityTimer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockHealthChunkComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockHealthChunk</span>
+                    <span class="memberName">blockHealthChunkComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field blockHealthChunkComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<EntityStore></span>
+                    <span class="memberName">entityStore</span>
+                </div>
+                <div class="block">
+                    <p>Field entityStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">uptime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeResource</span>
+                    <span class="memberName">uptime</span>
+                </div>
+                <div class="block">
+                    <p>Field uptime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentGameTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">currentGameTime</span>
+                </div>
+                <div class="block">
+                    <p>Field currentGameTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastRepairGameTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">lastRepairGameTime</span>
+                </div>
+                <div class="block">
+                    <p>Field lastRepairGameTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deltaSeconds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">deltaSeconds</span>
+                </div>
+                <div class="block">
+                    <p>Field deltaSeconds.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fragileBlock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">FragileBlock</span>
+                    <span class="memberName">fragileBlock</span>
+                </div>
+                <div class="block">
+                    <p>Field fragileBlock.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newDuration</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">newDuration</span>
+                </div>
+                <div class="block">
+                    <p>Field newDuration.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">chunk</span>
+                </div>
+                <div class="block">
+                    <p>Field chunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allPlayers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Collection<PlayerRef></span>
+                    <span class="memberName">allPlayers</span>
+                </div>
+                <div class="block">
+                    <p>Field allPlayers.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">visibleTo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<PlayerRef></span>
+                    <span class="memberName">visibleTo</span>
+                </div>
+                <div class="block">
+                    <p>Field visibleTo.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">playerReference</span>
+                </div>
+                <div class="block">
+                    <p>Field playerReference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkTrackerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkTracker</span>
+                    <span class="memberName">chunkTrackerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkTrackerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deltaSeconds2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">deltaSeconds2</span>
+                </div>
+                <div class="block">
+                    <p>Field deltaSeconds2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockHealth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockHealth</span>
+                    <span class="memberName">blockHealth</span>
+                </div>
+                <div class="block">
+                    <p>Field blockHealth.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">startRegenerating</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">startRegenerating</span>
+                </div>
+                <div class="block">
+                    <p>Field startRegenerating.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UpdateBlockDamage</span>
+                    <span class="memberName">packet</span>
+                </div>
+                <div class="block">
+                    <p>Field packet.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="BlockHealthModule">
+                <h4 class="methodName">BlockHealthModule</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">BlockHealthModule</span>
+                    <span class="arguments">(<span class="param"><a href="../../plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <span class="param-name">init</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BlockHealthModule.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <b>init</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="get">
+                <h4 class="methodName">get</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="BlockHealthModule.html" class="type-link"><code>BlockHealthModule</code></a></span>
+                    <span class="memberName">get</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method get.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlaceBlockEventSystem">
+                <h4 class="methodName">PlaceBlockEventSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PlaceBlockEventSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PlaceBlockEventSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="EnsureBlockHealthSystem">
+                <h4 class="methodName">EnsureBlockHealthSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">EnsureBlockHealthSystem</span>
+                    <span class="arguments">(<span class="param">this.blockHealthChunkComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method EnsureBlockHealthSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.blockHealthChunkComponentType</code> <b>this.blockHealthChunkComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BlockHealthSystem">
+                <h4 class="methodName">BlockHealthSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BlockHealthSystem</span>
+                    <span class="arguments">(<span class="param">this.blockHealthChunkComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BlockHealthSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.blockHealthChunkComponentType</code> <b>this.blockHealthChunkComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BlockHealthPacketSystem">
+                <h4 class="methodName">BlockHealthPacketSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BlockHealthPacketSystem</span>
+                    <span class="arguments">(<span class="param">this.blockHealthChunkComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BlockHealthPacketSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.blockHealthChunkComponentType</code> <b>this.blockHealthChunkComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlockHealthChunkComponentType">
+                <h4 class="methodName">getBlockHealthChunkComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>BlockHealthChunk></code></span>
+                    <span class="memberName">getBlockHealthChunkComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlockHealthChunkComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="handle">
+                <h4 class="methodName">handle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handle</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><a href="../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <span class="param-name">archetypeChunk</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>, <span class="param"><a href="../../event/events/ecs/PlaceBlockEvent.html" class="type-link"><code>@Nonnull final PlaceBlockEvent</code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handle.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><a href="../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <b>archetypeChunk</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+<dd><a href="../../event/events/ecs/PlaceBlockEvent.html" class="type-link"><code>@Nonnull final PlaceBlockEvent</code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getQuery">
+                <h4 class="methodName">getQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../component/query/Query.html" class="type-link"><code>Query<EntityStore></code></a></span>
+                    <span class="memberName">getQuery</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getQuery.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEntityAdd">
+                <h4 class="methodName">onEntityAdd</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEntityAdd</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<ChunkStore></code></a> <span class="param-name">holder</span></span>, <span class="param"><a href="../../../../component/AddReason.html" class="type-link"><code>@Nonnull final AddReason</code></a> <span class="param-name">reason</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEntityAdd.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<ChunkStore></code></a> <b>holder</b></dd>
+<dd><a href="../../../../component/AddReason.html" class="type-link"><code>@Nonnull final AddReason</code></a> <b>reason</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEntityRemoved">
+                <h4 class="methodName">onEntityRemoved</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEntityRemoved</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<ChunkStore></code></a> <span class="param-name">holder</span></span>, <span class="param"><a href="../../../../component/RemoveReason.html" class="type-link"><code>@Nonnull final RemoveReason</code></a> <span class="param-name">reason</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEntityRemoved.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<ChunkStore></code></a> <b>holder</b></dd>
+<dd><a href="../../../../component/RemoveReason.html" class="type-link"><code>@Nonnull final RemoveReason</code></a> <b>reason</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tick">
+                <h4 class="methodName">tick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tick</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>, <span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><a href="../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<ChunkStore></code></a> <span class="param-name">archetypeChunk</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<ChunkStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><a href="../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<ChunkStore></code></a> <b>archetypeChunk</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<ChunkStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="UpdateBlockDamage">
+                <h4 class="methodName">UpdateBlockDamage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">UpdateBlockDamage</span>
+                    <span class="arguments">(<span class="param"><code>new</code> <span class="param-name">BlockPosition(position.getX(</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method UpdateBlockDamage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>new</code> <b>BlockPosition(position.getX(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isParallel">
+                <h4 class="methodName">isParallel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isParallel</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isParallel.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="fetch">
+                <h4 class="methodName">fetch</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">fetch</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><a href="../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<ChunkStore></code></a> <span class="param-name">archetypeChunk</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>final Store<ChunkStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<ChunkStore></code></a> <span class="param-name">commandBuffer</span></span>, <span class="param"><a href="../../universe/PlayerRef.html" class="type-link"><code>final PlayerRef</code></a> <span class="param-name">player</span></span>, <span class="param"><code>@Nonnull final List<Packet></code> <span class="param-name">results</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method fetch.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><a href="../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<ChunkStore></code></a> <b>archetypeChunk</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>final Store<ChunkStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<ChunkStore></code></a> <b>commandBuffer</b></dd>
+<dd><a href="../../universe/PlayerRef.html" class="type-link"><code>final PlayerRef</code></a> <b>player</b></dd>
+<dd><code>@Nonnull final List<Packet></code> <b>results</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

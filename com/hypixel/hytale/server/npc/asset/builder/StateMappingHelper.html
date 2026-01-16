@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StateMappingHelper (com.hypixel.hytale.server.npc.asset.builder)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/npc/asset/builder/package-summary.html">com.hypixel.hytale.server.npc.asset.builder</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">StateMappingHelper</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="StateMappingHelper.html" class="type-link">StateMappingHelper</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class StateMappingHelper. Provides statemappinghelper functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; StateMappingHelper</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">mainStateMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">StateMap</span>
+                    <span class="memberName">mainStateMap</span>
+                </div>
+                <div class="block">
+                    <p>Field mainStateMap.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allMainStates</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">allMainStates</span>
+                </div>
+                <div class="block">
+                    <p>Field allMainStates.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">subStateMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Int2ObjectOpenHashMap<IStateMap></span>
+                    <span class="memberName">subStateMap</span>
+                </div>
+                <div class="block">
+                    <p>Field subStateMap.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">depth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">depth</span>
+                </div>
+                <div class="block">
+                    <p>Field depth.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentParentState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ArrayDeque<StateDepth></span>
+                    <span class="memberName">currentParentState</span>
+                </div>
+                <div class="block">
+                    <p>Field currentParentState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">component</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">component</span>
+                </div>
+                <div class="block">
+                    <p>Field component.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hasStateEvaluator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasStateEvaluator</span>
+                </div>
+                <div class="block">
+                    <p>Field hasStateEvaluator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">requiresStateEvaluator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">requiresStateEvaluator</span>
+                </div>
+                <div class="block">
+                    <p>Field requiresStateEvaluator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">defaultSubState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">defaultSubState</span>
+                </div>
+                <div class="block">
+                    <p>Field defaultSubState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">defaultComponentLocalState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">defaultComponentLocalState</span>
+                </div>
+                <div class="block">
+                    <p>Field defaultComponentLocalState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">defaultComponentLocalStateIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">defaultComponentLocalStateIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field defaultComponentLocalStateIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">componentLocalStateAutoReset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">componentLocalStateAutoReset</span>
+                </div>
+                <div class="block">
+                    <p>Field componentLocalStateAutoReset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">componentImportStateMappings</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Object2IntOpenHashMap<String></span>
+                    <span class="memberName">componentImportStateMappings</span>
+                </div>
+                <div class="block">
+                    <p>Field componentImportStateMappings.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">singletonDefaultStateMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">SingletonStateMap</span>
+                    <span class="memberName">singletonDefaultStateMap</span>
+                </div>
+                <div class="block">
+                    <p>Field singletonDefaultStateMap.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">helper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IStateMap</span>
+                    <span class="memberName">helper</span>
+                </div>
+                <div class="block">
+                    <p>Field helper.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">index</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Integer</span>
+                    <span class="memberName">index</span>
+                </div>
+                <div class="block">
+                    <p>Field index.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">subStateIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Integer</span>
+                    <span class="memberName">subStateIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field subStateIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">map</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StateMap</span>
+                    <span class="memberName">map</span>
+                </div>
+                <div class="block">
+                    <p>Field map.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">state</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">state</span>
+                </div>
+                <div class="block">
+                    <p>Field state.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">validator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StateStringValidator</span>
+                    <span class="memberName">validator</span>
+                </div>
+                <div class="block">
+                    <p>Field validator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">resetValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonElement</span>
+                    <span class="memberName">resetValue</span>
+                </div>
+                <div class="block">
+                    <p>Field resetValue.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">string</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">string</span>
+                </div>
+                <div class="block">
+                    <p>Field string.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iterator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectIterator<Int2ObjectMap.Entry<IStateMap>></span>
+                    <span class="memberName">iterator</span>
+                </div>
+                <div class="block">
+                    <p>Field iterator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">next</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Int2ObjectMap.Entry<IStateMap></span>
+                    <span class="memberName">next</span>
+                </div>
+                <div class="block">
+                    <p>Field next.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stateIndexSource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">stateIndexSource</span>
+                </div>
+                <div class="block">
+                    <p>Field stateIndexSource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stateSensors</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">BitSet</span>
+                    <span class="memberName">stateSensors</span>
+                </div>
+                <div class="block">
+                    <p>Field stateSensors.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stateSetters</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">BitSet</span>
+                    <span class="memberName">stateSetters</span>
+                </div>
+                <div class="block">
+                    <p>Field stateSetters.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stateRequirers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">BitSet</span>
+                    <span class="memberName">stateRequirers</span>
+                </div>
+                <div class="block">
+                    <p>Field stateRequirers.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="StateMappingHelper">
+                <h4 class="methodName">StateMappingHelper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">StateMappingHelper</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method StateMappingHelper.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAllMainStates">
+                <h4 class="methodName">getAllMainStates</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int[]</code></span>
+                    <span class="memberName">getAllMainStates</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAllMainStates.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getHighestSubStateIndex">
+                <h4 class="methodName">getHighestSubStateIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getHighestSubStateIndex</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">mainStateIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getHighestSubStateIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>mainStateIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAndPutSensorIndex">
+                <h4 class="methodName">getAndPutSensorIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">getAndPutSensorIndex</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">state</span></span>, <span class="param"><code>final String</code> <span class="param-name">subState</span></span>, <span class="param"><code>@Nonnull final BiConsumer<Integer, Integer></code> <span class="param-name">setter</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getAndPutSensorIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>state</b></dd>
+<dd><code>final String</code> <b>subState</b></dd>
+<dd><code>@Nonnull final BiConsumer<Integer, Integer></code> <b>setter</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="StateDepth">
+                <h4 class="methodName">StateDepth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">StateDepth</span>
+                    <span class="arguments">(<span class="param">this.depth</span>, <span class="param">state</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method StateDepth.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.depth</code> <b>this.depth</b></dd>
+<dd><code>state</code> <b>state</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAndPutSetterIndex">
+                <h4 class="methodName">getAndPutSetterIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">getAndPutSetterIndex</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">state</span></span>, <span class="param"><code>final String</code> <span class="param-name">subState</span></span>, <span class="param"><code>@Nonnull final BiConsumer<Integer, Integer></code> <span class="param-name">setter</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getAndPutSetterIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>state</b></dd>
+<dd><code>final String</code> <b>subState</b></dd>
+<dd><code>@Nonnull final BiConsumer<Integer, Integer></code> <b>setter</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAndPutStateRequirerIndex">
+                <h4 class="methodName">getAndPutStateRequirerIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">getAndPutStateRequirerIndex</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">state</span></span>, <span class="param"><code>final String</code> <span class="param-name">subState</span></span>, <span class="param"><code>@Nonnull final BiConsumer<Integer, Integer></code> <span class="param-name">setter</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getAndPutStateRequirerIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>state</b></dd>
+<dd><code>final String</code> <b>subState</b></dd>
+<dd><code>@Nonnull final BiConsumer<Integer, Integer></code> <b>setter</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAndPutIndex">
+                <h4 class="methodName">getAndPutIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">getAndPutIndex</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">state</span></span>, <span class="param"><code>@Nullable final String</code> <span class="param-name">subState</span></span>, <span class="param"><code>@Nonnull final BiConsumer<Integer, Integer></code> <span class="param-name">setter</span></span>, <span class="param"><code>@Nonnull final Function<String, Integer></code> <span class="param-name">mainStateFunction</span></span>, <span class="param"><code>@Nonnull final BiFunction<Integer, String, Integer></code> <span class="param-name">subStateFunction</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getAndPutIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>state</b></dd>
+<dd><code>@Nullable final String</code> <b>subState</b></dd>
+<dd><code>@Nonnull final BiConsumer<Integer, Integer></code> <b>setter</b></dd>
+<dd><code>@Nonnull final Function<String, Integer></code> <b>mainStateFunction</b></dd>
+<dd><code>@Nonnull final BiFunction<Integer, String, Integer></code> <b>subStateFunction</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="initialiseDefaultSubStates">
+                <h4 class="methodName">initialiseDefaultSubStates</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>IStateMap</code></span>
+                    <span class="memberName">initialiseDefaultSubStates</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initialiseDefaultSubStates.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="validate">
+                <h4 class="methodName">validate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">validate</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">configName</span></span>, <span class="param"><code>@Nonnull final List<String></code> <span class="param-name">errors</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method validate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>configName</b></dd>
+<dd><code>@Nonnull final List<String></code> <b>errors</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getStateIndex">
+                <h4 class="methodName">getStateIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getStateIndex</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">state</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getStateIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>state</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSubStateIndex">
+                <h4 class="methodName">getSubStateIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getSubStateIndex</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><code>final String</code> <span class="param-name">subState</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getSubStateIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><code>final String</code> <b>subState</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getStateName">
+                <h4 class="methodName">getStateName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getStateName</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getStateName.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSubStateName">
+                <h4 class="methodName">getSubStateName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getSubStateName</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><code>final int</code> <span class="param-name">subState</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getSubStateName.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><code>final int</code> <b>subState</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCurrentParentState">
+                <h4 class="methodName">getCurrentParentState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getCurrentParentState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCurrentParentState.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="increaseDepth">
+                <h4 class="methodName">increaseDepth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">increaseDepth</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method increaseDepth.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="decreaseDepth">
+                <h4 class="methodName">decreaseDepth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">decreaseDepth</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method decreaseDepth.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDefaultSubState">
+                <h4 class="methodName">setDefaultSubState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDefaultSubState</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">subState</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setDefaultSubState.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>subState</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDefaultSubState">
+                <h4 class="methodName">getDefaultSubState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getDefaultSubState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDefaultSubState.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNotComponent">
+                <h4 class="methodName">setNotComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNotComponent</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setNotComponent.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isComponent">
+                <h4 class="methodName">isComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isComponent</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isComponent.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasComponentStates">
+                <h4 class="methodName">hasComponentStates</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasComponentStates</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method hasComponentStates.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="initialiseComponentState">
+                <h4 class="methodName">initialiseComponentState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">initialiseComponentState</span>
+                    <span class="arguments">(<span class="param"><a href="BuilderSupport.html" class="type-link"><code>@Nonnull final BuilderSupport</code></a> <span class="param-name">support</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initialiseComponentState.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="BuilderSupport.html" class="type-link"><code>@Nonnull final BuilderSupport</code></a> <b>support</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="popComponentState">
+                <h4 class="methodName">popComponentState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">popComponentState</span>
+                    <span class="arguments">(<span class="param"><a href="BuilderSupport.html" class="type-link"><code>@Nonnull final BuilderSupport</code></a> <span class="param-name">support</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method popComponentState.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="BuilderSupport.html" class="type-link"><code>@Nonnull final BuilderSupport</code></a> <b>support</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="readComponentDefaultLocalState">
+                <h4 class="methodName">readComponentDefaultLocalState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">readComponentDefaultLocalState</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final JsonObject</code> <span class="param-name">data</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method readComponentDefaultLocalState.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final JsonObject</code> <b>data</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="IllegalStateException">
+                <h4 class="methodName">IllegalStateException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IllegalStateException</span>
+                    <span class="arguments">(<span class="param">validator.errorMessage(state</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IllegalStateException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>validator.errorMessage(state</code> <b>validator.errorMessage(state</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasDefaultLocalState">
+                <h4 class="methodName">hasDefaultLocalState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasDefaultLocalState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method hasDefaultLocalState.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDefaultLocalState">
+                <h4 class="methodName">getDefaultLocalState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getDefaultLocalState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDefaultLocalState.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setComponentImportStateMappings">
+                <h4 class="methodName">setComponentImportStateMappings</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setComponentImportStateMappings</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final JsonArray</code> <span class="param-name">states</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setComponentImportStateMappings.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final JsonArray</code> <b>states</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getComponentImportStateIndex">
+                <h4 class="methodName">getComponentImportStateIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getComponentImportStateIndex</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">state</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getComponentImportStateIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>state</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="importedStateCount">
+                <h4 class="methodName">importedStateCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">importedStateCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method importedStateCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setRequiresStateEvaluator">
+                <h4 class="methodName">setRequiresStateEvaluator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setRequiresStateEvaluator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setRequiresStateEvaluator.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setHasStateEvaluator">
+                <h4 class="methodName">setHasStateEvaluator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setHasStateEvaluator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setHasStateEvaluator.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="optimise">
+                <h4 class="methodName">optimise</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">optimise</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method optimise.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOrCreateIndex">
+                <h4 class="methodName">getOrCreateIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getOrCreateIndex</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">name</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getOrCreateIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>name</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAndPutRequirerIndex">
+                <h4 class="methodName">getAndPutRequirerIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getAndPutRequirerIndex</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">targetState</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getAndPutRequirerIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>targetState</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isEmpty">
+                <h4 class="methodName">isEmpty</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isEmpty</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isEmpty.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="size">
+                <h4 class="methodName">size</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">size</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method size.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

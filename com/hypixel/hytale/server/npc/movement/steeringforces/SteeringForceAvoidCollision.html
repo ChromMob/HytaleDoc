@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SteeringForceAvoidCollision (com.hypixel.hytale.server.npc.movement.steeringforces)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/npc/movement/steeringforces/package-summary.html">com.hypixel.hytale.server.npc.movement.steeringforces</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">SteeringForceAvoidCollision</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="SteeringForceAvoidCollision.html" class="type-link">SteeringForceAvoidCollision</a> extends <a href="SteeringForceWithGroup.html" class="type-link" data-class="SteeringForceWithGroup"><code>SteeringForceWithGroup</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class SteeringForceAvoidCollision. Provides steeringforceavoidcollision functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; SteeringForceWithGroup &gt; SteeringForceAvoidCollision</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">selfRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">selfRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field selfRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">collisionTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">collisionTime</span>
+                </div>
+                <div class="block">
+                    <p>Field collisionTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">maxDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field maxDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">falloff</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">falloff</span>
+                </div>
+                <div class="block">
+                    <p>Field falloff.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">strength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">strength</span>
+                </div>
+                <div class="block">
+                    <p>Field strength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">avoidanceMode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Role.AvoidanceMode</span>
+                    <span class="memberName">avoidanceMode</span>
+                </div>
+                <div class="block">
+                    <p>Field avoidanceMode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">selfReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">selfReference</span>
+                </div>
+                <div class="block">
+                    <p>Field selfReference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">otherReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">otherReference</span>
+                </div>
+                <div class="block">
+                    <p>Field otherReference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">velocity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">velocity</span>
+                </div>
+                <div class="block">
+                    <p>Field velocity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">maxTime</span>
+                </div>
+                <div class="block">
+                    <p>Field maxTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">canSlowDown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">canSlowDown</span>
+                </div>
+                <div class="block">
+                    <p>Field canSlowDown.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">overlap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">overlap</span>
+                </div>
+                <div class="block">
+                    <p>Field overlap.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">debug</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">debug</span>
+                </div>
+                <div class="block">
+                    <p>Field debug.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">velocitySquared</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">velocitySquared</span>
+                </div>
+                <div class="block">
+                    <p>Field velocitySquared.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">l</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">l</span>
+                </div>
+                <div class="block">
+                    <p>Field l.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">distance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">distance</span>
+                </div>
+                <div class="block">
+                    <p>Field distance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">s</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">s</span>
+                </div>
+                <div class="block">
+                    <p>Field s.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">uuidComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUIDComponent</span>
+                    <span class="memberName">uuidComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field uuidComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">uuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">uuid</span>
+                </div>
+                <div class="block">
+                    <p>Field uuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">departing</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">departing</span>
+                </div>
+                <div class="block">
+                    <p>Field departing.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">entityRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field entityRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sumRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">sumRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field sumRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">velocityComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Velocity</span>
+                    <span class="memberName">velocityComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field velocityComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">solutions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">solutions</span>
+                </div>
+                <div class="block">
+                    <p>Field solutions.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempVelocity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">tempVelocity</span>
+                </div>
+                <div class="block">
+                    <p>Field tempVelocity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">dot</span>
+                </div>
+                <div class="block">
+                    <p>Field dot.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">antiParallel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">antiParallel</span>
+                </div>
+                <div class="block">
+                    <p>Field antiParallel.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="SteeringForceAvoidCollision">
+                <h4 class="methodName">SteeringForceAvoidCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">SteeringForceAvoidCollision</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method SteeringForceAvoidCollision.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDebug">
+                <h4 class="methodName">setDebug</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDebug</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">debug</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setDebug.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>debug</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAvoidanceMode">
+                <h4 class="methodName">getAvoidanceMode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Role.AvoidanceMode</code></span>
+                    <span class="memberName">getAvoidanceMode</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAvoidanceMode.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setAvoidanceMode">
+                <h4 class="methodName">setAvoidanceMode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setAvoidanceMode</span>
+                    <span class="arguments">(<span class="param"><code>final Role.AvoidanceMode</code> <span class="param-name">avoidanceMode</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setAvoidanceMode.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Role.AvoidanceMode</code> <b>avoidanceMode</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setSelf">
+                <h4 class="methodName">setSelf</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setSelf</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setSelf.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="reset">
+                <h4 class="methodName">reset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">reset</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method reset.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="compute">
+                <h4 class="methodName">compute</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">compute</span>
+                    <span class="arguments">(<span class="param"><a href="..//Steering.html" class="type-link"><code>@Nonnull final Steering</code></a> <span class="param-name">output</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method compute.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="..//Steering.html" class="type-link"><code>@Nonnull final Steering</code></a> <b>output</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="add">
+                <h4 class="methodName">add</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">add</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method add.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setVelocityFromEntity">
+                <h4 class="methodName">setVelocityFromEntity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setVelocityFromEntity</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setVelocityFromEntity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setRadiusFromEntity">
+                <h4 class="methodName">setRadiusFromEntity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setRadiusFromEntity</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setRadiusFromEntity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setMaxDistance">
+                <h4 class="methodName">setMaxDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setMaxDistance</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">distance</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setMaxDistance.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>distance</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setFalloff">
+                <h4 class="methodName">setFalloff</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setFalloff</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">falloff</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setFalloff.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>falloff</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setSelfVelocity">
+                <h4 class="methodName">setSelfVelocity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setSelfVelocity</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">selfVelocity</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setSelfVelocity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>selfVelocity</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSelfVelocity">
+                <h4 class="methodName">getSelfVelocity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>Vector3d</code></a></span>
+                    <span class="memberName">getSelfVelocity</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSelfVelocity.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSelfRadius">
+                <h4 class="methodName">getSelfRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getSelfRadius</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSelfRadius.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setSelfRadius">
+                <h4 class="methodName">setSelfRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setSelfRadius</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">selfRadius</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setSelfRadius.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>selfRadius</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getStrength">
+                <h4 class="methodName">getStrength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getStrength</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getStrength.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setStrength">
+                <h4 class="methodName">setStrength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setStrength</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">strength</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setStrength.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>strength</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLastSteeringDirection">
+                <h4 class="methodName">getLastSteeringDirection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>Vector3d</code></a></span>
+                    <span class="memberName">getLastSteeringDirection</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLastSteeringDirection.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ProjectileModule (com.hypixel.hytale.server.core.modules.projectile)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/core/modules/projectile/package-summary.html">com.hypixel.hytale.server.core.modules.projectile</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">ProjectileModule</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="ProjectileModule.html" class="type-link">ProjectileModule</a> extends <a href="../../plugin/JavaPlugin.html" class="type-link" data-class="JavaPlugin"><code>JavaPlugin</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class ProjectileModule. Provides projectilemodule functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; JavaPlugin &gt; ProjectileModule</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityStoreRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ComponentRegistryProxy<EntityStore></span>
+                    <span class="memberName">entityStoreRegistry</span>
+                </div>
+                <div class="block">
+                    <p>Field entityStoreRegistry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">holder</span>
+                </div>
+                <div class="block">
+                    <p>Field holder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3f</span>
+                    <span class="memberName">rotation</span>
+                </div>
+                <div class="block">
+                    <p>Field rotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotationOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Direction</span>
+                    <span class="memberName">rotationOffset</span>
+                </div>
+                <div class="block">
+                    <p>Field rotationOffset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">offset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">offset</span>
+                </div>
+                <div class="block">
+                    <p>Field offset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">model</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Model</span>
+                    <span class="memberName">model</span>
+                </div>
+                <div class="block">
+                    <p>Field model.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">launchWorldSoundEventIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">launchWorldSoundEventIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field launchWorldSoundEventIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">projectileSoundEventIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">projectileSoundEventIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field projectileSoundEventIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">audioComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AudioComponent</span>
+                    <span class="memberName">audioComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field audioComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">projectileRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">projectileRef</span>
+                </div>
+                <div class="block">
+                    <p>Field projectileRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">interactionManagerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionManager</span>
+                    <span class="memberName">interactionManagerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field interactionManagerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Entity</span>
+                    <span class="memberName">entity</span>
+                </div>
+                <div class="block">
+                    <p>Field entity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">livingEntity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LivingEntity</span>
+                    <span class="memberName">livingEntity</span>
+                </div>
+                <div class="block">
+                    <p>Field livingEntity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">context</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionContext</span>
+                    <span class="memberName">context</span>
+                </div>
+                <div class="block">
+                    <p>Field context.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rootInteractionId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">rootInteractionId</span>
+                </div>
+                <div class="block">
+                    <p>Field rootInteractionId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rootInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RootInteraction</span>
+                    <span class="memberName">rootInteraction</span>
+                </div>
+                <div class="block">
+                    <p>Field rootInteraction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionChain</span>
+                    <span class="memberName">chain</span>
+                </div>
+                <div class="block">
+                    <p>Field chain.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="get">
+                <h4 class="methodName">get</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="ProjectileModule.html" class="type-link"><code>ProjectileModule</code></a></span>
+                    <span class="memberName">get</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method get.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ProjectileModule">
+                <h4 class="methodName">ProjectileModule</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">ProjectileModule</span>
+                    <span class="arguments">(<span class="param"><a href="../../plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <span class="param-name">init</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ProjectileModule.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <b>init</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="StandardPhysicsTickSystem">
+                <h4 class="methodName">StandardPhysicsTickSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">StandardPhysicsTickSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method StandardPhysicsTickSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="spawnProjectile">
+                <h4 class="methodName">spawnProjectile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../component/Ref.html" class="type-link"><code>Ref<EntityStore></code></a></span>
+                    <span class="memberName">spawnProjectile</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <span class="param-name">creatorRef</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>, <span class="param"><a href="config/ProjectileConfig.html" class="type-link"><code>@Nonnull final ProjectileConfig</code></a> <span class="param-name">config</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">direction</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method spawnProjectile.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <b>creatorRef</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+<dd><a href="config/ProjectileConfig.html" class="type-link"><code>@Nonnull final ProjectileConfig</code></a> <b>config</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>direction</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="TransformComponent">
+                <h4 class="methodName">TransformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">TransformComponent</span>
+                    <span class="arguments">(<span class="param">position</span>, <span class="param">rotation</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method TransformComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>position</code> <b>position</b></dd>
+<dd><code>rotation</code> <b>rotation</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="HeadRotation">
+                <h4 class="methodName">HeadRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">HeadRotation</span>
+                    <span class="arguments">(<span class="param">rotation</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method HeadRotation.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>rotation</code> <b>rotation</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="UUIDComponent">
+                <h4 class="methodName">UUIDComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">UUIDComponent</span>
+                    <span class="arguments">(<span class="param">predictionId</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method UUIDComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>predictionId</code> <b>predictionId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Interactions">
+                <h4 class="methodName">Interactions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Interactions</span>
+                    <span class="arguments">(<span class="param">config.getInteractions(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Interactions.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>config.getInteractions(</code> <b>config.getInteractions(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ModelComponent">
+                <h4 class="methodName">ModelComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ModelComponent</span>
+                    <span class="arguments">(<span class="param">model</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ModelComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>model</code> <b>model</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PersistentModel">
+                <h4 class="methodName">PersistentModel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PersistentModel</span>
+                    <span class="arguments">(<span class="param">model.toReference(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PersistentModel.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>model.toReference(</code> <b>model.toReference(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BoundingBox">
+                <h4 class="methodName">BoundingBox</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BoundingBox</span>
+                    <span class="arguments">(<span class="param">model.getBoundingBox(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BoundingBox.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>model.getBoundingBox(</code> <b>model.getBoundingBox(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NetworkId">
+                <h4 class="methodName">NetworkId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NetworkId</span>
+                    <span class="arguments">(<span class="param">commandBuffer.getExternalData(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NetworkId.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>commandBuffer.getExternalData(</code> <b>commandBuffer.getExternalData(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PredictedProjectile">
+                <h4 class="methodName">PredictedProjectile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PredictedProjectile</span>
+                    <span class="arguments">(<span class="param">predictionId</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PredictedProjectile.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>predictionId</code> <b>predictionId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Velocity">
+                <h4 class="methodName">Velocity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Velocity</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method Velocity.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="DespawnComponent">
+                <h4 class="methodName">DespawnComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">DespawnComponent</span>
+                    <span class="arguments">(<span class="param">commandBuffer.getResource(TimeResource.getResourceType(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method DespawnComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>commandBuffer.getResource(TimeResource.getResourceType(</code> <b>commandBuffer.getResource(TimeResource.getResourceType(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onProjectileSpawnInteraction">
+                <h4 class="methodName">onProjectileSpawnInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>></code></span>
+                    <span class="memberName">onProjectileSpawnInteraction</span>
+                    <span class="arguments">(<span class="param">projectileRef</span>, <span class="param">creatorRef</span>, <span class="param">store</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onProjectileSpawnInteraction.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>projectileRef</code> <b>projectileRef</b></dd>
+<dd><code>creatorRef</code> <b>creatorRef</b></dd>
+<dd><code>store</code> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getProjectileComponentType">
+                <h4 class="methodName">getProjectileComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Projectile></code></span>
+                    <span class="memberName">getProjectileComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getProjectileComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getStandardPhysicsProviderComponentType">
+                <h4 class="methodName">getStandardPhysicsProviderComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>StandardPhysicsProvider></code></span>
+                    <span class="memberName">getStandardPhysicsProviderComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getStandardPhysicsProviderComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPredictedProjectileComponentType">
+                <h4 class="methodName">getPredictedProjectileComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PredictedProjectile></code></span>
+                    <span class="memberName">getPredictedProjectileComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPredictedProjectileComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

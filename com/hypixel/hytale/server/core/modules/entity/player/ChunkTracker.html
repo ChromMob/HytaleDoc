@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChunkTracker (com.hypixel.hytale.server.core.modules.entity.player)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../../com/hypixel/hytale/server/core/modules/entity/player/package-summary.html">com.hypixel.hytale.server.core.modules.entity.player</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">ChunkTracker</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="ChunkTracker.html" class="type-link">ChunkTracker</a> implements <a href="../../../../../component/Component.html" class="type-link" data-class="Component"><code>Component<EntityStore></code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class ChunkTracker. Provides chunktracker functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; ChunkTracker</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkViewRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkViewRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkViewRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxChunksPerSecond</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxChunksPerSecond</span>
+                </div>
+                <div class="block">
+                    <p>Field maxChunksPerSecond.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inverseMaxChunksPerSecond</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">inverseMaxChunksPerSecond</span>
+                </div>
+                <div class="block">
+                    <p>Field inverseMaxChunksPerSecond.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxChunksPerTick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxChunksPerTick</span>
+                </div>
+                <div class="block">
+                    <p>Field maxChunksPerTick.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minLoadedChunksRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">minLoadedChunksRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field minLoadedChunksRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxHotLoadedChunksRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxHotLoadedChunksRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field maxHotLoadedChunksRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">accumulator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">accumulator</span>
+                </div>
+                <div class="block">
+                    <p>Field accumulator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sentViewRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">sentViewRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field sentViewRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hotRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">hotRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field hotRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastChunkX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">lastChunkX</span>
+                </div>
+                <div class="block">
+                    <p>Field lastChunkX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastChunkZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">lastChunkZ</span>
+                </div>
+                <div class="block">
+                    <p>Field lastChunkZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">readyForChunks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">readyForChunks</span>
+                </div>
+                <div class="block">
+                    <p>Field readyForChunks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">stamp</span>
+                </div>
+                <div class="block">
+                    <p>Field stamp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iterator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LongIterator</span>
+                    <span class="memberName">iterator</span>
+                </div>
+                <div class="block">
+                    <p>Field iterator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">chunkIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkX</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkZ</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent2</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">playerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRefComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">playerRefComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRefComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">viewRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">viewRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field viewRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">xDiff</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">xDiff</span>
+                </div>
+                <div class="block">
+                    <p>Field xDiff.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zDiff</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">zDiff</span>
+                </div>
+                <div class="block">
+                    <p>Field zDiff.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkMoveDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkMoveDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkMoveDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkStore</span>
+                    <span class="memberName">chunkStore</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minLoadedRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">minLoadedRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field minLoadedRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minLoadedRadiusSq</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">minLoadedRadiusSq</span>
+                </div>
+                <div class="block">
+                    <p>Field minLoadedRadiusSq.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">loadingSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">loadingSize</span>
+                </div>
+                <div class="block">
+                    <p>Field loadingSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkCoordinates</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">chunkCoordinates</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkCoordinates.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxHotRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxHotRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field maxHotRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<ChunkStore></span>
+                    <span class="memberName">chunkReference</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkReference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldChunkComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">worldChunkComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field worldChunkComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">x</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">x</span>
+                </div>
+                <div class="block">
+                    <p>Field x.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">z</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">z</span>
+                </div>
+                <div class="block">
+                    <p>Field z.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">distanceSq</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">distanceSq</span>
+                </div>
+                <div class="block">
+                    <p>Field distanceSq.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">shouldBeVisible</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">shouldBeVisible</span>
+                </div>
+                <div class="block">
+                    <p>Field shouldBeVisible.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isHot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isHot</span>
+                </div>
+                <div class="block">
+                    <p>Field isHot.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">size</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">size</span>
+                </div>
+                <div class="block">
+                    <p>Field size.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkXMin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkXMin</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkXMin.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkZMin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkZMin</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkZMin.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkXMax</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkXMax</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkXMax.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkZMax</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkZMax</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkZMax.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sb</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">sb</span>
+                </div>
+                <div class="block">
+                    <p>Field sb.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">index</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">index</span>
+                </div>
+                <div class="block">
+                    <p>Field index.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkVisibility</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkVisibility</span>
+                    <span class="memberName">chunkVisibility</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkVisibility.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">otherStamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">otherStamp</span>
+                </div>
+                <div class="block">
+                    <p>Field otherStamp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkComponentStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkStore</span>
+                    <span class="memberName">chunkComponentStore</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkComponentStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">reference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<ChunkStore></span>
+                    <span class="memberName">reference</span>
+                </div>
+                <div class="block">
+                    <p>Field reference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<Packet></span>
+                    <span class="memberName">packets</span>
+                </div>
+                <div class="block">
+                    <p>Field packets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stamp2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">stamp2</span>
+                </div>
+                <div class="block">
+                    <p>Field stamp2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stamp3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">stamp3</span>
+                </div>
+                <div class="block">
+                    <p>Field stamp3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">futurePackets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<CompletableFuture<Packet>></span>
+                    <span class="memberName">futurePackets</span>
+                </div>
+                <div class="block">
+                    <p>Field futurePackets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Packet</span>
+                    <span class="memberName">packet</span>
+                </div>
+                <div class="block">
+                    <p>Field packet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">writeStamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">writeStamp</span>
+                </div>
+                <div class="block">
+                    <p>Field writeStamp.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="getComponentType">
+                <h4 class="methodName">getComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ChunkTracker></code></span>
+                    <span class="memberName">getComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ChunkTracker">
+                <h4 class="methodName">ChunkTracker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">ChunkTracker</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ChunkTracker.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unloadAll">
+                <h4 class="methodName">unloadAll</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">unloadAll</span>
+                    <span class="arguments">(<span class="param"><a href="../../../universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <span class="param-name">playerRefComponent</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method unloadAll.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <b>playerRefComponent</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="UnloadChunk">
+                <h4 class="methodName">UnloadChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">UnloadChunk</span>
+                    <span class="arguments">(<span class="param">chunkX</span>, <span class="param">chunkZ</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method UnloadChunk.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>chunkX</code> <b>chunkX</b></dd>
+<dd><code>chunkZ</code> <b>chunkZ</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clear">
+                <h4 class="methodName">clear</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clear</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clear.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tick">
+                <h4 class="methodName">tick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tick</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">playerRef</span></span>, <span class="param"><code>final float</code> <span class="param-name">dt</span></span>, <span class="param"><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>playerRef</b></dd>
+<dd><code>final float</code> <b>dt</b></dd>
+<dd><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isLoaded">
+                <h4 class="methodName">isLoaded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isLoaded</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">indexChunk</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isLoaded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>indexChunk</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeForReload">
+                <h4 class="methodName">removeForReload</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">removeForReload</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">indexChunk</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removeForReload.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>indexChunk</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="shouldBeVisible">
+                <h4 class="methodName">shouldBeVisible</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">shouldBeVisible</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">chunkCoordinates</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method shouldBeVisible.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>chunkCoordinates</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChunkVisibility">
+                <h4 class="methodName">getChunkVisibility</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ChunkVisibility</code></span>
+                    <span class="memberName">getChunkVisibility</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">indexChunk</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getChunkVisibility.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>indexChunk</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMaxChunksPerSecond">
+                <h4 class="methodName">getMaxChunksPerSecond</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getMaxChunksPerSecond</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMaxChunksPerSecond.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setMaxChunksPerSecond">
+                <h4 class="methodName">setMaxChunksPerSecond</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setMaxChunksPerSecond</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">maxChunksPerSecond</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setMaxChunksPerSecond.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>maxChunksPerSecond</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDefaultMaxChunksPerSecond">
+                <h4 class="methodName">setDefaultMaxChunksPerSecond</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDefaultMaxChunksPerSecond</span>
+                    <span class="arguments">(<span class="param"><a href="../../../universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <span class="param-name">playerRef</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setDefaultMaxChunksPerSecond.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <b>playerRef</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">playerRef.getPacketHandler(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>playerRef.getPacketHandler(</code> <b>playerRef.getPacketHandler(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMaxChunksPerTick">
+                <h4 class="methodName">getMaxChunksPerTick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getMaxChunksPerTick</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMaxChunksPerTick.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setMaxChunksPerTick">
+                <h4 class="methodName">setMaxChunksPerTick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setMaxChunksPerTick</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">maxChunksPerTick</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setMaxChunksPerTick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>maxChunksPerTick</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMinLoadedChunksRadius">
+                <h4 class="methodName">getMinLoadedChunksRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getMinLoadedChunksRadius</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMinLoadedChunksRadius.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setMinLoadedChunksRadius">
+                <h4 class="methodName">setMinLoadedChunksRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setMinLoadedChunksRadius</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">minLoadedChunksRadius</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setMinLoadedChunksRadius.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>minLoadedChunksRadius</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMaxHotLoadedChunksRadius">
+                <h4 class="methodName">getMaxHotLoadedChunksRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getMaxHotLoadedChunksRadius</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMaxHotLoadedChunksRadius.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setMaxHotLoadedChunksRadius">
+                <h4 class="methodName">setMaxHotLoadedChunksRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setMaxHotLoadedChunksRadius</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">maxHotLoadedChunksRadius</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setMaxHotLoadedChunksRadius.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>maxHotLoadedChunksRadius</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLoadedChunksCount">
+                <h4 class="methodName">getLoadedChunksCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getLoadedChunksCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLoadedChunksCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLoadingChunksCount">
+                <h4 class="methodName">getLoadingChunksCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getLoadingChunksCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLoadingChunksCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLoadedChunksGrid">
+                <h4 class="methodName">getLoadedChunksGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getLoadedChunksGrid</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLoadedChunksGrid.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLoadedChunksMessage">
+                <h4 class="methodName">getLoadedChunksMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../..//Message.html" class="type-link"><code>Message</code></a></span>
+                    <span class="memberName">getLoadedChunksMessage</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLoadedChunksMessage.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLoadedChunksDebug">
+                <h4 class="methodName">getLoadedChunksDebug</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getLoadedChunksDebug</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLoadedChunksDebug.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setReadyForChunks">
+                <h4 class="methodName">setReadyForChunks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setReadyForChunks</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">readyForChunks</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setReadyForChunks.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>readyForChunks</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isReadyForChunks">
+                <h4 class="methodName">isReadyForChunks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isReadyForChunks</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isReadyForChunks.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="copyFrom">
+                <h4 class="methodName">copyFrom</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">copyFrom</span>
+                    <span class="arguments">(<span class="param"><a href="ChunkTracker.html" class="type-link"><code>@Nonnull final ChunkTracker</code></a> <span class="param-name">chunkTracker</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method copyFrom.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="ChunkTracker.html" class="type-link"><code>@Nonnull final ChunkTracker</code></a> <b>chunkTracker</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clone">
+                <h4 class="methodName">clone</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../component/Component.html" class="type-link"><code>Component<EntityStore></code></a></span>
+                    <span class="memberName">clone</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clone.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryUnloadChunk">
+                <h4 class="methodName">tryUnloadChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">tryUnloadChunk</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">chunkIndex</span></span>, <span class="param"><code>final int</code> <span class="param-name">chunkViewRadiusSquared</span></span>, <span class="param"><code>final int</code> <span class="param-name">chunkX</span></span>, <span class="param"><code>final int</code> <span class="param-name">chunkZ</span></span>, <span class="param"><a href="../../../universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <span class="param-name">playerRef</span></span>, <span class="param"><code>@Nonnull final LongSet</code> <span class="param-name">loading</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryUnloadChunk.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>chunkIndex</b></dd>
+<dd><code>final int</code> <b>chunkViewRadiusSquared</b></dd>
+<dd><code>final int</code> <b>chunkX</b></dd>
+<dd><code>final int</code> <b>chunkZ</b></dd>
+<dd><a href="../../../universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <b>playerRef</b></dd>
+<dd><code>@Nonnull final LongSet</code> <b>loading</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryLoadChunkAsync">
+                <h4 class="methodName">tryLoadChunkAsync</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tryLoadChunkAsync</span>
+                    <span class="arguments">(<span class="param"><a href="../../../universe/world/storage/ChunkStore.html" class="type-link"><code>@Nonnull final ChunkStore</code></a> <span class="param-name">chunkStore</span></span>, <span class="param"><a href="../../../universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <span class="param-name">playerRefComponent</span></span>, <span class="param"><code>final long</code> <span class="param-name">chunkIndex</span></span>, <span class="param"><a href="../component/TransformComponent.html" class="type-link"><code>@Nonnull final TransformComponent</code></a> <span class="param-name">transformComponent</span></span>, <span class="param"><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryLoadChunkAsync.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../universe/world/storage/ChunkStore.html" class="type-link"><code>@Nonnull final ChunkStore</code></a> <b>chunkStore</b></dd>
+<dd><a href="../../../universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <b>playerRefComponent</b></dd>
+<dd><code>final long</code> <b>chunkIndex</b></dd>
+<dd><a href="../component/TransformComponent.html" class="type-link"><code>@Nonnull final TransformComponent</code></a> <b>transformComponent</b></dd>
+<dd><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="_loadChunkAsync">
+                <h4 class="methodName">_loadChunkAsync</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>CompletableFuture<Void></code></span>
+                    <span class="memberName">_loadChunkAsync</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">chunkIndex</span></span>, <span class="param"><a href="../../../universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <span class="param-name">playerRefComponent</span></span>, <span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<ChunkStore></code></a> <span class="param-name">chunkRef</span></span>, <span class="param"><a href="../../../universe/world/storage/ChunkStore.html" class="type-link"><code>@Nonnull final ChunkStore</code></a> <span class="param-name">chunkStore</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method _loadChunkAsync.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>chunkIndex</b></dd>
+<dd><a href="../../../universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <b>playerRefComponent</b></dd>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<ChunkStore></code></a> <b>chunkRef</b></dd>
+<dd><a href="../../../universe/world/storage/ChunkStore.html" class="type-link"><code>@Nonnull final ChunkStore</code></a> <b>chunkStore</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

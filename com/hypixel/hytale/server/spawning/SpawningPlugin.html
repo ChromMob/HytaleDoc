@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpawningPlugin (com.hypixel.hytale.server.spawning)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../com/hypixel/hytale/server/spawning/package-summary.html">com.hypixel.hytale.server.spawning</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">SpawningPlugin</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="SpawningPlugin.html" class="type-link">SpawningPlugin</a> extends <a href="../core/plugin/JavaPlugin.html" class="type-link" data-class="JavaPlugin"><code>JavaPlugin</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>The main plugin class for Spawning. This plugin provides gameplay features for the Hytale server. Extend this class to create a plugin.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; JavaPlugin &gt; SpawningPlugin</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnMarkerModel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Model</span>
+                    <span class="memberName">spawnMarkerModel</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnMarkerModel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">localSpawnControllerJoinDelay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">localSpawnControllerJoinDelay</span>
+                </div>
+                <div class="block">
+                    <p>Field localSpawnControllerJoinDelay.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tickColumnBudget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">tickColumnBudget</span>
+                </div>
+                <div class="block">
+                    <p>Field tickColumnBudget.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityModule</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EntityModule</span>
+                    <span class="memberName">entityModule</span>
+                </div>
+                <div class="block">
+                    <p>Field entityModule.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">config</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NPCSpawningConfig</span>
+                    <span class="memberName">config</span>
+                </div>
+                <div class="block">
+                    <p>Field config.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnMarkerModelId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">spawnMarkerModelId</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnMarkerModelId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">manager</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SpawnManager</span>
+                    <span class="memberName">manager</span>
+                </div>
+                <div class="block">
+                    <p>Field manager.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">wrapper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SpawnWrapper</span>
+                    <span class="memberName">wrapper</span>
+                </div>
+                <div class="block">
+                    <p>Field wrapper.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environment</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">environment</span>
+                </div>
+                <div class="block">
+                    <p>Field environment.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldSpawnData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldSpawnData</span>
+                    <span class="memberName">worldSpawnData</span>
+                </div>
+                <div class="block">
+                    <p>Field worldSpawnData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environmentSpawnData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldEnvironmentSpawnData</span>
+                    <span class="memberName">environmentSpawnData</span>
+                </div>
+                <div class="block">
+                    <p>Field environmentSpawnData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">npcSpawnData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldNPCSpawnStat</span>
+                    <span class="memberName">npcSpawnData</span>
+                </div>
+                <div class="block">
+                    <p>Field npcSpawnData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">npCs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RoleSpawnParameters[]</span>
+                    <span class="memberName">npCs</span>
+                </div>
+                <div class="block">
+                    <p>Field npCs.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">npcs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RoleSpawnParameters[]</span>
+                    <span class="memberName">npcs</span>
+                </div>
+                <div class="block">
+                    <p>Field npcs.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">npc</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RoleSpawnParameters</span>
+                    <span class="memberName">npc</span>
+                </div>
+                <div class="block">
+                    <p>Field npc.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnMarkerEntity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SpawnMarkerEntity</span>
+                    <span class="memberName">spawnMarkerEntity</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnMarkerEntity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">holder</span>
+                </div>
+                <div class="block">
+                    <p>Field holder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">errors</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<String></span>
+                    <span class="memberName">errors</span>
+                </div>
+                <div class="block">
+                    <p>Field errors.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">removedAssets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set<String></span>
+                    <span class="memberName">removedAssets</span>
+                </div>
+                <div class="block">
+                    <p>Field removedAssets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">index</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">index</span>
+                </div>
+                <div class="block">
+                    <p>Field index.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">changeSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntOpenHashSet</span>
+                    <span class="memberName">changeSet</span>
+                </div>
+                <div class="block">
+                    <p>Field changeSet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">store</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<EntityStore></span>
+                    <span class="memberName">store</span>
+                </div>
+                <div class="block">
+                    <p>Field store.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">legacySpawnBeaconComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LegacySpawnBeaconEntity</span>
+                    <span class="memberName">legacySpawnBeaconComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field legacySpawnBeaconComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnBeaconRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">spawnBeaconRef</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnBeaconRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">legacySpawnBeaconComponent2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SpawnBeacon</span>
+                    <span class="memberName">legacySpawnBeaconComponent2</span>
+                </div>
+                <div class="block">
+                    <p>Field legacySpawnBeaconComponent2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnBeaconRef2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">spawnBeaconRef2</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnBeaconRef2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">holder2</span>
+                </div>
+                <div class="block">
+                    <p>Field holder2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnBeaconComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LegacySpawnBeaconEntity</span>
+                    <span class="memberName">spawnBeaconComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnBeaconComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnBeaconComponent2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SpawnBeacon</span>
+                    <span class="memberName">spawnBeaconComponent2</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnBeaconComponent2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">loadedNPCs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Int2ObjectMap<BuilderInfo></span>
+                    <span class="memberName">loadedNPCs</span>
+                </div>
+                <div class="block">
+                    <p>Field loadedNPCs.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">key</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">key</span>
+                </div>
+                <div class="block">
+                    <p>Field key.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">value</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldNPCSpawn</span>
+                    <span class="memberName">value</span>
+                </div>
+                <div class="block">
+                    <p>Field value.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">value2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BeaconNPCSpawn</span>
+                    <span class="memberName">value2</span>
+                </div>
+                <div class="block">
+                    <p>Field value2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">key2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">key2</span>
+                </div>
+                <div class="block">
+                    <p>Field key2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">index2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">index2</span>
+                </div>
+                <div class="block">
+                    <p>Field index2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawn</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BeaconNPCSpawn</span>
+                    <span class="memberName">spawn</span>
+                </div>
+                <div class="block">
+                    <p>Field spawn.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ModelAsset</span>
+                    <span class="memberName">modelAsset</span>
+                </div>
+                <div class="block">
+                    <p>Field modelAsset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">start</span>
+                </div>
+                <div class="block">
+                    <p>Field start.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnSuppressor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BsonDocument</span>
+                    <span class="memberName">spawnSuppressor</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnSuppressor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">archetype</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Archetype<EntityStore></span>
+                    <span class="memberName">archetype</span>
+                </div>
+                <div class="block">
+                    <p>Field archetype.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Model.ModelReference</span>
+                    <span class="memberName">modelReference</span>
+                </div>
+                <div class="block">
+                    <p>Field modelReference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnBudgetFactor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">spawnBudgetFactor</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnBudgetFactor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxActiveJobs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxActiveJobs</span>
+                </div>
+                <div class="block">
+                    <p>Field maxActiveJobs.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">defaultMarkerModel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">defaultMarkerModel</span>
+                </div>
+                <div class="block">
+                    <p>Field defaultMarkerModel.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="get">
+                <h4 class="methodName">get</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="SpawningPlugin.html" class="type-link"><code>SpawningPlugin</code></a></span>
+                    <span class="memberName">get</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method get.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="SpawningPlugin">
+                <h4 class="methodName">SpawningPlugin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">SpawningPlugin</span>
+                    <span class="arguments">(<span class="param"><a href="../core/plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <span class="param-name">init</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SpawningPlugin.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../core/plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <b>init</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="SpawnCommand">
+                <h4 class="methodName">SpawnCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SpawnCommand</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method SpawnCommand.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="DefaultAssetMap">
+                <h4 class="methodName">DefaultAssetMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">DefaultAssetMap</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method DefaultAssetMap.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="IndexedLookupTableAssetMap">
+                <h4 class="methodName">IndexedLookupTableAssetMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IndexedLookupTableAssetMap</span>
+                    <span class="arguments">(<span class="param">WorldNPCSpawn[]::new</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IndexedLookupTableAssetMap.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>WorldNPCSpawn[]::new</code> <b>WorldNPCSpawn[]::new</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="IndexedAssetMap">
+                <h4 class="methodName">IndexedAssetMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IndexedAssetMap</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method IndexedAssetMap.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="KDTree">
+                <h4 class="methodName">KDTree</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">KDTree</span>
+                    <span class="arguments">(<span class="param">Ref::isValid</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method KDTree.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Ref::isValid</code> <b>Ref::isValid</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="LegacyBeaconSpatialSystem">
+                <h4 class="methodName">LegacyBeaconSpatialSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">LegacyBeaconSpatialSystem</span>
+                    <span class="arguments">(<span class="param">this.legacyBeaconSpatialResource</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method LegacyBeaconSpatialSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.legacyBeaconSpatialResource</code> <b>this.legacyBeaconSpatialResource</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SpawnMarkerSpatialSystem">
+                <h4 class="methodName">SpawnMarkerSpatialSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SpawnMarkerSpatialSystem</span>
+                    <span class="arguments">(<span class="param">this.spawnMarkerSpatialResource</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SpawnMarkerSpatialSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.spawnMarkerSpatialResource</code> <b>this.spawnMarkerSpatialResource</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BeaconSpatialSystem">
+                <h4 class="methodName">BeaconSpatialSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BeaconSpatialSystem</span>
+                    <span class="arguments">(<span class="param">this.manualSpawnBeaconSpatialResource</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BeaconSpatialSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.manualSpawnBeaconSpatialResource</code> <b>this.manualSpawnBeaconSpatialResource</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SpawnMarkerSuppressionSystem">
+                <h4 class="methodName">SpawnMarkerSuppressionSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SpawnMarkerSuppressionSystem</span>
+                    <span class="arguments">(<span class="param">this.spawnMarkerComponentType</span>, <span class="param">this.spawnSuppressionControllerResourceType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SpawnMarkerSuppressionSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.spawnMarkerComponentType</code> <b>this.spawnMarkerComponentType</b></dd>
+<dd><code>this.spawnSuppressionControllerResourceType</code> <b>this.spawnSuppressionControllerResourceType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="LocalSpawnSetupSystem">
+                <h4 class="methodName">LocalSpawnSetupSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">LocalSpawnSetupSystem</span>
+                    <span class="arguments">(<span class="param">playerComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method LocalSpawnSetupSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>playerComponentType</code> <b>playerComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="LocalSpawnControllerSystem">
+                <h4 class="methodName">LocalSpawnControllerSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">LocalSpawnControllerSystem</span>
+                    <span class="arguments">(<span class="param">this.localSpawnControllerComponentType</span>, <span class="param">transformComponentType</span>, <span class="param">WeatherTracker.getComponentType(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method LocalSpawnControllerSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.localSpawnControllerComponentType</code> <b>this.localSpawnControllerComponentType</b></dd>
+<dd><code>transformComponentType</code> <b>transformComponentType</b></dd>
+<dd><code>WeatherTracker.getComponentType(</code> <b>WeatherTracker.getComponentType(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="LocalSpawnBeaconSystem">
+                <h4 class="methodName">LocalSpawnBeaconSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">LocalSpawnBeaconSystem</span>
+                    <span class="arguments">(<span class="param">this.localSpawnBeaconComponentType</span>, <span class="param">this.localSpawnStateResourceType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method LocalSpawnBeaconSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.localSpawnBeaconComponentType</code> <b>this.localSpawnBeaconComponentType</b></dd>
+<dd><code>this.localSpawnStateResourceType</code> <b>this.localSpawnStateResourceType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="LocalSpawnForceTriggerSystem">
+                <h4 class="methodName">LocalSpawnForceTriggerSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">LocalSpawnForceTriggerSystem</span>
+                    <span class="arguments">(<span class="param">this.localSpawnControllerComponentType</span>, <span class="param">this.localSpawnStateResourceType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method LocalSpawnForceTriggerSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.localSpawnControllerComponentType</code> <b>this.localSpawnControllerComponentType</b></dd>
+<dd><code>this.localSpawnStateResourceType</code> <b>this.localSpawnStateResourceType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="WorldSpawnTrackingSystem">
+                <h4 class="methodName">WorldSpawnTrackingSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">WorldSpawnTrackingSystem</span>
+                    <span class="arguments">(<span class="param">this.worldSpawnDataResourceType</span>, <span class="param">this.chunkSpawnDataComponentType</span>, <span class="param">this.chunkSpawnedNPCDataComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method WorldSpawnTrackingSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.worldSpawnDataResourceType</code> <b>this.worldSpawnDataResourceType</b></dd>
+<dd><code>this.chunkSpawnDataComponentType</code> <b>this.chunkSpawnDataComponentType</b></dd>
+<dd><code>this.chunkSpawnedNPCDataComponentType</code> <b>this.chunkSpawnedNPCDataComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="MoonPhaseChangeEventSystem">
+                <h4 class="methodName">MoonPhaseChangeEventSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">MoonPhaseChangeEventSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method MoonPhaseChangeEventSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="WorldSpawningSystem">
+                <h4 class="methodName">WorldSpawningSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">WorldSpawningSystem</span>
+                    <span class="arguments">(<span class="param">this.worldSpawnDataResourceType</span>, <span class="param">this.chunkSpawnDataComponentType</span>, <span class="param">this.chunkSpawnedNPCDataComponentType</span>, <span class="param">this.spawnJobDataComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method WorldSpawningSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.worldSpawnDataResourceType</code> <b>this.worldSpawnDataResourceType</b></dd>
+<dd><code>this.chunkSpawnDataComponentType</code> <b>this.chunkSpawnDataComponentType</b></dd>
+<dd><code>this.chunkSpawnedNPCDataComponentType</code> <b>this.chunkSpawnedNPCDataComponentType</b></dd>
+<dd><code>this.spawnJobDataComponentType</code> <b>this.spawnJobDataComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="LegacySpawnSuppressorEntityMigration">
+                <h4 class="methodName">LegacySpawnSuppressorEntityMigration</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">LegacySpawnSuppressorEntityMigration</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method LegacySpawnSuppressorEntityMigration.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="start">
+                <h4 class="methodName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">start</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method start.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="IllegalStateException">
+                <h4 class="methodName">IllegalStateException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IllegalStateException</span>
+                    <span class="arguments">(<span class="param"><code>String.format("Default spawn marker '%s' not</code> <span class="param-name">found"</span></span>, <span class="param">"NPC_Spawn_Marker"</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IllegalStateException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>String.format("Default spawn marker '%s' not</code> <b>found"</b></dd>
+<dd><code>"NPC_Spawn_Marker"</code> <b>"NPC_Spawn_Marker"</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdown">
+                <h4 class="methodName">shutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">shutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnMarkerSpatialResource">
+                <h4 class="methodName">getSpawnMarkerSpatialResource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EntityStore>></code></span>
+                    <span class="memberName">getSpawnMarkerSpatialResource</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnMarkerSpatialResource.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getManualSpawnBeaconSpatialResource">
+                <h4 class="methodName">getManualSpawnBeaconSpatialResource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EntityStore>></code></span>
+                    <span class="memberName">getManualSpawnBeaconSpatialResource</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getManualSpawnBeaconSpatialResource.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnMarkerComponentType">
+                <h4 class="methodName">getSpawnMarkerComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>SpawnMarkerEntity></code></span>
+                    <span class="memberName">getSpawnMarkerComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnMarkerComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLocalSpawnControllerComponentType">
+                <h4 class="methodName">getLocalSpawnControllerComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>LocalSpawnController></code></span>
+                    <span class="memberName">getLocalSpawnControllerComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLocalSpawnControllerComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWorldSpawnDataResourceType">
+                <h4 class="methodName">getWorldSpawnDataResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>WorldSpawnData></code></span>
+                    <span class="memberName">getWorldSpawnDataResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getWorldSpawnDataResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnSuppressorComponentType">
+                <h4 class="methodName">getSpawnSuppressorComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>SpawnSuppressionComponent></code></span>
+                    <span class="memberName">getSpawnSuppressorComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnSuppressorComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnSuppressionControllerResourceType">
+                <h4 class="methodName">getSpawnSuppressionControllerResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>SpawnSuppressionController></code></span>
+                    <span class="memberName">getSpawnSuppressionControllerResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnSuppressionControllerResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLocalSpawnBeaconComponentType">
+                <h4 class="methodName">getLocalSpawnBeaconComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>LocalSpawnBeacon></code></span>
+                    <span class="memberName">getLocalSpawnBeaconComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLocalSpawnBeaconComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLocalSpawnStateResourceType">
+                <h4 class="methodName">getLocalSpawnStateResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>LocalSpawnState></code></span>
+                    <span class="memberName">getLocalSpawnStateResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLocalSpawnStateResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInitialBeaconDelayComponentType">
+                <h4 class="methodName">getInitialBeaconDelayComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>InitialBeaconDelay></code></span>
+                    <span class="memberName">getInitialBeaconDelayComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getInitialBeaconDelayComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnJobDataComponentType">
+                <h4 class="methodName">getSpawnJobDataComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>SpawnJobData></code></span>
+                    <span class="memberName">getSpawnJobDataComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnJobDataComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChunkSpawnDataComponentType">
+                <h4 class="methodName">getChunkSpawnDataComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ChunkSpawnData></code></span>
+                    <span class="memberName">getChunkSpawnDataComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChunkSpawnDataComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChunkSpawnedNPCDataComponentType">
+                <h4 class="methodName">getChunkSpawnedNPCDataComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ChunkSpawnedNPCData></code></span>
+                    <span class="memberName">getChunkSpawnedNPCDataComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChunkSpawnedNPCDataComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChunkSuppressionQueueResourceType">
+                <h4 class="methodName">getChunkSuppressionQueueResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ChunkSuppressionQueue></code></span>
+                    <span class="memberName">getChunkSuppressionQueueResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChunkSuppressionQueueResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFloodFillEntryPoolProviderSimpleResourceType">
+                <h4 class="methodName">getFloodFillEntryPoolProviderSimpleResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>FloodFillEntryPoolProviderSimple></code></span>
+                    <span class="memberName">getFloodFillEntryPoolProviderSimpleResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getFloodFillEntryPoolProviderSimpleResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChunkSuppressionEntryComponentType">
+                <h4 class="methodName">getChunkSuppressionEntryComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ChunkSuppressionEntry></code></span>
+                    <span class="memberName">getChunkSuppressionEntryComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChunkSuppressionEntryComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBeaconSpawnWrapper">
+                <h4 class="methodName">getBeaconSpawnWrapper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="wrappers/BeaconSpawnWrapper.html" class="type-link"><code>BeaconSpawnWrapper</code></a></span>
+                    <span class="memberName">getBeaconSpawnWrapper</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">configId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getBeaconSpawnWrapper.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>configId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnMarkerReferenceComponentType">
+                <h4 class="methodName">getSpawnMarkerReferenceComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>SpawnMarkerReference></code></span>
+                    <span class="memberName">getSpawnMarkerReferenceComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnMarkerReferenceComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnBeaconReferenceComponentType">
+                <h4 class="methodName">getSpawnBeaconReferenceComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>SpawnBeaconReference></code></span>
+                    <span class="memberName">getSpawnBeaconReferenceComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnBeaconReferenceComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFloodFillPositionSelectorComponentType">
+                <h4 class="methodName">getFloodFillPositionSelectorComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>FloodFillPositionSelector></code></span>
+                    <span class="memberName">getFloodFillPositionSelectorComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getFloodFillPositionSelectorComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnMarkerBlockReferenceComponentType">
+                <h4 class="methodName">getSpawnMarkerBlockReferenceComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>SpawnMarkerBlockReference></code></span>
+                    <span class="memberName">getSpawnMarkerBlockReferenceComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnMarkerBlockReferenceComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="shouldNPCDespawn">
+                <h4 class="methodName">shouldNPCDespawn</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">shouldNPCDespawn</span>
+                    <span class="arguments">(<span class="param"><a href="../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../npc/entities/NPCEntity.html" class="type-link"><code>@Nonnull final NPCEntity</code></a> <span class="param-name">npcComponent</span></span>, <span class="param"><a href="../core/modules/time/WorldTimeResource.html" class="type-link"><code>@Nonnull final WorldTimeResource</code></a> <span class="param-name">timeManager</span></span>, <span class="param"><code>final int</code> <span class="param-name">configuration</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">beaconSpawn</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method shouldNPCDespawn.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../npc/entities/NPCEntity.html" class="type-link"><code>@Nonnull final NPCEntity</code></a> <b>npcComponent</b></dd>
+<dd><a href="../core/modules/time/WorldTimeResource.html" class="type-link"><code>@Nonnull final WorldTimeResource</code></a> <b>timeManager</b></dd>
+<dd><code>final int</code> <b>configuration</b></dd>
+<dd><code>final boolean</code> <b>beaconSpawn</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="overpopulation">
+                <h4 class="methodName">overpopulation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>to</code></span>
+                    <span class="memberName">overpopulation</span>
+                    <span class="arguments">(<span class="param"><code>expected:</code> <span class="param-name">%f</span></span>, <span class="param"><code>actual:</code> <span class="param-name">%d</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method overpopulation.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>expected:</code> <b>%f</b></dd>
+<dd><code>actual:</code> <b>%d</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnMarkerModel">
+                <h4 class="methodName">getSpawnMarkerModel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../core/asset/type/model/config/Model.html" class="type-link"><code>Model</code></a></span>
+                    <span class="memberName">getSpawnMarkerModel</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnMarkerModel.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWorldEnvironmentSpawnParameters">
+                <h4 class="methodName">getWorldEnvironmentSpawnParameters</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="world/manager/EnvironmentSpawnParameters.html" class="type-link"><code>EnvironmentSpawnParameters</code></a></span>
+                    <span class="memberName">getWorldEnvironmentSpawnParameters</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">environmentIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getWorldEnvironmentSpawnParameters.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>environmentIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBeaconSpawnsForEnvironment">
+                <h4 class="methodName">getBeaconSpawnsForEnvironment</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<BeaconSpawnWrapper></code></span>
+                    <span class="memberName">getBeaconSpawnsForEnvironment</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">environmentIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getBeaconSpawnsForEnvironment.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>environmentIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRolesForEnvironment">
+                <h4 class="methodName">getRolesForEnvironment</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>IntSet</code></span>
+                    <span class="memberName">getRolesForEnvironment</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">environment</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getRolesForEnvironment.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>environment</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTickColumnBudget">
+                <h4 class="methodName">getTickColumnBudget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getTickColumnBudget</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTickColumnBudget.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMaxActiveJobs">
+                <h4 class="methodName">getMaxActiveJobs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getMaxActiveJobs</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMaxActiveJobs.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLocalSpawnControllerJoinDelay">
+                <h4 class="methodName">getLocalSpawnControllerJoinDelay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getLocalSpawnControllerJoinDelay</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLocalSpawnControllerJoinDelay.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="validateSpawnsConfigurations">
+                <h4 class="methodName">validateSpawnsConfigurations</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">validateSpawnsConfigurations</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">type</span></span>, <span class="param"><code>@Nonnull final Map<String, T></code> <span class="param-name">spawns</span></span>, <span class="param"><code>@Nonnull final List<String></code> <span class="param-name">errors</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method validateSpawnsConfigurations.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>type</b></dd>
+<dd><code>@Nonnull final Map<String, T></code> <b>spawns</b></dd>
+<dd><code>@Nonnull final List<String></code> <b>errors</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="validateSpawnMarkers">
+                <h4 class="methodName">validateSpawnMarkers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">validateSpawnMarkers</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Map<String, SpawnMarker></code> <span class="param-name">markers</span></span>, <span class="param"><code>@Nonnull final List<String></code> <span class="param-name">errors</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method validateSpawnMarkers.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Map<String, SpawnMarker></code> <b>markers</b></dd>
+<dd><code>@Nonnull final List<String></code> <b>errors</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEnvironmentDensity">
+                <h4 class="methodName">getEnvironmentDensity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getEnvironmentDensity</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">environmentIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getEnvironmentDensity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>environmentIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onSpawnMarkersChange">
+                <h4 class="methodName">onSpawnMarkersChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onSpawnMarkersChange</span>
+                    <span class="arguments">(<span class="param"><a href="../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, SpawnMarker, DefaultAssetMap<String, SpawnMarker>></code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onSpawnMarkersChange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, SpawnMarker, DefaultAssetMap<String, SpawnMarker>></code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onSpawnMarkersRemove">
+                <h4 class="methodName">onSpawnMarkersRemove</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onSpawnMarkersRemove</span>
+                    <span class="arguments">(<span class="param"><a href="../../assetstore/event/RemovedAssetsEvent.html" class="type-link"><code>@Nonnull final RemovedAssetsEvent<String, SpawnMarker, DefaultAssetMap<String, SpawnMarker>></code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onSpawnMarkersRemove.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../assetstore/event/RemovedAssetsEvent.html" class="type-link"><code>@Nonnull final RemovedAssetsEvent<String, SpawnMarker, DefaultAssetMap<String, SpawnMarker>></code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEnvironmentChange">
+                <h4 class="methodName">onEnvironmentChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEnvironmentChange</span>
+                    <span class="arguments">(<span class="param"><a href="../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, Environment, IndexedLookupTableAssetMap<String, Environment>></code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEnvironmentChange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, Environment, IndexedLookupTableAssetMap<String, Environment>></code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onWorldNPCSpawnsLoaded">
+                <h4 class="methodName">onWorldNPCSpawnsLoaded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onWorldNPCSpawnsLoaded</span>
+                    <span class="arguments">(<span class="param"><a href="../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, WorldNPCSpawn, IndexedLookupTableAssetMap<String, WorldNPCSpawn>></code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onWorldNPCSpawnsLoaded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, WorldNPCSpawn, IndexedLookupTableAssetMap<String, WorldNPCSpawn>></code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onBeaconNPCSpawnsLoaded">
+                <h4 class="methodName">onBeaconNPCSpawnsLoaded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onBeaconNPCSpawnsLoaded</span>
+                    <span class="arguments">(<span class="param"><a href="../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, BeaconNPCSpawn, IndexedLookupTableAssetMap<String, BeaconNPCSpawn>></code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onBeaconNPCSpawnsLoaded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, BeaconNPCSpawn, IndexedLookupTableAssetMap<String, BeaconNPCSpawn>></code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onWorldNPCSpawnsRemoved">
+                <h4 class="methodName">onWorldNPCSpawnsRemoved</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onWorldNPCSpawnsRemoved</span>
+                    <span class="arguments">(<span class="param"><a href="../../assetstore/event/RemovedAssetsEvent.html" class="type-link"><code>@Nonnull final RemovedAssetsEvent<String, WorldNPCSpawn, IndexedLookupTableAssetMap<String, WorldNPCSpawn>></code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onWorldNPCSpawnsRemoved.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../assetstore/event/RemovedAssetsEvent.html" class="type-link"><code>@Nonnull final RemovedAssetsEvent<String, WorldNPCSpawn, IndexedLookupTableAssetMap<String, WorldNPCSpawn>></code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onBeaconNPCSpawnsRemoved">
+                <h4 class="methodName">onBeaconNPCSpawnsRemoved</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onBeaconNPCSpawnsRemoved</span>
+                    <span class="arguments">(<span class="param"><a href="../../assetstore/event/RemovedAssetsEvent.html" class="type-link"><code>@Nonnull final RemovedAssetsEvent<String, BeaconNPCSpawn, IndexedLookupTableAssetMap<String, BeaconNPCSpawn>></code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onBeaconNPCSpawnsRemoved.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../assetstore/event/RemovedAssetsEvent.html" class="type-link"><code>@Nonnull final RemovedAssetsEvent<String, BeaconNPCSpawn, IndexedLookupTableAssetMap<String, BeaconNPCSpawn>></code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onLoadedNPCEvent">
+                <h4 class="methodName">onLoadedNPCEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onLoadedNPCEvent</span>
+                    <span class="arguments">(<span class="param"><a href="../npc/AllNPCsLoadedEvent.html" class="type-link"><code>@Nonnull final AllNPCsLoadedEvent</code></a> <span class="param-name">loadedNPCEvent</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onLoadedNPCEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../npc/AllNPCsLoadedEvent.html" class="type-link"><code>@Nonnull final AllNPCsLoadedEvent</code></a> <b>loadedNPCEvent</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setUpWithAllRoles">
+                <h4 class="methodName">setUpWithAllRoles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setUpWithAllRoles</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setUpWithAllRoles.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="WorldSpawnWrapper">
+                <h4 class="methodName">WorldSpawnWrapper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">WorldSpawnWrapper</span>
+                    <span class="arguments">(<span class="param">value</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method WorldSpawnWrapper.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>value</code> <b>value</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BeaconSpawnWrapper">
+                <h4 class="methodName">BeaconSpawnWrapper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BeaconSpawnWrapper</span>
+                    <span class="arguments">(<span class="param">value2</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BeaconSpawnWrapper.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>value2</code> <b>value2</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="rebuildBeaconSpawnConfigurations">
+                <h4 class="methodName">rebuildBeaconSpawnConfigurations</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">rebuildBeaconSpawnConfigurations</span>
+                    <span class="arguments">(<span class="param"><code>@Nullable final IntSet</code> <span class="param-name">changeSet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method rebuildBeaconSpawnConfigurations.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nullable final IntSet</code> <b>changeSet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onModelAssetChange">
+                <h4 class="methodName">onModelAssetChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onModelAssetChange</span>
+                    <span class="arguments">(<span class="param"><a href="../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, ModelAsset, DefaultAssetMap<String, ModelAsset>></code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onModelAssetChange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, ModelAsset, DefaultAssetMap<String, ModelAsset>></code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onLoadAsset">
+                <h4 class="methodName">onLoadAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onLoadAsset</span>
+                    <span class="arguments">(<span class="param"><a href="../core/asset/LoadAssetEvent.html" class="type-link"><code>@Nonnull final LoadAssetEvent</code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onLoadAsset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../core/asset/LoadAssetEvent.html" class="type-link"><code>@Nonnull final LoadAssetEvent</code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEntityAdd">
+                <h4 class="methodName">onEntityAdd</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEntityAdd</span>
+                    <span class="arguments">(<span class="param"><a href="../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<EntityStore></code></a> <span class="param-name">holder</span></span>, <span class="param"><a href="../../component/AddReason.html" class="type-link"><code>@Nonnull final AddReason</code></a> <span class="param-name">reason</span></span>, <span class="param"><a href="../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEntityAdd.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<EntityStore></code></a> <b>holder</b></dd>
+<dd><a href="../../component/AddReason.html" class="type-link"><code>@Nonnull final AddReason</code></a> <b>reason</b></dd>
+<dd><a href="../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PersistentModel">
+                <h4 class="methodName">PersistentModel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PersistentModel</span>
+                    <span class="arguments">(<span class="param">modelReference</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PersistentModel.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>modelReference</code> <b>modelReference</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Nameplate">
+                <h4 class="methodName">Nameplate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Nameplate</span>
+                    <span class="arguments">(<span class="param">Entity.DISPLAY_NAME.get(spawnSuppressor</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Nameplate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Entity.DISPLAY_NAME.get(spawnSuppressor</code> <b>Entity.DISPLAY_NAME.get(spawnSuppressor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="UUIDComponent">
+                <h4 class="methodName">UUIDComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">UUIDComponent</span>
+                    <span class="arguments">(<span class="param">Entity.UUID.get(spawnSuppressor</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method UUIDComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Entity.UUID.get(spawnSuppressor</code> <b>Entity.UUID.get(spawnSuppressor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEntityRemoved">
+                <h4 class="methodName">onEntityRemoved</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEntityRemoved</span>
+                    <span class="arguments">(<span class="param"><a href="../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<EntityStore></code></a> <span class="param-name">holder</span></span>, <span class="param"><a href="../../component/RemoveReason.html" class="type-link"><code>@Nonnull final RemoveReason</code></a> <span class="param-name">reason</span></span>, <span class="param"><a href="../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEntityRemoved.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<EntityStore></code></a> <b>holder</b></dd>
+<dd><a href="../../component/RemoveReason.html" class="type-link"><code>@Nonnull final RemoveReason</code></a> <b>reason</b></dd>
+<dd><a href="../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getQuery">
+                <h4 class="methodName">getQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../component/query/Query.html" class="type-link"><code>Query<EntityStore></code></a></span>
+                    <span class="memberName">getQuery</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getQuery.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDependencies">
+                <h4 class="methodName">getDependencies</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Set<Dependency<EntityStore>></code></span>
+                    <span class="memberName">getDependencies</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDependencies.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="NPCSpawningConfig">
+                <h4 class="methodName">NPCSpawningConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">NPCSpawningConfig</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method NPCSpawningConfig.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

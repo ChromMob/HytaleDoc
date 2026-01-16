@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PositionCache (com.hypixel.hytale.server.npc.role.support)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/npc/role/support/package-summary.html">com.hypixel.hytale.server.npc.role.support</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">PositionCache</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="PositionCache.html" class="type-link">PositionCache</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class PositionCache. Provides positioncache functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; PositionCache</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxDroppedItemDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">maxDroppedItemDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field maxDroppedItemDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxSpawnMarkerDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">maxSpawnMarkerDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field maxSpawnMarkerDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxSpawnBeaconDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxSpawnBeaconDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field maxSpawnBeaconDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">opaqueBlockSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">opaqueBlockSet</span>
+                </div>
+                <div class="block">
+                    <p>Field opaqueBlockSet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">players</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">EntityList</span>
+                    <span class="memberName">players</span>
+                </div>
+                <div class="block">
+                    <p>Field players.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">npcs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">EntityList</span>
+                    <span class="memberName">npcs</span>
+                </div>
+                <div class="block">
+                    <p>Field npcs.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cacheTTL</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">cacheTTL</span>
+                </div>
+                <div class="block">
+                    <p>Field cacheTTL.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">positionCacheNextUpdate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">positionCacheNextUpdate</span>
+                </div>
+                <div class="block">
+                    <p>Field positionCacheNextUpdate.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isBenchmarking</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isBenchmarking</span>
+                </div>
+                <div class="block">
+                    <p>Field isBenchmarking.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isConfiguring</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isConfiguring</span>
+                </div>
+                <div class="block">
+                    <p>Field isConfiguring.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">couldBreathe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">couldBreathe</span>
+                </div>
+                <div class="block">
+                    <p>Field couldBreathe.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleStats</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RoleStats</span>
+                    <span class="memberName">roleStats</span>
+                </div>
+                <div class="block">
+                    <p>Field roleStats.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">droppedItemsSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">droppedItemsSize</span>
+                </div>
+                <div class="block">
+                    <p>Field droppedItemsSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemEntityRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">itemEntityRef</span>
+                </div>
+                <div class="block">
+                    <p>Field itemEntityRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemComponent</span>
+                    <span class="memberName">itemComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field itemComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemEntityTransformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">itemEntityTransformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field itemEntityTransformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">squaredDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">squaredDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field squaredDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">value</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">value</span>
+                </div>
+                <div class="block">
+                    <p>Field value.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ModelComponent</span>
+                    <span class="memberName">modelComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field modelComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">eyeHeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">eyeHeight</span>
+                </div>
+                <div class="block">
+                    <p>Field eyeHeight.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">sx</span>
+                </div>
+                <div class="block">
+                    <p>Field sx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sy</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">sy</span>
+                </div>
+                <div class="block">
+                    <p>Field sy.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sz</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">sz</span>
+                </div>
+                <div class="block">
+                    <p>Field sz.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetTransformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">targetTransformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field targetTransformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">targetPosition</span>
+                </div>
+                <div class="block">
+                    <p>Field targetPosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">tx</span>
+                </div>
+                <div class="block">
+                    <p>Field tx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ty</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">ty</span>
+                </div>
+                <div class="block">
+                    <p>Field ty.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tz</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">tz</span>
+                </div>
+                <div class="block">
+                    <p>Field tz.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetModelComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ModelComponent</span>
+                    <span class="memberName">targetModelComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field targetModelComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">boundingBoxComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BoundingBox</span>
+                    <span class="memberName">boundingBoxComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field boundingBoxComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">boundingBox</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Box</span>
+                    <span class="memberName">boundingBox</span>
+                </div>
+                <div class="block">
+                    <p>Field boundingBox.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockSets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Int2ObjectMap<IntSet></span>
+                    <span class="memberName">blockSets</span>
+                </div>
+                <div class="block">
+                    <p>Field blockSets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">opaqueSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntSet</span>
+                    <span class="memberName">opaqueSet</span>
+                </div>
+                <div class="block">
+                    <p>Field opaqueSet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">blockId</span>
+                </div>
+                <div class="block">
+                    <p>Field blockId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockType</span>
+                    <span class="memberName">blockType</span>
+                </div>
+                <div class="block">
+                    <p>Field blockType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cached</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">cached</span>
+                </div>
+                <div class="block">
+                    <p>Field cached.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">start</span>
+                </div>
+                <div class="block">
+                    <p>Field start.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hasLineOfSight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasLineOfSight</span>
+                </div>
+                <div class="block">
+                    <p>Field hasLineOfSight.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blocking</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">blocking</span>
+                </div>
+                <div class="block">
+                    <p>Field blocking.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">squaredLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">squaredLength</span>
+                </div>
+                <div class="block">
+                    <p>Field squaredLength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">px</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">px</span>
+                </div>
+                <div class="block">
+                    <p>Field px.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">py</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">py</span>
+                </div>
+                <div class="block">
+                    <p>Field py.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pz</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">pz</span>
+                </div>
+                <div class="block">
+                    <p>Field pz.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">dx</span>
+                </div>
+                <div class="block">
+                    <p>Field dx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dy</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">dy</span>
+                </div>
+                <div class="block">
+                    <p>Field dy.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dz</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">dz</span>
+                </div>
+                <div class="block">
+                    <p>Field dz.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dotProduct</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">dotProduct</span>
+                </div>
+                <div class="block">
+                    <p>Field dotProduct.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dist2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">dist2</span>
+                </div>
+                <div class="block">
+                    <p>Field dist2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">playerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerSettingsComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerSettings</span>
+                    <span class="memberName">playerSettingsComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerSettingsComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">chunk</span>
+                </div>
+                <div class="block">
+                    <p>Field chunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">result</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">result</span>
+                </div>
+                <div class="block">
+                    <p>Field result.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="PositionCache">
+                <h4 class="methodName">PositionCache</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">PositionCache</span>
+                    <span class="arguments">(<span class="param"><a href="..//Role.html" class="type-link"><code>@Nonnull final Role</code></a> <span class="param-name">role</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PositionCache.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="..//Role.html" class="type-link"><code>@Nonnull final Role</code></a> <b>role</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isBenchmarking">
+                <h4 class="methodName">isBenchmarking</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isBenchmarking</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isBenchmarking.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setBenchmarking">
+                <h4 class="methodName">setBenchmarking</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setBenchmarking</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">benchmarking</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setBenchmarking.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>benchmarking</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setCouldBreathe">
+                <h4 class="methodName">setCouldBreathe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setCouldBreathe</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">couldBreathe</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setCouldBreathe.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>couldBreathe</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayers">
+                <h4 class="methodName">getPlayers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="EntityList.html" class="type-link"><code>EntityList</code></a></span>
+                    <span class="memberName">getPlayers</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayers.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNpcs">
+                <h4 class="methodName">getNpcs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="EntityList.html" class="type-link"><code>EntityList</code></a></span>
+                    <span class="memberName">getNpcs</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNpcs.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tickPositionCacheNextUpdate">
+                <h4 class="methodName">tickPositionCacheNextUpdate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">tickPositionCacheNextUpdate</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tickPositionCacheNextUpdate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="resetPositionCacheNextUpdate">
+                <h4 class="methodName">resetPositionCacheNextUpdate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">resetPositionCacheNextUpdate</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method resetPositionCacheNextUpdate.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMaxDroppedItemDistance">
+                <h4 class="methodName">getMaxDroppedItemDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getMaxDroppedItemDistance</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMaxDroppedItemDistance.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMaxSpawnMarkerDistance">
+                <h4 class="methodName">getMaxSpawnMarkerDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getMaxSpawnMarkerDistance</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMaxSpawnMarkerDistance.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMaxSpawnBeaconDistance">
+                <h4 class="methodName">getMaxSpawnBeaconDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getMaxSpawnBeaconDistance</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMaxSpawnBeaconDistance.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addExternalPositionCacheRegistration">
+                <h4 class="methodName">addExternalPositionCacheRegistration</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addExternalPositionCacheRegistration</span>
+                    <span class="arguments">(<span class="param"><code>final Consumer<Role></code> <span class="param-name">registration</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addExternalPositionCacheRegistration.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Consumer<Role></code> <b>registration</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getExternalRegistrations">
+                <h4 class="methodName">getExternalRegistrations</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<Consumer<Role>></code></span>
+                    <span class="memberName">getExternalRegistrations</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getExternalRegistrations.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="reset">
+                <h4 class="methodName">reset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">reset</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">isConfiguring</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method reset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>isConfiguring</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="finalizeConfiguration">
+                <h4 class="methodName">finalizeConfiguration</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">finalizeConfiguration</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method finalizeConfiguration.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clear">
+                <h4 class="methodName">clear</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clear</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">tickTime</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method clear.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>tickTime</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="couldBreatheCached">
+                <h4 class="methodName">couldBreatheCached</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">couldBreatheCached</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method couldBreatheCached.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="forEachPlayer">
+                <h4 class="methodName">forEachPlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">forEachPlayer</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../function/consumer/DoubleQuadObjectConsumer.html" class="type-link"><code>@Nonnull final DoubleQuadObjectConsumer<Ref<EntityStore>, T, U, V></code></a> <span class="param-name">consumer</span></span>, <span class="param"><code>final T</code> <span class="param-name">t</span></span>, <span class="param"><code>final U</code> <span class="param-name">u</span></span>, <span class="param"><code>final V</code> <span class="param-name">v</span></span>, <span class="param"><code>final double</code> <span class="param-name">d</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method forEachPlayer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../function/consumer/DoubleQuadObjectConsumer.html" class="type-link"><code>@Nonnull final DoubleQuadObjectConsumer<Ref<EntityStore>, T, U, V></code></a> <b>consumer</b></dd>
+<dd><code>final T</code> <b>t</b></dd>
+<dd><code>final U</code> <b>u</b></dd>
+<dd><code>final V</code> <b>v</b></dd>
+<dd><code>final double</code> <b>d</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getClosestPlayerInRange">
+                <h4 class="methodName">getClosestPlayerInRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../component/Ref.html" class="type-link"><code>Ref<EntityStore></code></a></span>
+                    <span class="memberName">getClosestPlayerInRange</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">minRange</span></span>, <span class="param"><code>final double</code> <span class="param-name">maxRange</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getClosestPlayerInRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>minRange</b></dd>
+<dd><code>final double</code> <b>maxRange</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getClosestNPCInRange">
+                <h4 class="methodName">getClosestNPCInRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../component/Ref.html" class="type-link"><code>Ref<EntityStore></code></a></span>
+                    <span class="memberName">getClosestNPCInRange</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">minRange</span></span>, <span class="param"><code>final double</code> <span class="param-name">maxRange</span></span>, <span class="param"><code>@Nonnull final Predicate<Ref<EntityStore>></code> <span class="param-name">filter</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getClosestNPCInRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>minRange</b></dd>
+<dd><code>final double</code> <b>maxRange</b></dd>
+<dd><code>@Nonnull final Predicate<Ref<EntityStore>></code> <b>filter</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="processNPCsInRange">
+                <h4 class="methodName">processNPCsInRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">processNPCsInRange</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><code>final double</code> <span class="param-name">minRange</span></span>, <span class="param"><code>final double</code> <span class="param-name">maxRange</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">useProjectedDistance</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <span class="param-name">ignoredEntityReference</span></span>, <span class="param"><a href="..//Role.html" class="type-link"><code>@Nonnull final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="../../../../function/predicate/QuadPredicate.html" class="type-link"><code>@Nonnull final QuadPredicate<S, Ref<EntityStore>, Role, T></code></a> <span class="param-name">filter</span></span>, <span class="param"><code>final S</code> <span class="param-name">s</span></span>, <span class="param"><code>final T</code> <span class="param-name">t</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method processNPCsInRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><code>final double</code> <b>minRange</b></dd>
+<dd><code>final double</code> <b>maxRange</b></dd>
+<dd><code>final boolean</code> <b>useProjectedDistance</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <b>ignoredEntityReference</b></dd>
+<dd><a href="..//Role.html" class="type-link"><code>@Nonnull final Role</code></a> <b>role</b></dd>
+<dd><a href="../../../../function/predicate/QuadPredicate.html" class="type-link"><code>@Nonnull final QuadPredicate<S, Ref<EntityStore>, Role, T></code></a> <b>filter</b></dd>
+<dd><code>final S</code> <b>s</b></dd>
+<dd><code>final T</code> <b>t</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="processPlayersInRange">
+                <h4 class="methodName">processPlayersInRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">processPlayersInRange</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><code>final double</code> <span class="param-name">minRange</span></span>, <span class="param"><code>final double</code> <span class="param-name">maxRange</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">useProjectedDistance</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <span class="param-name">ignoredEntityReference</span></span>, <span class="param"><a href="..//Role.html" class="type-link"><code>@Nonnull final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="../../../../function/predicate/QuadPredicate.html" class="type-link"><code>@Nonnull final QuadPredicate<S, Ref<EntityStore>, Role, T></code></a> <span class="param-name">filter</span></span>, <span class="param"><code>final S</code> <span class="param-name">s</span></span>, <span class="param"><code>final T</code> <span class="param-name">t</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method processPlayersInRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><code>final double</code> <b>minRange</b></dd>
+<dd><code>final double</code> <b>maxRange</b></dd>
+<dd><code>final boolean</code> <b>useProjectedDistance</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <b>ignoredEntityReference</b></dd>
+<dd><a href="..//Role.html" class="type-link"><code>@Nonnull final Role</code></a> <b>role</b></dd>
+<dd><a href="../../../../function/predicate/QuadPredicate.html" class="type-link"><code>@Nonnull final QuadPredicate<S, Ref<EntityStore>, Role, T></code></a> <b>filter</b></dd>
+<dd><code>final S</code> <b>s</b></dd>
+<dd><code>final T</code> <b>t</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="processEntitiesInRange">
+                <h4 class="methodName">processEntitiesInRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">processEntitiesInRange</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="EntityList.html" class="type-link"><code>@Nonnull final EntityList</code></a> <span class="param-name">entities</span></span>, <span class="param"><code>final double</code> <span class="param-name">minRange</span></span>, <span class="param"><code>final double</code> <span class="param-name">maxRange</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">useProjectedDistance</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <span class="param-name">ignoredEntityReference</span></span>, <span class="param"><a href="..//Role.html" class="type-link"><code>@Nonnull final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="../../../../function/predicate/QuadPredicate.html" class="type-link"><code>@Nonnull final QuadPredicate<S, Ref<EntityStore>, Role, T></code></a> <span class="param-name">filter</span></span>, <span class="param"><code>final S</code> <span class="param-name">s</span></span>, <span class="param"><code>final T</code> <span class="param-name">t</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method processEntitiesInRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="EntityList.html" class="type-link"><code>@Nonnull final EntityList</code></a> <b>entities</b></dd>
+<dd><code>final double</code> <b>minRange</b></dd>
+<dd><code>final double</code> <b>maxRange</b></dd>
+<dd><code>final boolean</code> <b>useProjectedDistance</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <b>ignoredEntityReference</b></dd>
+<dd><a href="..//Role.html" class="type-link"><code>@Nonnull final Role</code></a> <b>role</b></dd>
+<dd><a href="../../../../function/predicate/QuadPredicate.html" class="type-link"><code>@Nonnull final QuadPredicate<S, Ref<EntityStore>, Role, T></code></a> <b>filter</b></dd>
+<dd><code>final S</code> <b>s</b></dd>
+<dd><code>final T</code> <b>t</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getClosestDroppedItemInRange">
+                <h4 class="methodName">getClosestDroppedItemInRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../component/Ref.html" class="type-link"><code>Ref<EntityStore></code></a></span>
+                    <span class="memberName">getClosestDroppedItemInRange</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><code>double</code> <span class="param-name">minRange</span></span>, <span class="param"><code>double</code> <span class="param-name">maxRange</span></span>, <span class="param"><a href="../../../../function/predicate/QuadPredicate.html" class="type-link"><code>@Nonnull final QuadPredicate<S, Ref<EntityStore>, Role, ComponentAccessor<EntityStore>></code></a> <span class="param-name">filter</span></span>, <span class="param"><a href="..//Role.html" class="type-link"><code>final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><code>final S</code> <span class="param-name">s</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getClosestDroppedItemInRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><code>double</code> <b>minRange</b></dd>
+<dd><code>double</code> <b>maxRange</b></dd>
+<dd><a href="../../../../function/predicate/QuadPredicate.html" class="type-link"><code>@Nonnull final QuadPredicate<S, Ref<EntityStore>, Role, ComponentAccessor<EntityStore>></code></a> <b>filter</b></dd>
+<dd><a href="..//Role.html" class="type-link"><code>final Role</code></a> <b>role</b></dd>
+<dd><code>final S</code> <b>s</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isEntityCountInRange">
+                <h4 class="methodName">isEntityCountInRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isEntityCountInRange</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">minRange</span></span>, <span class="param"><code>final double</code> <span class="param-name">maxRange</span></span>, <span class="param"><code>final int</code> <span class="param-name">minCount</span></span>, <span class="param"><code>final int</code> <span class="param-name">maxCount</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">findPlayers</span></span>, <span class="param"><a href="..//Role.html" class="type-link"><code>final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="../../../../function/predicate/QuadPredicate.html" class="type-link"><code>@Nonnull final QuadPredicate<S, Ref<EntityStore>, Role, ComponentAccessor<EntityStore>></code></a> <span class="param-name">filter</span></span>, <span class="param"><code>final S</code> <span class="param-name">s</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isEntityCountInRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>minRange</b></dd>
+<dd><code>final double</code> <b>maxRange</b></dd>
+<dd><code>final int</code> <b>minCount</b></dd>
+<dd><code>final int</code> <b>maxCount</b></dd>
+<dd><code>final boolean</code> <b>findPlayers</b></dd>
+<dd><a href="..//Role.html" class="type-link"><code>final Role</code></a> <b>role</b></dd>
+<dd><a href="../../../../function/predicate/QuadPredicate.html" class="type-link"><code>@Nonnull final QuadPredicate<S, Ref<EntityStore>, Role, ComponentAccessor<EntityStore>></code></a> <b>filter</b></dd>
+<dd><code>final S</code> <b>s</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="countEntitiesInRange">
+                <h4 class="methodName">countEntitiesInRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">countEntitiesInRange</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">minRange</span></span>, <span class="param"><code>final double</code> <span class="param-name">maxRange</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">findPlayers</span></span>, <span class="param"><a href="../../../../function/predicate/QuadPredicate.html" class="type-link"><code>@Nonnull final QuadPredicate<S, Ref<EntityStore>, T, ComponentAccessor<EntityStore>></code></a> <span class="param-name">filter</span></span>, <span class="param"><code>final S</code> <span class="param-name">s</span></span>, <span class="param"><code>final T</code> <span class="param-name">t</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method countEntitiesInRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>minRange</b></dd>
+<dd><code>final double</code> <b>maxRange</b></dd>
+<dd><code>final boolean</code> <b>findPlayers</b></dd>
+<dd><a href="../../../../function/predicate/QuadPredicate.html" class="type-link"><code>@Nonnull final QuadPredicate<S, Ref<EntityStore>, T, ComponentAccessor<EntityStore>></code></a> <b>filter</b></dd>
+<dd><code>final S</code> <b>s</b></dd>
+<dd><code>final T</code> <b>t</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="requirePlayerDistanceSorted">
+                <h4 class="methodName">requirePlayerDistanceSorted</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">requirePlayerDistanceSorted</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">v</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method requirePlayerDistanceSorted.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>v</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="requirePlayerDistanceUnsorted">
+                <h4 class="methodName">requirePlayerDistanceUnsorted</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">requirePlayerDistanceUnsorted</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">v</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method requirePlayerDistanceUnsorted.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>v</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="requirePlayerDistanceAvoidance">
+                <h4 class="methodName">requirePlayerDistanceAvoidance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">requirePlayerDistanceAvoidance</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">v</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method requirePlayerDistanceAvoidance.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>v</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="requireEntityDistanceSorted">
+                <h4 class="methodName">requireEntityDistanceSorted</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">requireEntityDistanceSorted</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">v</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method requireEntityDistanceSorted.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>v</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="requireEntityDistanceUnsorted">
+                <h4 class="methodName">requireEntityDistanceUnsorted</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">requireEntityDistanceUnsorted</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">v</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method requireEntityDistanceUnsorted.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>v</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="requireEntityDistanceAvoidance">
+                <h4 class="methodName">requireEntityDistanceAvoidance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">requireEntityDistanceAvoidance</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">v</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method requireEntityDistanceAvoidance.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>v</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="requireDroppedItemDistance">
+                <h4 class="methodName">requireDroppedItemDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">requireDroppedItemDistance</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">value</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method requireDroppedItemDistance.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>value</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="requireSpawnMarkerDistance">
+                <h4 class="methodName">requireSpawnMarkerDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">requireSpawnMarkerDistance</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">value</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method requireSpawnMarkerDistance.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>value</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="requireSpawnBeaconDistance">
+                <h4 class="methodName">requireSpawnBeaconDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">requireSpawnBeaconDistance</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">value</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method requireSpawnBeaconDistance.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>value</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRole">
+                <h4 class="methodName">getRole</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="..//Role.html" class="type-link"><code>Role</code></a></span>
+                    <span class="memberName">getRole</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRole.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="forEachNPCUnordered">
+                <h4 class="methodName">forEachNPCUnordered</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">forEachNPCUnordered</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">maxDistance</span></span>, <span class="param"><a href="../../../../function/predicate/QuadPredicate.html" class="type-link"><code>@Nonnull final QuadPredicate<Ref<EntityStore>, T, U, ComponentAccessor<EntityStore>></code></a> <span class="param-name">predicate</span></span>, <span class="param"><a href="../../../../function/consumer/QuadConsumer.html" class="type-link"><code>@Nonnull final QuadConsumer<Ref<EntityStore>, T, V, R></code></a> <span class="param-name">consumer</span></span>, <span class="param"><code>final T</code> <span class="param-name">t</span></span>, <span class="param"><code>final U</code> <span class="param-name">u</span></span>, <span class="param"><code>final V</code> <span class="param-name">v</span></span>, <span class="param"><code>final R</code> <span class="param-name">r</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method forEachNPCUnordered.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>maxDistance</b></dd>
+<dd><a href="../../../../function/predicate/QuadPredicate.html" class="type-link"><code>@Nonnull final QuadPredicate<Ref<EntityStore>, T, U, ComponentAccessor<EntityStore>></code></a> <b>predicate</b></dd>
+<dd><a href="../../../../function/consumer/QuadConsumer.html" class="type-link"><code>@Nonnull final QuadConsumer<Ref<EntityStore>, T, V, R></code></a> <b>consumer</b></dd>
+<dd><code>final T</code> <b>t</b></dd>
+<dd><code>final U</code> <b>u</b></dd>
+<dd><code>final V</code> <b>v</b></dd>
+<dd><code>final R</code> <b>r</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="forEachEntityInAvoidanceRange">
+                <h4 class="methodName">forEachEntityInAvoidanceRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">forEachEntityInAvoidanceRange</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Set<Ref<EntityStore>></code> <span class="param-name">ignoredEntitiesForAvoidance</span></span>, <span class="param"><a href="../../../../function/consumer/TriConsumer.html" class="type-link"><code>@Nonnull final TriConsumer<Ref<EntityStore>, T, CommandBuffer<EntityStore>></code></a> <span class="param-name">consumer</span></span>, <span class="param"><code>final T</code> <span class="param-name">t</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method forEachEntityInAvoidanceRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Set<Ref<EntityStore>></code> <b>ignoredEntitiesForAvoidance</b></dd>
+<dd><a href="../../../../function/consumer/TriConsumer.html" class="type-link"><code>@Nonnull final TriConsumer<Ref<EntityStore>, T, CommandBuffer<EntityStore>></code></a> <b>consumer</b></dd>
+<dd><code>final T</code> <b>t</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setOpaqueBlockSet">
+                <h4 class="methodName">setOpaqueBlockSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setOpaqueBlockSet</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">blockSet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setOpaqueBlockSet.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>blockSet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="testLineOfSightRays">
+                <h4 class="methodName">testLineOfSightRays</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">testLineOfSightRays</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">targetRef</span></span>, <span class="param"><code>@Nonnull final RayPredicate<T></code> <span class="param-name">predicate</span></span>, <span class="param"><code>@Nonnull final T</code> <span class="param-name">t</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method testLineOfSightRays.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>targetRef</b></dd>
+<dd><code>@Nonnull final RayPredicate<T></code> <b>predicate</b></dd>
+<dd><code>@Nonnull final T</code> <b>t</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasLineOfSightInternal">
+                <h4 class="methodName">hasLineOfSightInternal</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasLineOfSightInternal</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">targetRef</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method hasLineOfSightInternal.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>targetRef</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasLineOfSight">
+                <h4 class="methodName">hasLineOfSight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasLineOfSight</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">targetRef</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method hasLineOfSight.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>targetRef</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasInverseLineOfSight">
+                <h4 class="methodName">hasInverseLineOfSight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasInverseLineOfSight</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">targetRef</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method hasInverseLineOfSight.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>targetRef</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isFriendlyBlockingLineOfSight">
+                <h4 class="methodName">isFriendlyBlockingLineOfSight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isFriendlyBlockingLineOfSight</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">targetRef</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isFriendlyBlockingLineOfSight.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>targetRef</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="testLineOfSightEntity">
+                <h4 class="methodName">testLineOfSightEntity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">testLineOfSightEntity</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">targetRef</span></span>, <span class="param"><code>@Nonnull final LineOfSightEntityBuffer</code> <span class="param-name">buffer</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>, <span class="param"><code>final double</code> <span class="param-name">length2</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method testLineOfSightEntity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>targetRef</b></dd>
+<dd><code>@Nonnull final LineOfSightEntityBuffer</code> <b>buffer</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+<dd><code>final double</code> <b>length2</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearLineOfSightCache">
+                <h4 class="methodName">clearLineOfSightCache</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearLineOfSightCache</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">tickTime</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method clearLineOfSightCache.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>tickTime</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="rayIsIntersectingEntity">
+                <h4 class="methodName">rayIsIntersectingEntity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">rayIsIntersectingEntity</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">pos</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">dir</span></span>, <span class="param"><a href="../../../../math/vector/Vector2d.html" class="type-link"><code>@Nonnull final Vector2d</code></a> <span class="param-name">minMax</span></span>, <span class="param"><code>final double</code> <span class="param-name">length2</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method rayIsIntersectingEntity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>pos</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>dir</b></dd>
+<dd><a href="../../../../math/vector/Vector2d.html" class="type-link"><code>@Nonnull final Vector2d</code></a> <b>minMax</b></dd>
+<dd><code>final double</code> <b>length2</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDroppedItemList">
+                <h4 class="methodName">getDroppedItemList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<Ref<EntityStore>></code></span>
+                    <span class="memberName">getDroppedItemList</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDroppedItemList.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnMarkerList">
+                <h4 class="methodName">getSpawnMarkerList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<Ref<EntityStore>></code></span>
+                    <span class="memberName">getSpawnMarkerList</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnMarkerList.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnBeaconList">
+                <h4 class="methodName">getSpawnBeaconList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<Ref<EntityStore>></code></span>
+                    <span class="memberName">getSpawnBeaconList</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnBeaconList.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">playerComponent.getGameMode(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>playerComponent.getGameMode(</code> <b>playerComponent.getGameMode(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearRefs">
+                <h4 class="methodName">clearRefs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearRefs</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearRefs.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

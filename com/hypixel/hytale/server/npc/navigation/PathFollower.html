@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PathFollower (com.hypixel.hytale.server.npc.navigation)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/npc/navigation/package-summary.html">com.hypixel.hytale.server.npc.navigation</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">PathFollower</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="PathFollower.html" class="type-link">PathFollower</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class PathFollower. Provides pathfollower functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; PathFollower</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentWaypoint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">IWaypoint</span>
+                    <span class="memberName">currentWaypoint</span>
+                </div>
+                <div class="block">
+                    <p>Field currentWaypoint.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentWaypointDistanceSquared</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">currentWaypointDistanceSquared</span>
+                </div>
+                <div class="block">
+                    <p>Field currentWaypointDistanceSquared.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">frozenWaypoint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">FrozenWaypoint</span>
+                    <span class="memberName">frozenWaypoint</span>
+                </div>
+                <div class="block">
+                    <p>Field frozenWaypoint.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isWaypointFrozen</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isWaypointFrozen</span>
+                </div>
+                <div class="block">
+                    <p>Field isWaypointFrozen.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pathSmoothing</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">pathSmoothing</span>
+                </div>
+                <div class="block">
+                    <p>Field pathSmoothing.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blendHeading</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">blendHeading</span>
+                </div>
+                <div class="block">
+                    <p>Field blendHeading.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">relativeSpeed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">relativeSpeed</span>
+                </div>
+                <div class="block">
+                    <p>Field relativeSpeed.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">relativeSpeedWaypoint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">relativeSpeedWaypoint</span>
+                </div>
+                <div class="block">
+                    <p>Field relativeSpeedWaypoint.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">waypointRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">waypointRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field waypointRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rejectionWeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">rejectionWeight</span>
+                </div>
+                <div class="block">
+                    <p>Field rejectionWeight.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">waypointRadiusSquared</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">waypointRadiusSquared</span>
+                </div>
+                <div class="block">
+                    <p>Field waypointRadiusSquared.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">debugNodes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">debugNodes</span>
+                </div>
+                <div class="block">
+                    <p>Field debugNodes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">shouldSmoothPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">shouldSmoothPath</span>
+                </div>
+                <div class="block">
+                    <p>Field shouldSmoothPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">waypoint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IWaypoint</span>
+                    <span class="memberName">waypoint</span>
+                </div>
+                <div class="block">
+                    <p>Field waypoint.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">target</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">target</span>
+                </div>
+                <div class="block">
+                    <p>Field target.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">length</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">length</span>
+                </div>
+                <div class="block">
+                    <p>Field length.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dotDD</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">dotDD</span>
+                </div>
+                <div class="block">
+                    <p>Field dotDD.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dotDP</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">dotDP</span>
+                </div>
+                <div class="block">
+                    <p>Field dotDP.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nextWaypoint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IWaypoint</span>
+                    <span class="memberName">nextWaypoint</span>
+                </div>
+                <div class="block">
+                    <p>Field nextWaypoint.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">yaw</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">yaw</span>
+                </div>
+                <div class="block">
+                    <p>Field yaw.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">startLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">startLength</span>
+                </div>
+                <div class="block">
+                    <p>Field startLength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">middleSkip</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">middleSkip</span>
+                </div>
+                <div class="block">
+                    <p>Field middleSkip.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">middleNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IWaypoint</span>
+                    <span class="memberName">middleNode</span>
+                </div>
+                <div class="block">
+                    <p>Field middleNode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">l</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">l</span>
+                </div>
+                <div class="block">
+                    <p>Field l.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="PathFollower">
+                <h4 class="methodName">PathFollower</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">PathFollower</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PathFollower.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setPathSmoothing">
+                <h4 class="methodName">setPathSmoothing</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setPathSmoothing</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">pathSmoothing</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setPathSmoothing.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>pathSmoothing</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRelativeSpeed">
+                <h4 class="methodName">getRelativeSpeed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getRelativeSpeed</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRelativeSpeed.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setRelativeSpeed">
+                <h4 class="methodName">setRelativeSpeed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setRelativeSpeed</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">relativeSpeed</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setRelativeSpeed.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>relativeSpeed</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setRelativeSpeedWaypoint">
+                <h4 class="methodName">setRelativeSpeedWaypoint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setRelativeSpeedWaypoint</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">relativeSpeedWaypoint</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setRelativeSpeedWaypoint.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>relativeSpeedWaypoint</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setWaypointRadius">
+                <h4 class="methodName">setWaypointRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setWaypointRadius</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">waypointRadius</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setWaypointRadius.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>waypointRadius</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDebugNodes">
+                <h4 class="methodName">setDebugNodes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDebugNodes</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">debugNodes</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setDebugNodes.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>debugNodes</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="shouldSmoothPath">
+                <h4 class="methodName">shouldSmoothPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">shouldSmoothPath</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shouldSmoothPath.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setRejectionWeight">
+                <h4 class="methodName">setRejectionWeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setRejectionWeight</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">rejectionWeight</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setRejectionWeight.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>rejectionWeight</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setBlendHeading">
+                <h4 class="methodName">setBlendHeading</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setBlendHeading</span>
+                    <span class="arguments">(<span class="param"><code>double</code> <span class="param-name">blendHeading</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setBlendHeading.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>double</code> <b>blendHeading</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCurrentWaypoint">
+                <h4 class="methodName">getCurrentWaypoint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="IWaypoint.html" class="type-link"><code>IWaypoint</code></a></span>
+                    <span class="memberName">getCurrentWaypoint</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCurrentWaypoint.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCurrentWaypointPosition">
+                <h4 class="methodName">getCurrentWaypointPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/Vector3d.html" class="type-link"><code>Vector3d</code></a></span>
+                    <span class="memberName">getCurrentWaypointPosition</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCurrentWaypointPosition.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNextWaypoint">
+                <h4 class="methodName">getNextWaypoint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="IWaypoint.html" class="type-link"><code>IWaypoint</code></a></span>
+                    <span class="memberName">getNextWaypoint</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNextWaypoint.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNextWaypointPosition">
+                <h4 class="methodName">getNextWaypointPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/Vector3d.html" class="type-link"><code>Vector3d</code></a></span>
+                    <span class="memberName">getNextWaypointPosition</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNextWaypointPosition.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setPath">
+                <h4 class="methodName">setPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setPath</span>
+                    <span class="arguments">(<span class="param"><a href="IWaypoint.html" class="type-link"><code>final IWaypoint</code></a> <span class="param-name">firstWaypoint</span></span>, <span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">startPosition</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setPath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="IWaypoint.html" class="type-link"><code>final IWaypoint</code></a> <b>firstWaypoint</b></dd>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>startPosition</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearPath">
+                <h4 class="methodName">clearPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearPath</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearPath.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="pathInFinalStage">
+                <h4 class="methodName">pathInFinalStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">pathInFinalStage</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method pathInFinalStage.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="freezeWaypoint">
+                <h4 class="methodName">freezeWaypoint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">freezeWaypoint</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method freezeWaypoint.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isWaypointFrozen">
+                <h4 class="methodName">isWaypointFrozen</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isWaypointFrozen</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isWaypointFrozen.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setWaypointFrozen">
+                <h4 class="methodName">setWaypointFrozen</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setWaypointFrozen</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">waypointFrozen</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setWaypointFrozen.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>waypointFrozen</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="executePath">
+                <h4 class="methodName">executePath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">executePath</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">currentPosition</span></span>, <span class="param"><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">activeMotionController</span></span>, <span class="param"><a href="../movement/Steering.html" class="type-link"><code>@Nonnull final Steering</code></a> <span class="param-name">desiredSteering</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method executePath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>currentPosition</b></dd>
+<dd><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>activeMotionController</b></dd>
+<dd><a href="../movement/Steering.html" class="type-link"><code>@Nonnull final Steering</code></a> <b>desiredSteering</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="computeRejection">
+                <h4 class="methodName">computeRejection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">computeRejection</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">currentPosition</span></span>, <span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">target</span></span>, <span class="param"><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">activeMotionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method computeRejection.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>currentPosition</b></dd>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>target</b></dd>
+<dd><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>activeMotionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateCurrentTarget">
+                <h4 class="methodName">updateCurrentTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">updateCurrentTarget</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">entityPosition</span></span>, <span class="param"><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateCurrentTarget.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>entityPosition</b></dd>
+<dd><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="smoothPath">
+                <h4 class="methodName">smoothPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">smoothPath</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>, <span class="param"><a href="../movement/controllers/ProbeMoveData.html" class="type-link"><code>@Nonnull final ProbeMoveData</code></a> <span class="param-name">probeMoveData</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method smoothPath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+<dd><a href="../movement/controllers/ProbeMoveData.html" class="type-link"><code>@Nonnull final ProbeMoveData</code></a> <b>probeMoveData</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="canMoveTo">
+                <h4 class="methodName">canMoveTo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">canMoveTo</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>, <span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">targetPosition</span></span>, <span class="param"><a href="../movement/controllers/ProbeMoveData.html" class="type-link"><code>@Nonnull final ProbeMoveData</code></a> <span class="param-name">probeMoveData</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method canMoveTo.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>targetPosition</b></dd>
+<dd><a href="../movement/controllers/ProbeMoveData.html" class="type-link"><code>@Nonnull final ProbeMoveData</code></a> <b>probeMoveData</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLength">
+                <h4 class="methodName">getLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getLength</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLength.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPosition">
+                <h4 class="methodName">getPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/Vector3d.html" class="type-link"><code>Vector3d</code></a></span>
+                    <span class="memberName">getPosition</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPosition.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="advance">
+                <h4 class="methodName">advance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="IWaypoint.html" class="type-link"><code>IWaypoint</code></a></span>
+                    <span class="memberName">advance</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">skip</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method advance.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>skip</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="next">
+                <h4 class="methodName">next</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="IWaypoint.html" class="type-link"><code>IWaypoint</code></a></span>
+                    <span class="memberName">next</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method next.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

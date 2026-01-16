@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AStarNode (com.hypixel.hytale.server.npc.navigation)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/npc/navigation/package-summary.html">com.hypixel.hytale.server.npc.navigation</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">AStarNode</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="AStarNode.html" class="type-link">AStarNode</a> implements <a href="IWaypoint.html" class="type-link" data-class="IWaypoint"><code>IWaypoint</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class AStarNode. Provides astarnode functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; AStarNode</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">travelCost</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">travelCost</span>
+                </div>
+                <div class="block">
+                    <p>Field travelCost.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">estimateToGoal</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">estimateToGoal</span>
+                </div>
+                <div class="block">
+                    <p>Field estimateToGoal.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalCost</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">totalCost</span>
+                </div>
+                <div class="block">
+                    <p>Field totalCost.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">predecessor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">AStarNode</span>
+                    <span class="memberName">predecessor</span>
+                </div>
+                <div class="block">
+                    <p>Field predecessor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">predecessorDirection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">predecessorDirection</span>
+                </div>
+                <div class="block">
+                    <p>Field predecessorDirection.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nextPathNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">AStarNode</span>
+                    <span class="memberName">nextPathNode</span>
+                </div>
+                <div class="block">
+                    <p>Field nextPathNode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">length</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">length</span>
+                </div>
+                <div class="block">
+                    <p>Field length.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">positionIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">positionIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field positionIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">open</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">open</span>
+                </div>
+                <div class="block">
+                    <p>Field open.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">successor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AStarNode</span>
+                    <span class="memberName">successor</span>
+                </div>
+                <div class="block">
+                    <p>Field successor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">delta</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">delta</span>
+                </div>
+                <div class="block">
+                    <p>Field delta.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="AStarNode">
+                <h4 class="methodName">AStarNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">AStarNode</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">numDirections</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AStarNode.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>numDirections</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPositionIndex">
+                <h4 class="methodName">getPositionIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">getPositionIndex</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPositionIndex.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSuccessors">
+                <h4 class="methodName">getSuccessors</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>AStarNode[]</code></span>
+                    <span class="memberName">getSuccessors</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSuccessors.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSuccessor">
+                <h4 class="methodName">getSuccessor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="AStarNode.html" class="type-link"><code>AStarNode</code></a></span>
+                    <span class="memberName">getSuccessor</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getSuccessor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setSuccessor">
+                <h4 class="methodName">setSuccessor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setSuccessor</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">directionIndex</span></span>, <span class="param"><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <span class="param-name">node</span></span>, <span class="param"><code>final int</code> <span class="param-name">inverseDirectionIndex</span></span>, <span class="param"><code>final float</code> <span class="param-name">cost</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setSuccessor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>directionIndex</b></dd>
+<dd><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <b>node</b></dd>
+<dd><code>final int</code> <b>inverseDirectionIndex</b></dd>
+<dd><code>final float</code> <b>cost</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPredecessor">
+                <h4 class="methodName">getPredecessor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="AStarNode.html" class="type-link"><code>AStarNode</code></a></span>
+                    <span class="memberName">getPredecessor</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPredecessor.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNextPathNode">
+                <h4 class="methodName">getNextPathNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="AStarNode.html" class="type-link"><code>AStarNode</code></a></span>
+                    <span class="memberName">getNextPathNode</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNextPathNode.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNextNode">
+                <h4 class="methodName">setNextNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNextNode</span>
+                    <span class="arguments">(<span class="param"><a href="AStarNode.html" class="type-link"><code>final AStarNode</code></a> <span class="param-name">next</span></span>, <span class="param"><code>final int</code> <span class="param-name">length</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setNextNode.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="AStarNode.html" class="type-link"><code>final AStarNode</code></a> <b>next</b></dd>
+<dd><code>final int</code> <b>length</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTravelCost">
+                <h4 class="methodName">getTravelCost</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">getTravelCost</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTravelCost.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEstimateToGoal">
+                <h4 class="methodName">getEstimateToGoal</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">getEstimateToGoal</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEstimateToGoal.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTotalCost">
+                <h4 class="methodName">getTotalCost</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">getTotalCost</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTotalCost.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPredecessorDirection">
+                <h4 class="methodName">getPredecessorDirection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getPredecessorDirection</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPredecessorDirection.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="close">
+                <h4 class="methodName">close</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">close</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method close.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isOpen">
+                <h4 class="methodName">isOpen</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isOpen</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isOpen.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isInvalid">
+                <h4 class="methodName">isInvalid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isInvalid</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isInvalid.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLength">
+                <h4 class="methodName">getLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getLength</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLength.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="next">
+                <h4 class="methodName">next</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="AStarNode.html" class="type-link"><code>AStarNode</code></a></span>
+                    <span class="memberName">next</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method next.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPosition">
+                <h4 class="methodName">getPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/Vector3d.html" class="type-link"><code>Vector3d</code></a></span>
+                    <span class="memberName">getPosition</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPosition.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="advance">
+                <h4 class="methodName">advance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="AStarNode.html" class="type-link"><code>AStarNode</code></a></span>
+                    <span class="memberName">advance</span>
+                    <span class="arguments">(<span class="param"><code>int</code> <span class="param-name">skip</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method advance.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>int</code> <b>skip</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="initAsStartNode">
+                <h4 class="methodName">initAsStartNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="AStarNode.html" class="type-link"><code>AStarNode</code></a></span>
+                    <span class="memberName">initAsStartNode</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><code>final long</code> <span class="param-name">positionIndex</span></span>, <span class="param"><code>final float</code> <span class="param-name">cost</span></span>, <span class="param"><code>final float</code> <span class="param-name">estimateCost</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initAsStartNode.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><code>final long</code> <b>positionIndex</b></dd>
+<dd><code>final float</code> <b>cost</b></dd>
+<dd><code>final float</code> <b>estimateCost</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="initWithPredecessor">
+                <h4 class="methodName">initWithPredecessor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="AStarNode.html" class="type-link"><code>AStarNode</code></a></span>
+                    <span class="memberName">initWithPredecessor</span>
+                    <span class="arguments">(<span class="param"><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <span class="param-name">predecessor</span></span>, <span class="param"><code>final int</code> <span class="param-name">directionIndex</span></span>, <span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><code>final long</code> <span class="param-name">positionIndex</span></span>, <span class="param"><code>final int</code> <span class="param-name">inverseDirectionIndex</span></span>, <span class="param"><code>final float</code> <span class="param-name">travelCost</span></span>, <span class="param"><code>final float</code> <span class="param-name">estimateCost</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initWithPredecessor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <b>predecessor</b></dd>
+<dd><code>final int</code> <b>directionIndex</b></dd>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><code>final long</code> <b>positionIndex</b></dd>
+<dd><code>final int</code> <b>inverseDirectionIndex</b></dd>
+<dd><code>final float</code> <b>travelCost</b></dd>
+<dd><code>final float</code> <b>estimateCost</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="initAsInvalid">
+                <h4 class="methodName">initAsInvalid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="AStarNode.html" class="type-link"><code>AStarNode</code></a></span>
+                    <span class="memberName">initAsInvalid</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><code>final long</code> <span class="param-name">positionIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initAsInvalid.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><code>final long</code> <b>positionIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="adjustOptimalPath">
+                <h4 class="methodName">adjustOptimalPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">adjustOptimalPath</span>
+                    <span class="arguments">(<span class="param"><a href="AStarNode.html" class="type-link"><code>final AStarNode</code></a> <span class="param-name">parentNode</span></span>, <span class="param"><code>final float</code> <span class="param-name">deltaCost</span></span>, <span class="param"><code>final int</code> <span class="param-name">direction</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method adjustOptimalPath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="AStarNode.html" class="type-link"><code>final AStarNode</code></a> <b>parentNode</b></dd>
+<dd><code>final float</code> <b>deltaCost</b></dd>
+<dd><code>final int</code> <b>direction</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="toString">
+                <h4 class="methodName">toString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">toString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toString.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DeathComponent (com.hypixel.hytale.server.core.modules.entity.damage)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../../com/hypixel/hytale/server/core/modules/entity/damage/package-summary.html">com.hypixel.hytale.server.core.modules.entity.damage</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">DeathComponent</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="DeathComponent.html" class="type-link">DeathComponent</a> implements <a href="../../../../../component/Component.html" class="type-link" data-class="Component"><code>Component<EntityStore></code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Component for tracking death state. Attach this component to entities that need to track death data.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; DeathComponent</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">deathCause</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">deathCause</span>
+                </div>
+                <div class="block">
+                    <p>Field deathCause.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deathMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">deathMessage</span>
+                </div>
+                <div class="block">
+                    <p>Field deathMessage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">showDeathMenu</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">showDeathMenu</span>
+                </div>
+                <div class="block">
+                    <p>Field showDeathMenu.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemsLostOnDeath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ItemStack[]</span>
+                    <span class="memberName">itemsLostOnDeath</span>
+                </div>
+                <div class="block">
+                    <p>Field itemsLostOnDeath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemsAmountLossPercentage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">itemsAmountLossPercentage</span>
+                </div>
+                <div class="block">
+                    <p>Field itemsAmountLossPercentage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemsDurabilityLossPercentage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">itemsDurabilityLossPercentage</span>
+                </div>
+                <div class="block">
+                    <p>Field itemsDurabilityLossPercentage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">displayDataOnDeathScreen</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">displayDataOnDeathScreen</span>
+                </div>
+                <div class="block">
+                    <p>Field displayDataOnDeathScreen.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deathInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Damage</span>
+                    <span class="memberName">deathInfo</span>
+                </div>
+                <div class="block">
+                    <p>Field deathInfo.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemsLossMode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">DeathConfig.ItemsLossMode</span>
+                    <span class="memberName">itemsLossMode</span>
+                </div>
+                <div class="block">
+                    <p>Field itemsLossMode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">interactionChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">InteractionChain</span>
+                    <span class="memberName">interactionChain</span>
+                </div>
+                <div class="block">
+                    <p>Field interactionChain.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">death</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">DeathComponent</span>
+                    <span class="memberName">death</span>
+                </div>
+                <div class="block">
+                    <p>Field death.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="getComponentType">
+                <h4 class="methodName">getComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>DeathComponent></code></span>
+                    <span class="memberName">getComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="DeathComponent">
+                <h4 class="methodName">DeathComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>protected</code></span>
+                    <span class="memberName">DeathComponent</span>
+                    <span class="arguments">(<span class="param"><a href="Damage.html" class="type-link"><code>@Nonnull final Damage</code></a> <span class="param-name">deathInfo</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method DeathComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="Damage.html" class="type-link"><code>@Nonnull final Damage</code></a> <b>deathInfo</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDeathCause">
+                <h4 class="methodName">getDeathCause</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="DamageCause.html" class="type-link"><code>DamageCause</code></a></span>
+                    <span class="memberName">getDeathCause</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDeathCause.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDeathMessage">
+                <h4 class="methodName">getDeathMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../..//Message.html" class="type-link"><code>Message</code></a></span>
+                    <span class="memberName">getDeathMessage</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDeathMessage.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDeathMessage">
+                <h4 class="methodName">setDeathMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDeathMessage</span>
+                    <span class="arguments">(<span class="param"><a href="../../..//Message.html" class="type-link"><code>@Nullable final Message</code></a> <span class="param-name">deathMessage</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setDeathMessage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../..//Message.html" class="type-link"><code>@Nullable final Message</code></a> <b>deathMessage</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isShowDeathMenu">
+                <h4 class="methodName">isShowDeathMenu</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isShowDeathMenu</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isShowDeathMenu.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setShowDeathMenu">
+                <h4 class="methodName">setShowDeathMenu</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setShowDeathMenu</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">showDeathMenu</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setShowDeathMenu.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>showDeathMenu</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getItemsLostOnDeath">
+                <h4 class="methodName">getItemsLostOnDeath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ItemStack[]</code></span>
+                    <span class="memberName">getItemsLostOnDeath</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getItemsLostOnDeath.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setItemsLostOnDeath">
+                <h4 class="methodName">setItemsLostOnDeath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setItemsLostOnDeath</span>
+                    <span class="arguments">(<span class="param"><code>final List<ItemStack></code> <span class="param-name">itemsLostOnDeath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setItemsLostOnDeath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final List<ItemStack></code> <b>itemsLostOnDeath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getItemsAmountLossPercentage">
+                <h4 class="methodName">getItemsAmountLossPercentage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getItemsAmountLossPercentage</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getItemsAmountLossPercentage.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setItemsAmountLossPercentage">
+                <h4 class="methodName">setItemsAmountLossPercentage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setItemsAmountLossPercentage</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">itemsAmountLossPercentage</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setItemsAmountLossPercentage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>itemsAmountLossPercentage</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getItemsDurabilityLossPercentage">
+                <h4 class="methodName">getItemsDurabilityLossPercentage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getItemsDurabilityLossPercentage</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getItemsDurabilityLossPercentage.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setItemsDurabilityLossPercentage">
+                <h4 class="methodName">setItemsDurabilityLossPercentage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setItemsDurabilityLossPercentage</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">itemsDurabilityLossPercentage</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setItemsDurabilityLossPercentage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>itemsDurabilityLossPercentage</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="displayDataOnDeathScreen">
+                <h4 class="methodName">displayDataOnDeathScreen</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">displayDataOnDeathScreen</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method displayDataOnDeathScreen.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDisplayDataOnDeathScreen">
+                <h4 class="methodName">setDisplayDataOnDeathScreen</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDisplayDataOnDeathScreen</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">displayDataOnDeathScreen</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setDisplayDataOnDeathScreen.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>displayDataOnDeathScreen</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDeathInfo">
+                <h4 class="methodName">getDeathInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="Damage.html" class="type-link"><code>Damage</code></a></span>
+                    <span class="memberName">getDeathInfo</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDeathInfo.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getItemsLossMode">
+                <h4 class="methodName">getItemsLossMode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>DeathConfig.ItemsLossMode</code></span>
+                    <span class="memberName">getItemsLossMode</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getItemsLossMode.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setItemsLossMode">
+                <h4 class="methodName">setItemsLossMode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setItemsLossMode</span>
+                    <span class="arguments">(<span class="param"><code>final DeathConfig.ItemsLossMode</code> <span class="param-name">itemsLossMode</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setItemsLossMode.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final DeathConfig.ItemsLossMode</code> <b>itemsLossMode</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDeathItemLoss">
+                <h4 class="methodName">getDeathItemLoss</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="DeathItemLoss.html" class="type-link"><code>DeathItemLoss</code></a></span>
+                    <span class="memberName">getDeathItemLoss</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDeathItemLoss.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInteractionChain">
+                <h4 class="methodName">getInteractionChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../entity/InteractionChain.html" class="type-link"><code>InteractionChain</code></a></span>
+                    <span class="memberName">getInteractionChain</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getInteractionChain.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setInteractionChain">
+                <h4 class="methodName">setInteractionChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setInteractionChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../entity/InteractionChain.html" class="type-link"><code>@Nullable final InteractionChain</code></a> <span class="param-name">interactionChain</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setInteractionChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../entity/InteractionChain.html" class="type-link"><code>@Nullable final InteractionChain</code></a> <b>interactionChain</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clone">
+                <h4 class="methodName">clone</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../component/Component.html" class="type-link"><code>Component<EntityStore></code></a></span>
+                    <span class="memberName">clone</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clone.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryAddComponent">
+                <h4 class="methodName">tryAddComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tryAddComponent</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>, <span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="Damage.html" class="type-link"><code>@Nonnull final Damage</code></a> <span class="param-name">damage</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryAddComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="Damage.html" class="type-link"><code>@Nonnull final Damage</code></a> <b>damage</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

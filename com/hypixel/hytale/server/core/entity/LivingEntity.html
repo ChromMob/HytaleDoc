@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LivingEntity (com.hypixel.hytale.server.core.entity)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/core/entity/package-summary.html">com.hypixel.hytale.server.core.entity</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">LivingEntity</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">abstract class <a href="LivingEntity.html" class="type-link">LivingEntity</a> extends <a href="Entity.html" class="type-link" data-class="Entity"><code>Entity</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class LivingEntity. Provides livingentity functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; Entity &gt; LivingEntity</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">inventory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Inventory</span>
+                    <span class="memberName">inventory</span>
+                </div>
+                <div class="block">
+                    <p>Field inventory.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentFallDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">currentFallDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field currentFallDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">armorInventoryChangeEventRegistration</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">EventRegistration</span>
+                    <span class="memberName">armorInventoryChangeEventRegistration</span>
+                </div>
+                <div class="block">
+                    <p>Field armorInventoryChangeEventRegistration.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isEquipmentNetworkOutdated</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isEquipmentNetworkOutdated</span>
+                </div>
+                <div class="block">
+                    <p>Field isEquipmentNetworkOutdated.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">invulnerable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">invulnerable</span>
+                </div>
+                <div class="block">
+                    <p>Field invulnerable.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lookVec</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Transform</span>
+                    <span class="memberName">lookVec</span>
+                </div>
+                <div class="block">
+                    <p>Field lookVec.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkStore</span>
+                    <span class="memberName">chunkStore</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">chunkIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<ChunkStore></span>
+                    <span class="memberName">chunkRef</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">remainder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<ItemStack></span>
+                    <span class="memberName">remainder</span>
+                </div>
+                <div class="block">
+                    <p>Field remainder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transactionList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ListTransaction<ItemStackTransaction></span>
+                    <span class="memberName">transactionList</span>
+                </div>
+                <div class="block">
+                    <p>Field transactionList.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">movementStatesComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MovementStatesComponent</span>
+                    <span class="memberName">movementStatesComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field movementStatesComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">movementStates</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MovementStates</span>
+                    <span class="memberName">movementStates</span>
+                </div>
+                <div class="block">
+                    <p>Field movementStates.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fallDamageActive</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">fallDamageActive</span>
+                </div>
+                <div class="block">
+                    <p>Field fallDamageActive.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">item</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Item</span>
+                    <span class="memberName">item</span>
+                </div>
+                <div class="block">
+                    <p>Field item.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">section</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemContainer</span>
+                    <span class="memberName">section</span>
+                </div>
+                <div class="block">
+                    <p>Field section.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transaction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStackSlotTransaction</span>
+                    <span class="memberName">transaction</span>
+                </div>
+                <div class="block">
+                    <p>Field transaction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">updatedItemStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">updatedItemStack</span>
+                </div>
+                <div class="block">
+                    <p>Field updatedItemStack.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">temp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">temp</span>
+                </div>
+                <div class="block">
+                    <p>Field temp.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="LivingEntity">
+                <h4 class="methodName">LivingEntity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">LivingEntity</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method LivingEntity.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="canBreathe">
+                <h4 class="methodName">canBreathe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">canBreathe</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../protocol/BlockMaterial.html" class="type-link"><code>@Nonnull final BlockMaterial</code></a> <span class="param-name">breathingMaterial</span></span>, <span class="param"><code>final int</code> <span class="param-name">fluidId</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method canBreathe.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../protocol/BlockMaterial.html" class="type-link"><code>@Nonnull final BlockMaterial</code></a> <b>breathingMaterial</b></dd>
+<dd><code>final int</code> <b>fluidId</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPackedMaterialAndFluidAtBreathingHeight">
+                <h4 class="methodName">getPackedMaterialAndFluidAtBreathingHeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">getPackedMaterialAndFluidAtBreathingHeight</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getPackedMaterialAndFluidAtBreathingHeight.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInventory">
+                <h4 class="methodName">getInventory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../inventory/Inventory.html" class="type-link"><code>Inventory</code></a></span>
+                    <span class="memberName">getInventory</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getInventory.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setInventory">
+                <h4 class="methodName">setInventory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../inventory/Inventory.html" class="type-link"><code>Inventory</code></a></span>
+                    <span class="memberName">setInventory</span>
+                    <span class="arguments">(<span class="param"><a href="../inventory/Inventory.html" class="type-link"><code>final Inventory</code></a> <span class="param-name">inventory</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setInventory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../inventory/Inventory.html" class="type-link"><code>final Inventory</code></a> <b>inventory</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="moveTo">
+                <h4 class="methodName">moveTo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">moveTo</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><code>final double</code> <span class="param-name">locX</span></span>, <span class="param"><code>final double</code> <span class="param-name">locY</span></span>, <span class="param"><code>final double</code> <span class="param-name">locZ</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method moveTo.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><code>final double</code> <b>locX</b></dd>
+<dd><code>final double</code> <b>locY</b></dd>
+<dd><code>final double</code> <b>locZ</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="canDecreaseItemStackDurability">
+                <h4 class="methodName">canDecreaseItemStackDurability</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">canDecreaseItemStackDurability</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method canDecreaseItemStackDurability.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="canApplyItemStackPenalties">
+                <h4 class="methodName">canApplyItemStackPenalties</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">canApplyItemStackPenalties</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method canApplyItemStackPenalties.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="decreaseItemStackDurability">
+                <h4 class="methodName">decreaseItemStackDurability</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../inventory/transaction/ItemStackSlotTransaction.html" class="type-link"><code>ItemStackSlotTransaction</code></a></span>
+                    <span class="memberName">decreaseItemStackDurability</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../inventory/ItemStack.html" class="type-link"><code>@Nullable final ItemStack</code></a> <span class="param-name">itemStack</span></span>, <span class="param"><code>final int</code> <span class="param-name">inventoryId</span></span>, <span class="param"><code>final int</code> <span class="param-name">slotId</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method decreaseItemStackDurability.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../inventory/ItemStack.html" class="type-link"><code>@Nullable final ItemStack</code></a> <b>itemStack</b></dd>
+<dd><code>final int</code> <b>inventoryId</b></dd>
+<dd><code>final int</code> <b>slotId</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateItemStackDurability">
+                <h4 class="methodName">updateItemStackDurability</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../inventory/transaction/ItemStackSlotTransaction.html" class="type-link"><code>ItemStackSlotTransaction</code></a></span>
+                    <span class="memberName">updateItemStackDurability</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../inventory/ItemStack.html" class="type-link"><code>@Nonnull final ItemStack</code></a> <span class="param-name">itemStack</span></span>, <span class="param"><a href="../inventory/container/ItemContainer.html" class="type-link"><code>final ItemContainer</code></a> <span class="param-name">container</span></span>, <span class="param"><code>final int</code> <span class="param-name">slotId</span></span>, <span class="param"><code>final double</code> <span class="param-name">durabilityChange</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateItemStackDurability.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../inventory/ItemStack.html" class="type-link"><code>@Nonnull final ItemStack</code></a> <b>itemStack</b></dd>
+<dd><a href="../inventory/container/ItemContainer.html" class="type-link"><code>final ItemContainer</code></a> <b>container</b></dd>
+<dd><code>final int</code> <b>slotId</b></dd>
+<dd><code>final double</code> <b>durabilityChange</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="invalidateEquipmentNetwork">
+                <h4 class="methodName">invalidateEquipmentNetwork</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">invalidateEquipmentNetwork</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method invalidateEquipmentNetwork.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="consumeEquipmentNetworkOutdated">
+                <h4 class="methodName">consumeEquipmentNetworkOutdated</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">consumeEquipmentNetworkOutdated</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method consumeEquipmentNetworkOutdated.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getStatModifiersManager">
+                <h4 class="methodName">getStatModifiersManager</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="StatModifiersManager.html" class="type-link"><code>StatModifiersManager</code></a></span>
+                    <span class="memberName">getStatModifiersManager</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getStatModifiersManager.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCurrentFallDistance">
+                <h4 class="methodName">getCurrentFallDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getCurrentFallDistance</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCurrentFallDistance.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setCurrentFallDistance">
+                <h4 class="methodName">setCurrentFallDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setCurrentFallDistance</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">currentFallDistance</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setCurrentFallDistance.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>currentFallDistance</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="toString">
+                <h4 class="methodName">toString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">toString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toString.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

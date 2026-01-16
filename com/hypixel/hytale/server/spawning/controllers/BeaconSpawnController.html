@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BeaconSpawnController (com.hypixel.hytale.server.spawning.controllers)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/spawning/controllers/package-summary.html">com.hypixel.hytale.server.spawning.controllers</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">BeaconSpawnController</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="BeaconSpawnController.html" class="type-link">BeaconSpawnController</a> extends <a href="SpawnController.html" class="type-link" data-class="SpawnController"><code>SpawnController</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class BeaconSpawnController. Provides beaconspawncontroller functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; SpawnController &gt; BeaconSpawnController</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">nextPlayerIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">nextPlayerIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field nextPlayerIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">baseMaxTotalSpawns</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">baseMaxTotalSpawns</span>
+                </div>
+                <div class="block">
+                    <p>Field baseMaxTotalSpawns.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentScaledMaxTotalSpawns</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">currentScaledMaxTotalSpawns</span>
+                </div>
+                <div class="block">
+                    <p>Field currentScaledMaxTotalSpawns.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">baseMaxConcurrentSpawns</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">baseMaxConcurrentSpawns</span>
+                </div>
+                <div class="block">
+                    <p>Field baseMaxConcurrentSpawns.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentScaledMaxConcurrentSpawns</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">currentScaledMaxConcurrentSpawns</span>
+                </div>
+                <div class="block">
+                    <p>Field currentScaledMaxConcurrentSpawns.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnsThisRound</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">spawnsThisRound</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnsThisRound.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">remainingSpawns</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">remainingSpawns</span>
+                </div>
+                <div class="block">
+                    <p>Field remainingSpawns.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roundStart</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">roundStart</span>
+                </div>
+                <div class="block">
+                    <p>Field roundStart.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">beaconRadiusSquared</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">beaconRadiusSquared</span>
+                </div>
+                <div class="block">
+                    <p>Field beaconRadiusSquared.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnRadiusSquared</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">spawnRadiusSquared</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnRadiusSquared.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">despawnNPCAfterTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">despawnNPCAfterTimeout</span>
+                </div>
+                <div class="block">
+                    <p>Field despawnNPCAfterTimeout.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">despawnBeaconAfterTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Duration</span>
+                    <span class="memberName">despawnBeaconAfterTimeout</span>
+                </div>
+                <div class="block">
+                    <p>Field despawnBeaconAfterTimeout.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">despawnNPCsIfIdle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">despawnNPCsIfIdle</span>
+                </div>
+                <div class="block">
+                    <p>Field despawnNPCsIfIdle.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">legacySpawnBeaconComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LegacySpawnBeaconEntity</span>
+                    <span class="memberName">legacySpawnBeaconComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field legacySpawnBeaconComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">wrapper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BeaconSpawnWrapper</span>
+                    <span class="memberName">wrapper</span>
+                </div>
+                <div class="block">
+                    <p>Field wrapper.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawn</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RoleSpawnParameters</span>
+                    <span class="memberName">spawn</span>
+                </div>
+                <div class="block">
+                    <p>Field spawn.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">spawnId</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">roleIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field roleIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">predictedTotal</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">predictedTotal</span>
+                </div>
+                <div class="block">
+                    <p>Field predictedTotal.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">beaconRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">beaconRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field beaconRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">spawnRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">context</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HytaleLogger.Api</span>
+                    <span class="memberName">context</span>
+                </div>
+                <div class="block">
+                    <p>Field context.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ownerUuidComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUIDComponent</span>
+                    <span class="memberName">ownerUuidComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field ownerUuidComponent.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="BeaconSpawnController">
+                <h4 class="methodName">BeaconSpawnController</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">BeaconSpawnController</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ownerRef</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BeaconSpawnController.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ownerRef</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMaxActiveJobs">
+                <h4 class="methodName">getMaxActiveJobs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getMaxActiveJobs</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMaxActiveJobs.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="createRandomSpawnJob">
+                <h4 class="methodName">createRandomSpawnJob</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../jobs/NPCBeaconSpawnJob.html" class="type-link"><code>NPCBeaconSpawnJob</code></a></span>
+                    <span class="memberName">createRandomSpawnJob</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createRandomSpawnJob.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NPCBeaconSpawnJob">
+                <h4 class="methodName">NPCBeaconSpawnJob</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NPCBeaconSpawnJob</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method NPCBeaconSpawnJob.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="initialise">
+                <h4 class="methodName">initialise</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">initialise</span>
+                    <span class="arguments">(<span class="param"><a href="../wrappers/BeaconSpawnWrapper.html" class="type-link"><code>@Nonnull final BeaconSpawnWrapper</code></a> <span class="param-name">spawnWrapper</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initialise.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../wrappers/BeaconSpawnWrapper.html" class="type-link"><code>@Nonnull final BeaconSpawnWrapper</code></a> <b>spawnWrapper</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnsThisRound">
+                <h4 class="methodName">getSpawnsThisRound</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getSpawnsThisRound</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnsThisRound.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setRemainingSpawns">
+                <h4 class="methodName">setRemainingSpawns</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setRemainingSpawns</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">remainingSpawns</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setRemainingSpawns.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>remainingSpawns</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addRoundSpawn">
+                <h4 class="methodName">addRoundSpawn</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addRoundSpawn</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method addRoundSpawn.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isRoundStart">
+                <h4 class="methodName">isRoundStart</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isRoundStart</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isRoundStart.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setRoundStart">
+                <h4 class="methodName">setRoundStart</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setRoundStart</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">roundStart</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setRoundStart.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>roundStart</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOwnerRef">
+                <h4 class="methodName">getOwnerRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../component/Ref.html" class="type-link"><code>Ref<EntityStore></code></a></span>
+                    <span class="memberName">getOwnerRef</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getOwnerRef.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBaseMaxConcurrentSpawns">
+                <h4 class="methodName">getBaseMaxConcurrentSpawns</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int[]</code></span>
+                    <span class="memberName">getBaseMaxConcurrentSpawns</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBaseMaxConcurrentSpawns.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayersInRegion">
+                <h4 class="methodName">getPlayersInRegion</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<PlayerRef></code></span>
+                    <span class="memberName">getPlayersInRegion</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayersInRegion.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCurrentScaledMaxConcurrentSpawns">
+                <h4 class="methodName">getCurrentScaledMaxConcurrentSpawns</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getCurrentScaledMaxConcurrentSpawns</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCurrentScaledMaxConcurrentSpawns.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setCurrentScaledMaxConcurrentSpawns">
+                <h4 class="methodName">setCurrentScaledMaxConcurrentSpawns</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setCurrentScaledMaxConcurrentSpawns</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">currentScaledMaxConcurrentSpawns</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setCurrentScaledMaxConcurrentSpawns.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>currentScaledMaxConcurrentSpawns</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDespawnBeaconAfterTimeout">
+                <h4 class="methodName">getDespawnBeaconAfterTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Duration</code></span>
+                    <span class="memberName">getDespawnBeaconAfterTimeout</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDespawnBeaconAfterTimeout.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnRadiusSquared">
+                <h4 class="methodName">getSpawnRadiusSquared</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getSpawnRadiusSquared</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnRadiusSquared.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBeaconRadiusSquared">
+                <h4 class="methodName">getBeaconRadiusSquared</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getBeaconRadiusSquared</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBeaconRadiusSquared.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBaseMaxTotalSpawns">
+                <h4 class="methodName">getBaseMaxTotalSpawns</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getBaseMaxTotalSpawns</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBaseMaxTotalSpawns.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setCurrentScaledMaxTotalSpawns">
+                <h4 class="methodName">setCurrentScaledMaxTotalSpawns</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setCurrentScaledMaxTotalSpawns</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">currentScaledMaxTotalSpawns</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setCurrentScaledMaxTotalSpawns.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>currentScaledMaxTotalSpawns</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnedEntities">
+                <h4 class="methodName">getSpawnedEntities</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<Ref<EntityStore>></code></span>
+                    <span class="memberName">getSpawnedEntities</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnedEntities.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNextPlayerIndex">
+                <h4 class="methodName">setNextPlayerIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNextPlayerIndex</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">nextPlayerIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setNextPlayerIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>nextPlayerIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEntityTimeoutCounter">
+                <h4 class="methodName">getEntityTimeoutCounter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Object2DoubleMap<Ref<EntityStore>></code></span>
+                    <span class="memberName">getEntityTimeoutCounter</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEntityTimeoutCounter.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEntitiesPerPlayer">
+                <h4 class="methodName">getEntitiesPerPlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Object2IntMap<UUID></code></span>
+                    <span class="memberName">getEntitiesPerPlayer</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEntitiesPerPlayer.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isDespawnNPCsIfIdle">
+                <h4 class="methodName">isDespawnNPCsIfIdle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isDespawnNPCsIfIdle</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isDespawnNPCsIfIdle.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDespawnNPCAfterTimeout">
+                <h4 class="methodName">getDespawnNPCAfterTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getDespawnNPCAfterTimeout</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDespawnNPCAfterTimeout.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getThreatComparator">
+                <h4 class="methodName">getThreatComparator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Comparator<PlayerRef></code></span>
+                    <span class="memberName">getThreatComparator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getThreatComparator.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="notifySpawnedEntityExists">
+                <h4 class="methodName">notifySpawnedEntityExists</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">notifySpawnedEntityExists</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method notifySpawnedEntityExists.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onJobFinished">
+                <h4 class="methodName">onJobFinished</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onJobFinished</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onJobFinished.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="notifyNPCRemoval">
+                <h4 class="methodName">notifyNPCRemoval</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">notifyNPCRemoval</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method notifyNPCRemoval.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasSlots">
+                <h4 class="methodName">hasSlots</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasSlots</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method hasSlots.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="markNPCUnspawnable">
+                <h4 class="methodName">markNPCUnspawnable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">markNPCUnspawnable</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">roleIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method markNPCUnspawnable.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>roleIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearUnspawnableNPCs">
+                <h4 class="methodName">clearUnspawnableNPCs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearUnspawnableNPCs</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearUnspawnableNPCs.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onAllConcurrentSpawned">
+                <h4 class="methodName">onAllConcurrentSpawned</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onAllConcurrentSpawned</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onAllConcurrentSpawned.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

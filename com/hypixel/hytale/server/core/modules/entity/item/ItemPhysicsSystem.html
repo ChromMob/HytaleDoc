@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ItemPhysicsSystem (com.hypixel.hytale.server.core.modules.entity.item)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../../com/hypixel/hytale/server/core/modules/entity/item/package-summary.html">com.hypixel.hytale.server.core.modules.entity.item</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">ItemPhysicsSystem</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="ItemPhysicsSystem.html" class="type-link">ItemPhysicsSystem</a> extends <a href="../../../../../component/system/tick/EntityTickingSystem.html" class="type-link" data-class="EntityTickingSystem"><code>EntityTickingSystem</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>System for handling itemphysics mechanics. Systems contain game logic that operates on entities with specific component types.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; EntityTickingSystem &gt; ItemPhysicsSystem</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemPhysicsComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemPhysicsComponent</span>
+                    <span class="memberName">itemPhysicsComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field itemPhysicsComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">velocityComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Velocity</span>
+                    <span class="memberName">velocityComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field velocityComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">scaledVelocity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">scaledVelocity</span>
+                </div>
+                <div class="block">
+                    <p>Field scaledVelocity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">collisionResult</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CollisionResult</span>
+                    <span class="memberName">collisionResult</span>
+                </div>
+                <div class="block">
+                    <p>Field collisionResult.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">boundingBoxComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BoundingBox</span>
+                    <span class="memberName">boundingBoxComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field boundingBoxComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">boundingBox</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Box</span>
+                    <span class="memberName">boundingBox</span>
+                </div>
+                <div class="block">
+                    <p>Field boundingBox.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockCollisionData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockCollisionData</span>
+                    <span class="memberName">blockCollisionData</span>
+                </div>
+                <div class="block">
+                    <p>Field blockCollisionData.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="ItemPhysicsSystem">
+                <h4 class="methodName">ItemPhysicsSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">ItemPhysicsSystem</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, ItemPhysicsComponent></code></a> <span class="param-name">itemPhysicsComponentType</span></span>, <span class="param"><a href="../../../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, Velocity></code></a> <span class="param-name">velocityComponentType</span></span>, <span class="param"><a href="../../../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, BoundingBox></code></a> <span class="param-name">boundingBoxComponentType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ItemPhysicsSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, ItemPhysicsComponent></code></a> <b>itemPhysicsComponentType</b></dd>
+<dd><a href="../../../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, Velocity></code></a> <b>velocityComponentType</b></dd>
+<dd><a href="../../../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, BoundingBox></code></a> <b>boundingBoxComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getQuery">
+                <h4 class="methodName">getQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../component/query/Query.html" class="type-link"><code>Query<EntityStore></code></a></span>
+                    <span class="memberName">getQuery</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getQuery.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isParallel">
+                <h4 class="methodName">isParallel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isParallel</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">archetypeChunkSize</span></span>, <span class="param"><code>final int</code> <span class="param-name">taskCount</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isParallel.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>archetypeChunkSize</b></dd>
+<dd><code>final int</code> <b>taskCount</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tick">
+                <h4 class="methodName">tick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tick</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>, <span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><a href="../../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <span class="param-name">archetypeChunk</span></span>, <span class="param"><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><a href="../../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <b>archetypeChunk</b></dd>
+<dd><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

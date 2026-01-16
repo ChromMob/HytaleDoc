@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WorldTimeResource (com.hypixel.hytale.server.core.modules.time)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/core/modules/time/package-summary.html">com.hypixel.hytale.server.core.modules.time</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">WorldTimeResource</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="WorldTimeResource.html" class="type-link">WorldTimeResource</a> implements <a href="../../../../component/Resource.html" class="type-link" data-class="Resource"><code>Resource<EntityStore></code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class WorldTimeResource. Provides worldtimeresource functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; WorldTimeResource</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">gameTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">gameTime</span>
+                </div>
+                <div class="block">
+                    <p>Field gameTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">_gameTimeLocalDateTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">LocalDateTime</span>
+                    <span class="memberName">_gameTimeLocalDateTime</span>
+                </div>
+                <div class="block">
+                    <p>Field _gameTimeLocalDateTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentHour</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">currentHour</span>
+                </div>
+                <div class="block">
+                    <p>Field currentHour.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sunlightFactor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">sunlightFactor</span>
+                </div>
+                <div class="block">
+                    <p>Field sunlightFactor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">scaledTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">scaledTime</span>
+                </div>
+                <div class="block">
+                    <p>Field scaledTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">moonPhase</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">moonPhase</span>
+                </div>
+                <div class="block">
+                    <p>Field moonPhase.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">daytimeDurationSeconds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">daytimeDurationSeconds</span>
+                </div>
+                <div class="block">
+                    <p>Field daytimeDurationSeconds.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nighttimeDurationSeconds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">nighttimeDurationSeconds</span>
+                </div>
+                <div class="block">
+                    <p>Field nighttimeDurationSeconds.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalDurationSeconds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">totalDurationSeconds</span>
+                </div>
+                <div class="block">
+                    <p>Field totalDurationSeconds.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">wasTimePausedChanged</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">wasTimePausedChanged</span>
+                </div>
+                <div class="block">
+                    <p>Field wasTimePausedChanged.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">secondsOfDay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">secondsOfDay</span>
+                </div>
+                <div class="block">
+                    <p>Field secondsOfDay.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">daytimeRate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">daytimeRate</span>
+                </div>
+                <div class="block">
+                    <p>Field daytimeRate.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nighttimeRate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">nighttimeRate</span>
+                </div>
+                <div class="block">
+                    <p>Field nighttimeRate.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">x2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">x2</span>
+                </div>
+                <div class="block">
+                    <p>Field x2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">whole</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">whole</span>
+                </div>
+                <div class="block">
+                    <p>Field whole.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">m0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">m0</span>
+                </div>
+                <div class="block">
+                    <p>Field m0.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">m2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">m2</span>
+                </div>
+                <div class="block">
+                    <p>Field m2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">f0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">f0</span>
+                </div>
+                <div class="block">
+                    <p>Field f0.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">f2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">f2</span>
+                </div>
+                <div class="block">
+                    <p>Field f2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">advance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">advance</span>
+                </div>
+                <div class="block">
+                    <p>Field advance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">event</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MoonPhaseChangeEvent</span>
+                    <span class="memberName">event</span>
+                </div>
+                <div class="block">
+                    <p>Field event.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldGameplayConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldConfig</span>
+                    <span class="memberName">worldGameplayConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field worldGameplayConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalMoonPhases</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">totalMoonPhases</span>
+                </div>
+                <div class="block">
+                    <p>Field totalMoonPhases.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dayProgress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">dayProgress</span>
+                </div>
+                <div class="block">
+                    <p>Field dayProgress.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentDay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">currentDay</span>
+                </div>
+                <div class="block">
+                    <p>Field currentDay.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">weekDay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">weekDay</span>
+                </div>
+                <div class="block">
+                    <p>Field weekDay.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dayDuration</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">dayDuration</span>
+                </div>
+                <div class="block">
+                    <p>Field dayDuration.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nightDuration</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">nightDuration</span>
+                </div>
+                <div class="block">
+                    <p>Field nightDuration.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">halfNight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">halfNight</span>
+                </div>
+                <div class="block">
+                    <p>Field halfNight.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dawnRelativeProgress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">dawnRelativeProgress</span>
+                </div>
+                <div class="block">
+                    <p>Field dawnRelativeProgress.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldGameTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">oldGameTime</span>
+                </div>
+                <div class="block">
+                    <p>Field oldGameTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dayStart</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">dayStart</span>
+                </div>
+                <div class="block">
+                    <p>Field dayStart.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newGameTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">newGameTime</span>
+                </div>
+                <div class="block">
+                    <p>Field newGameTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dayTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">dayTime</span>
+                </div>
+                <div class="block">
+                    <p>Field dayTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">daylightDuration</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">daylightDuration</span>
+                </div>
+                <div class="block">
+                    <p>Field daylightDuration.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">halfNightDuration</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">halfNightDuration</span>
+                </div>
+                <div class="block">
+                    <p>Field halfNightDuration.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inverseAllNightDay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">inverseAllNightDay</span>
+                </div>
+                <div class="block">
+                    <p>Field inverseAllNightDay.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">halfDaylightDuration</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">halfDaylightDuration</span>
+                </div>
+                <div class="block">
+                    <p>Field halfDaylightDuration.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inverseAllDaylightDay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">inverseAllDaylightDay</span>
+                </div>
+                <div class="block">
+                    <p>Field inverseAllDaylightDay.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sunPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3f</span>
+                    <span class="memberName">sunPosition</span>
+                </div>
+                <div class="block">
+                    <p>Field sunPosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tweakedSunHeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">tweakedSunHeight</span>
+                </div>
+                <div class="block">
+                    <p>Field tweakedSunHeight.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldTimeComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldTimeResource</span>
+                    <span class="memberName">worldTimeComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field worldTimeComponent.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="WorldTimeResource">
+                <h4 class="methodName">WorldTimeResource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">WorldTimeResource</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method WorldTimeResource.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getResourceType">
+                <h4 class="methodName">getResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>WorldTimeResource></code></span>
+                    <span class="memberName">getResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSecondsPerTick">
+                <h4 class="methodName">getSecondsPerTick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getSecondsPerTick</span>
+                    <span class="arguments">(<span class="param"><code>final World</code> <span class="param-name">world</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getSecondsPerTick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final World</code> <b>world</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tick">
+                <h4 class="methodName">tick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tick</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMoonPhase">
+                <h4 class="methodName">getMoonPhase</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getMoonPhase</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMoonPhase.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setMoonPhase">
+                <h4 class="methodName">setMoonPhase</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setMoonPhase</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">moonPhase</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setMoonPhase.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>moonPhase</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateMoonPhase">
+                <h4 class="methodName">updateMoonPhase</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateMoonPhase</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateMoonPhase.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isMoonPhaseWithinRange">
+                <h4 class="methodName">isMoonPhaseWithinRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isMoonPhaseWithinRange</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><code>final int</code> <span class="param-name">minMoonPhase</span></span>, <span class="param"><code>final int</code> <span class="param-name">maxMoonPhase</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isMoonPhaseWithinRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><code>final int</code> <b>minMoonPhase</b></dd>
+<dd><code>final int</code> <b>maxMoonPhase</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setGameTime0">
+                <h4 class="methodName">setGameTime0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setGameTime0</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Instant</code> <span class="param-name">gameTime</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setGameTime0.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Instant</code> <b>gameTime</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateSunlightFactor">
+                <h4 class="methodName">updateSunlightFactor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateSunlightFactor</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">dayProgress</span></span>, <span class="param"><code>final float</code> <span class="param-name">halfNight</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateSunlightFactor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>dayProgress</b></dd>
+<dd><code>final float</code> <b>halfNight</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateScaledTime">
+                <h4 class="methodName">updateScaledTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateScaledTime</span>
+                    <span class="arguments">(<span class="param"><code>float</code> <span class="param-name">dayProgress</span></span>, <span class="param"><code>final float</code> <span class="param-name">dayDuration</span></span>, <span class="param"><code>final float</code> <span class="param-name">halfNight</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateScaledTime.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>float</code> <b>dayProgress</b></dd>
+<dd><code>final float</code> <b>dayDuration</b></dd>
+<dd><code>final float</code> <b>halfNight</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getGameTime">
+                <h4 class="methodName">getGameTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Instant</code></span>
+                    <span class="memberName">getGameTime</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getGameTime.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getGameDateTime">
+                <h4 class="methodName">getGameDateTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>LocalDateTime</code></span>
+                    <span class="memberName">getGameDateTime</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getGameDateTime.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSunlightFactor">
+                <h4 class="methodName">getSunlightFactor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getSunlightFactor</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSunlightFactor.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setGameTime">
+                <h4 class="methodName">setGameTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setGameTime</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Instant</code> <span class="param-name">gameTime</span></span>, <span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setGameTime.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Instant</code> <b>gameTime</b></dd>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDayTime">
+                <h4 class="methodName">setDayTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDayTime</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">dayTime</span></span>, <span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setDayTime.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>dayTime</b></dd>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="broadcastTimePacket">
+                <h4 class="methodName">broadcastTimePacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">broadcastTimePacket</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method broadcastTimePacket.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendTimePackets">
+                <h4 class="methodName">sendTimePackets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">sendTimePackets</span>
+                    <span class="arguments">(<span class="param"><a href="../../universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <span class="param-name">playerRef</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method sendTimePackets.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <b>playerRef</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isDayTimeWithinRange">
+                <h4 class="methodName">isDayTimeWithinRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isDayTimeWithinRange</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">minTime</span></span>, <span class="param"><code>final double</code> <span class="param-name">maxTime</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isDayTimeWithinRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>minTime</b></dd>
+<dd><code>final double</code> <b>maxTime</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateTimePacket">
+                <h4 class="methodName">updateTimePacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateTimePacket</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/packets/world/UpdateTime.html" class="type-link"><code>@Nonnull final UpdateTime</code></a> <span class="param-name">currentTimePacket</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateTimePacket.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/packets/world/UpdateTime.html" class="type-link"><code>@Nonnull final UpdateTime</code></a> <b>currentTimePacket</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateTimeSettingsPacket">
+                <h4 class="methodName">updateTimeSettingsPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../../../protocol/packets/world/UpdateTimeSettings.html" class="type-link"><code>UpdateTimeSettings</code></a></span>
+                    <span class="memberName">updateTimeSettingsPacket</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/packets/world/UpdateTimeSettings.html" class="type-link"><code>@Nonnull final UpdateTimeSettings</code></a> <span class="param-name">settings</span></span>, <span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateTimeSettingsPacket.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/packets/world/UpdateTimeSettings.html" class="type-link"><code>@Nonnull final UpdateTimeSettings</code></a> <b>settings</b></dd>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isScaledDayTimeWithinRange">
+                <h4 class="methodName">isScaledDayTimeWithinRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isScaledDayTimeWithinRange</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">minTime</span></span>, <span class="param"><code>final double</code> <span class="param-name">maxTime</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isScaledDayTimeWithinRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>minTime</b></dd>
+<dd><code>final double</code> <b>maxTime</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isYearWithinRange">
+                <h4 class="methodName">isYearWithinRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isYearWithinRange</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">minTime</span></span>, <span class="param"><code>final double</code> <span class="param-name">maxTime</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isYearWithinRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>minTime</b></dd>
+<dd><code>final double</code> <b>maxTime</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCurrentHour">
+                <h4 class="methodName">getCurrentHour</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getCurrentHour</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCurrentHour.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDayProgress">
+                <h4 class="methodName">getDayProgress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">getDayProgress</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDayProgress.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSunDirection">
+                <h4 class="methodName">getSunDirection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../protocol/Vector3f.html" class="type-link"><code>Vector3f</code></a></span>
+                    <span class="memberName">getSunDirection</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSunDirection.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param"><code>dayTime > WorldTimeResource.HOURS_PER_DAY -</code> <span class="param-name">halfNightDuration</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>dayTime > WorldTimeResource.HOURS_PER_DAY -</code> <b>halfNightDuration</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Vector3f">
+                <h4 class="methodName">Vector3f</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Vector3f</span>
+                    <span class="arguments">(<span class="param">TrigMathUtil.cos(sunAngle</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Vector3f.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>TrigMathUtil.cos(sunAngle</code> <b>TrigMathUtil.cos(sunAngle</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="instantToInstantData">
+                <h4 class="methodName">instantToInstantData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../../../protocol/InstantData.html" class="type-link"><code>InstantData</code></a></span>
+                    <span class="memberName">instantToInstantData</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Instant</code> <span class="param-name">instant</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method instantToInstantData.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Instant</code> <b>instant</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="instantDataToInstant">
+                <h4 class="methodName">instantDataToInstant</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>Instant</code></span>
+                    <span class="memberName">instantDataToInstant</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/InstantData.html" class="type-link"><code>@Nonnull final InstantData</code></a> <span class="param-name">instantData</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method instantDataToInstant.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/InstantData.html" class="type-link"><code>@Nonnull final InstantData</code></a> <b>instantData</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clone">
+                <h4 class="methodName">clone</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../component/Resource.html" class="type-link"><code>Resource<EntityStore></code></a></span>
+                    <span class="memberName">clone</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clone.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="toString">
+                <h4 class="methodName">toString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">toString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toString.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

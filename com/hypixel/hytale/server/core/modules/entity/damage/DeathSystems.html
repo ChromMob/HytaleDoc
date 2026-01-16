@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DeathSystems (com.hypixel.hytale.server.core.modules.entity.damage)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../../com/hypixel/hytale/server/core/modules/entity/damage/package-summary.html">com.hypixel.hytale.server.core.modules.entity.damage</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">DeathSystems</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="DeathSystems.html" class="type-link">DeathSystems</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class DeathSystems. Provides deathsystems functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; DeathSystems</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">model</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Model</span>
+                    <span class="memberName">model</span>
+                </div>
+                <div class="block">
+                    <p>Field model.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">animationIds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">animationIds</span>
+                </div>
+                <div class="block">
+                    <p>Field animationIds.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">selectedAnimationId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">selectedAnimationId</span>
+                </div>
+                <div class="block">
+                    <p>Field selectedAnimationId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityStatMapComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EntityStatMap</span>
+                    <span class="memberName">entityStatMapComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field entityStatMapComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">interactionManagerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionManager</span>
+                    <span class="memberName">interactionManagerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field interactionManagerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">effectControllerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EffectControllerComponent</span>
+                    <span class="memberName">effectControllerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field effectControllerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nameplateComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Nameplate</span>
+                    <span class="memberName">nameplateComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field nameplateComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deathInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Damage</span>
+                    <span class="memberName">deathInfo</span>
+                </div>
+                <div class="block">
+                    <p>Field deathInfo.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deathCause</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">DamageCause</span>
+                    <span class="memberName">deathCause</span>
+                </div>
+                <div class="block">
+                    <p>Field deathCause.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">source</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Damage.Source</span>
+                    <span class="memberName">source</span>
+                </div>
+                <div class="block">
+                    <p>Field source.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sourceRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">sourceRef</span>
+                </div>
+                <div class="block">
+                    <p>Field sourceRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">attacker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">attacker</span>
+                </div>
+                <div class="block">
+                    <p>Field attacker.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">playerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">combinedItemContainer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CombinedItemContainer</span>
+                    <span class="memberName">combinedItemContainer</span>
+                </div>
+                <div class="block">
+                    <p>Field combinedItemContainer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">durabilityLossRatio</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">durabilityLossRatio</span>
+                </div>
+                <div class="block">
+                    <p>Field durabilityLossRatio.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">itemStack</span>
+                </div>
+                <div class="block">
+                    <p>Field itemStack.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">durabilityLoss</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">durabilityLoss</span>
+                </div>
+                <div class="block">
+                    <p>Field durabilityLoss.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">updatedItemStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">updatedItemStack</span>
+                </div>
+                <div class="block">
+                    <p>Field updatedItemStack.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transaction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStackSlotTransaction</span>
+                    <span class="memberName">transaction</span>
+                </div>
+                <div class="block">
+                    <p>Field transaction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemsAmountLossPercentage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">itemsAmountLossPercentage</span>
+                </div>
+                <div class="block">
+                    <p>Field itemsAmountLossPercentage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemAmountLossRatio</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">itemAmountLossRatio</span>
+                </div>
+                <div class="block">
+                    <p>Field itemAmountLossRatio.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemStack2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">itemStack2</span>
+                </div>
+                <div class="block">
+                    <p>Field itemStack2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">quantityToLose</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">quantityToLose</span>
+                </div>
+                <div class="block">
+                    <p>Field quantityToLose.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newQuantity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">newQuantity</span>
+                </div>
+                <div class="block">
+                    <p>Field newQuantity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">updatedItemStack2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">updatedItemStack2</span>
+                </div>
+                <div class="block">
+                    <p>Field updatedItemStack2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">headRotationComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HeadRotation</span>
+                    <span class="memberName">headRotationComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field headRotationComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">headRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3f</span>
+                    <span class="memberName">headRotation</span>
+                </div>
+                <div class="block">
+                    <p>Field headRotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">drops</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore>[]</span>
+                    <span class="memberName">drops</span>
+                </div>
+                <div class="block">
+                    <p>Field drops.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deathConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">DeathConfig</span>
+                    <span class="memberName">deathConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field deathConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">interactionsComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Interactions</span>
+                    <span class="memberName">interactionsComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field interactionsComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">unarmed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UnarmedInteractions</span>
+                    <span class="memberName">unarmed</span>
+                </div>
+                <div class="block">
+                    <p>Field unarmed.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rootInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RootInteraction</span>
+                    <span class="memberName">rootInteraction</span>
+                </div>
+                <div class="block">
+                    <p>Field rootInteraction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">context</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionContext</span>
+                    <span class="memberName">context</span>
+                </div>
+                <div class="block">
+                    <p>Field context.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionChain</span>
+                    <span class="memberName">chain</span>
+                </div>
+                <div class="block">
+                    <p>Field chain.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">broadcastTargets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<PlayerRef></span>
+                    <span class="memberName">broadcastTargets</span>
+                </div>
+                <div class="block">
+                    <p>Field broadcastTargets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">killerMessageEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">KillFeedEvent.KillerMessage</span>
+                    <span class="memberName">killerMessageEvent</span>
+                </div>
+                <div class="block">
+                    <p>Field killerMessageEvent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">decedentMessageEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">KillFeedEvent.DecedentMessage</span>
+                    <span class="memberName">decedentMessageEvent</span>
+                </div>
+                <div class="block">
+                    <p>Field decedentMessageEvent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">decedentMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">decedentMessage</span>
+                </div>
+                <div class="block">
+                    <p>Field decedentMessage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">killFeedEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">KillFeedEvent.Display</span>
+                    <span class="memberName">killFeedEvent</span>
+                </div>
+                <div class="block">
+                    <p>Field killFeedEvent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">killFeedMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">KillFeedMessage</span>
+                    <span class="memberName">killFeedMessage</span>
+                </div>
+                <div class="block">
+                    <p>Field killFeedMessage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deathMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">deathMessage</span>
+                </div>
+                <div class="block">
+                    <p>Field deathMessage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRefComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">playerRefComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRefComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pageManager</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PageManager</span>
+                    <span class="memberName">pageManager</span>
+                </div>
+                <div class="block">
+                    <p>Field pageManager.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">gameplayConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">GameplayConfig</span>
+                    <span class="memberName">gameplayConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field gameplayConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldMapConfigGameplayConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldMapConfig</span>
+                    <span class="memberName">worldMapConfigGameplayConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field worldMapConfigGameplayConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transform</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Transform</span>
+                    <span class="memberName">transform</span>
+                </div>
+                <div class="block">
+                    <p>Field transform.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldTimeResource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldTimeResource</span>
+                    <span class="memberName">worldTimeResource</span>
+                </div>
+                <div class="block">
+                    <p>Field worldTimeResource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">gameTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">gameTime</span>
+                </div>
+                <div class="block">
+                    <p>Field gameTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">daysSinceWorldStart</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">daysSinceWorldStart</span>
+                </div>
+                <div class="block">
+                    <p>Field daysSinceWorldStart.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deathMarkerId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">deathMarkerId</span>
+                </div>
+                <div class="block">
+                    <p>Field deathMarkerId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">perWorldData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerWorldData</span>
+                    <span class="memberName">perWorldData</span>
+                </div>
+                <div class="block">
+                    <p>Field perWorldData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ModelComponent</span>
+                    <span class="memberName">modelComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field modelComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">movementStatesComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MovementStatesComponent</span>
+                    <span class="memberName">movementStatesComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field movementStatesComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deathComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">DeathComponent</span>
+                    <span class="memberName">deathComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field deathComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deathInteractionChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionChain</span>
+                    <span class="memberName">deathInteractionChain</span>
+                </div>
+                <div class="block">
+                    <p>Field deathInteractionChain.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">corpseRemoval</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">DeferredCorpseRemoval</span>
+                    <span class="memberName">corpseRemoval</span>
+                </div>
+                <div class="block">
+                    <p>Field corpseRemoval.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="playDeathAnimation">
+                <h4 class="methodName">playDeathAnimation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">playDeathAnimation</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="DeathComponent.html" class="type-link"><code>@Nonnull final DeathComponent</code></a> <span class="param-name">deathComponent</span></span>, <span class="param"><a href="../component/ModelComponent.html" class="type-link"><code>@Nullable final ModelComponent</code></a> <span class="param-name">modelComponent</span></span>, <span class="param"><a href="../../../entity/movement/MovementStatesComponent.html" class="type-link"><code>@Nonnull final MovementStatesComponent</code></a> <span class="param-name">movementStatesComponent</span></span>, <span class="param"><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method playDeathAnimation.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="DeathComponent.html" class="type-link"><code>@Nonnull final DeathComponent</code></a> <b>deathComponent</b></dd>
+<dd><a href="../component/ModelComponent.html" class="type-link"><code>@Nullable final ModelComponent</code></a> <b>modelComponent</b></dd>
+<dd><a href="../../../entity/movement/MovementStatesComponent.html" class="type-link"><code>@Nonnull final MovementStatesComponent</code></a> <b>movementStatesComponent</b></dd>
+<dd><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="componentType">
+                <h4 class="methodName">componentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>DeathComponent></code></span>
+                    <span class="memberName">componentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method componentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onComponentSet">
+                <h4 class="methodName">onComponentSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onComponentSet</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="DeathComponent.html" class="type-link"><code>final DeathComponent</code></a> <span class="param-name">oldComponent</span></span>, <span class="param"><a href="DeathComponent.html" class="type-link"><code>@Nonnull final DeathComponent</code></a> <span class="param-name">newComponent</span></span>, <span class="param"><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onComponentSet.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="DeathComponent.html" class="type-link"><code>final DeathComponent</code></a> <b>oldComponent</b></dd>
+<dd><a href="DeathComponent.html" class="type-link"><code>@Nonnull final DeathComponent</code></a> <b>newComponent</b></dd>
+<dd><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onComponentRemoved">
+                <h4 class="methodName">onComponentRemoved</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onComponentRemoved</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="DeathComponent.html" class="type-link"><code>@Nonnull final DeathComponent</code></a> <span class="param-name">component</span></span>, <span class="param"><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onComponentRemoved.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="DeathComponent.html" class="type-link"><code>@Nonnull final DeathComponent</code></a> <b>component</b></dd>
+<dd><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDependencies">
+                <h4 class="methodName">getDependencies</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Set<Dependency<EntityStore>></code></span>
+                    <span class="memberName">getDependencies</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDependencies.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getQuery">
+                <h4 class="methodName">getQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../component/query/Query.html" class="type-link"><code>Query<EntityStore></code></a></span>
+                    <span class="memberName">getQuery</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getQuery.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onComponentAdded">
+                <h4 class="methodName">onComponentAdded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onComponentAdded</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="DeathComponent.html" class="type-link"><code>@Nonnull final DeathComponent</code></a> <span class="param-name">component</span></span>, <span class="param"><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onComponentAdded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="DeathComponent.html" class="type-link"><code>@Nonnull final DeathComponent</code></a> <b>component</b></dd>
+<dd><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SystemDependency">
+                <h4 class="methodName">SystemDependency</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SystemDependency</span>
+                    <span class="arguments">(<span class="param">Order.BEFORE</span>, <span class="param">DropPlayerDeathItems.class</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SystemDependency.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Order.BEFORE</code> <b>Order.BEFORE</b></dd>
+<dd><code>DropPlayerDeathItems.class</code> <b>DropPlayerDeathItems.class</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="KillFeedMessage">
+                <h4 class="methodName">KillFeedMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">KillFeedMessage</span>
+                    <span class="arguments">(<span class="param"><code>(killerMessage !=</code> <span class="param-name">null</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method KillFeedMessage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>(killerMessage !=</code> <b>null</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="RespawnPage">
+                <h4 class="methodName">RespawnPage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">RespawnPage</span>
+                    <span class="arguments">(<span class="param">playerRefComponent</span>, <span class="param">deathMessage</span>, <span class="param">component.displayDataOnDeathScreen(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method RespawnPage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>playerRefComponent</code> <b>playerRefComponent</b></dd>
+<dd><code>deathMessage</code> <b>deathMessage</b></dd>
+<dd><code>component.displayDataOnDeathScreen(</code> <b>component.displayDataOnDeathScreen(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Transform">
+                <h4 class="methodName">Transform</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Transform</span>
+                    <span class="arguments">(<span class="param">position.getX(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Transform.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>position.getX(</code> <b>position.getX(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="DeathAnimation">
+                <h4 class="methodName">DeathAnimation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">DeathAnimation</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method DeathAnimation.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEntityAdded">
+                <h4 class="methodName">onEntityAdded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEntityAdded</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../../component/AddReason.html" class="type-link"><code>@Nonnull final AddReason</code></a> <span class="param-name">reason</span></span>, <span class="param"><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEntityAdded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../../component/AddReason.html" class="type-link"><code>@Nonnull final AddReason</code></a> <b>reason</b></dd>
+<dd><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEntityRemove">
+                <h4 class="methodName">onEntityRemove</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEntityRemove</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../../component/RemoveReason.html" class="type-link"><code>@Nonnull final RemoveReason</code></a> <span class="param-name">reason</span></span>, <span class="param"><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEntityRemove.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../../component/RemoveReason.html" class="type-link"><code>@Nonnull final RemoveReason</code></a> <b>reason</b></dd>
+<dd><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tick">
+                <h4 class="methodName">tick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tick</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>, <span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><a href="../../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <span class="param-name">archetypeChunk</span></span>, <span class="param"><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><a href="../../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <b>archetypeChunk</b></dd>
+<dd><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ServerManager (com.hypixel.hytale.server.core.io)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/core/io/package-summary.html">com.hypixel.hytale.server.core.io</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">ServerManager</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="ServerManager.html" class="type-link">ServerManager</a> extends <a href="../plugin/JavaPlugin.html" class="type-link" data-class="JavaPlugin"><code>JavaPlugin</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class ServerManager. Provides servermanager functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; JavaPlugin &gt; ServerManager</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">transport</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Transport</span>
+                    <span class="memberName">transport</span>
+                </div>
+                <div class="block">
+                    <p>Field transport.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">registerFuture</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">registerFuture</span>
+                </div>
+                <div class="block">
+                    <p>Field registerFuture.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bootFuture</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">bootFuture</span>
+                </div>
+                <div class="block">
+                    <p>Field bootFuture.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">start</span>
+                </div>
+                <div class="block">
+                    <p>Field start.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">arr$</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InetAddress[]</span>
+                    <span class="memberName">arr$</span>
+                </div>
+                <div class="block">
+                    <p>Field arr$.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">localhosts</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InetAddress[]</span>
+                    <span class="memberName">localhosts</span>
+                </div>
+                <div class="block">
+                    <p>Field localhosts.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">channelIpv6</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Channel</span>
+                    <span class="memberName">channelIpv6</span>
+                </div>
+                <div class="block">
+                    <p>Field channelIpv6.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">channelIpv7</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Channel</span>
+                    <span class="memberName">channelIpv7</span>
+                </div>
+                <div class="block">
+                    <p>Field channelIpv7.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">channelIpv6Localhost</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Channel</span>
+                    <span class="memberName">channelIpv6Localhost</span>
+                </div>
+                <div class="block">
+                    <p>Field channelIpv6Localhost.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">channel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Channel</span>
+                    <span class="memberName">channel</span>
+                </div>
+                <div class="block">
+                    <p>Field channel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">success</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">success</span>
+                </div>
+                <div class="block">
+                    <p>Field success.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">socketAddress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SocketAddress</span>
+                    <span class="memberName">socketAddress</span>
+                </div>
+                <div class="block">
+                    <p>Field socketAddress.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">address</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InetAddress</span>
+                    <span class="memberName">address</span>
+                </div>
+                <div class="block">
+                    <p>Field address.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">anyNonLoopbackAddress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InetAddress</span>
+                    <span class="memberName">anyNonLoopbackAddress</span>
+                </div>
+                <div class="block">
+                    <p>Field anyNonLoopbackAddress.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">anyPublicAddress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InetAddress</span>
+                    <span class="memberName">anyPublicAddress</span>
+                </div>
+                <div class="block">
+                    <p>Field anyPublicAddress.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">future</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">future</span>
+                </div>
+                <div class="block">
+                    <p>Field future.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">f</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChannelFuture</span>
+                    <span class="memberName">f</span>
+                </div>
+                <div class="block">
+                    <p>Field f.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="get">
+                <h4 class="methodName">get</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="ServerManager.html" class="type-link"><code>ServerManager</code></a></span>
+                    <span class="memberName">get</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method get.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ServerManager">
+                <h4 class="methodName">ServerManager</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">ServerManager</span>
+                    <span class="arguments">(<span class="param"><a href="../plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <span class="param-name">init</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ServerManager.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <b>init</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="init">
+                <h4 class="methodName">init</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">init</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method init.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="BindingsCommand">
+                <h4 class="methodName">BindingsCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BindingsCommand</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method BindingsCommand.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="start">
+                <h4 class="methodName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">start</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method start.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="InetSocketAddress">
+                <h4 class="methodName">InetSocketAddress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">InetSocketAddress</span>
+                    <span class="arguments">(<span class="param">localhost</span>, <span class="param">Options.getOptionSet(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method InetSocketAddress.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>localhost</code> <b>localhost</b></dd>
+<dd><code>Options.getOptionSet(</code> <b>Options.getOptionSet(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdown">
+                <h4 class="methodName">shutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">shutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unbindAllListeners">
+                <h4 class="methodName">unbindAllListeners</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">unbindAllListeners</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unbindAllListeners.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getListeners">
+                <h4 class="methodName">getListeners</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<Channel></code></span>
+                    <span class="memberName">getListeners</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getListeners.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="bind">
+                <h4 class="methodName">bind</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">bind</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final InetSocketAddress</code> <span class="param-name">address</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method bind.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final InetSocketAddress</code> <b>address</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="unbind">
+                <h4 class="methodName">unbind</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">unbind</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Channel</code> <span class="param-name">channel</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method unbind.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Channel</code> <b>channel</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLocalOrPublicAddress">
+                <h4 class="methodName">getLocalOrPublicAddress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>InetSocketAddress</code></span>
+                    <span class="memberName">getLocalOrPublicAddress</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLocalOrPublicAddress.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNonLoopbackAddress">
+                <h4 class="methodName">getNonLoopbackAddress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>InetSocketAddress</code></span>
+                    <span class="memberName">getNonLoopbackAddress</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNonLoopbackAddress.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPublicAddress">
+                <h4 class="methodName">getPublicAddress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>InetSocketAddress</code></span>
+                    <span class="memberName">getPublicAddress</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPublicAddress.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="waitForBindComplete">
+                <h4 class="methodName">waitForBindComplete</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">waitForBindComplete</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method waitForBindComplete.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerSubPacketHandlers">
+                <h4 class="methodName">registerSubPacketHandlers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">registerSubPacketHandlers</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Function<IPacketHandler, SubPacketHandler></code> <span class="param-name">supplier</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registerSubPacketHandlers.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Function<IPacketHandler, SubPacketHandler></code> <b>supplier</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="populateSubPacketHandlers">
+                <h4 class="methodName">populateSubPacketHandlers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">populateSubPacketHandlers</span>
+                    <span class="arguments">(<span class="param"><a href="handlers/game/GamePacketHandler.html" class="type-link"><code>@Nonnull final GamePacketHandler</code></a> <span class="param-name">packetHandler</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method populateSubPacketHandlers.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="handlers/game/GamePacketHandler.html" class="type-link"><code>@Nonnull final GamePacketHandler</code></a> <b>packetHandler</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="bind0">
+                <h4 class="methodName">bind0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>Channel</code></span>
+                    <span class="memberName">bind0</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final InetSocketAddress</code> <span class="param-name">address</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method bind0.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final InetSocketAddress</code> <b>address</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SkipSentryException">
+                <h4 class="methodName">SkipSentryException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SkipSentryException</span>
+                    <span class="arguments">(<span class="param">f.cause(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SkipSentryException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>f.cause(</code> <b>f.cause(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="RuntimeException">
+                <h4 class="methodName">RuntimeException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">RuntimeException</span>
+                    <span class="arguments">(<span class="param"><code>"Interrupted when attempting to bind to host " +</code> <span class="param-name">String.valueOf(address</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method RuntimeException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Interrupted when attempting to bind to host " +</code> <b>String.valueOf(address</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="unbind0">
+                <h4 class="methodName">unbind0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">unbind0</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Channel</code> <span class="param-name">channel</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method unbind0.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Channel</code> <b>channel</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PermissionsModule (com.hypixel.hytale.server.core.permissions)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/core/permissions/package-summary.html">com.hypixel.hytale.server.core.permissions</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">PermissionsModule</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="PermissionsModule.html" class="type-link">PermissionsModule</a> extends <a href="../plugin/JavaPlugin.html" class="type-link" data-class="JavaPlugin"><code>JavaPlugin</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class PermissionsModule. Provides permissionsmodule functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; JavaPlugin &gt; PermissionsModule</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">commandRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CommandRegistry</span>
+                    <span class="memberName">commandRegistry</span>
+                </div>
+                <div class="block">
+                    <p>Field commandRegistry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">providerGroups</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set<String></span>
+                    <span class="memberName">providerGroups</span>
+                </div>
+                <div class="block">
+                    <p>Field providerGroups.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">userNodes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set<String></span>
+                    <span class="memberName">userNodes</span>
+                </div>
+                <div class="block">
+                    <p>Field userNodes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">userHasPerm</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Boolean</span>
+                    <span class="memberName">userHasPerm</span>
+                </div>
+                <div class="block">
+                    <p>Field userHasPerm.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">groupsForUser</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set<String></span>
+                    <span class="memberName">groupsForUser</span>
+                </div>
+                <div class="block">
+                    <p>Field groupsForUser.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">groupNodes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set<String></span>
+                    <span class="memberName">groupNodes</span>
+                </div>
+                <div class="block">
+                    <p>Field groupNodes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">groupHasPerm</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Boolean</span>
+                    <span class="memberName">groupHasPerm</span>
+                </div>
+                <div class="block">
+                    <p>Field groupHasPerm.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">virtualNodes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set<String></span>
+                    <span class="memberName">virtualNodes</span>
+                </div>
+                <div class="block">
+                    <p>Field virtualNodes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">virtualHasPerm</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Boolean</span>
+                    <span class="memberName">virtualHasPerm</span>
+                </div>
+                <div class="block">
+                    <p>Field virtualHasPerm.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">split</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">split</span>
+                </div>
+                <div class="block">
+                    <p>Field split.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">completeTrace</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">completeTrace</span>
+                </div>
+                <div class="block">
+                    <p>Field completeTrace.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="get">
+                <h4 class="methodName">get</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="PermissionsModule.html" class="type-link"><code>PermissionsModule</code></a></span>
+                    <span class="memberName">get</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method get.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="PermissionsModule">
+                <h4 class="methodName">PermissionsModule</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">PermissionsModule</span>
+                    <span class="arguments">(<span class="param"><a href="../plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <span class="param-name">init</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PermissionsModule.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <b>init</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="OpCommand">
+                <h4 class="methodName">OpCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">OpCommand</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method OpCommand.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="PermCommand">
+                <h4 class="methodName">PermCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PermCommand</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PermCommand.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="start">
+                <h4 class="methodName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">start</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method start.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="HashSet">
+                <h4 class="methodName">HashSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">HashSet</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method HashSet.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addProvider">
+                <h4 class="methodName">addProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addProvider</span>
+                    <span class="arguments">(<span class="param"><a href="provider/PermissionProvider.html" class="type-link"><code>@Nonnull final PermissionProvider</code></a> <span class="param-name">permissionProvider</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addProvider.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="provider/PermissionProvider.html" class="type-link"><code>@Nonnull final PermissionProvider</code></a> <b>permissionProvider</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeProvider">
+                <h4 class="methodName">removeProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">removeProvider</span>
+                    <span class="arguments">(<span class="param"><a href="provider/PermissionProvider.html" class="type-link"><code>@Nonnull final PermissionProvider</code></a> <span class="param-name">provider</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removeProvider.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="provider/PermissionProvider.html" class="type-link"><code>@Nonnull final PermissionProvider</code></a> <b>provider</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getProviders">
+                <h4 class="methodName">getProviders</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<PermissionProvider></code></span>
+                    <span class="memberName">getProviders</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getProviders.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFirstPermissionProvider">
+                <h4 class="methodName">getFirstPermissionProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="provider/PermissionProvider.html" class="type-link"><code>PermissionProvider</code></a></span>
+                    <span class="memberName">getFirstPermissionProvider</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getFirstPermissionProvider.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="areProvidersTampered">
+                <h4 class="methodName">areProvidersTampered</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">areProvidersTampered</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method areProvidersTampered.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addUserPermission">
+                <h4 class="methodName">addUserPermission</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addUserPermission</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final UUID</code> <span class="param-name">uuid</span></span>, <span class="param"><code>@Nonnull final Set<String></code> <span class="param-name">permissions</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addUserPermission.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final UUID</code> <b>uuid</b></dd>
+<dd><code>@Nonnull final Set<String></code> <b>permissions</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeUserPermission">
+                <h4 class="methodName">removeUserPermission</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">removeUserPermission</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final UUID</code> <span class="param-name">uuid</span></span>, <span class="param"><code>@Nonnull final Set<String></code> <span class="param-name">permissions</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removeUserPermission.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final UUID</code> <b>uuid</b></dd>
+<dd><code>@Nonnull final Set<String></code> <b>permissions</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addGroupPermission">
+                <h4 class="methodName">addGroupPermission</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addGroupPermission</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">group</span></span>, <span class="param"><code>@Nonnull final Set<String></code> <span class="param-name">permissions</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addGroupPermission.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>group</b></dd>
+<dd><code>@Nonnull final Set<String></code> <b>permissions</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeGroupPermission">
+                <h4 class="methodName">removeGroupPermission</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">removeGroupPermission</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">group</span></span>, <span class="param"><code>@Nonnull final Set<String></code> <span class="param-name">permissions</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removeGroupPermission.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>group</b></dd>
+<dd><code>@Nonnull final Set<String></code> <b>permissions</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addUserToGroup">
+                <h4 class="methodName">addUserToGroup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addUserToGroup</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final UUID</code> <span class="param-name">uuid</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">group</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addUserToGroup.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final UUID</code> <b>uuid</b></dd>
+<dd><code>@Nonnull final String</code> <b>group</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeUserFromGroup">
+                <h4 class="methodName">removeUserFromGroup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">removeUserFromGroup</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final UUID</code> <span class="param-name">uuid</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">group</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removeUserFromGroup.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final UUID</code> <b>uuid</b></dd>
+<dd><code>@Nonnull final String</code> <b>group</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setVirtualGroups">
+                <h4 class="methodName">setVirtualGroups</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setVirtualGroups</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Map<String, Set<String>></code> <span class="param-name">virtualGroups</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setVirtualGroups.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Map<String, Set<String>></code> <b>virtualGroups</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getGroupsForUser">
+                <h4 class="methodName">getGroupsForUser</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Set<String></code></span>
+                    <span class="memberName">getGroupsForUser</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final UUID</code> <span class="param-name">uuid</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getGroupsForUser.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final UUID</code> <b>uuid</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasPermission">
+                <h4 class="methodName">hasPermission</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasPermission</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final UUID</code> <span class="param-name">uuid</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">id</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method hasPermission.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final UUID</code> <b>uuid</b></dd>
+<dd><code>@Nonnull final String</code> <b>id</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

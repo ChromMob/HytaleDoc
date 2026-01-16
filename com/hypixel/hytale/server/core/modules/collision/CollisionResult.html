@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CollisionResult (com.hypixel.hytale.server.core.modules.collision)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/core/modules/collision/package-summary.html">com.hypixel.hytale.server.core.modules.collision</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">CollisionResult</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="CollisionResult.html" class="type-link">CollisionResult</a> implements <code>BoxBlockIterator.BoxIterationConsumer</code></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class CollisionResult. Provides collisionresult functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; CollisionResult</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">collisionEntities</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">List<Entity></span>
+                    <span class="memberName">collisionEntities</span>
+                </div>
+                <div class="block">
+                    <p>Field collisionEntities.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">continueAfterCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">continueAfterCollision</span>
+                </div>
+                <div class="block">
+                    <p>Field continueAfterCollision.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">haveNoCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">haveNoCollision</span>
+                </div>
+                <div class="block">
+                    <p>Field haveNoCollision.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">logger</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">HytaleLogger</span>
+                    <span class="memberName">logger</span>
+                </div>
+                <div class="block">
+                    <p>Field logger.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">slideStart</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">slideStart</span>
+                </div>
+                <div class="block">
+                    <p>Field slideStart.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">slideEnd</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">slideEnd</span>
+                </div>
+                <div class="block">
+                    <p>Field slideEnd.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isSliding</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isSliding</span>
+                </div>
+                <div class="block">
+                    <p>Field isSliding.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">validate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">validate</span>
+                </div>
+                <div class="block">
+                    <p>Field validate.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">checkForCharacterCollisions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">checkForCharacterCollisions</span>
+                </div>
+                <div class="block">
+                    <p>Field checkForCharacterCollisions.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">walkableMaterialMask</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">walkableMaterialMask</span>
+                </div>
+                <div class="block">
+                    <p>Field walkableMaterialMask.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isNonWalkable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Predicate<CollisionConfig></span>
+                    <span class="memberName">isNonWalkable</span>
+                </div>
+                <div class="block">
+                    <p>Field isNonWalkable.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastTriggers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">LongSet</span>
+                    <span class="memberName">lastTriggers</span>
+                </div>
+                <div class="block">
+                    <p>Field lastTriggers.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newTriggers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">LongSet</span>
+                    <span class="memberName">newTriggers</span>
+                </div>
+                <div class="block">
+                    <p>Field newTriggers.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockCollisionDataFreePool</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<BlockCollisionData></span>
+                    <span class="memberName">blockCollisionDataFreePool</span>
+                </div>
+                <div class="block">
+                    <p>Field blockCollisionDataFreePool.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">characterCollisionDataFreePool</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<CharacterCollisionData></span>
+                    <span class="memberName">characterCollisionDataFreePool</span>
+                </div>
+                <div class="block">
+                    <p>Field characterCollisionDataFreePool.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockCollisionData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockCollisionData</span>
+                    <span class="memberName">blockCollisionData</span>
+                </div>
+                <div class="block">
+                    <p>Field blockCollisionData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">temp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LongSet</span>
+                    <span class="memberName">temp</span>
+                </div>
+                <div class="block">
+                    <p>Field temp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">triggerBlocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CollisionDataArray<BlockCollisionData></span>
+                    <span class="memberName">triggerBlocks</span>
+                </div>
+                <div class="block">
+                    <p>Field triggerBlocks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">triggerCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockCollisionData</span>
+                    <span class="memberName">triggerCollision</span>
+                </div>
+                <div class="block">
+                    <p>Field triggerCollision.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">damageToEntities</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">damageToEntities</span>
+                </div>
+                <div class="block">
+                    <p>Field damageToEntities.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">chunk</span>
+                </div>
+                <div class="block">
+                    <p>Field chunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockType</span>
+                    <span class="memberName">blockType</span>
+                </div>
+                <div class="block">
+                    <p>Field blockType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fluidType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Fluid</span>
+                    <span class="memberName">fluidType</span>
+                </div>
+                <div class="block">
+                    <p>Field fluidType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">filler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">filler</span>
+                </div>
+                <div class="block">
+                    <p>Field filler.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockTypeId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">blockTypeId</span>
+                </div>
+                <div class="block">
+                    <p>Field blockTypeId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">index</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">index</span>
+                </div>
+                <div class="block">
+                    <p>Field index.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockPosition</span>
+                    <span class="memberName">pos</span>
+                </div>
+                <div class="block">
+                    <p>Field pos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">x2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">x2</span>
+                </div>
+                <div class="block">
+                    <p>Field x2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">y2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">y2</span>
+                </div>
+                <div class="block">
+                    <p>Field y2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">z2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">z2</span>
+                </div>
+                <div class="block">
+                    <p>Field z2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunk2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">chunk2</span>
+                </div>
+                <div class="block">
+                    <p>Field chunk2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockType2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockType</span>
+                    <span class="memberName">blockType2</span>
+                </div>
+                <div class="block">
+                    <p>Field blockType2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fluidType2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Fluid</span>
+                    <span class="memberName">fluidType2</span>
+                </div>
+                <div class="block">
+                    <p>Field fluidType2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">root</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RootInteraction</span>
+                    <span class="memberName">root</span>
+                </div>
+                <div class="block">
+                    <p>Field root.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">context</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionContext</span>
+                    <span class="memberName">context</span>
+                </div>
+                <div class="block">
+                    <p>Field context.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionChain</span>
+                    <span class="memberName">chain</span>
+                </div>
+                <div class="block">
+                    <p>Field chain.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">numDetails</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">numDetails</span>
+                </div>
+                <div class="block">
+                    <p>Field numDetails.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">arg7</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object</span>
+                    <span class="memberName">arg7</span>
+                </div>
+                <div class="block">
+                    <p>Field arg7.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">arg8</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object</span>
+                    <span class="memberName">arg8</span>
+                </div>
+                <div class="block">
+                    <p>Field arg8.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">oldState</span>
+                </div>
+                <div class="block">
+                    <p>Field oldState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">matches</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">matches</span>
+                </div>
+                <div class="block">
+                    <p>Field matches.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="CollisionResult">
+                <h4 class="methodName">CollisionResult</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">CollisionResult</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method CollisionResult.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="CollisionConfig">
+                <h4 class="methodName">CollisionConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">CollisionConfig</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method CollisionConfig.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="MovingBoxBoxCollisionEvaluator">
+                <h4 class="methodName">MovingBoxBoxCollisionEvaluator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">MovingBoxBoxCollisionEvaluator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method MovingBoxBoxCollisionEvaluator.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getConfig">
+                <h4 class="methodName">getConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="CollisionConfig.html" class="type-link"><code>CollisionConfig</code></a></span>
+                    <span class="memberName">getConfig</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getConfig.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCollisionEntities">
+                <h4 class="methodName">getCollisionEntities</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<Entity></code></span>
+                    <span class="memberName">getCollisionEntities</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCollisionEntities.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setCollisionEntities">
+                <h4 class="methodName">setCollisionEntities</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setCollisionEntities</span>
+                    <span class="arguments">(<span class="param"><code>final List<Entity></code> <span class="param-name">collisionEntities</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setCollisionEntities.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final List<Entity></code> <b>collisionEntities</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBoxBlockIntersection">
+                <h4 class="methodName">getBoxBlockIntersection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BoxBlockIntersectionEvaluator.html" class="type-link"><code>BoxBlockIntersectionEvaluator</code></a></span>
+                    <span class="memberName">getBoxBlockIntersection</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBoxBlockIntersection.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMovingBoxBoxCollision">
+                <h4 class="methodName">getMovingBoxBoxCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="MovingBoxBoxCollisionEvaluator.html" class="type-link"><code>MovingBoxBoxCollisionEvaluator</code></a></span>
+                    <span class="memberName">getMovingBoxBoxCollision</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMovingBoxBoxCollision.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="allocCharacterCollision">
+                <h4 class="methodName">allocCharacterCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="CharacterCollisionData.html" class="type-link"><code>CharacterCollisionData</code></a></span>
+                    <span class="memberName">allocCharacterCollision</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method allocCharacterCollision.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addCollision">
+                <h4 class="methodName">addCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addCollision</span>
+                    <span class="arguments">(<span class="param"><a href="IBlockCollisionEvaluator.html" class="type-link"><code>@Nonnull final IBlockCollisionEvaluator</code></a> <span class="param-name">blockCollisionEvaluator</span></span>, <span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addCollision.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="IBlockCollisionEvaluator.html" class="type-link"><code>@Nonnull final IBlockCollisionEvaluator</code></a> <b>blockCollisionEvaluator</b></dd>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="newCollision">
+                <h4 class="methodName">newCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BlockCollisionData.html" class="type-link"><code>BlockCollisionData</code></a></span>
+                    <span class="memberName">newCollision</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method newCollision.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addSlide">
+                <h4 class="methodName">addSlide</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addSlide</span>
+                    <span class="arguments">(<span class="param"><a href="IBlockCollisionEvaluator.html" class="type-link"><code>@Nonnull final IBlockCollisionEvaluator</code></a> <span class="param-name">blockCollisionEvaluator</span></span>, <span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addSlide.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="IBlockCollisionEvaluator.html" class="type-link"><code>@Nonnull final IBlockCollisionEvaluator</code></a> <b>blockCollisionEvaluator</b></dd>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="newSlide">
+                <h4 class="methodName">newSlide</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BlockCollisionData.html" class="type-link"><code>BlockCollisionData</code></a></span>
+                    <span class="memberName">newSlide</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method newSlide.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addTrigger">
+                <h4 class="methodName">addTrigger</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addTrigger</span>
+                    <span class="arguments">(<span class="param"><a href="IBlockCollisionEvaluator.html" class="type-link"><code>@Nonnull final IBlockCollisionEvaluator</code></a> <span class="param-name">blockCollisionEvaluator</span></span>, <span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addTrigger.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="IBlockCollisionEvaluator.html" class="type-link"><code>@Nonnull final IBlockCollisionEvaluator</code></a> <b>blockCollisionEvaluator</b></dd>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="newTrigger">
+                <h4 class="methodName">newTrigger</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BlockCollisionData.html" class="type-link"><code>BlockCollisionData</code></a></span>
+                    <span class="memberName">newTrigger</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method newTrigger.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="reset">
+                <h4 class="methodName">reset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">reset</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method reset.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="process">
+                <h4 class="methodName">process</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">process</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method process.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlockCollisionCount">
+                <h4 class="methodName">getBlockCollisionCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getBlockCollisionCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlockCollisionCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlockCollision">
+                <h4 class="methodName">getBlockCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BlockCollisionData.html" class="type-link"><code>BlockCollisionData</code></a></span>
+                    <span class="memberName">getBlockCollision</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">i</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlockCollision.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>i</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFirstBlockCollision">
+                <h4 class="methodName">getFirstBlockCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BlockCollisionData.html" class="type-link"><code>BlockCollisionData</code></a></span>
+                    <span class="memberName">getFirstBlockCollision</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getFirstBlockCollision.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="forgetFirstBlockCollision">
+                <h4 class="methodName">forgetFirstBlockCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BlockCollisionData.html" class="type-link"><code>BlockCollisionData</code></a></span>
+                    <span class="memberName">forgetFirstBlockCollision</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method forgetFirstBlockCollision.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCharacterCollisionCount">
+                <h4 class="methodName">getCharacterCollisionCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getCharacterCollisionCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCharacterCollisionCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFirstCharacterCollision">
+                <h4 class="methodName">getFirstCharacterCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="CharacterCollisionData.html" class="type-link"><code>CharacterCollisionData</code></a></span>
+                    <span class="memberName">getFirstCharacterCollision</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getFirstCharacterCollision.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="forgetFirstCharacterCollision">
+                <h4 class="methodName">forgetFirstCharacterCollision</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="CharacterCollisionData.html" class="type-link"><code>CharacterCollisionData</code></a></span>
+                    <span class="memberName">forgetFirstCharacterCollision</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method forgetFirstCharacterCollision.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="pruneTriggerBlocks">
+                <h4 class="methodName">pruneTriggerBlocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">pruneTriggerBlocks</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">distance</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method pruneTriggerBlocks.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>distance</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTriggerBlocks">
+                <h4 class="methodName">getTriggerBlocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="CollisionDataArray.html" class="type-link"><code>CollisionDataArray<BlockCollisionData></code></a></span>
+                    <span class="memberName">getTriggerBlocks</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTriggerBlocks.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="defaultTriggerBlocksProcessing">
+                <h4 class="methodName">defaultTriggerBlocksProcessing</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">defaultTriggerBlocksProcessing</span>
+                    <span class="arguments">(<span class="param"><a href="../../entity/InteractionManager.html" class="type-link"><code>@Nonnull final InteractionManager</code></a> <span class="param-name">manager</span></span>, <span class="param"><a href="../../entity/Entity.html" class="type-link"><code>@Nonnull final Entity</code></a> <span class="param-name">entity</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">executeTriggers</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method defaultTriggerBlocksProcessing.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../entity/InteractionManager.html" class="type-link"><code>@Nonnull final InteractionManager</code></a> <b>manager</b></dd>
+<dd><a href="../../entity/Entity.html" class="type-link"><code>@Nonnull final Entity</code></a> <b>entity</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><code>final boolean</code> <b>executeTriggers</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="doCollisionInteraction">
+                <h4 class="methodName">doCollisionInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">doCollisionInteraction</span>
+                    <span class="arguments">(<span class="param"><a href="../../entity/InteractionManager.html" class="type-link"><code>@Nonnull final InteractionManager</code></a> <span class="param-name">manager</span></span>, <span class="param"><a href="../../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <span class="param-name">type</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">interactions</span></span>, <span class="param"><a href="../../../../protocol/BlockPosition.html" class="type-link"><code>@Nonnull final BlockPosition</code></a> <span class="param-name">pos</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method doCollisionInteraction.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../entity/InteractionManager.html" class="type-link"><code>@Nonnull final InteractionManager</code></a> <b>manager</b></dd>
+<dd><a href="../../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <b>type</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><code>@Nonnull final String</code> <b>interactions</b></dd>
+<dd><a href="../../../../protocol/BlockPosition.html" class="type-link"><code>@Nonnull final BlockPosition</code></a> <b>pos</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="next">
+                <h4 class="methodName">next</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">next</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method next.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="accept">
+                <h4 class="methodName">accept</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">accept</span>
+                    <span class="arguments">(<span class="param"><code>long</code> <span class="param-name">x</span></span>, <span class="param"><code>long</code> <span class="param-name">y</span></span>, <span class="param"><code>long</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method accept.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>long</code> <b>x</b></dd>
+<dd><code>long</code> <b>y</b></dd>
+<dd><code>long</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param"><code>haveCollision ||</code> <span class="param-name">this.movingBoxBoxCollision.isOverlapping(</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>haveCollision ||</code> <b>this.movingBoxBoxCollision.isOverlapping(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="processCollisionResult">
+                <h4 class="methodName">processCollisionResult</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">processCollisionResult</span>
+                    <span class="arguments">(<span class="param"><code>boolean</code> <span class="param-name">haveCollision</span></span>, <span class="param"><code>final int</code> <span class="param-name">hitboxIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method processCollisionResult.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>boolean</code> <b>haveCollision</b></dd>
+<dd><code>final int</code> <b>hitboxIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="iterateBlocks">
+                <h4 class="methodName">iterateBlocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">iterateBlocks</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../math/shape/Box.html" class="type-link"><code>@Nonnull final Box</code></a> <span class="param-name">collider</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">pos</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">direction</span></span>, <span class="param"><code>final double</code> <span class="param-name">length</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">stopOnCollisionFound</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method iterateBlocks.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../math/shape/Box.html" class="type-link"><code>@Nonnull final Box</code></a> <b>collider</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>pos</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>direction</b></dd>
+<dd><code>final double</code> <b>length</b></dd>
+<dd><code>final boolean</code> <b>stopOnCollisionFound</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="acquireCollisionModule">
+                <h4 class="methodName">acquireCollisionModule</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">acquireCollisionModule</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method acquireCollisionModule.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="disableSlides">
+                <h4 class="methodName">disableSlides</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">disableSlides</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method disableSlides.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="enableSlides">
+                <h4 class="methodName">enableSlides</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">enableSlides</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method enableSlides.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="disableCharacterCollisions">
+                <h4 class="methodName">disableCharacterCollisions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">disableCharacterCollisions</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method disableCharacterCollisions.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="enableCharacterCollsions">
+                <h4 class="methodName">enableCharacterCollsions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">enableCharacterCollsions</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method enableCharacterCollsions.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isCheckingForCharacterCollisions">
+                <h4 class="methodName">isCheckingForCharacterCollisions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isCheckingForCharacterCollisions</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isCheckingForCharacterCollisions.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="enableTriggerBlocks">
+                <h4 class="methodName">enableTriggerBlocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">enableTriggerBlocks</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method enableTriggerBlocks.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="disableTriggerBlocks">
+                <h4 class="methodName">disableTriggerBlocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">disableTriggerBlocks</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method disableTriggerBlocks.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isCheckingTriggerBlocks">
+                <h4 class="methodName">isCheckingTriggerBlocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isCheckingTriggerBlocks</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isCheckingTriggerBlocks.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="enableDamageBlocks">
+                <h4 class="methodName">enableDamageBlocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">enableDamageBlocks</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method enableDamageBlocks.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="disableDamageBlocks">
+                <h4 class="methodName">disableDamageBlocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">disableDamageBlocks</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method disableDamageBlocks.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isCheckingDamageBlocks">
+                <h4 class="methodName">isCheckingDamageBlocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isCheckingDamageBlocks</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isCheckingDamageBlocks.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDamageBlocking">
+                <h4 class="methodName">setDamageBlocking</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">setDamageBlocking</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">blocking</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setDamageBlocking.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>blocking</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isDamageBlocking">
+                <h4 class="methodName">isDamageBlocking</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isDamageBlocking</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isDamageBlocking.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setCollisionByMaterial">
+                <h4 class="methodName">setCollisionByMaterial</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setCollisionByMaterial</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">collidingMaterials</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setCollisionByMaterial.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>collidingMaterials</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCollisionByMaterial">
+                <h4 class="methodName">getCollisionByMaterial</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getCollisionByMaterial</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCollisionByMaterial.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDefaultCollisionBehaviour">
+                <h4 class="methodName">setDefaultCollisionBehaviour</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDefaultCollisionBehaviour</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setDefaultCollisionBehaviour.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDefaultBlockCollisionPredicate">
+                <h4 class="methodName">setDefaultBlockCollisionPredicate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDefaultBlockCollisionPredicate</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setDefaultBlockCollisionPredicate.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDefaultNonWalkablePredicate">
+                <h4 class="methodName">setDefaultNonWalkablePredicate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDefaultNonWalkablePredicate</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setDefaultNonWalkablePredicate.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNonWalkablePredicate">
+                <h4 class="methodName">setNonWalkablePredicate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNonWalkablePredicate</span>
+                    <span class="arguments">(<span class="param"><code>final Predicate<CollisionConfig></code> <span class="param-name">classifier</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setNonWalkablePredicate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Predicate<CollisionConfig></code> <b>classifier</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setWalkableByMaterial">
+                <h4 class="methodName">setWalkableByMaterial</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setWalkableByMaterial</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">walkableMaterial</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setWalkableByMaterial.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>walkableMaterial</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateDamageWalkableFlag">
+                <h4 class="methodName">updateDamageWalkableFlag</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateDamageWalkableFlag</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method updateDamageWalkableFlag.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDefaultWalkableBehaviour">
+                <h4 class="methodName">setDefaultWalkableBehaviour</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDefaultWalkableBehaviour</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setDefaultWalkableBehaviour.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDefaultPlayerSettings">
+                <h4 class="methodName">setDefaultPlayerSettings</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDefaultPlayerSettings</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setDefaultPlayerSettings.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isComputeOverlaps">
+                <h4 class="methodName">isComputeOverlaps</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isComputeOverlaps</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isComputeOverlaps.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setComputeOverlaps">
+                <h4 class="methodName">setComputeOverlaps</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setComputeOverlaps</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">computeOverlaps</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setComputeOverlaps.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>computeOverlaps</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLogger">
+                <h4 class="methodName">getLogger</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../logger/HytaleLogger.html" class="type-link"><code>HytaleLogger</code></a></span>
+                    <span class="memberName">getLogger</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLogger.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="shouldLog">
+                <h4 class="methodName">shouldLog</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">shouldLog</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shouldLog.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setLogger">
+                <h4 class="methodName">setLogger</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setLogger</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../logger/HytaleLogger.html" class="type-link"><code>final HytaleLogger</code></a> <span class="param-name">logger</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setLogger.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../logger/HytaleLogger.html" class="type-link"><code>final HytaleLogger</code></a> <b>logger</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

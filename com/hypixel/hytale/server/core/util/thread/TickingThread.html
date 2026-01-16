@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TickingThread (com.hypixel.hytale.server.core.util.thread)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/core/util/thread/package-summary.html">com.hypixel.hytale.server.core.util.thread</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">TickingThread</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">abstract class <a href="TickingThread.html" class="type-link">TickingThread</a> implements <code>Runnable</code></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class TickingThread. Provides tickingthread functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; TickingThread</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">tps</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">tps</span>
+                </div>
+                <div class="block">
+                    <p>Field tps.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tickStepNanos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">tickStepNanos</span>
+                </div>
+                <div class="block">
+                    <p>Field tickStepNanos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bufferedTickLengthMetricSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">HistoricMetric</span>
+                    <span class="memberName">bufferedTickLengthMetricSet</span>
+                </div>
+                <div class="block">
+                    <p>Field bufferedTickLengthMetricSet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">thread</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Thread</span>
+                    <span class="memberName">thread</span>
+                </div>
+                <div class="block">
+                    <p>Field thread.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">startedFuture</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">startedFuture</span>
+                </div>
+                <div class="block">
+                    <p>Field startedFuture.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tickLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">tickLength</span>
+                </div>
+                <div class="block">
+                    <p>Field tickLength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sb</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">sb</span>
+                </div>
+                <div class="block">
+                    <p>Field sb.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="TickingThread">
+                <h4 class="methodName">TickingThread</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">TickingThread</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">threadName</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method TickingThread.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>threadName</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="run">
+                <h4 class="methodName">run</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">run</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method run.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isIdle">
+                <h4 class="methodName">isIdle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isIdle</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isIdle.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onStart">
+                <h4 class="methodName">onStart</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onStart</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method onStart.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="start">
+                <h4 class="methodName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>CompletableFuture<Void></code></span>
+                    <span class="memberName">start</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method start.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="Thread">
+                <h4 class="methodName">Thread</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Thread</span>
+                    <span class="arguments">(<span class="param">this</span>, <span class="param">this.threadName</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Thread.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this</code> <b>this</b></dd>
+<dd><code>this.threadName</code> <b>this.threadName</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">this.thread.isAlive(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.thread.isAlive(</code> <b>this.thread.isAlive(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="IllegalStateException">
+                <h4 class="methodName">IllegalStateException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IllegalStateException</span>
+                    <span class="arguments">(<span class="param"><code>"Thread '" +</code> <span class="param-name">this.thread.getName(</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IllegalStateException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Thread '" +</code> <b>this.thread.getName(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="interrupt">
+                <h4 class="methodName">interrupt</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">interrupt</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method interrupt.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="stop">
+                <h4 class="methodName">stop</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">stop</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method stop.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setTps">
+                <h4 class="methodName">setTps</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setTps</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">tps</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setTps.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>tps</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="IllegalArgumentException">
+                <h4 class="methodName">IllegalArgumentException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IllegalArgumentException</span>
+                    <span class="arguments">(<span class="param"><code>"UpdatesPerSecond is out of bounds (<=0 or</code> <span class="param-name">>2048</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IllegalArgumentException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"UpdatesPerSecond is out of bounds (<=0 or</code> <b>>2048</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTps">
+                <h4 class="methodName">getTps</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getTps</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTps.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTickStepNanos">
+                <h4 class="methodName">getTickStepNanos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getTickStepNanos</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTickStepNanos.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBufferedTickLengthMetricSet">
+                <h4 class="methodName">getBufferedTickLengthMetricSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../metrics/metric/HistoricMetric.html" class="type-link"><code>HistoricMetric</code></a></span>
+                    <span class="memberName">getBufferedTickLengthMetricSet</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBufferedTickLengthMetricSet.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearMetrics">
+                <h4 class="methodName">clearMetrics</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearMetrics</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearMetrics.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="debugAssertInTickingThread">
+                <h4 class="methodName">debugAssertInTickingThread</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">debugAssertInTickingThread</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method debugAssertInTickingThread.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssertionError">
+                <h4 class="methodName">AssertionError</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssertionError</span>
+                    <span class="arguments">(<span class="param">(Object</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssertionError.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>(Object</code> <b>(Object</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isInThread">
+                <h4 class="methodName">isInThread</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isInThread</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isInThread.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isStarted">
+                <h4 class="methodName">isStarted</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isStarted</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isStarted.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setThread">
+                <h4 class="methodName">setThread</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setThread</span>
+                    <span class="arguments">(<span class="param"><code>final Thread</code> <span class="param-name">thread</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setThread.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Thread</code> <b>thread</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getThread">
+                <h4 class="methodName">getThread</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>Thread</code></span>
+                    <span class="memberName">getThread</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getThread.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

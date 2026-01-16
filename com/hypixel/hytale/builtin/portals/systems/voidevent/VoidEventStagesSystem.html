@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VoidEventStagesSystem (com.hypixel.hytale.builtin.portals.systems.voidevent)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/builtin/portals/systems/voidevent/package-summary.html">com.hypixel.hytale.builtin.portals.systems.voidevent</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">VoidEventStagesSystem</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="VoidEventStagesSystem.html" class="type-link">VoidEventStagesSystem</a> extends <a href="../../../../component/system/tick/DelayedEntitySystem.html" class="type-link" data-class="DelayedEntitySystem"><code>DelayedEntitySystem</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>System for handling voideventstages mechanics. Systems contain game logic that operates on entities with specific component types.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; DelayedEntitySystem &gt; VoidEventStagesSystem</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">portalWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PortalWorld</span>
+                    <span class="memberName">portalWorld</span>
+                </div>
+                <div class="block">
+                    <p>Field portalWorld.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">eventRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">eventRef</span>
+                </div>
+                <div class="block">
+                    <p>Field eventRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">voidEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">VoidEvent</span>
+                    <span class="memberName">voidEvent</span>
+                </div>
+                <div class="block">
+                    <p>Field voidEvent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">voidEventConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">VoidEventConfig</span>
+                    <span class="memberName">voidEventConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field voidEventConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">elapsedSecondsInPortal</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">elapsedSecondsInPortal</span>
+                </div>
+                <div class="block">
+                    <p>Field elapsedSecondsInPortal.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">timeLimitSeconds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">timeLimitSeconds</span>
+                </div>
+                <div class="block">
+                    <p>Field timeLimitSeconds.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">shouldStartAfter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">shouldStartAfter</span>
+                </div>
+                <div class="block">
+                    <p>Field shouldStartAfter.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">elapsedSecondsInEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">elapsedSecondsInEvent</span>
+                </div>
+                <div class="block">
+                    <p>Field elapsedSecondsInEvent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">VoidEventStage</span>
+                    <span class="memberName">currentStage</span>
+                </div>
+                <div class="block">
+                    <p>Field currentStage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">desiredStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">VoidEventStage</span>
+                    <span class="memberName">desiredStage</span>
+                </div>
+                <div class="block">
+                    <p>Field desiredStage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stages</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<VoidEventStage></span>
+                    <span class="memberName">stages</span>
+                </div>
+                <div class="block">
+                    <p>Field stages.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">VoidEventStage</span>
+                    <span class="memberName">stage</span>
+                </div>
+                <div class="block">
+                    <p>Field stage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">forcedWeatherId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">forcedWeatherId</span>
+                </div>
+                <div class="block">
+                    <p>Field forcedWeatherId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">weatherResource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WeatherResource</span>
+                    <span class="memberName">weatherResource</span>
+                </div>
+                <div class="block">
+                    <p>Field weatherResource.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="VoidEventStagesSystem">
+                <h4 class="methodName">VoidEventStagesSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">VoidEventStagesSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method VoidEventStagesSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tick">
+                <h4 class="methodName">tick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tick</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>, <span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><a href="../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <span class="param-name">archetypeChunk</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><a href="../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <b>archetypeChunk</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="computeAppropriateStage">
+                <h4 class="methodName">computeAppropriateStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../components/voidevent/config/VoidEventStage.html" class="type-link"><code>VoidEventStage</code></a></span>
+                    <span class="memberName">computeAppropriateStage</span>
+                    <span class="arguments">(<span class="param"><a href="../../components/voidevent/config/VoidEventConfig.html" class="type-link"><code>final VoidEventConfig</code></a> <span class="param-name">config</span></span>, <span class="param"><code>final int</code> <span class="param-name">elapsedSeconds</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method computeAppropriateStage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../components/voidevent/config/VoidEventConfig.html" class="type-link"><code>final VoidEventConfig</code></a> <b>config</b></dd>
+<dd><code>final int</code> <b>elapsedSeconds</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="startStage">
+                <h4 class="methodName">startStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">startStage</span>
+                    <span class="arguments">(<span class="param"><a href="../../components/voidevent/config/VoidEventStage.html" class="type-link"><code>final VoidEventStage</code></a> <span class="param-name">stage</span></span>, <span class="param"><code>final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method startStage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../components/voidevent/config/VoidEventStage.html" class="type-link"><code>final VoidEventStage</code></a> <b>stage</b></dd>
+<dd><code>final World</code> <b>world</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="stopStage">
+                <h4 class="methodName">stopStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">stopStage</span>
+                    <span class="arguments">(<span class="param"><a href="../../components/voidevent/config/VoidEventStage.html" class="type-link"><code>final VoidEventStage</code></a> <span class="param-name">stage</span></span>, <span class="param"><code>final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method stopStage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../components/voidevent/config/VoidEventStage.html" class="type-link"><code>final VoidEventStage</code></a> <b>stage</b></dd>
+<dd><code>final World</code> <b>world</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getQuery">
+                <h4 class="methodName">getQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../component/query/Query.html" class="type-link"><code>Query<EntityStore></code></a></span>
+                    <span class="memberName">getQuery</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getQuery.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

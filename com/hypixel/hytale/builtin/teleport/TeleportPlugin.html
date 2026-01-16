@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TeleportPlugin (com.hypixel.hytale.builtin.teleport)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../com/hypixel/hytale/builtin/teleport/package-summary.html">com.hypixel.hytale.builtin.teleport</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">TeleportPlugin</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="TeleportPlugin.html" class="type-link">TeleportPlugin</a> extends <a href="../../server/core/plugin/JavaPlugin.html" class="type-link" data-class="JavaPlugin"><code>JavaPlugin</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>The main plugin class for Teleport. This plugin provides gameplay features for the Hytale server. Extend this class to create a plugin.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; JavaPlugin &gt; TeleportPlugin</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">warpModel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Model</span>
+                    <span class="memberName">warpModel</span>
+                </div>
+                <div class="block">
+                    <p>Field warpModel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">commandRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CommandRegistry</span>
+                    <span class="memberName">commandRegistry</span>
+                </div>
+                <div class="block">
+                    <p>Field commandRegistry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">eventRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EventRegistry</span>
+                    <span class="memberName">eventRegistry</span>
+                </div>
+                <div class="block">
+                    <p>Field eventRegistry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ModelAsset</span>
+                    <span class="memberName">modelAsset</span>
+                </div>
+                <div class="block">
+                    <p>Field modelAsset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">universePath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">universePath</span>
+                </div>
+                <div class="block">
+                    <p>Field universePath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">oldPath</span>
+                </div>
+                <div class="block">
+                    <p>Field oldPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">path</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">path</span>
+                </div>
+                <div class="block">
+                    <p>Field path.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bsonWarps</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BsonArray</span>
+                    <span class="memberName">bsonWarps</span>
+                </div>
+                <div class="block">
+                    <p>Field bsonWarps.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">array</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Warp[]</span>
+                    <span class="memberName">array</span>
+                </div>
+                <div class="block">
+                    <p>Field array.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">document</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BsonDocument</span>
+                    <span class="memberName">document</span>
+                </div>
+                <div class="block">
+                    <p>Field document.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">chunk</span>
+                </div>
+                <div class="block">
+                    <p>Field chunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockChunk</span>
+                    <span class="memberName">blockChunk</span>
+                </div>
+                <div class="block">
+                    <p>Field blockChunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkX</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkZ</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">worldName</span>
+                </div>
+                <div class="block">
+                    <p>Field worldName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">warp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Warp</span>
+                    <span class="memberName">warp</span>
+                </div>
+                <div class="block">
+                    <p>Field warp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transform</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Transform</span>
+                    <span class="memberName">transform</span>
+                </div>
+                <div class="block">
+                    <p>Field transform.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">store</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<EntityStore></span>
+                    <span class="memberName">store</span>
+                </div>
+                <div class="block">
+                    <p>Field store.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">holder</span>
+                </div>
+                <div class="block">
+                    <p>Field holder.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="get">
+                <h4 class="methodName">get</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="TeleportPlugin.html" class="type-link"><code>TeleportPlugin</code></a></span>
+                    <span class="memberName">get</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method get.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="TeleportPlugin">
+                <h4 class="methodName">TeleportPlugin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">TeleportPlugin</span>
+                    <span class="arguments">(<span class="param"><a href="../../server/core/plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <span class="param-name">init</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method TeleportPlugin.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../server/core/plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <b>init</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTeleportHistoryComponentType">
+                <h4 class="methodName">getTeleportHistoryComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>TeleportHistory></code></span>
+                    <span class="memberName">getTeleportHistoryComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTeleportHistoryComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isWarpsLoaded">
+                <h4 class="methodName">isWarpsLoaded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isWarpsLoaded</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isWarpsLoaded.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="TeleportCommand">
+                <h4 class="methodName">TeleportCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">TeleportCommand</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method TeleportCommand.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="WarpCommand">
+                <h4 class="methodName">WarpCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">WarpCommand</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method WarpCommand.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="SpawnCommand">
+                <h4 class="methodName">SpawnCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SpawnCommand</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method SpawnCommand.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="start">
+                <h4 class="methodName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">start</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method start.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="IllegalStateException">
+                <h4 class="methodName">IllegalStateException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IllegalStateException</span>
+                    <span class="arguments">(<span class="param"><code>String.format("Default warp model '%s' not</code> <span class="param-name">found"</span></span>, <span class="param">"Warp"</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IllegalStateException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>String.format("Default warp model '%s' not</code> <b>found"</b></dd>
+<dd><code>"Warp"</code> <b>"Warp"</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdown">
+                <h4 class="methodName">shutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">shutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadWarps">
+                <h4 class="methodName">loadWarps</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">loadWarps</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method loadWarps.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="warps">
+                <h4 class="methodName">warps</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>0</code></span>
+                    <span class="memberName">warps</span>
+                    <span class="arguments">(<span class="param"><code>No warps.json</code> <span class="param-name">found</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method warps.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>No warps.json</code> <b>found</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="saveWarps0">
+                <h4 class="methodName">saveWarps0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">saveWarps0</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method saveWarps0.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="BsonDocument">
+                <h4 class="methodName">BsonDocument</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BsonDocument</span>
+                    <span class="arguments">(<span class="param">"Warps"</span>, <span class="param">Warp.ARRAY_CODEC.encode(array</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BsonDocument.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Warps"</code> <b>"Warps"</b></dd>
+<dd><code>Warp.ARRAY_CODEC.encode(array</code> <b>Warp.ARRAY_CODEC.encode(array</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="saveWarps">
+                <h4 class="methodName">saveWarps</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">saveWarps</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method saveWarps.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWarps">
+                <h4 class="methodName">getWarps</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Warp></code></span>
+                    <span class="memberName">getWarps</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getWarps.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onModelAssetChange">
+                <h4 class="methodName">onModelAssetChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onModelAssetChange</span>
+                    <span class="arguments">(<span class="param"><a href="../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, ModelAsset, DefaultAssetMap<String, ModelAsset>></code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onModelAssetChange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, ModelAsset, DefaultAssetMap<String, ModelAsset>></code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onChunkPreLoadProcess">
+                <h4 class="methodName">onChunkPreLoadProcess</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onChunkPreLoadProcess</span>
+                    <span class="arguments">(<span class="param"><a href="../../server/core/universe/world/events/ChunkPreLoadProcessEvent.html" class="type-link"><code>@Nonnull final ChunkPreLoadProcessEvent</code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onChunkPreLoadProcess.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../server/core/universe/world/events/ChunkPreLoadProcessEvent.html" class="type-link"><code>@Nonnull final ChunkPreLoadProcessEvent</code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createWarp">
+                <h4 class="methodName">createWarp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../component/Holder.html" class="type-link"><code>Holder<EntityStore></code></a></span>
+                    <span class="memberName">createWarp</span>
+                    <span class="arguments">(<span class="param"><a href="Warp.html" class="type-link"><code>@Nonnull final Warp</code></a> <span class="param-name">warp</span></span>, <span class="param"><a href="../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createWarp.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="Warp.html" class="type-link"><code>@Nonnull final Warp</code></a> <b>warp</b></dd>
+<dd><a href="../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="TransformComponent">
+                <h4 class="methodName">TransformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">TransformComponent</span>
+                    <span class="arguments">(<span class="param">transform.getPosition(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method TransformComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>transform.getPosition(</code> <b>transform.getPosition(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NetworkId">
+                <h4 class="methodName">NetworkId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NetworkId</span>
+                    <span class="arguments">(<span class="param">store.getExternalData(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NetworkId.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>store.getExternalData(</code> <b>store.getExternalData(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BoundingBox">
+                <h4 class="methodName">BoundingBox</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BoundingBox</span>
+                    <span class="arguments">(<span class="param">this.warpModel.getBoundingBox(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BoundingBox.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.warpModel.getBoundingBox(</code> <b>this.warpModel.getBoundingBox(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ModelComponent">
+                <h4 class="methodName">ModelComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ModelComponent</span>
+                    <span class="arguments">(<span class="param">this.warpModel</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ModelComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.warpModel</code> <b>this.warpModel</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Nameplate">
+                <h4 class="methodName">Nameplate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Nameplate</span>
+                    <span class="arguments">(<span class="param">warp.getId(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Nameplate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>warp.getId(</code> <b>warp.getId(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="WarpComponent">
+                <h4 class="methodName">WarpComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">WarpComponent</span>
+                    <span class="arguments">(<span class="param">warp</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method WarpComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>warp</code> <b>warp</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getComponentType">
+                <h4 class="methodName">getComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>WarpComponent></code></span>
+                    <span class="memberName">getComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clone">
+                <h4 class="methodName">clone</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../component/Component.html" class="type-link"><code>Component<EntityStore></code></a></span>
+                    <span class="memberName">clone</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clone.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="update">
+                <h4 class="methodName">update</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">update</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../server/core/asset/type/gameplay/GameplayConfig.html" class="type-link"><code>@Nonnull final GameplayConfig</code></a> <span class="param-name">gameplayConfig</span></span>, <span class="param"><a href="../../server/core/universe/world/WorldMapTracker.html" class="type-link"><code>@Nonnull final WorldMapTracker</code></a> <span class="param-name">tracker</span></span>, <span class="param"><code>final int</code> <span class="param-name">chunkViewRadius</span></span>, <span class="param"><code>final int</code> <span class="param-name">playerChunkX</span></span>, <span class="param"><code>final int</code> <span class="param-name">playerChunkZ</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method update.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><a href="../../server/core/asset/type/gameplay/GameplayConfig.html" class="type-link"><code>@Nonnull final GameplayConfig</code></a> <b>gameplayConfig</b></dd>
+<dd><a href="../../server/core/universe/world/WorldMapTracker.html" class="type-link"><code>@Nonnull final WorldMapTracker</code></a> <b>tracker</b></dd>
+<dd><code>final int</code> <b>chunkViewRadius</b></dd>
+<dd><code>final int</code> <b>playerChunkX</b></dd>
+<dd><code>final int</code> <b>playerChunkZ</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="MapMarker">
+                <h4 class="methodName">MapMarker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">MapMarker</span>
+                    <span class="arguments">(<span class="param">id</span>, <span class="param">name</span>, <span class="param">"Warp.png"</span>, <span class="param">PositionUtil.toTransformPacket(w.getTransform(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method MapMarker.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>id</code> <b>id</b></dd>
+<dd><code>name</code> <b>name</b></dd>
+<dd><code>"Warp.png"</code> <b>"Warp.png"</b></dd>
+<dd><code>PositionUtil.toTransformPacket(w.getTransform(</code> <b>PositionUtil.toTransformPacket(w.getTransform(</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

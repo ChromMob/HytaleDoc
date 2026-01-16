@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BuilderToolsPacketHandler (com.hypixel.hytale.builtin.buildertools)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../com/hypixel/hytale/builtin/buildertools/package-summary.html">com.hypixel.hytale.builtin.buildertools</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">BuilderToolsPacketHandler</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="BuilderToolsPacketHandler.html" class="type-link">BuilderToolsPacketHandler</a> implements <a href="../../server/core/io/handlers/SubPacketHandler.html" class="type-link" data-class="SubPacketHandler"><code>SubPacketHandler</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class BuilderToolsPacketHandler. Provides buildertoolspackethandler functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; BuilderToolsPacketHandler</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">playerRef</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ref</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">ref</span>
+                </div>
+                <div class="block">
+                    <p>Field ref.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">store</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<EntityStore></span>
+                    <span class="memberName">store</span>
+                </div>
+                <div class="block">
+                    <p>Field store.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">playerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">entityId</span>
+                </div>
+                <div class="block">
+                    <p>Field entityId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">entityReference</span>
+                </div>
+                <div class="block">
+                    <p>Field entityReference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">uuidComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUIDComponent</span>
+                    <span class="memberName">uuidComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field uuidComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">builderState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderToolsPlugin.BuilderState</span>
+                    <span class="memberName">builderState</span>
+                </div>
+                <div class="block">
+                    <p>Field builderState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">intTriple</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">intTriple</span>
+                </div>
+                <div class="block">
+                    <p>Field intTriple.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">prototypeSettings</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrototypePlayerBuilderToolSettings</span>
+                    <span class="memberName">prototypeSettings</span>
+                </div>
+                <div class="block">
+                    <p>Field prototypeSettings.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">selection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockSelection</span>
+                    <span class="memberName">selection</span>
+                </div>
+                <div class="block">
+                    <p>Field selection.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">editorPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EditorBlocksChange</span>
+                    <span class="memberName">editorPacket</span>
+                </div>
+                <div class="block">
+                    <p>Field editorPacket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blocksChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockChange[]</span>
+                    <span class="memberName">blocksChange</span>
+                </div>
+                <div class="block">
+                    <p>Field blocksChange.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fluidChanges</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ArrayList<PrototypePlayerBuilderToolSettings.FluidChange></span>
+                    <span class="memberName">fluidChanges</span>
+                </div>
+                <div class="block">
+                    <p>Field fluidChanges.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">anchorX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">anchorX</span>
+                </div>
+                <div class="block">
+                    <p>Field anchorX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">anchorY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">anchorY</span>
+                </div>
+                <div class="block">
+                    <p>Field anchorY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">anchorZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">anchorZ</span>
+                </div>
+                <div class="block">
+                    <p>Field anchorZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fluidChangesArray</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrototypePlayerBuilderToolSettings.FluidChange[]</span>
+                    <span class="memberName">fluidChangesArray</span>
+                </div>
+                <div class="block">
+                    <p>Field fluidChangesArray.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packetFluids</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">FluidChange[]</span>
+                    <span class="memberName">packetFluids</span>
+                </div>
+                <div class="block">
+                    <p>Field packetFluids.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fc</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrototypePlayerBuilderToolSettings.FluidChange</span>
+                    <span class="memberName">fc</span>
+                </div>
+                <div class="block">
+                    <p>Field fc.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tmx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float[]</span>
+                    <span class="memberName">tmx</span>
+                </div>
+                <div class="block">
+                    <p>Field tmx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformationMatrix</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Matrix4d</span>
+                    <span class="memberName">transformationMatrix</span>
+                </div>
+                <div class="block">
+                    <p>Field transformationMatrix.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">initialSelectionMin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">initialSelectionMin</span>
+                </div>
+                <div class="block">
+                    <p>Field initialSelectionMin.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">initialSelectionMax</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">initialSelectionMax</span>
+                </div>
+                <div class="block">
+                    <p>Field initialSelectionMax.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotationOrigin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3f</span>
+                    <span class="memberName">rotationOrigin</span>
+                </div>
+                <div class="block">
+                    <p>Field rotationOrigin.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">blockCount</span>
+                </div>
+                <div class="block">
+                    <p>Field blockCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">large</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">large</span>
+                </div>
+                <div class="block">
+                    <p>Field large.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">builderTool</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderTool</span>
+                    <span class="memberName">builderTool</span>
+                </div>
+                <div class="block">
+                    <p>Field builderTool.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">activeItemStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">activeItemStack</span>
+                </div>
+                <div class="block">
+                    <p>Field activeItemStack.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">args</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderTool.ArgData</span>
+                    <span class="memberName">args</span>
+                </div>
+                <div class="block">
+                    <p>Field args.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">extrudeDepth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">extrudeDepth</span>
+                </div>
+                <div class="block">
+                    <p>Field extrudeDepth.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">extrudeRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">extrudeRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field extrudeRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">blockId</span>
+                </div>
+                <div class="block">
+                    <p>Field blockId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">axis</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">com.hypixel.hytale.math.Axis</span>
+                    <span class="memberName">axis</span>
+                </div>
+                <div class="block">
+                    <p>Field axis.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">brushData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BrushData.Values</span>
+                    <span class="memberName">brushData</span>
+                </div>
+                <div class="block">
+                    <p>Field brushData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lineWidth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">lineWidth</span>
+                </div>
+                <div class="block">
+                    <p>Field lineWidth.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lineHeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">lineHeight</span>
+                </div>
+                <div class="block">
+                    <p>Field lineHeight.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lineShape</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BrushShape</span>
+                    <span class="memberName">lineShape</span>
+                </div>
+                <div class="block">
+                    <p>Field lineShape.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lineOrigin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BrushOrigin</span>
+                    <span class="memberName">lineOrigin</span>
+                </div>
+                <div class="block">
+                    <p>Field lineOrigin.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lineWallThickness</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">lineWallThickness</span>
+                </div>
+                <div class="block">
+                    <p>Field lineWallThickness.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lineSpacing</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">lineSpacing</span>
+                </div>
+                <div class="block">
+                    <p>Field lineSpacing.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lineDensity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">lineDensity</span>
+                </div>
+                <div class="block">
+                    <p>Field lineDensity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lineMaterial</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockPattern</span>
+                    <span class="memberName">lineMaterial</span>
+                </div>
+                <div class="block">
+                    <p>Field lineMaterial.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">headRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HeadRotation</span>
+                    <span class="memberName">headRotation</span>
+                </div>
+                <div class="block">
+                    <p>Field headRotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelTransform</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ModelTransform</span>
+                    <span class="memberName">modelTransform</span>
+                </div>
+                <div class="block">
+                    <p>Field modelTransform.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hasPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasPosition</span>
+                </div>
+                <div class="block">
+                    <p>Field hasPosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hasLookOrientation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasLookOrientation</span>
+                </div>
+                <div class="block">
+                    <p>Field hasLookOrientation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hasBodyOrientation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasBodyOrientation</span>
+                </div>
+                <div class="block">
+                    <p>Field hasBodyOrientation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">prefabEditSessionManager</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrefabEditSessionManager</span>
+                    <span class="memberName">prefabEditSessionManager</span>
+                </div>
+                <div class="block">
+                    <p>Field prefabEditSessionManager.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">prefabEditSession</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrefabEditSession</span>
+                    <span class="memberName">prefabEditSession</span>
+                </div>
+                <div class="block">
+                    <p>Field prefabEditSession.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">propComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PropComponent</span>
+                    <span class="memberName">propComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field propComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">scaleComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EntityScaleComponent</span>
+                    <span class="memberName">scaleComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field scaleComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">scaleComponent2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EntityScaleComponent</span>
+                    <span class="memberName">scaleComponent2</span>
+                </div>
+                <div class="block">
+                    <p>Field scaleComponent2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">colorLight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ColorLight</span>
+                    <span class="memberName">colorLight</span>
+                </div>
+                <div class="block">
+                    <p>Field colorLight.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">uuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">uuid</span>
+                </div>
+                <div class="block">
+                    <p>Field uuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">command</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">command</span>
+                </div>
+                <div class="block">
+                    <p>Field command.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="BuilderToolsPacketHandler">
+                <h4 class="methodName">BuilderToolsPacketHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">BuilderToolsPacketHandler</span>
+                    <span class="arguments">(<span class="param"><a href="../../server/core/io/handlers/IPacketHandler.html" class="type-link"><code>final IPacketHandler</code></a> <span class="param-name">packetHandler</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BuilderToolsPacketHandler.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../server/core/io/handlers/IPacketHandler.html" class="type-link"><code>final IPacketHandler</code></a> <b>packetHandler</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerHandlers">
+                <h4 class="methodName">registerHandlers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">registerHandlers</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method registerHandlers.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasPermission">
+                <h4 class="methodName">hasPermission</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasPermission</span>
+                    <span class="arguments">(<span class="param"><a href="../../server/core/entity/entities/Player.html" class="type-link"><code>@Nonnull final Player</code></a> <span class="param-name">player</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method hasPermission.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../server/core/entity/entities/Player.html" class="type-link"><code>@Nonnull final Player</code></a> <b>player</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handle">
+                <h4 class="methodName">handle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handle</span>
+                    <span class="arguments">(<span class="param"><a href="../../protocol/packets/buildertools/BuilderToolSetTransformationModeState.html" class="type-link"><code>@Nonnull final BuilderToolSetTransformationModeState</code></a> <span class="param-name">packet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handle.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../protocol/packets/buildertools/BuilderToolSetTransformationModeState.html" class="type-link"><code>@Nonnull final BuilderToolSetTransformationModeState</code></a> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Vector3i">
+                <h4 class="methodName">Vector3i</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Vector3i</span>
+                    <span class="arguments">(<span class="param">MathUtil.floor(position.getX(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Vector3i.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>MathUtil.floor(position.getX(</code> <b>MathUtil.floor(position.getX(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="FluidChange">
+                <h4 class="methodName">FluidChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">FluidChange</span>
+                    <span class="arguments">(<span class="param">fc.x(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method FluidChange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>fc.x(</code> <b>fc.x(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BuilderToolSelectionToolReplyWithClipboard">
+                <h4 class="methodName">BuilderToolSelectionToolReplyWithClipboard</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BuilderToolSelectionToolReplyWithClipboard</span>
+                    <span class="arguments">(<span class="param">blocksChange</span>, <span class="param">packetFluids</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BuilderToolSelectionToolReplyWithClipboard.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>blocksChange</code> <b>blocksChange</b></dd>
+<dd><code>packetFluids</code> <b>packetFluids</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="toInt">
+                <h4 class="methodName">toInt</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">toInt</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">value</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method toInt.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>value</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Matrix4d">
+                <h4 class="methodName">Matrix4d</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Matrix4d</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method Matrix4d.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">!(!hasPermission(playerComponent</span>, <span class="param">"hytale.editor.selection.clipboard"</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>!(!hasPermission(playerComponent</code> <b>!(!hasPermission(playerComponent</b></dd>
+<dd><code>"hytale.editor.selection.clipboard"</code> <b>"hytale.editor.selection.clipboard"</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="fromBlockPosition">
+                <h4 class="methodName">fromBlockPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../protocol/Vector3i.html" class="type-link"><code>Vector3i</code></a></span>
+                    <span class="memberName">fromBlockPosition</span>
+                    <span class="arguments">(<span class="param"><a href="../../protocol/BlockPosition.html" class="type-link"><code>@Nonnull final BlockPosition</code></a> <span class="param-name">position</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method fromBlockPosition.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../protocol/BlockPosition.html" class="type-link"><code>@Nonnull final BlockPosition</code></a> <b>position</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="DynamicLight">
+                <h4 class="methodName">DynamicLight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">DynamicLight</span>
+                    <span class="arguments">(<span class="param">colorLight</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method DynamicLight.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>colorLight</code> <b>colorLight</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PersistentDynamicLight">
+                <h4 class="methodName">PersistentDynamicLight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PersistentDynamicLight</span>
+                    <span class="arguments">(<span class="param">colorLight</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PersistentDynamicLight.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>colorLight</code> <b>colorLight</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

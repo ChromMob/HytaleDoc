@@ -1,0 +1,2161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BuilderManager (com.hypixel.hytale.server.npc.asset.builder)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/npc/asset/builder/package-summary.html">com.hypixel.hytale.server.npc.asset.builder</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">BuilderManager</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="BuilderManager.html" class="type-link">BuilderManager</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class BuilderManager. Provides buildermanager functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; BuilderManager</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">autoReload</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">autoReload</span>
+                </div>
+                <div class="block">
+                    <p>Field autoReload.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">setup</span>
+                </div>
+                <div class="block">
+                    <p>Field setup.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">clazz</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Class<?></span>
+                    <span class="memberName">clazz</span>
+                </div>
+                <div class="block">
+                    <p>Field clazz.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">info</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderInfo</span>
+                    <span class="memberName">info</span>
+                </div>
+                <div class="block">
+                    <p>Field info.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iterator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectIterator<Object2IntMap.Entry<String>></span>
+                    <span class="memberName">iterator</span>
+                </div>
+                <div class="block">
+                    <p>Field iterator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object2IntMap.Entry<String></span>
+                    <span class="memberName">entry</span>
+                </div>
+                <div class="block">
+                    <p>Field entry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">path</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">path</span>
+                </div>
+                <div class="block">
+                    <p>Field path.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">assetMonitor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetMonitor</span>
+                    <span class="memberName">assetMonitor</span>
+                </div>
+                <div class="block">
+                    <p>Field assetMonitor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">builderName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">builderName</span>
+                </div>
+                <div class="block">
+                    <p>Field builderName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">typeCounter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object2IntOpenHashMap<String></span>
+                    <span class="memberName">typeCounter</span>
+                </div>
+                <div class="block">
+                    <p>Field typeCounter.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">errors</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<String></span>
+                    <span class="memberName">errors</span>
+                </div>
+                <div class="block">
+                    <p>Field errors.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">loadedBuilders</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Int2ObjectOpenHashMap<BuilderInfo></span>
+                    <span class="memberName">loadedBuilders</span>
+                </div>
+                <div class="block">
+                    <p>Field loadedBuilders.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">output</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">output</span>
+                </div>
+                <div class="block">
+                    <p>Field output.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">failedBuilderTexts</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HashSet<String></span>
+                    <span class="memberName">failedBuilderTexts</span>
+                </div>
+                <div class="block">
+                    <p>Field failedBuilderTexts.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">loadedBuilderNames</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HashSet<String></span>
+                    <span class="memberName">loadedBuilderNames</span>
+                </div>
+                <div class="block">
+                    <p>Field loadedBuilderNames.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">builderIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">builderIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field builderIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">name</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">name</span>
+                </div>
+                <div class="block">
+                    <p>Field name.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">builder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderInfo</span>
+                    <span class="memberName">builder</span>
+                </div>
+                <div class="block">
+                    <p>Field builder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">errorCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">errorCount</span>
+                </div>
+                <div class="block">
+                    <p>Field errorCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">reader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonReader</span>
+                    <span class="memberName">reader</span>
+                </div>
+                <div class="block">
+                    <p>Field reader.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">content</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonElement</span>
+                    <span class="memberName">content</span>
+                </div>
+                <div class="block">
+                    <p>Field content.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">testTypeElement</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonElement</span>
+                    <span class="memberName">testTypeElement</span>
+                </div>
+                <div class="block">
+                    <p>Field testTypeElement.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">keyName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">keyName</span>
+                </div>
+                <div class="block">
+                    <p>Field keyName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stateHelper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StateMappingHelper</span>
+                    <span class="memberName">stateHelper</span>
+                </div>
+                <div class="block">
+                    <p>Field stateHelper.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">classData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonElement</span>
+                    <span class="memberName">classData</span>
+                </div>
+                <div class="block">
+                    <p>Field classData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">interfaceData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonElement</span>
+                    <span class="memberName">interfaceData</span>
+                </div>
+                <div class="block">
+                    <p>Field interfaceData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">category</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Class<?></span>
+                    <span class="memberName">category</span>
+                </div>
+                <div class="block">
+                    <p>Field category.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">type</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonElement</span>
+                    <span class="memberName">type</span>
+                </div>
+                <div class="block">
+                    <p>Field type.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">typeString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">typeString</span>
+                </div>
+                <div class="block">
+                    <p>Field typeString.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">factory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderFactory<Object></span>
+                    <span class="memberName">factory</span>
+                </div>
+                <div class="block">
+                    <p>Field factory.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fileNameString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">fileNameString</span>
+                </div>
+                <div class="block">
+                    <p>Field fileNameString.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">builderParameters</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderParameters</span>
+                    <span class="memberName">builderParameters</span>
+                </div>
+                <div class="block">
+                    <p>Field builderParameters.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">internalReferenceResolver</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InternalReferenceResolver</span>
+                    <span class="memberName">internalReferenceResolver</span>
+                </div>
+                <div class="block">
+                    <p>Field internalReferenceResolver.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">extraInfoData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetExtraInfo.Data</span>
+                    <span class="memberName">extraInfoData</span>
+                </div>
+                <div class="block">
+                    <p>Field extraInfoData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">extraInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetExtraInfo<Object></span>
+                    <span class="memberName">extraInfo</span>
+                </div>
+                <div class="block">
+                    <p>Field extraInfo.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">evaluators</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<Evaluator<?>></span>
+                    <span class="memberName">evaluators</span>
+                </div>
+                <div class="block">
+                    <p>Field evaluators.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">validationHelper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderValidationHelper</span>
+                    <span class="memberName">validationHelper</span>
+                </div>
+                <div class="block">
+                    <p>Field validationHelper.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">failReasonElement</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonElement</span>
+                    <span class="memberName">failReasonElement</span>
+                </div>
+                <div class="block">
+                    <p>Field failReasonElement.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">error</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">error</span>
+                </div>
+                <div class="block">
+                    <p>Field error.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">builderInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderInfo</span>
+                    <span class="memberName">builderInfo</span>
+                </div>
+                <div class="block">
+                    <p>Field builderInfo.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">builders</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Int2ObjectOpenHashMap<BuilderInfo></span>
+                    <span class="memberName">builders</span>
+                </div>
+                <div class="block">
+                    <p>Field builders.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">map</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object2IntOpenHashMap<String></span>
+                    <span class="memberName">map</span>
+                </div>
+                <div class="block">
+                    <p>Field map.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">next</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object2IntMap.Entry<String></span>
+                    <span class="memberName">next</span>
+                </div>
+                <div class="block">
+                    <p>Field next.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dependencies</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntSet</span>
+                    <span class="memberName">dependencies</span>
+                </div>
+                <div class="block">
+                    <p>Field dependencies.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">i</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntIterator</span>
+                    <span class="memberName">i</span>
+                </div>
+                <div class="block">
+                    <p>Field i.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleFactory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderFactory<?></span>
+                    <span class="memberName">roleFactory</span>
+                </div>
+                <div class="block">
+                    <p>Field roleFactory.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">schema</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Schema</span>
+                    <span class="memberName">schema</span>
+                </div>
+                <div class="block">
+                    <p>Field schema.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">check</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectSchema</span>
+                    <span class="memberName">check</span>
+                </div>
+                <div class="block">
+                    <p>Field check.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">keys</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StringSchema</span>
+                    <span class="memberName">keys</span>
+                </div>
+                <div class="block">
+                    <p>Field keys.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dynamicComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Schema</span>
+                    <span class="memberName">dynamicComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field dynamicComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">subSchemas</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Schema[]</span>
+                    <span class="memberName">subSchemas</span>
+                </div>
+                <div class="block">
+                    <p>Field subSchemas.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">s</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Schema</span>
+                    <span class="memberName">s</span>
+                </div>
+                <div class="block">
+                    <p>Field s.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cond</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Schema</span>
+                    <span class="memberName">cond</span>
+                </div>
+                <div class="block">
+                    <p>Field cond.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">classCheck</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectSchema</span>
+                    <span class="memberName">classCheck</span>
+                </div>
+                <div class="block">
+                    <p>Field classCheck.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">builderDescriptors</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<BuilderDescriptor></span>
+                    <span class="memberName">builderDescriptors</span>
+                </div>
+                <div class="block">
+                    <p>Field builderDescriptors.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">categoryName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">categoryName</span>
+                </div>
+                <div class="block">
+                    <p>Field categoryName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">defaultBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Builder<?></span>
+                    <span class="memberName">defaultBuilder</span>
+                </div>
+                <div class="block">
+                    <p>Field defaultBuilder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">gsonBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">GsonBuilder</span>
+                    <span class="memberName">gsonBuilder</span>
+                </div>
+                <div class="block">
+                    <p>Field gsonBuilder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">gson</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Gson</span>
+                    <span class="memberName">gson</span>
+                </div>
+                <div class="block">
+                    <p>Field gson.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dependents</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Int2ObjectOpenHashMap<BuilderInfo></span>
+                    <span class="memberName">dependents</span>
+                </div>
+                <div class="block">
+                    <p>Field dependents.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">index</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">index</span>
+                </div>
+                <div class="block">
+                    <p>Field index.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cachedBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Builder<?></span>
+                    <span class="memberName">cachedBuilder</span>
+                </div>
+                <div class="block">
+                    <p>Field cachedBuilder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnableBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SpawnableWithModelBuilder<?></span>
+                    <span class="memberName">spawnableBuilder</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnableBuilder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">context</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ExecutionContext</span>
+                    <span class="memberName">context</span>
+                </div>
+                <div class="block">
+                    <p>Field context.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fileName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">fileName</span>
+                </div>
+                <div class="block">
+                    <p>Field fileName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ModelAsset</span>
+                    <span class="memberName">modelAsset</span>
+                </div>
+                <div class="block">
+                    <p>Field modelAsset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">model</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Model</span>
+                    <span class="memberName">model</span>
+                </div>
+                <div class="block">
+                    <p>Field model.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">builderInstance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Builder<?></span>
+                    <span class="memberName">builderInstance</span>
+                </div>
+                <div class="block">
+                    <p>Field builderInstance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">npcLoadTimeValidationHelper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NPCLoadTimeValidationHelper</span>
+                    <span class="memberName">npcLoadTimeValidationHelper</span>
+                </div>
+                <div class="block">
+                    <p>Field npcLoadTimeValidationHelper.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">endIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">endIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field endIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">result</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">result</span>
+                </div>
+                <div class="block">
+                    <p>Field result.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dependency</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">dependency</span>
+                </div>
+                <div class="block">
+                    <p>Field dependency.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">childBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderInfo</span>
+                    <span class="memberName">childBuilder</span>
+                </div>
+                <div class="block">
+                    <p>Field childBuilder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">child</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Builder<?></span>
+                    <span class="memberName">child</span>
+                </div>
+                <div class="block">
+                    <p>Field child.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deletedBuilderNames</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HashSet<String></span>
+                    <span class="memberName">deletedBuilderNames</span>
+                </div>
+                <div class="block">
+                    <p>Field deletedBuilderNames.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">eventKind</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EventKind</span>
+                    <span class="memberName">eventKind</span>
+                </div>
+                <div class="block">
+                    <p>Field eventKind.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="BuilderManager">
+                <h4 class="methodName">BuilderManager</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">BuilderManager</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method BuilderManager.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerFactory">
+                <h4 class="methodName">registerFactory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">registerFactory</span>
+                    <span class="arguments">(<span class="param"><a href="BuilderFactory.html" class="type-link"><code>@Nonnull final BuilderFactory<T></code></a> <span class="param-name">factory</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registerFactory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="BuilderFactory.html" class="type-link"><code>@Nonnull final BuilderFactory<T></code></a> <b>factory</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addCategory">
+                <h4 class="methodName">addCategory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addCategory</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">name</span></span>, <span class="param"><code>final Class<?></code> <span class="param-name">clazz</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addCategory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>name</b></dd>
+<dd><code>final Class<?></code> <b>clazz</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCategoryName">
+                <h4 class="methodName">getCategoryName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getCategoryName</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Class<?></code> <span class="param-name">factoryClass</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getCategoryName.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Class<?></code> <b>factoryClass</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getIndex">
+                <h4 class="methodName">getIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getIndex</span>
+                    <span class="arguments">(<span class="param"><code>@Nullable final String</code> <span class="param-name">name</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nullable final String</code> <b>name</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setAutoReload">
+                <h4 class="methodName">setAutoReload</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setAutoReload</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">autoReload</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setAutoReload.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>autoReload</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="lookupName">
+                <h4 class="methodName">lookupName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">lookupName</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method lookupName.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOrCreateIndex">
+                <h4 class="methodName">getOrCreateIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getOrCreateIndex</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">name</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getOrCreateIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>name</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryGetBuilderInfo">
+                <h4 class="methodName">tryGetBuilderInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BuilderInfo.html" class="type-link"><code>BuilderInfo</code></a></span>
+                    <span class="memberName">tryGetBuilderInfo</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">builderIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryGetBuilderInfo.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>builderIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="unloadBuilders">
+                <h4 class="methodName">unloadBuilders</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">unloadBuilders</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../assetstore/AssetPack.html" class="type-link"><code>final AssetPack</code></a> <span class="param-name">pack</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method unloadBuilders.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../assetstore/AssetPack.html" class="type-link"><code>final AssetPack</code></a> <b>pack</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="visitFile">
+                <h4 class="methodName">visitFile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>FileVisitResult</code></span>
+                    <span class="memberName">visitFile</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Path</code> <span class="param-name">file</span></span>, <span class="param"><code>@Nonnull final BasicFileAttributes</code> <span class="param-name">attrs</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method visitFile.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Path</code> <b>file</b></dd>
+<dd><code>@Nonnull final BasicFileAttributes</code> <b>attrs</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadBuilders">
+                <h4 class="methodName">loadBuilders</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">loadBuilders</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../assetstore/AssetPack.html" class="type-link"><code>@Nonnull final AssetPack</code></a> <span class="param-name">pack</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">includeTests</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadBuilders.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../assetstore/AssetPack.html" class="type-link"><code>@Nonnull final AssetPack</code></a> <b>pack</b></dd>
+<dd><code>final boolean</code> <b>includeTests</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BuilderAssetMonitorHandler">
+                <h4 class="methodName">BuilderAssetMonitorHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BuilderAssetMonitorHandler</span>
+                    <span class="arguments">(<span class="param">pack</span>, <span class="param">includeTests</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BuilderAssetMonitorHandler.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>pack</code> <b>pack</b></dd>
+<dd><code>includeTests</code> <b>includeTests</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SkipSentryException">
+                <h4 class="methodName">SkipSentryException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SkipSentryException</span>
+                    <span class="arguments">(<span class="param"><code>new</code> <span class="param-name">RuntimeException(e2</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SkipSentryException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>new</code> <b>RuntimeException(e2</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="finishLoadingBuilders">
+                <h4 class="methodName">finishLoadingBuilders</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">finishLoadingBuilders</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Int2ObjectOpenHashMap<BuilderInfo></code> <span class="param-name">loadedBuilders</span></span>, <span class="param"><code>@Nonnull final List<String></code> <span class="param-name">errors</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method finishLoadingBuilders.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Int2ObjectOpenHashMap<BuilderInfo></code> <b>loadedBuilders</b></dd>
+<dd><code>@Nonnull final List<String></code> <b>errors</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="assetEditorLoadFile">
+                <h4 class="methodName">assetEditorLoadFile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">assetEditorLoadFile</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Path</code> <span class="param-name">fileName</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method assetEditorLoadFile.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Path</code> <b>fileName</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="assetEditorRemoveFile">
+                <h4 class="methodName">assetEditorRemoveFile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">assetEditorRemoveFile</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Path</code> <span class="param-name">filePath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method assetEditorRemoveFile.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Path</code> <b>filePath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadFile">
+                <h4 class="methodName">loadFile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">loadFile</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Path</code> <span class="param-name">fileName</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">reloading</span></span>, <span class="param"><code>@Nonnull final List<String></code> <span class="param-name">errors</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadFile.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Path</code> <b>fileName</b></dd>
+<dd><code>final boolean</code> <b>reloading</b></dd>
+<dd><code>@Nonnull final List<String></code> <b>errors</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="JsonReader">
+                <h4 class="methodName">JsonReader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">JsonReader</span>
+                    <span class="arguments">(<span class="param">fileReader</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method JsonReader.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>fileReader</code> <b>fileReader</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BuilderParameters">
+                <h4 class="methodName">BuilderParameters</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BuilderParameters</span>
+                    <span class="arguments">(<span class="param">StdLib.getInstance(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BuilderParameters.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>StdLib.getInstance(</code> <b>StdLib.getInstance(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BuilderValidationHelper">
+                <h4 class="methodName">BuilderValidationHelper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BuilderValidationHelper</span>
+                    <span class="arguments">(<span class="param">fileNameString</span>, <span class="param"><code>new</code> <span class="param-name">FeatureEvaluatorHelper(builder.canRequireFeature(</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BuilderValidationHelper.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>fileNameString</code> <b>fileNameString</b></dd>
+<dd><code>new</code> <b>FeatureEvaluatorHelper(builder.canRequireFeature(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="InstructionContextHelper">
+                <h4 class="methodName">InstructionContextHelper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">InstructionContextHelper</span>
+                    <span class="arguments">(<span class="param">InstructionType.Component</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method InstructionContextHelper.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>InstructionType.Component</code> <b>InstructionType.Component</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="validateBuilder">
+                <h4 class="methodName">validateBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">validateBuilder</span>
+                    <span class="arguments">(<span class="param"><a href="BuilderInfo.html" class="type-link"><code>@Nonnull final BuilderInfo</code></a> <span class="param-name">builderInfo</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method validateBuilder.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="BuilderInfo.html" class="type-link"><code>@Nonnull final BuilderInfo</code></a> <b>builderInfo</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="IntOpenHashSet">
+                <h4 class="methodName">IntOpenHashSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IntOpenHashSet</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method IntOpenHashSet.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="IntArrayList">
+                <h4 class="methodName">IntArrayList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IntArrayList</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method IntArrayList.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFactory">
+                <h4 class="methodName">getFactory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BuilderFactory.html" class="type-link"><code>BuilderFactory<T></code></a></span>
+                    <span class="memberName">getFactory</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Class<?></code> <span class="param-name">clazz</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getFactory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Class<?></code> <b>clazz</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NullPointerException">
+                <h4 class="methodName">NullPointerException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NullPointerException</span>
+                    <span class="arguments">(<span class="param"><code>String.format("Factory for type '%s' is not</code> <span class="param-name">registered!"</span></span>, <span class="param">clazz.getSimpleName(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NullPointerException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>String.format("Factory for type '%s' is not</code> <b>registered!"</b></dd>
+<dd><code>clazz.getSimpleName(</code> <b>clazz.getSimpleName(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCachedBuilderInfo">
+                <h4 class="methodName">getCachedBuilderInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BuilderInfo.html" class="type-link"><code>BuilderInfo</code></a></span>
+                    <span class="memberName">getCachedBuilderInfo</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><code>@Nonnull final Class<?></code> <span class="param-name">classType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getCachedBuilderInfo.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><code>@Nonnull final Class<?></code> <b>classType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryGetCachedValidBuilder">
+                <h4 class="methodName">tryGetCachedValidBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="Builder.html" class="type-link"><code>Builder<T></code></a></span>
+                    <span class="memberName">tryGetCachedValidBuilder</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><code>@Nonnull final Class<?></code> <span class="param-name">classType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryGetCachedValidBuilder.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><code>@Nonnull final Class<?></code> <b>classType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCachedBuilder">
+                <h4 class="methodName">getCachedBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="Builder.html" class="type-link"><code>Builder<T></code></a></span>
+                    <span class="memberName">getCachedBuilder</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><code>@Nonnull final Class<?></code> <span class="param-name">classType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getCachedBuilder.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><code>@Nonnull final Class<?></code> <b>classType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isEmpty">
+                <h4 class="methodName">isEmpty</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isEmpty</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isEmpty.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAllBuilders">
+                <h4 class="methodName">getAllBuilders</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Int2ObjectMap<BuilderInfo></code></span>
+                    <span class="memberName">getAllBuilders</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAllBuilders.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="collectMatchingBuilders">
+                <h4 class="methodName">collectMatchingBuilders</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>T</code></span>
+                    <span class="memberName">collectMatchingBuilders</span>
+                    <span class="arguments">(<span class="param"><code>final T</code> <span class="param-name">collection</span></span>, <span class="param"><code>@Nonnull final Predicate<BuilderInfo></code> <span class="param-name">filter</span></span>, <span class="param"><code>@Nonnull final BiConsumer<BuilderInfo, T></code> <span class="param-name">consumer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method collectMatchingBuilders.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final T</code> <b>collection</b></dd>
+<dd><code>@Nonnull final Predicate<BuilderInfo></code> <b>filter</b></dd>
+<dd><code>@Nonnull final BiConsumer<BuilderInfo, T></code> <b>consumer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNameToIndexMap">
+                <h4 class="methodName">getNameToIndexMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Object2IntMap<String></code></span>
+                    <span class="memberName">getNameToIndexMap</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNameToIndexMap.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="findMatchingBuilder">
+                <h4 class="methodName">findMatchingBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BuilderInfo.html" class="type-link"><code>BuilderInfo</code></a></span>
+                    <span class="memberName">findMatchingBuilder</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final BiPredicate<BuilderInfo, T></code> <span class="param-name">filter</span></span>, <span class="param"><code>final T</code> <span class="param-name">t</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method findMatchingBuilder.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final BiPredicate<BuilderInfo, T></code> <b>filter</b></dd>
+<dd><code>final T</code> <b>t</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBuilderInfo">
+                <h4 class="methodName">getBuilderInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BuilderInfo.html" class="type-link"><code>BuilderInfo</code></a></span>
+                    <span class="memberName">getBuilderInfo</span>
+                    <span class="arguments">(<span class="param"><a href="Builder.html" class="type-link"><code>final Builder<?></code></a> <span class="param-name">builder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getBuilderInfo.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="Builder.html" class="type-link"><code>final Builder<?></code></a> <b>builder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTemplateNames">
+                <h4 class="methodName">getTemplateNames</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<String></code></span>
+                    <span class="memberName">getTemplateNames</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTemplateNames.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ObjectArrayList">
+                <h4 class="methodName">ObjectArrayList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ObjectArrayList</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ObjectArrayList.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="forceValidation">
+                <h4 class="methodName">forceValidation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">forceValidation</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">builderIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method forceValidation.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>builderIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="checkIfDeprecated">
+                <h4 class="methodName">checkIfDeprecated</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">checkIfDeprecated</span>
+                    <span class="arguments">(<span class="param"><a href="Builder.html" class="type-link"><code>@Nonnull final Builder<?></code></a> <span class="param-name">builder</span></span>, <span class="param"><a href="BuilderFactory.html" class="type-link"><code>@Nonnull final BuilderFactory<?></code></a> <span class="param-name">builderFactory</span></span>, <span class="param"><code>@Nonnull final JsonElement</code> <span class="param-name">element</span></span>, <span class="param"><code>final String</code> <span class="param-name">fileName</span></span>, <span class="param"><code>final String</code> <span class="param-name">context</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method checkIfDeprecated.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="Builder.html" class="type-link"><code>@Nonnull final Builder<?></code></a> <b>builder</b></dd>
+<dd><a href="BuilderFactory.html" class="type-link"><code>@Nonnull final BuilderFactory<?></code></a> <b>builderFactory</b></dd>
+<dd><code>@Nonnull final JsonElement</code> <b>element</b></dd>
+<dd><code>final String</code> <b>fileName</b></dd>
+<dd><code>final String</code> <b>context</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateSchema">
+                <h4 class="methodName">generateSchema</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../codec/schema/config/Schema.html" class="type-link"><code>Schema</code></a></span>
+                    <span class="memberName">generateSchema</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../codec/schema/SchemaContext.html" class="type-link"><code>@Nonnull final SchemaContext</code></a> <span class="param-name">context</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateSchema.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../codec/schema/SchemaContext.html" class="type-link"><code>@Nonnull final SchemaContext</code></a> <b>context</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateDescriptors">
+                <h4 class="methodName">generateDescriptors</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<BuilderDescriptor></code></span>
+                    <span class="memberName">generateDescriptors</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method generateDescriptors.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="saveDescriptors">
+                <h4 class="methodName">saveDescriptors</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">saveDescriptors</span>
+                    <span class="arguments">(<span class="param"><code>final List<BuilderDescriptor></code> <span class="param-name">builderDescriptors</span></span>, <span class="param"><code>@Nonnull final Path</code> <span class="param-name">fileName</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method saveDescriptors.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final List<BuilderDescriptor></code> <b>builderDescriptors</b></dd>
+<dd><code>@Nonnull final Path</code> <b>fileName</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="GsonBuilder">
+                <h4 class="methodName">GsonBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">GsonBuilder</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method GsonBuilder.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryGetCachedValidRole">
+                <h4 class="methodName">tryGetCachedValidRole</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="Builder.html" class="type-link"><code>Builder<Role></code></a></span>
+                    <span class="memberName">tryGetCachedValidRole</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">builderIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryGetCachedValidRole.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>builderIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="validateAllLoadedBuilders">
+                <h4 class="methodName">validateAllLoadedBuilders</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">validateAllLoadedBuilders</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Int2ObjectMap<BuilderInfo></code> <span class="param-name">loadedBuilders</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">validateDependents</span></span>, <span class="param"><code>@Nonnull final List<String></code> <span class="param-name">errors</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method validateAllLoadedBuilders.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Int2ObjectMap<BuilderInfo></code> <b>loadedBuilders</b></dd>
+<dd><code>final boolean</code> <b>validateDependents</b></dd>
+<dd><code>@Nonnull final List<String></code> <b>errors</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onAllBuildersLoaded">
+                <h4 class="methodName">onAllBuildersLoaded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onAllBuildersLoaded</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Int2ObjectMap<BuilderInfo></code> <span class="param-name">loadedBuilders</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onAllBuildersLoaded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Int2ObjectMap<BuilderInfo></code> <b>loadedBuilders</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AllNPCsLoadedEvent">
+                <h4 class="methodName">AllNPCsLoadedEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AllNPCsLoadedEvent</span>
+                    <span class="arguments">(<span class="param">this.getAllBuilders(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AllNPCsLoadedEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.getAllBuilders(</code> <b>this.getAllBuilders(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onBuilderReloaded">
+                <h4 class="methodName">onBuilderReloaded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onBuilderReloaded</span>
+                    <span class="arguments">(<span class="param"><a href="BuilderInfo.html" class="type-link"><code>@Nonnull final BuilderInfo</code></a> <span class="param-name">builderInfo</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onBuilderReloaded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="BuilderInfo.html" class="type-link"><code>@Nonnull final BuilderInfo</code></a> <b>builderInfo</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayerGroupID">
+                <h4 class="methodName">getPlayerGroupID</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getPlayerGroupID</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayerGroupID.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSelfGroupID">
+                <h4 class="methodName">getSelfGroupID</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getSelfGroupID</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSelfGroupID.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onBuilderAdded">
+                <h4 class="methodName">onBuilderAdded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onBuilderAdded</span>
+                    <span class="arguments">(<span class="param"><a href="BuilderInfo.html" class="type-link"><code>@Nonnull final BuilderInfo</code></a> <span class="param-name">builderInfo</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onBuilderAdded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="BuilderInfo.html" class="type-link"><code>@Nonnull final BuilderInfo</code></a> <b>builderInfo</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="LoadedNPCEvent">
+                <h4 class="methodName">LoadedNPCEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">LoadedNPCEvent</span>
+                    <span class="arguments">(<span class="param">builderInfo</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method LoadedNPCEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>builderInfo</code> <b>builderInfo</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isDependant">
+                <h4 class="methodName">isDependant</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isDependant</span>
+                    <span class="arguments">(<span class="param"><a href="Builder.html" class="type-link"><code>@Nonnull final Builder<?></code></a> <span class="param-name">builder</span></span>, <span class="param"><code>final int</code> <span class="param-name">builderIndex</span></span>, <span class="param"><code>final int</code> <span class="param-name">dependencyIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isDependant.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="Builder.html" class="type-link"><code>@Nonnull final Builder<?></code></a> <b>builder</b></dd>
+<dd><code>final int</code> <b>builderIndex</b></dd>
+<dd><code>final int</code> <b>dependencyIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="cacheBuilder">
+                <h4 class="methodName">cacheBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">cacheBuilder</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">name</span></span>, <span class="param"><a href="Builder.html" class="type-link"><code>final Builder<?></code></a> <span class="param-name">builder</span></span>, <span class="param"><code>final Path</code> <span class="param-name">path</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method cacheBuilder.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>name</b></dd>
+<dd><a href="Builder.html" class="type-link"><code>final Builder<?></code></a> <b>builder</b></dd>
+<dd><code>final Path</code> <b>path</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeBuilder">
+                <h4 class="methodName">removeBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">removeBuilder</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removeBuilder.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryGetCachedBuilder">
+                <h4 class="methodName">tryGetCachedBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="Builder.html" class="type-link"><code>Builder<?></code></a></span>
+                    <span class="memberName">tryGetCachedBuilder</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryGetCachedBuilder.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryGetCachedBuilderInfo">
+                <h4 class="methodName">tryGetCachedBuilderInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="BuilderInfo.html" class="type-link"><code>BuilderInfo</code></a></span>
+                    <span class="memberName">tryGetCachedBuilderInfo</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><code>@Nonnull final Class<?></code> <span class="param-name">classType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryGetCachedBuilderInfo.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><code>@Nonnull final Class<?></code> <b>classType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="validateAllSpawnableNPCs">
+                <h4 class="methodName">validateAllSpawnableNPCs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">validateAllSpawnableNPCs</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Int2ObjectMap<BuilderInfo></code> <span class="param-name">builders</span></span>, <span class="param"><code>@Nonnull final List<String></code> <span class="param-name">errors</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method validateAllSpawnableNPCs.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Int2ObjectMap<BuilderInfo></code> <b>builders</b></dd>
+<dd><code>@Nonnull final List<String></code> <b>errors</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ExecutionContext">
+                <h4 class="methodName">ExecutionContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ExecutionContext</span>
+                    <span class="arguments">(<span class="param">builder.getBuilderParameters(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ExecutionContext.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>builder.getBuilderParameters(</code> <b>builder.getBuilderParameters(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NPCLoadTimeValidationHelper">
+                <h4 class="methodName">NPCLoadTimeValidationHelper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NPCLoadTimeValidationHelper</span>
+                    <span class="arguments">(<span class="param">fileName</span>, <span class="param">model</span>, <span class="param">!builderInstance.isSpawnable(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NPCLoadTimeValidationHelper.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>fileName</code> <b>fileName</b></dd>
+<dd><code>model</code> <b>model</b></dd>
+<dd><code>!builderInstance.isSpawnable(</code> <b>!builderInstance.isSpawnable(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendReloadNotification">
+                <h4 class="methodName">sendReloadNotification</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">sendReloadNotification</span>
+                    <span class="arguments">(<span class="param"><a href="../../../core/Message.html" class="type-link"><code>final Message</code></a> <span class="param-name">message</span></span>, <span class="param"><code>@Nonnull final Set<String></code> <span class="param-name">builders</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method sendReloadNotification.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../core/Message.html" class="type-link"><code>final Message</code></a> <b>message</b></dd>
+<dd><code>@Nonnull final Set<String></code> <b>builders</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isIgnoredFile">
+                <h4 class="methodName">isIgnoredFile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isIgnoredFile</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Path</code> <span class="param-name">path</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isIgnoredFile.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Path</code> <b>path</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isJsonFile">
+                <h4 class="methodName">isJsonFile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isJsonFile</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Path</code> <span class="param-name">path</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isJsonFile.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Path</code> <b>path</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isJsonFileName">
+                <h4 class="methodName">isJsonFileName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isJsonFileName</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Path</code> <span class="param-name">path</span></span>, <span class="param"><a href="../../../core/asset/monitor/EventKind.html" class="type-link"><code>final EventKind</code></a> <span class="param-name">eventKind</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isJsonFileName.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Path</code> <b>path</b></dd>
+<dd><a href="../../../core/asset/monitor/EventKind.html" class="type-link"><code>final EventKind</code></a> <b>eventKind</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="builderNameFromPath">
+                <h4 class="methodName">builderNameFromPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">builderNameFromPath</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Path</code> <span class="param-name">path</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method builderNameFromPath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Path</code> <b>path</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="buildPathString">
+                <h4 class="methodName">buildPathString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">buildPathString</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final IntArrayList</code> <span class="param-name">path</span></span>, <span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method buildPathString.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final IntArrayList</code> <b>path</b></dd>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">!childBuilder.isValidated(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>!childBuilder.isValidated(</code> <b>!childBuilder.isValidated(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="computeAllDependencies">
+                <h4 class="methodName">computeAllDependencies</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>IntSet</code></span>
+                    <span class="memberName">computeAllDependencies</span>
+                    <span class="arguments">(<span class="param"><a href="Builder.html" class="type-link"><code>@Nonnull final Builder<?></code></a> <span class="param-name">builder</span></span>, <span class="param"><code>final int</code> <span class="param-name">builderIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method computeAllDependencies.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="Builder.html" class="type-link"><code>@Nonnull final Builder<?></code></a> <b>builder</b></dd>
+<dd><code>final int</code> <b>builderIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="iterateDependencies">
+                <h4 class="methodName">iterateDependencies</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">iterateDependencies</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final IntIterator</code> <span class="param-name">iterator</span></span>, <span class="param"><code>@Nonnull final IntSet</code> <span class="param-name">dependencies</span></span>, <span class="param"><code>@Nonnull final IntArrayList</code> <span class="param-name">path</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method iterateDependencies.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final IntIterator</code> <b>iterator</b></dd>
+<dd><code>@Nonnull final IntSet</code> <b>dependencies</b></dd>
+<dd><code>@Nonnull final IntArrayList</code> <b>path</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="reloadDependants">
+                <h4 class="methodName">reloadDependants</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">reloadDependants</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">dependency</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method reloadDependants.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>dependency</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getKey">
+                <h4 class="methodName">getKey</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Object</code></span>
+                    <span class="memberName">getKey</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getKey.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="test">
+                <h4 class="methodName">test</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">test</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">path</span></span>, <span class="param"><a href="../../../core/asset/monitor/EventKind.html" class="type-link"><code>final EventKind</code></a> <span class="param-name">eventKind</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method test.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>path</b></dd>
+<dd><a href="../../../core/asset/monitor/EventKind.html" class="type-link"><code>final EventKind</code></a> <b>eventKind</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="accept">
+                <h4 class="methodName">accept</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">accept</span>
+                    <span class="arguments">(<span class="param"><code>final Map<Path, EventKind></code> <span class="param-name">map</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method accept.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Map<Path, EventKind></code> <b>map</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

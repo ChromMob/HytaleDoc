@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ProcessingBenchState (com.hypixel.hytale.builtin.crafting.state)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/builtin/crafting/state/package-summary.html">com.hypixel.hytale.builtin.crafting.state</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">ProcessingBenchState</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="ProcessingBenchState.html" class="type-link">ProcessingBenchState</a> extends <a href="BenchState.html" class="type-link" data-class="BenchState"><code>BenchState</code></a> implements <a href="../../../server/core/universe/world/chunk/state/TickableBlockState.html" class="type-link" data-class="TickableBlockState"><code>TickableBlockState</code></a>, <a href="../../../server/core/universe/world/meta/state/ItemContainerBlockState.html" class="type-link" data-class="ItemContainerBlockState"><code>ItemContainerBlockState</code></a>, <a href="../../../server/core/universe/world/meta/state/DestroyableBlockState.html" class="type-link" data-class="DestroyableBlockState"><code>DestroyableBlockState</code></a>, <a href="../../../server/core/universe/world/meta/state/MarkerBlockState.html" class="type-link" data-class="MarkerBlockState"><code>MarkerBlockState</code></a>, <a href="../../../server/core/universe/world/meta/state/PlacedByBlockState.html" class="type-link" data-class="PlacedByBlockState"><code>PlacedByBlockState</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class ProcessingBenchState. Provides processingbenchstate functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; BenchState &gt; ProcessingBenchState</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">marker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">WorldMapManager.MarkerReference</span>
+                    <span class="memberName">marker</span>
+                </div>
+                <div class="block">
+                    <p>Field marker.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">processingBench</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ProcessingBench</span>
+                    <span class="memberName">processingBench</span>
+                </div>
+                <div class="block">
+                    <p>Field processingBench.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inputContainer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ItemContainer</span>
+                    <span class="memberName">inputContainer</span>
+                </div>
+                <div class="block">
+                    <p>Field inputContainer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fuelContainer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ItemContainer</span>
+                    <span class="memberName">fuelContainer</span>
+                </div>
+                <div class="block">
+                    <p>Field fuelContainer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">outputContainer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ItemContainer</span>
+                    <span class="memberName">outputContainer</span>
+                </div>
+                <div class="block">
+                    <p>Field outputContainer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">combinedItemContainer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CombinedItemContainer</span>
+                    <span class="memberName">combinedItemContainer</span>
+                </div>
+                <div class="block">
+                    <p>Field combinedItemContainer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inputProgress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">inputProgress</span>
+                </div>
+                <div class="block">
+                    <p>Field inputProgress.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fuelTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">fuelTime</span>
+                </div>
+                <div class="block">
+                    <p>Field fuelTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastConsumedFuelTotal</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">lastConsumedFuelTotal</span>
+                </div>
+                <div class="block">
+                    <p>Field lastConsumedFuelTotal.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nextExtra</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">nextExtra</span>
+                </div>
+                <div class="block">
+                    <p>Field nextExtra.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">recipeId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">recipeId</span>
+                </div>
+                <div class="block">
+                    <p>Field recipeId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">recipe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CraftingRecipe</span>
+                    <span class="memberName">recipe</span>
+                </div>
+                <div class="block">
+                    <p>Field recipe.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">active</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">active</span>
+                </div>
+                <div class="block">
+                    <p>Field active.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemStacks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<ItemStack></span>
+                    <span class="memberName">itemStacks</span>
+                </div>
+                <div class="block">
+                    <p>Field itemStacks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">store</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<EntityStore></span>
+                    <span class="memberName">store</span>
+                </div>
+                <div class="block">
+                    <p>Field store.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemEntityHolders</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore>[]</span>
+                    <span class="memberName">itemEntityHolders</span>
+                </div>
+                <div class="block">
+                    <p>Field itemEntityHolders.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">remainder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<ItemStack></span>
+                    <span class="memberName">remainder</span>
+                </div>
+                <div class="block">
+                    <p>Field remainder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tierLevel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">tierLevel</span>
+                </div>
+                <div class="block">
+                    <p>Field tierLevel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">input</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ProcessingBench.ProcessingSlot[]</span>
+                    <span class="memberName">input</span>
+                </div>
+                <div class="block">
+                    <p>Field input.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inputSlotsCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">short</span>
+                    <span class="memberName">inputSlotsCount</span>
+                </div>
+                <div class="block">
+                    <p>Field inputSlotsCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inputSlot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ProcessingBench.ProcessingSlot</span>
+                    <span class="memberName">inputSlot</span>
+                </div>
+                <div class="block">
+                    <p>Field inputSlot.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">resourceTypeId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">resourceTypeId</span>
+                </div>
+                <div class="block">
+                    <p>Field resourceTypeId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">shouldFilterValidIngredients</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">shouldFilterValidIngredients</span>
+                </div>
+                <div class="block">
+                    <p>Field shouldFilterValidIngredients.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">validIngredients</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<MaterialQuantity></span>
+                    <span class="memberName">validIngredients</span>
+                </div>
+                <div class="block">
+                    <p>Field validIngredients.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">recipes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<CraftingRecipe></span>
+                    <span class="memberName">recipes</span>
+                </div>
+                <div class="block">
+                    <p>Field recipes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inputMaterials</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<MaterialQuantity></span>
+                    <span class="memberName">inputMaterials</span>
+                </div>
+                <div class="block">
+                    <p>Field inputMaterials.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">benchFuel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ProcessingBench.ProcessingSlot[]</span>
+                    <span class="memberName">benchFuel</span>
+                </div>
+                <div class="block">
+                    <p>Field benchFuel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fuelCapacity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">short</span>
+                    <span class="memberName">fuelCapacity</span>
+                </div>
+                <div class="block">
+                    <p>Field fuelCapacity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fuel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ProcessingBench.ProcessingSlot</span>
+                    <span class="memberName">fuel</span>
+                </div>
+                <div class="block">
+                    <p>Field fuel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">outputSlotsCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">short</span>
+                    <span class="memberName">outputSlotsCount</span>
+                </div>
+                <div class="block">
+                    <p>Field outputSlotsCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<EntityStore></span>
+                    <span class="memberName">entityStore</span>
+                </div>
+                <div class="block">
+                    <p>Field entityStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockType</span>
+                    <span class="memberName">blockType</span>
+                </div>
+                <div class="block">
+                    <p>Field blockType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">currentState</span>
+                </div>
+                <div class="block">
+                    <p>Field currentState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">result</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<TestRemoveItemSlotResult></span>
+                    <span class="memberName">result</span>
+                </div>
+                <div class="block">
+                    <p>Field result.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allowNoInputProcessing</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">allowNoInputProcessing</span>
+                </div>
+                <div class="block">
+                    <p>Field allowNoInputProcessing.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fuelSlots</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ProcessingBench.ProcessingSlot[]</span>
+                    <span class="memberName">fuelSlots</span>
+                </div>
+                <div class="block">
+                    <p>Field fuelSlots.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hasFuelSlots</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasFuelSlots</span>
+                </div>
+                <div class="block">
+                    <p>Field hasFuelSlots.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemInSlot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">itemInSlot</span>
+                </div>
+                <div class="block">
+                    <p>Field itemInSlot.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fuelSlot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ProcessingBench.ProcessingSlot</span>
+                    <span class="memberName">fuelSlot</span>
+                </div>
+                <div class="block">
+                    <p>Field fuelSlot.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">resourceQuantity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ResourceQuantity</span>
+                    <span class="memberName">resourceQuantity</span>
+                </div>
+                <div class="block">
+                    <p>Field resourceQuantity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">slot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">slot</span>
+                </div>
+                <div class="block">
+                    <p>Field slot.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fuelQuality</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">fuelQuality</span>
+                </div>
+                <div class="block">
+                    <p>Field fuelQuality.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transaction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ResourceTransaction</span>
+                    <span class="memberName">transaction</span>
+                </div>
+                <div class="block">
+                    <p>Field transaction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">extra</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ProcessingBench.ExtraOutput</span>
+                    <span class="memberName">extra</span>
+                </div>
+                <div class="block">
+                    <p>Field extra.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">extraItemStacks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<ItemStack></span>
+                    <span class="memberName">extraItemStacks</span>
+                </div>
+                <div class="block">
+                    <p>Field extraItemStacks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">addTransaction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ListTransaction<ItemStackTransaction></span>
+                    <span class="memberName">addTransaction</span>
+                </div>
+                <div class="block">
+                    <p>Field addTransaction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">remainderItems</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<ItemStack></span>
+                    <span class="memberName">remainderItems</span>
+                </div>
+                <div class="block">
+                    <p>Field remainderItems.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">craftingTimeReductionModifier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">craftingTimeReductionModifier</span>
+                </div>
+                <div class="block">
+                    <p>Field craftingTimeReductionModifier.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">progressPercent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">progressPercent</span>
+                </div>
+                <div class="block">
+                    <p>Field progressPercent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">remainderItems2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<ItemStack></span>
+                    <span class="memberName">remainderItems2</span>
+                </div>
+                <div class="block">
+                    <p>Field remainderItems2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">slots</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntArrayList</span>
+                    <span class="memberName">slots</span>
+                </div>
+                <div class="block">
+                    <p>Field slots.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">slot2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">slot2</span>
+                </div>
+                <div class="block">
+                    <p>Field slot2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transaction2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MaterialSlotTransaction</span>
+                    <span class="memberName">transaction2</span>
+                </div>
+                <div class="block">
+                    <p>Field transaction2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">addTransaction2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ListTransaction<ItemStackTransaction></span>
+                    <span class="memberName">addTransaction2</span>
+                </div>
+                <div class="block">
+                    <p>Field addTransaction2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">remainder2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">remainder2</span>
+                </div>
+                <div class="block">
+                    <p>Field remainder2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemEntityHolders2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore>[]</span>
+                    <span class="memberName">itemEntityHolders2</span>
+                </div>
+                <div class="block">
+                    <p>Field itemEntityHolders2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transaction3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ListTransaction<MaterialTransaction></span>
+                    <span class="memberName">transaction3</span>
+                </div>
+                <div class="block">
+                    <p>Field transaction3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">addTransaction3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ListTransaction<ItemStackTransaction></span>
+                    <span class="memberName">addTransaction3</span>
+                </div>
+                <div class="block">
+                    <p>Field addTransaction3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">remainder3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">remainder3</span>
+                </div>
+                <div class="block">
+                    <p>Field remainder3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemEntityHolders3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore>[]</span>
+                    <span class="memberName">itemEntityHolders3</span>
+                </div>
+                <div class="block">
+                    <p>Field itemEntityHolders3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">levelData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BenchTierLevel</span>
+                    <span class="memberName">levelData</span>
+                </div>
+                <div class="block">
+                    <p>Field levelData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RotationTuple</span>
+                    <span class="memberName">rotation</span>
+                </div>
+                <div class="block">
+                    <p>Field rotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">frontDir</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">frontDir</span>
+                </div>
+                <div class="block">
+                    <p>Field frontDir.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hitboxAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockBoundingBoxes</span>
+                    <span class="memberName">hitboxAsset</span>
+                </div>
+                <div class="block">
+                    <p>Field hitboxAsset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">depth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">depth</span>
+                </div>
+                <div class="block">
+                    <p>Field depth.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">frontOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">frontOffset</span>
+                </div>
+                <div class="block">
+                    <p>Field frontOffset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">random</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ThreadLocalRandom</span>
+                    <span class="memberName">random</span>
+                </div>
+                <div class="block">
+                    <p>Field random.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">velocityX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">velocityX</span>
+                </div>
+                <div class="block">
+                    <p>Field velocityX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">velocityZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">velocityZ</span>
+                </div>
+                <div class="block">
+                    <p>Field velocityZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">holder</span>
+                </div>
+                <div class="block">
+                    <p>Field holder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fuelPercent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">fuelPercent</span>
+                </div>
+                <div class="block">
+                    <p>Field fuelPercent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dropPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">dropPosition</span>
+                </div>
+                <div class="block">
+                    <p>Field dropPosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">matching</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<CraftingRecipe></span>
+                    <span class="memberName">matching</span>
+                </div>
+                <div class="block">
+                    <p>Field matching.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">itemId</span>
+                </div>
+                <div class="block">
+                    <p>Field itemId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">materialQuantity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">materialQuantity</span>
+                </div>
+                <div class="block">
+                    <p>Field materialQuantity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">metadata</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BsonDocument</span>
+                    <span class="memberName">metadata</span>
+                </div>
+                <div class="block">
+                    <p>Field metadata.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">material</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MaterialQuantity</span>
+                    <span class="memberName">material</span>
+                </div>
+                <div class="block">
+                    <p>Field material.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">i</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">i</span>
+                </div>
+                <div class="block">
+                    <p>Field i.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">out</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">out</span>
+                </div>
+                <div class="block">
+                    <p>Field out.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">recipe2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CraftingRecipe</span>
+                    <span class="memberName">recipe2</span>
+                </div>
+                <div class="block">
+                    <p>Field recipe2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fuelDropItemId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">fuelDropItemId</span>
+                </div>
+                <div class="block">
+                    <p>Field fuelDropItemId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">item</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Item</span>
+                    <span class="memberName">item</span>
+                </div>
+                <div class="block">
+                    <p>Field item.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">quantity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">quantity</span>
+                </div>
+                <div class="block">
+                    <p>Field quantity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">playerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Transform</span>
+                    <span class="memberName">transformPacket</span>
+                </div>
+                <div class="block">
+                    <p>Field transformPacket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">pos</span>
+                </div>
+                <div class="block">
+                    <p>Field pos.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="ProcessingBenchState">
+                <h4 class="methodName">ProcessingBenchState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">ProcessingBenchState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ProcessingBenchState.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="initialize">
+                <h4 class="methodName">initialize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">initialize</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/BlockType.html" class="type-link"><code>@Nonnull final BlockType</code></a> <span class="param-name">blockType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initialize.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/BlockType.html" class="type-link"><code>@Nonnull final BlockType</code></a> <b>blockType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setupSlots">
+                <h4 class="methodName">setupSlots</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setupSlots</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setupSlots.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ResourceFilter">
+                <h4 class="methodName">ResourceFilter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ResourceFilter</span>
+                    <span class="arguments">(<span class="param"><code>new</code> <span class="param-name">ResourceQuantity(resourceTypeId</span></span>, <span class="param">1</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ResourceFilter.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>new</code> <b>ResourceQuantity(resourceTypeId</b></dd>
+<dd><code>1</code> <b>1</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">shouldFilterValidIngredients</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>shouldFilterValidIngredients</code> <b>shouldFilterValidIngredients</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tick">
+                <h4 class="methodName">tick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tick</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>, <span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><a href="../../../component/ArchetypeChunk.html" class="type-link"><code>final ArchetypeChunk<ChunkStore></code></a> <span class="param-name">archetypeChunk</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<ChunkStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><a href="../../../component/ArchetypeChunk.html" class="type-link"><code>final ArchetypeChunk<ChunkStore></code></a> <b>archetypeChunk</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <b>store</b></dd>
+<dd><a href="../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<ChunkStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCraftingTimeReductionModifier">
+                <h4 class="methodName">getCraftingTimeReductionModifier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">getCraftingTimeReductionModifier</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCraftingTimeReductionModifier.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ejectItems">
+                <h4 class="methodName">ejectItems</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../../component/Holder.html" class="type-link"><code>Holder<EntityStore>[]</code></a></span>
+                    <span class="memberName">ejectItems</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">accessor</span></span>, <span class="param"><code>@Nonnull final List<ItemStack></code> <span class="param-name">itemStacks</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ejectItems.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>accessor</b></dd>
+<dd><code>@Nonnull final List<ItemStack></code> <b>itemStacks</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendProgress">
+                <h4 class="methodName">sendProgress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">sendProgress</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">progress</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method sendProgress.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>progress</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendProcessingSlots">
+                <h4 class="methodName">sendProcessingSlots</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">sendProcessingSlots</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method sendProcessingSlots.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendProcessingFuelSlots">
+                <h4 class="methodName">sendProcessingFuelSlots</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">sendProcessingFuelSlots</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method sendProcessingFuelSlots.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isActive">
+                <h4 class="methodName">isActive</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isActive</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isActive.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setActive">
+                <h4 class="methodName">setActive</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">setActive</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">active</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setActive.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>active</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateFuelValues">
+                <h4 class="methodName">updateFuelValues</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateFuelValues</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method updateFuelValues.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onDestroy">
+                <h4 class="methodName">onDestroy</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onDestroy</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method onDestroy.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getItemContainer">
+                <h4 class="methodName">getItemContainer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../server/core/inventory/container/CombinedItemContainer.html" class="type-link"><code>CombinedItemContainer</code></a></span>
+                    <span class="memberName">getItemContainer</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getItemContainer.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="checkForRecipeUpdate">
+                <h4 class="methodName">checkForRecipeUpdate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">checkForRecipeUpdate</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method checkForRecipeUpdate.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateRecipe">
+                <h4 class="methodName">updateRecipe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateRecipe</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method updateRecipe.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearRecipe">
+                <h4 class="methodName">clearRecipe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearRecipe</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearRecipe.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="dropFuelItems">
+                <h4 class="methodName">dropFuelItems</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">dropFuelItems</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final List<ItemStack></code> <span class="param-name">itemStacks</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method dropFuelItems.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final List<ItemStack></code> <b>itemStacks</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ItemStack">
+                <h4 class="methodName">ItemStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ItemStack</span>
+                    <span class="arguments">(<span class="param">fuelDropItemId</span>, <span class="param">quantity</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ItemStack.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>fuelDropItemId</code> <b>fuelDropItemId</b></dd>
+<dd><code>quantity</code> <b>quantity</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRecipe">
+                <h4 class="methodName">getRecipe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../server/core/asset/type/item/config/CraftingRecipe.html" class="type-link"><code>CraftingRecipe</code></a></span>
+                    <span class="memberName">getRecipe</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRecipe.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWindows">
+                <h4 class="methodName">getWindows</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ProcessingBenchWindow></code></span>
+                    <span class="memberName">getWindows</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getWindows.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInputProgress">
+                <h4 class="methodName">getInputProgress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">getInputProgress</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getInputProgress.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onItemChange">
+                <h4 class="methodName">onItemChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onItemChange</span>
+                    <span class="arguments">(<span class="param"><code>final ItemContainer.ItemContainerChangeEvent</code> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onItemChange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final ItemContainer.ItemContainerChangeEvent</code> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setBlockInteractionState">
+                <h4 class="methodName">setBlockInteractionState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setBlockInteractionState</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">state</span></span>, <span class="param"><a href="../../../protocol/BlockType.html" class="type-link"><code>@Nonnull final BlockType</code></a> <span class="param-name">blockType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setBlockInteractionState.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>state</b></dd>
+<dd><a href="../../../protocol/BlockType.html" class="type-link"><code>@Nonnull final BlockType</code></a> <b>blockType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setMarker">
+                <h4 class="methodName">setMarker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setMarker</span>
+                    <span class="arguments">(<span class="param"><code>final WorldMapManager.MarkerReference</code> <span class="param-name">marker</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setMarker.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final WorldMapManager.MarkerReference</code> <b>marker</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="placedBy">
+                <h4 class="methodName">placedBy</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">placedBy</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">playerRef</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">blockTypeKey</span></span>, <span class="param"><a href="../../../server/core/universe/world/meta/BlockState.html" class="type-link"><code>@Nonnull final BlockState</code></a> <span class="param-name">blockState</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method placedBy.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>playerRef</b></dd>
+<dd><code>@Nonnull final String</code> <b>blockTypeKey</b></dd>
+<dd><a href="../../../server/core/universe/world/meta/BlockState.html" class="type-link"><code>@Nonnull final BlockState</code></a> <b>blockState</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="MapMarker">
+                <h4 class="methodName">MapMarker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">MapMarker</span>
+                    <span class="arguments">(<span class="param">this.processingBench.getIconId(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method MapMarker.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.processingBench.getIconId(</code> <b>this.processingBench.getIconId(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="playSound">
+                <h4 class="methodName">playSound</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">playSound</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><code>final int</code> <span class="param-name">soundEventIndex</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method playSound.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><code>final int</code> <b>soundEventIndex</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onTierLevelChange">
+                <h4 class="methodName">onTierLevelChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onTierLevelChange</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method onTierLevelChange.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InteractionManager (com.hypixel.hytale.server.core.entity)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/core/entity/package-summary.html">com.hypixel.hytale.server.core.entity</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">InteractionManager</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="InteractionManager.html" class="type-link">InteractionManager</a> implements <a href="../../../component/Component.html" class="type-link" data-class="Component"><code>Component<EntityStore></code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class InteractionManager. Provides interactionmanager functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; InteractionManager</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">hasRemoteClient</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasRemoteClient</span>
+                </div>
+                <div class="block">
+                    <p>Field hasRemoteClient.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastServerChainId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">lastServerChainId</span>
+                </div>
+                <div class="block">
+                    <p>Field lastServerChainId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastClientChainId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">lastClientChainId</span>
+                </div>
+                <div class="block">
+                    <p>Field lastClientChainId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packetQueueTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">packetQueueTime</span>
+                </div>
+                <div class="block">
+                    <p>Field packetQueueTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">timeShiftsDirty</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">timeShiftsDirty</span>
+                </div>
+                <div class="block">
+                    <p>Field timeShiftsDirty.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">commandBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">CommandBuffer<EntityStore></span>
+                    <span class="memberName">commandBuffer</span>
+                </div>
+                <div class="block">
+                    <p>Field commandBuffer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">playerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">it</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Iterator<SyncInteractionChain></span>
+                    <span class="memberName">it</span>
+                </div>
+                <div class="block">
+                    <p>Field it.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SyncInteractionChain</span>
+                    <span class="memberName">packet</span>
+                </div>
+                <div class="block">
+                    <p>Field packet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">context</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HytaleLogger.Api</span>
+                    <span class="memberName">context</span>
+                </div>
+                <div class="block">
+                    <p>Field context.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">subChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionChain</span>
+                    <span class="memberName">subChain</span>
+                </div>
+                <div class="block">
+                    <p>Field subChain.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ctx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HytaleLogger.Api</span>
+                    <span class="memberName">ctx</span>
+                </div>
+                <div class="block">
+                    <p>Field ctx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">shouldRemove</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">shouldRemove</span>
+                </div>
+                <div class="block">
+                    <p>Field shouldRemove.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ctx3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HytaleLogger.Api</span>
+                    <span class="memberName">ctx3</span>
+                </div>
+                <div class="block">
+                    <p>Field ctx3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ref</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">ref</span>
+                </div>
+                <div class="block">
+                    <p>Field ref.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">baseOpIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">baseOpIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field baseOpIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">waitMillis</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">waitMillis</span>
+                </div>
+                <div class="block">
+                    <p>Field waitMillis.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">context2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HytaleLogger.Api</span>
+                    <span class="memberName">context2</span>
+                </div>
+                <div class="block">
+                    <p>Field context2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">threshold</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">threshold</span>
+                </div>
+                <div class="block">
+                    <p>Field threshold.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">waitMillis2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">waitMillis2</span>
+                </div>
+                <div class="block">
+                    <p>Field waitMillis2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">context3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HytaleLogger.Api</span>
+                    <span class="memberName">context3</span>
+                </div>
+                <div class="block">
+                    <p>Field context3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">threshold2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">threshold2</span>
+                </div>
+                <div class="block">
+                    <p>Field threshold2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">timeResource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeResource</span>
+                    <span class="memberName">timeResource</span>
+                </div>
+                <div class="block">
+                    <p>Field timeResource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">root</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RootInteraction</span>
+                    <span class="memberName">root</span>
+                </div>
+                <div class="block">
+                    <p>Field root.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxOperations</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxOperations</span>
+                </div>
+                <div class="block">
+                    <p>Field maxOperations.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionEntry</span>
+                    <span class="memberName">entry</span>
+                </div>
+                <div class="block">
+                    <p>Field entry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">operation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Operation</span>
+                    <span class="memberName">operation</span>
+                </div>
+                <div class="block">
+                    <p>Field operation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">interactionData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectList<InteractionSyncData></span>
+                    <span class="memberName">interactionData</span>
+                </div>
+                <div class="block">
+                    <p>Field interactionData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionChain</span>
+                    <span class="memberName">parent</span>
+                </div>
+                <div class="block">
+                    <p>Field parent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">simOp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Operation</span>
+                    <span class="memberName">simOp</span>
+                </div>
+                <div class="block">
+                    <p>Field simOp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">simWaitFrom</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WaitForDataFrom</span>
+                    <span class="memberName">simWaitFrom</span>
+                </div>
+                <div class="block">
+                    <p>Field simWaitFrom.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tickTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">tickTime</span>
+                </div>
+                <div class="block">
+                    <p>Field tickTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tickTimeDilation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">tickTimeDilation</span>
+                </div>
+                <div class="block">
+                    <p>Field tickTimeDilation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">serverDataHashCode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">serverDataHashCode</span>
+                </div>
+                <div class="block">
+                    <p>Field serverDataHashCode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">serverData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionSyncData</span>
+                    <span class="memberName">serverData</span>
+                </div>
+                <div class="block">
+                    <p>Field serverData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rootInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RootInteraction</span>
+                    <span class="memberName">rootInteraction</span>
+                </div>
+                <div class="block">
+                    <p>Field rootInteraction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">index</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">index</span>
+                </div>
+                <div class="block">
+                    <p>Field index.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">type</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionType</span>
+                    <span class="memberName">type</span>
+                </div>
+                <div class="block">
+                    <p>Field type.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ctx2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HytaleLogger.Api</span>
+                    <span class="memberName">ctx2</span>
+                </div>
+                <div class="block">
+                    <p>Field ctx2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">proxyId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">proxyId</span>
+                </div>
+                <div class="block">
+                    <p>Field proxyId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">proxyTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">proxyTarget</span>
+                </div>
+                <div class="block">
+                    <p>Field proxyTarget.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rootInteractionId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">rootInteractionId</span>
+                </div>
+                <div class="block">
+                    <p>Field rootInteractionId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityInventory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Inventory</span>
+                    <span class="memberName">entityInventory</span>
+                </div>
+                <div class="block">
+                    <p>Field entityInventory.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemInHand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">itemInHand</span>
+                </div>
+                <div class="block">
+                    <p>Field itemInHand.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">utilityItem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">utilityItem</span>
+                </div>
+                <div class="block">
+                    <p>Field utilityItem.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">serverItemInHandId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">serverItemInHandId</span>
+                </div>
+                <div class="block">
+                    <p>Field serverItemInHandId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">serverUtilityItemId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">serverUtilityItemId</span>
+                </div>
+                <div class="block">
+                    <p>Field serverUtilityItemId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ctx4</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HytaleLogger.Api</span>
+                    <span class="memberName">ctx4</span>
+                </div>
+                <div class="block">
+                    <p>Field ctx4.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionChain</span>
+                    <span class="memberName">chain</span>
+                </div>
+                <div class="block">
+                    <p>Field chain.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world2</span>
+                </div>
+                <div class="block">
+                    <p>Field world2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetBlock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockPosition</span>
+                    <span class="memberName">targetBlock</span>
+                </div>
+                <div class="block">
+                    <p>Field targetBlock.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityComponentStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EntityStore</span>
+                    <span class="memberName">entityComponentStore</span>
+                </div>
+                <div class="block">
+                    <p>Field entityComponentStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">entityReference</span>
+                </div>
+                <div class="block">
+                    <p>Field entityReference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hit</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3f</span>
+                    <span class="memberName">hit</span>
+                </div>
+                <div class="block">
+                    <p>Field hit.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">syncData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionSyncData</span>
+                    <span class="memberName">syncData</span>
+                </div>
+                <div class="block">
+                    <p>Field syncData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">interaction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionEntry</span>
+                    <span class="memberName">interaction</span>
+                </div>
+                <div class="block">
+                    <p>Field interaction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">interactionChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionChain</span>
+                    <span class="memberName">interactionChain</span>
+                </div>
+                <div class="block">
+                    <p>Field interactionChain.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">last</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">last</span>
+                </div>
+                <div class="block">
+                    <p>Field last.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chainsToCancel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<InteractionChain></span>
+                    <span class="memberName">chainsToCancel</span>
+                </div>
+                <div class="block">
+                    <p>Field chainsToCancel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentRoot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RootInteraction</span>
+                    <span class="memberName">currentRoot</span>
+                </div>
+                <div class="block">
+                    <p>Field currentRoot.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentOp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Operation</span>
+                    <span class="memberName">currentOp</span>
+                </div>
+                <div class="block">
+                    <p>Field currentOp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">data</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionChainData</span>
+                    <span class="memberName">data</span>
+                </div>
+                <div class="block">
+                    <p>Field data.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastServerChainId2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">lastServerChainId2</span>
+                </div>
+                <div class="block">
+                    <p>Field lastServerChainId2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cooldown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionCooldown</span>
+                    <span class="memberName">cooldown</span>
+                </div>
+                <div class="block">
+                    <p>Field cooldown.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">gameMode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">GameMode</span>
+                    <span class="memberName">gameMode</span>
+                </div>
+                <div class="block">
+                    <p>Field gameMode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">settings</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RootInteractionSettings</span>
+                    <span class="memberName">settings</span>
+                </div>
+                <div class="block">
+                    <p>Field settings.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inventory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Inventory</span>
+                    <span class="memberName">inventory</span>
+                </div>
+                <div class="block">
+                    <p>Field inventory.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rootId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">rootId</span>
+                </div>
+                <div class="block">
+                    <p>Field rootId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newForks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<InteractionChain></span>
+                    <span class="memberName">newForks</span>
+                </div>
+                <div class="block">
+                    <p>Field newForks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fc</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionChain</span>
+                    <span class="memberName">fc</span>
+                </div>
+                <div class="block">
+                    <p>Field fc.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">globalTimeShift</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float[]</span>
+                    <span class="memberName">globalTimeShift</span>
+                </div>
+                <div class="block">
+                    <p>Field globalTimeShift.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">n</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">n</span>
+                </div>
+                <div class="block">
+                    <p>Field n.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">manager</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionManager</span>
+                    <span class="memberName">manager</span>
+                </div>
+                <div class="block">
+                    <p>Field manager.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="InteractionManager">
+                <h4 class="methodName">InteractionManager</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">InteractionManager</span>
+                    <span class="arguments">(<span class="param"><a href="LivingEntity.html" class="type-link"><code>@Nonnull final LivingEntity</code></a> <span class="param-name">entity</span></span>, <span class="param"><a href="../universe/PlayerRef.html" class="type-link"><code>@Nullable final PlayerRef</code></a> <span class="param-name">playerRef</span></span>, <span class="param"><a href="../modules/interaction/IInteractionSimulationHandler.html" class="type-link"><code>@Nonnull final IInteractionSimulationHandler</code></a> <span class="param-name">simulationHandler</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method InteractionManager.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="LivingEntity.html" class="type-link"><code>@Nonnull final LivingEntity</code></a> <b>entity</b></dd>
+<dd><a href="../universe/PlayerRef.html" class="type-link"><code>@Nullable final PlayerRef</code></a> <b>playerRef</b></dd>
+<dd><a href="../modules/interaction/IInteractionSimulationHandler.html" class="type-link"><code>@Nonnull final IInteractionSimulationHandler</code></a> <b>simulationHandler</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChains">
+                <h4 class="methodName">getChains</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Int2ObjectMap<InteractionChain></code></span>
+                    <span class="memberName">getChains</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChains.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInteractionSimulationHandler">
+                <h4 class="methodName">getInteractionSimulationHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../modules/interaction/IInteractionSimulationHandler.html" class="type-link"><code>IInteractionSimulationHandler</code></a></span>
+                    <span class="memberName">getInteractionSimulationHandler</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getInteractionSimulationHandler.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOperationTimeoutThreshold">
+                <h4 class="methodName">getOperationTimeoutThreshold</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">getOperationTimeoutThreshold</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getOperationTimeoutThreshold.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="waitingForClient">
+                <h4 class="methodName">waitingForClient</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">waitingForClient</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method waitingForClient.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setHasRemoteClient">
+                <h4 class="methodName">setHasRemoteClient</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setHasRemoteClient</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">hasRemoteClient</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setHasRemoteClient.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>hasRemoteClient</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="copyFrom">
+                <h4 class="methodName">copyFrom</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">copyFrom</span>
+                    <span class="arguments">(<span class="param"><a href="InteractionManager.html" class="type-link"><code>@Nonnull final InteractionManager</code></a> <span class="param-name">interactionManager</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method copyFrom.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="InteractionManager.html" class="type-link"><code>@Nonnull final InteractionManager</code></a> <b>interactionManager</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tick">
+                <h4 class="methodName">tick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tick</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>, <span class="param"><code>final float</code> <span class="param-name">dt</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+<dd><code>final float</code> <b>dt</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryConsumePacketQueue">
+                <h4 class="methodName">tryConsumePacketQueue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">tryConsumePacketQueue</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><code>@Nonnull final Deque<SyncInteractionChain></code> <span class="param-name">packetQueue</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryConsumePacketQueue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><code>@Nonnull final Deque<SyncInteractionChain></code> <b>packetQueue</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param"><code>chain !=</code> <span class="param-name">null</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>chain !=</code> <b>null</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChain">
+                <h4 class="methodName">getChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="InteractionChain.html" class="type-link"><code>InteractionChain</code></a></span>
+                    <span class="memberName">getChain</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">chainId</span></span>, <span class="param"><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nullable final ForkedChainId</code></a> <span class="param-name">forkedChainId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>chainId</b></dd>
+<dd><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nullable final ForkedChainId</code></a> <b>forkedChainId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tickChain">
+                <h4 class="methodName">tickChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">tickChain</span>
+                    <span class="arguments">(<span class="param"><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <span class="param-name">chain</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tickChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <b>chain</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleCancelledChain">
+                <h4 class="methodName">handleCancelledChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleCancelledChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <span class="param-name">chain</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleCancelledChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <b>chain</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="IllegalStateException">
+                <h4 class="methodName">IllegalStateException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IllegalStateException</span>
+                    <span class="arguments">(<span class="param"><code>"Failed to find operation during simulation tick of chain '" +</code> <span class="param-name">root.getId(</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IllegalStateException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Failed to find operation during simulation tick of chain '" +</code> <b>root.getId(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="doTickChain">
+                <h4 class="methodName">doTickChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">doTickChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <span class="param-name">chain</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method doTickChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <b>chain</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ChainCancelledException">
+                <h4 class="methodName">ChainCancelledException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ChainCancelledException</span>
+                    <span class="arguments">(<span class="param">chain.getServerState(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ChainCancelledException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>chain.getServerState(</code> <b>chain.getServerState(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="serverTick">
+                <h4 class="methodName">serverTick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../../protocol/InteractionSyncData.html" class="type-link"><code>InteractionSyncData</code></a></span>
+                    <span class="memberName">serverTick</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <span class="param-name">chain</span></span>, <span class="param"><code>final long</code> <span class="param-name">tickTime</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method serverTick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <b>chain</b></dd>
+<dd><code>final long</code> <b>tickTime</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="RuntimeException">
+                <h4 class="methodName">RuntimeException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">RuntimeException</span>
+                    <span class="arguments">(<span class="param"><code>"Client took too long to send clientData! Millis: " + waitMillis +</code> <span class="param-name">"</span></span>, <span class="param"><code>Threshold: " + threshold +</code> <span class="param-name">"</span></span>, <span class="param"><code>\nChain: " +</code> <span class="param-name">String.valueOf(chain</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method RuntimeException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Threshold: " + threshold +</code> <b>"</b></dd>
+<dd><code>\nChain: " +</code> <b>String.valueOf(chain</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeInteractionIfFinished">
+                <h4 class="methodName">removeInteractionIfFinished</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">removeInteractionIfFinished</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <span class="param-name">chain</span></span>, <span class="param"><a href="InteractionEntry.html" class="type-link"><code>@Nonnull final InteractionEntry</code></a> <span class="param-name">entry</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removeInteractionIfFinished.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <b>chain</b></dd>
+<dd><a href="InteractionEntry.html" class="type-link"><code>@Nonnull final InteractionEntry</code></a> <b>entry</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="simulationTick">
+                <h4 class="methodName">simulationTick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">simulationTick</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <span class="param-name">chain</span></span>, <span class="param"><code>final long</code> <span class="param-name">tickTime</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method simulationTick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <b>chain</b></dd>
+<dd><code>final long</code> <b>tickTime</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="syncStart">
+                <h4 class="methodName">syncStart</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">syncStart</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../protocol/packets/interaction/SyncInteractionChain.html" class="type-link"><code>@Nonnull final SyncInteractionChain</code></a> <span class="param-name">packet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method syncStart.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../protocol/packets/interaction/SyncInteractionChain.html" class="type-link"><code>@Nonnull final SyncInteractionChain</code></a> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SetActiveSlot">
+                <h4 class="methodName">SetActiveSlot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SetActiveSlot</span>
+                    <span class="arguments">(<span class="param">-1</span>, <span class="param">entityInventory.getActiveHotbarSlot(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SetActiveSlot.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>-1</code> <b>-1</b></dd>
+<dd><code>entityInventory.getActiveHotbarSlot(</code> <b>entityInventory.getActiveHotbarSlot(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Vector4d">
+                <h4 class="methodName">Vector4d</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Vector4d</span>
+                    <span class="arguments">(<span class="param">hit.x</span>, <span class="param">hit.y</span>, <span class="param">hit.z</span>, <span class="param">1.0</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Vector4d.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>hit.x</code> <b>hit.x</b></dd>
+<dd><code>hit.y</code> <b>hit.y</b></dd>
+<dd><code>hit.z</code> <b>hit.z</b></dd>
+<dd><code>1.0</code> <b>1.0</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sync">
+                <h4 class="methodName">sync</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">sync</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="ChainSyncStorage.html" class="type-link"><code>@Nonnull final ChainSyncStorage</code></a> <span class="param-name">chainSyncStorage</span></span>, <span class="param"><a href="../../../protocol/packets/interaction/SyncInteractionChain.html" class="type-link"><code>@Nonnull final SyncInteractionChain</code></a> <span class="param-name">packet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method sync.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="ChainSyncStorage.html" class="type-link"><code>@Nonnull final ChainSyncStorage</code></a> <b>chainSyncStorage</b></dd>
+<dd><a href="../../../protocol/packets/interaction/SyncInteractionChain.html" class="type-link"><code>@Nonnull final SyncInteractionChain</code></a> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="canRun">
+                <h4 class="methodName">canRun</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">canRun</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <span class="param-name">type</span></span>, <span class="param"><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>@Nonnull final RootInteraction</code></a> <span class="param-name">rootInteraction</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method canRun.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <b>type</b></dd>
+<dd><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>@Nonnull final RootInteraction</code></a> <b>rootInteraction</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="cancelChains">
+                <h4 class="methodName">cancelChains</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">cancelChains</span>
+                    <span class="arguments">(<span class="param"><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <span class="param-name">chain</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method cancelChains.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <b>chain</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryStartChain">
+                <h4 class="methodName">tryStartChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">tryStartChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>, <span class="param"><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <span class="param-name">type</span></span>, <span class="param"><a href="InteractionContext.html" class="type-link"><code>@Nonnull final InteractionContext</code></a> <span class="param-name">context</span></span>, <span class="param"><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>@Nonnull final RootInteraction</code></a> <span class="param-name">rootInteraction</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryStartChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+<dd><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <b>type</b></dd>
+<dd><a href="InteractionContext.html" class="type-link"><code>@Nonnull final InteractionContext</code></a> <b>context</b></dd>
+<dd><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>@Nonnull final RootInteraction</code></a> <b>rootInteraction</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="startChain">
+                <h4 class="methodName">startChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">startChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>, <span class="param"><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <span class="param-name">type</span></span>, <span class="param"><a href="InteractionContext.html" class="type-link"><code>@Nonnull final InteractionContext</code></a> <span class="param-name">context</span></span>, <span class="param"><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>@Nonnull final RootInteraction</code></a> <span class="param-name">rootInteraction</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method startChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+<dd><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <b>type</b></dd>
+<dd><a href="InteractionContext.html" class="type-link"><code>@Nonnull final InteractionContext</code></a> <b>context</b></dd>
+<dd><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>@Nonnull final RootInteraction</code></a> <b>rootInteraction</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="initChain">
+                <h4 class="methodName">initChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="InteractionChain.html" class="type-link"><code>InteractionChain</code></a></span>
+                    <span class="memberName">initChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <span class="param-name">type</span></span>, <span class="param"><a href="InteractionContext.html" class="type-link"><code>@Nonnull final InteractionContext</code></a> <span class="param-name">context</span></span>, <span class="param"><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>@Nonnull final RootInteraction</code></a> <span class="param-name">rootInteraction</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">forceRemoteSync</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <b>type</b></dd>
+<dd><a href="InteractionContext.html" class="type-link"><code>@Nonnull final InteractionContext</code></a> <b>context</b></dd>
+<dd><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>@Nonnull final RootInteraction</code></a> <b>rootInteraction</b></dd>
+<dd><code>final boolean</code> <b>forceRemoteSync</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="queueExecuteChain">
+                <h4 class="methodName">queueExecuteChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">queueExecuteChain</span>
+                    <span class="arguments">(<span class="param"><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <span class="param-name">chain</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method queueExecuteChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <b>chain</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="executeChain">
+                <h4 class="methodName">executeChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">executeChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>, <span class="param"><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <span class="param-name">chain</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method executeChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+<dd><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <b>chain</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="executeChain0">
+                <h4 class="methodName">executeChain0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">executeChain0</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <span class="param-name">chain</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method executeChain0.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <b>chain</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isOnCooldown">
+                <h4 class="methodName">isOnCooldown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isOnCooldown</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <span class="param-name">type</span></span>, <span class="param"><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>@Nonnull final RootInteraction</code></a> <span class="param-name">root</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">remote</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isOnCooldown.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <b>type</b></dd>
+<dd><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>@Nonnull final RootInteraction</code></a> <b>root</b></dd>
+<dd><code>final boolean</code> <b>remote</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryRunHeldInteraction">
+                <h4 class="methodName">tryRunHeldInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tryRunHeldInteraction</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>, <span class="param"><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <span class="param-name">type</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryRunHeldInteraction.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+<dd><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <b>type</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendSyncPacket">
+                <h4 class="methodName">sendSyncPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">sendSyncPacket</span>
+                    <span class="arguments">(<span class="param"><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <span class="param-name">chain</span></span>, <span class="param"><code>final int</code> <span class="param-name">operationBaseIndex</span></span>, <span class="param"><code>@Nullable final List<InteractionSyncData></code> <span class="param-name">interactionData</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method sendSyncPacket.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <b>chain</b></dd>
+<dd><code>final int</code> <b>operationBaseIndex</b></dd>
+<dd><code>@Nullable final List<InteractionSyncData></code> <b>interactionData</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="makeSyncPacket">
+                <h4 class="methodName">makeSyncPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../../protocol/packets/interaction/SyncInteractionChain.html" class="type-link"><code>SyncInteractionChain</code></a></span>
+                    <span class="memberName">makeSyncPacket</span>
+                    <span class="arguments">(<span class="param"><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <span class="param-name">chain</span></span>, <span class="param"><code>final int</code> <span class="param-name">operationBaseIndex</span></span>, <span class="param"><code>@Nullable final List<InteractionSyncData></code> <span class="param-name">interactionData</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method makeSyncPacket.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <b>chain</b></dd>
+<dd><code>final int</code> <b>operationBaseIndex</b></dd>
+<dd><code>@Nullable final List<InteractionSyncData></code> <b>interactionData</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SyncInteractionChain">
+                <h4 class="methodName">SyncInteractionChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SyncInteractionChain</span>
+                    <span class="arguments">(<span class="param">0</span>, <span class="param">0</span>, <span class="param">0</span>, <span class="param">null</span>, <span class="param">null</span>, <span class="param">null</span>, <span class="param">!chain.hasSentInitial(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SyncInteractionChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>0</code> <b>0</b></dd>
+<dd><code>null</code> <b>null</b></dd>
+<dd><code>!chain.hasSentInitial(</code> <b>!chain.hasSentInitial(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendCancelPacket">
+                <h4 class="methodName">sendCancelPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">sendCancelPacket</span>
+                    <span class="arguments">(<span class="param"><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <span class="param-name">chain</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method sendCancelPacket.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <b>chain</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="CancelInteractionChain">
+                <h4 class="methodName">CancelInteractionChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">CancelInteractionChain</span>
+                    <span class="arguments">(<span class="param">chainId</span>, <span class="param">forkedChainId</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method CancelInteractionChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>chainId</code> <b>chainId</b></dd>
+<dd><code>forkedChainId</code> <b>forkedChainId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clear">
+                <h4 class="methodName">clear</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clear</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clear.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearAllGlobalTimeShift">
+                <h4 class="methodName">clearAllGlobalTimeShift</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearAllGlobalTimeShift</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method clearAllGlobalTimeShift.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setGlobalTimeShift">
+                <h4 class="methodName">setGlobalTimeShift</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setGlobalTimeShift</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <span class="param-name">type</span></span>, <span class="param"><code>final float</code> <span class="param-name">shift</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setGlobalTimeShift.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <b>type</b></dd>
+<dd><code>final float</code> <b>shift</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getGlobalTimeShift">
+                <h4 class="methodName">getGlobalTimeShift</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">getGlobalTimeShift</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <span class="param-name">type</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getGlobalTimeShift.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <b>type</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="forEachInteraction">
+                <h4 class="methodName">forEachInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>T</code></span>
+                    <span class="memberName">forEachInteraction</span>
+                    <span class="arguments">(<span class="param"><a href="../../../function/function/TriFunction.html" class="type-link"><code>@Nonnull final TriFunction<InteractionChain, Interaction, T, T></code></a> <span class="param-name">func</span></span>, <span class="param"><code>@Nonnull final T</code> <span class="param-name">val</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method forEachInteraction.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../function/function/TriFunction.html" class="type-link"><code>@Nonnull final TriFunction<InteractionChain, Interaction, T, T></code></a> <b>func</b></dd>
+<dd><code>@Nonnull final T</code> <b>val</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="walkChain">
+                <h4 class="methodName">walkChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">walkChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../modules/interaction/interaction/config/data/Collector.html" class="type-link"><code>@Nonnull final Collector</code></a> <span class="param-name">collector</span></span>, <span class="param"><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <span class="param-name">type</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method walkChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../modules/interaction/interaction/config/data/Collector.html" class="type-link"><code>@Nonnull final Collector</code></a> <b>collector</b></dd>
+<dd><a href="../../../protocol/InteractionType.html" class="type-link"><code>@Nonnull final InteractionType</code></a> <b>type</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="walkInteractions">
+                <h4 class="methodName">walkInteractions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">walkInteractions</span>
+                    <span class="arguments">(<span class="param"><a href="../modules/interaction/interaction/config/data/Collector.html" class="type-link"><code>@Nonnull final Collector</code></a> <span class="param-name">collector</span></span>, <span class="param"><a href="InteractionContext.html" class="type-link"><code>@Nonnull final InteractionContext</code></a> <span class="param-name">context</span></span>, <span class="param"><a href="../modules/interaction/interaction/config/data/CollectorTag.html" class="type-link"><code>@Nonnull final CollectorTag</code></a> <span class="param-name">tag</span></span>, <span class="param"><code>@Nonnull final String[]</code> <span class="param-name">interactionIds</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method walkInteractions.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../modules/interaction/interaction/config/data/Collector.html" class="type-link"><code>@Nonnull final Collector</code></a> <b>collector</b></dd>
+<dd><a href="InteractionContext.html" class="type-link"><code>@Nonnull final InteractionContext</code></a> <b>context</b></dd>
+<dd><a href="../modules/interaction/interaction/config/data/CollectorTag.html" class="type-link"><code>@Nonnull final CollectorTag</code></a> <b>tag</b></dd>
+<dd><code>@Nonnull final String[]</code> <b>interactionIds</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="walkInteraction">
+                <h4 class="methodName">walkInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">walkInteraction</span>
+                    <span class="arguments">(<span class="param"><a href="../modules/interaction/interaction/config/data/Collector.html" class="type-link"><code>@Nonnull final Collector</code></a> <span class="param-name">collector</span></span>, <span class="param"><a href="InteractionContext.html" class="type-link"><code>@Nonnull final InteractionContext</code></a> <span class="param-name">context</span></span>, <span class="param"><a href="../modules/interaction/interaction/config/data/CollectorTag.html" class="type-link"><code>@Nonnull final CollectorTag</code></a> <span class="param-name">tag</span></span>, <span class="param"><code>@Nullable final String</code> <span class="param-name">id</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method walkInteraction.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../modules/interaction/interaction/config/data/Collector.html" class="type-link"><code>@Nonnull final Collector</code></a> <b>collector</b></dd>
+<dd><a href="InteractionContext.html" class="type-link"><code>@Nonnull final InteractionContext</code></a> <b>context</b></dd>
+<dd><a href="../modules/interaction/interaction/config/data/CollectorTag.html" class="type-link"><code>@Nonnull final CollectorTag</code></a> <b>tag</b></dd>
+<dd><code>@Nullable final String</code> <b>id</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSyncPackets">
+                <h4 class="methodName">getSyncPackets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ObjectList<SyncInteractionChain></code></span>
+                    <span class="memberName">getSyncPackets</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSyncPackets.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clone">
+                <h4 class="methodName">clone</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../component/Component.html" class="type-link"><code>Component<EntityStore></code></a></span>
+                    <span class="memberName">clone</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clone.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

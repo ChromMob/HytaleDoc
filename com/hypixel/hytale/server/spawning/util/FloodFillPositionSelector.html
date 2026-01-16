@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FloodFillPositionSelector (com.hypixel.hytale.server.spawning.util)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/spawning/util/package-summary.html">com.hypixel.hytale.server.spawning.util</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">FloodFillPositionSelector</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="FloodFillPositionSelector.html" class="type-link">FloodFillPositionSelector</a> implements <a href="../../../component/Component.html" class="type-link" data-class="Component"><code>Component<EntityStore></code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class FloodFillPositionSelector. Provides floodfillpositionselector functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; FloodFillPositionSelector</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkAccessor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ChunkAccessor<WorldChunk></span>
+                    <span class="memberName">chunkAccessor</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkAccessor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">minY</span>
+                </div>
+                <div class="block">
+                    <p>Field minY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxY</span>
+                </div>
+                <div class="block">
+                    <p>Field maxY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">desiredPositionCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">desiredPositionCount</span>
+                </div>
+                <div class="block">
+                    <p>Field desiredPositionCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">chunk</span>
+                </div>
+                <div class="block">
+                    <p>Field chunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hasRun</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasRun</span>
+                </div>
+                <div class="block">
+                    <p>Field hasRun.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">debug</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Debug</span>
+                    <span class="memberName">debug</span>
+                </div>
+                <div class="block">
+                    <p>Field debug.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">irregularCase</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">irregularCase</span>
+                </div>
+                <div class="block">
+                    <p>Field irregularCase.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">failedPositionTestIndexes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">IntSet</span>
+                    <span class="memberName">failedPositionTestIndexes</span>
+                </div>
+                <div class="block">
+                    <p>Field failedPositionTestIndexes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">calculatePositionsAfter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">calculatePositionsAfter</span>
+                </div>
+                <div class="block">
+                    <p>Field calculatePositionsAfter.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">baseSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">baseSize</span>
+                </div>
+                <div class="block">
+                    <p>Field baseSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleSpawnParameters</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RoleSpawnParameters[]</span>
+                    <span class="memberName">roleSpawnParameters</span>
+                </div>
+                <div class="block">
+                    <p>Field roleSpawnParameters.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">roleIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field roleIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">positions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<WeightedPosition></span>
+                    <span class="memberName">positions</span>
+                </div>
+                <div class="block">
+                    <p>Field positions.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minDistanceFromPlayerSquared</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">minDistanceFromPlayerSquared</span>
+                </div>
+                <div class="block">
+                    <p>Field minDistanceFromPlayerSquared.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetDistanceFromPlayerSquared</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">targetDistanceFromPlayerSquared</span>
+                </div>
+                <div class="block">
+                    <p>Field targetDistanceFromPlayerSquared.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WeightedPosition</span>
+                    <span class="memberName">entry</span>
+                </div>
+                <div class="block">
+                    <p>Field entry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">distance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">distance</span>
+                </div>
+                <div class="block">
+                    <p>Field distance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetNumberOfOptions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">targetNumberOfOptions</span>
+                </div>
+                <div class="block">
+                    <p>Field targetNumberOfOptions.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">size</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">size</span>
+                </div>
+                <div class="block">
+                    <p>Field size.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sortBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WeightedPosition[]</span>
+                    <span class="memberName">sortBuffer</span>
+                </div>
+                <div class="block">
+                    <p>Field sortBuffer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entry2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WeightedPosition</span>
+                    <span class="memberName">entry2</span>
+                </div>
+                <div class="block">
+                    <p>Field entry2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">suppressionController</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SpawnSuppressionController</span>
+                    <span class="memberName">suppressionController</span>
+                </div>
+                <div class="block">
+                    <p>Field suppressionController.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">indexChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">indexChunk</span>
+                </div>
+                <div class="block">
+                    <p>Field indexChunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">suppressionEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkSuppressionEntry</span>
+                    <span class="memberName">suppressionEntry</span>
+                </div>
+                <div class="block">
+                    <p>Field suppressionEntry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalFailed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">totalFailed</span>
+                </div>
+                <div class="block">
+                    <p>Field totalFailed.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sizeHalf</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">sizeHalf</span>
+                </div>
+                <div class="block">
+                    <p>Field sizeHalf.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">worldX</span>
+                </div>
+                <div class="block">
+                    <p>Field worldX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">worldY</span>
+                </div>
+                <div class="block">
+                    <p>Field worldY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">worldZ</span>
+                </div>
+                <div class="block">
+                    <p>Field worldZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">yRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">yRange</span>
+                </div>
+                <div class="block">
+                    <p>Field yRange.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">map</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BitSet</span>
+                    <span class="memberName">map</span>
+                </div>
+                <div class="block">
+                    <p>Field map.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">initialEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">initialEntry</span>
+                </div>
+                <div class="block">
+                    <p>Field initialEntry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">state</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">state</span>
+                </div>
+                <div class="block">
+                    <p>Field state.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">index</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">index</span>
+                </div>
+                <div class="block">
+                    <p>Field index.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">newChunk</span>
+                </div>
+                <div class="block">
+                    <p>Field newChunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entry3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">entry3</span>
+                </div>
+                <div class="block">
+                    <p>Field entry3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entry4</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">entry4</span>
+                </div>
+                <div class="block">
+                    <p>Field entry4.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">openSpots</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">openSpots</span>
+                </div>
+                <div class="block">
+                    <p>Field openSpots.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">offsetOriginX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">offsetOriginX</span>
+                </div>
+                <div class="block">
+                    <p>Field offsetOriginX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">offsetOriginZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">offsetOriginZ</span>
+                </div>
+                <div class="block">
+                    <p>Field offsetOriginZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkSuppressionMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Long2ObjectConcurrentHashMap<ChunkSuppressionEntry></span>
+                    <span class="memberName">chunkSuppressionMap</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkSuppressionMap.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleIndexes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">roleIndexes</span>
+                </div>
+                <div class="block">
+                    <p>Field roleIndexes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Builder<Role></span>
+                    <span class="memberName">spawnable</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnable.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">positionList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<WeightedPosition></span>
+                    <span class="memberName">positionList</span>
+                </div>
+                <div class="block">
+                    <p>Field positionList.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nextResolution</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">nextResolution</span>
+                </div>
+                <div class="block">
+                    <p>Field nextResolution.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">originalIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">originalIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field originalIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">positionCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">positionCount</span>
+                </div>
+                <div class="block">
+                    <p>Field positionCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parentX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">parentX</span>
+                </div>
+                <div class="block">
+                    <p>Field parentX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parentZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">parentZ</span>
+                </div>
+                <div class="block">
+                    <p>Field parentZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">x</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">x</span>
+                </div>
+                <div class="block">
+                    <p>Field x.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">z</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">z</span>
+                </div>
+                <div class="block">
+                    <p>Field z.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">originIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">originIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field originIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnBlockSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntSet</span>
+                    <span class="memberName">spawnBlockSet</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnBlockSet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnFluidTag</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">spawnFluidTag</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnFluidTag.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sb</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">sb</span>
+                </div>
+                <div class="block">
+                    <p>Field sb.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">centre</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">centre</span>
+                </div>
+                <div class="block">
+                    <p>Field centre.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">selector</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">FloodFillPositionSelector</span>
+                    <span class="memberName">selector</span>
+                </div>
+                <div class="block">
+                    <p>Field selector.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">weight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">weight</span>
+                </div>
+                <div class="block">
+                    <p>Field weight.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">buffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">WeightedPosition[]</span>
+                    <span class="memberName">buffer</span>
+                </div>
+                <div class="block">
+                    <p>Field buffer.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="getComponentType">
+                <h4 class="methodName">getComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>FloodFillPositionSelector></code></span>
+                    <span class="memberName">getComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="FloodFillPositionSelector">
+                <h4 class="methodName">FloodFillPositionSelector</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">FloodFillPositionSelector</span>
+                    <span class="arguments">(<span class="param"><code>final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../wrappers/BeaconSpawnWrapper.html" class="type-link"><code>@Nonnull final BeaconSpawnWrapper</code></a> <span class="param-name">spawnWrapper</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method FloodFillPositionSelector.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final World</code> <b>world</b></dd>
+<dd><a href="../wrappers/BeaconSpawnWrapper.html" class="type-link"><code>@Nonnull final BeaconSpawnWrapper</code></a> <b>spawnWrapper</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BitSet">
+                <h4 class="methodName">BitSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BitSet</span>
+                    <span class="arguments">(<span class="param"><code>this.heightGrid.length /</code> <span class="param-name">i</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BitSet.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.heightGrid.length /</code> <b>i</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setCalculatePositionsAfter">
+                <h4 class="methodName">setCalculatePositionsAfter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setCalculatePositionsAfter</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">calculatePositionsAfter</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setCalculatePositionsAfter.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>calculatePositionsAfter</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tickCalculatePositionsAfter">
+                <h4 class="methodName">tickCalculatePositionsAfter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">tickCalculatePositionsAfter</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tickCalculatePositionsAfter.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasPositionsForRole">
+                <h4 class="methodName">hasPositionsForRole</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasPositionsForRole</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">roleIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method hasPositionsForRole.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>roleIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="prepareSpawnContext">
+                <h4 class="methodName">prepareSpawnContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">prepareSpawnContext</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">playerPosition</span></span>, <span class="param"><code>final int</code> <span class="param-name">spawnsThisRound</span></span>, <span class="param"><code>final int</code> <span class="param-name">roleIndex</span></span>, <span class="param"><a href="..//SpawningContext.html" class="type-link"><code>@Nonnull final SpawningContext</code></a> <span class="param-name">spawningContext</span></span>, <span class="param"><a href="../wrappers/BeaconSpawnWrapper.html" class="type-link"><code>@Nonnull final BeaconSpawnWrapper</code></a> <span class="param-name">spawnWrapper</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method prepareSpawnContext.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>playerPosition</b></dd>
+<dd><code>final int</code> <b>spawnsThisRound</b></dd>
+<dd><code>final int</code> <b>roleIndex</b></dd>
+<dd><a href="..//SpawningContext.html" class="type-link"><code>@Nonnull final SpawningContext</code></a> <b>spawningContext</b></dd>
+<dd><a href="../wrappers/BeaconSpawnWrapper.html" class="type-link"><code>@Nonnull final BeaconSpawnWrapper</code></a> <b>spawnWrapper</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="shouldRebuildCache">
+                <h4 class="methodName">shouldRebuildCache</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">shouldRebuildCache</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shouldRebuildCache.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="forceRebuildCache">
+                <h4 class="methodName">forceRebuildCache</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">forceRebuildCache</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method forceRebuildCache.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="init">
+                <h4 class="methodName">init</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">init</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method init.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="buildPositionCache">
+                <h4 class="methodName">buildPositionCache</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">buildPositionCache</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">origin</span></span>, <span class="param"><a href="FloodFillEntryPoolSimple.html" class="type-link"><code>@Nonnull final FloodFillEntryPoolSimple</code></a> <span class="param-name">pool</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method buildPositionCache.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>origin</b></dd>
+<dd><a href="FloodFillEntryPoolSimple.html" class="type-link"><code>@Nonnull final FloodFillEntryPoolSimple</code></a> <b>pool</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="floodFill">
+                <h4 class="methodName">floodFill</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">floodFill</span>
+                    <span class="arguments">(<span class="param"><code>int</code> <span class="param-name">worldX</span></span>, <span class="param"><code>int</code> <span class="param-name">worldY</span></span>, <span class="param"><code>int</code> <span class="param-name">worldZ</span></span>, <span class="param"><code>int</code> <span class="param-name">setX</span></span>, <span class="param"><code>int</code> <span class="param-name">setZ</span></span>, <span class="param"><a href="FloodFillEntryPoolSimple.html" class="type-link"><code>@Nonnull final FloodFillEntryPoolSimple</code></a> <span class="param-name">pool</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method floodFill.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>int</code> <b>worldX</b></dd>
+<dd><code>int</code> <b>worldY</b></dd>
+<dd><code>int</code> <b>worldZ</b></dd>
+<dd><code>int</code> <b>setX</b></dd>
+<dd><code>int</code> <b>setZ</b></dd>
+<dd><a href="FloodFillEntryPoolSimple.html" class="type-link"><code>@Nonnull final FloodFillEntryPoolSimple</code></a> <b>pool</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="findPositions">
+                <h4 class="methodName">findPositions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">findPositions</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">originX</span></span>, <span class="param"><code>final int</code> <span class="param-name">originZ</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method findPositions.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>originX</b></dd>
+<dd><code>final int</code> <b>originZ</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="WeightedPosition">
+                <h4 class="methodName">WeightedPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">WeightedPosition</span>
+                    <span class="arguments">(<span class="param">x</span>, <span class="param">y</span>, <span class="param">z</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method WeightedPosition.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>x</code> <b>x</b></dd>
+<dd><code>y</code> <b>y</b></dd>
+<dd><code>z</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="buildLowerResolutionMap">
+                <h4 class="methodName">buildLowerResolutionMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">buildLowerResolutionMap</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final BitSet</code> <span class="param-name">targetMap</span></span>, <span class="param"><code>final int</code> <span class="param-name">mapSize</span></span>, <span class="param"><code>@Nonnull final BitSet</code> <span class="param-name">parentMap</span></span>, <span class="param"><code>final int</code> <span class="param-name">parentMapSize</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method buildLowerResolutionMap.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final BitSet</code> <b>targetMap</b></dd>
+<dd><code>final int</code> <b>mapSize</b></dd>
+<dd><code>@Nonnull final BitSet</code> <b>parentMap</b></dd>
+<dd><code>final int</code> <b>parentMapSize</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="pickOpenSegment">
+                <h4 class="methodName">pickOpenSegment</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">pickOpenSegment</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">lowResolutionIndex</span></span>, <span class="param"><code>final int</code> <span class="param-name">lowResolutionMapSize</span></span>, <span class="param"><code>@Nonnull final BitSet</code> <span class="param-name">higherResolutionMap</span></span>, <span class="param"><code>final int</code> <span class="param-name">highResolutionMapSize</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method pickOpenSegment.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>lowResolutionIndex</b></dd>
+<dd><code>final int</code> <b>lowResolutionMapSize</b></dd>
+<dd><code>@Nonnull final BitSet</code> <b>higherResolutionMap</b></dd>
+<dd><code>final int</code> <b>highResolutionMapSize</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="shiftIndexAwayFromWall">
+                <h4 class="methodName">shiftIndexAwayFromWall</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">shiftIndexAwayFromWall</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method shiftIndexAwayFromWall.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="canSpawn">
+                <h4 class="methodName">canSpawn</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">canSpawn</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">roleIndex</span></span>, <span class="param"><a href="../suppression/component/ChunkSuppressionEntry.html" class="type-link"><code>@Nullable final ChunkSuppressionEntry</code></a> <span class="param-name">suppressionEntry</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method canSpawn.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>roleIndex</b></dd>
+<dd><a href="../suppression/component/ChunkSuppressionEntry.html" class="type-link"><code>@Nullable final ChunkSuppressionEntry</code></a> <b>suppressionEntry</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="debugDumpBaseFloodFill">
+                <h4 class="methodName">debugDumpBaseFloodFill</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">debugDumpBaseFloodFill</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method debugDumpBaseFloodFill.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">this.positionIndexes.contains(index</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.positionIndexes.contains(index</code> <b>this.positionIndexes.contains(index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="debugDumpLowResolutionMap">
+                <h4 class="methodName">debugDumpLowResolutionMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">debugDumpLowResolutionMap</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final BitSet</code> <span class="param-name">map</span></span>, <span class="param"><code>final int</code> <span class="param-name">size</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method debugDumpLowResolutionMap.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final BitSet</code> <b>map</b></dd>
+<dd><code>final int</code> <b>size</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPositionIndex">
+                <h4 class="methodName">getPositionIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getPositionIndex</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">size</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getPositionIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>size</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="xFromIndex">
+                <h4 class="methodName">xFromIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">xFromIndex</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><code>final int</code> <span class="param-name">size</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method xFromIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><code>final int</code> <b>size</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="zFromIndex">
+                <h4 class="methodName">zFromIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">zFromIndex</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><code>final int</code> <span class="param-name">size</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method zFromIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><code>final int</code> <b>size</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clone">
+                <h4 class="methodName">clone</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../component/Component.html" class="type-link"><code>Component<EntityStore></code></a></span>
+                    <span class="memberName">clone</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clone.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWeight">
+                <h4 class="methodName">getWeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getWeight</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getWeight.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="SortBufferProvider">
+                <h4 class="methodName">SortBufferProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">SortBufferProvider</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method SortBufferProvider.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBuffer">
+                <h4 class="methodName">getBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>WeightedPosition[]</code></span>
+                    <span class="memberName">getBuffer</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">size</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getBuffer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>size</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

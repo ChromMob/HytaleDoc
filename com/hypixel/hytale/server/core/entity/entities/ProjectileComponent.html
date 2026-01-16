@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ProjectileComponent (com.hypixel.hytale.server.core.entity.entities)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/core/entity/entities/package-summary.html">com.hypixel.hytale.server.core.entity.entities</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">ProjectileComponent</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="ProjectileComponent.html" class="type-link">ProjectileComponent</a> implements <a href="../../../../component/Component.html" class="type-link" data-class="Component"><code>Component<EntityStore></code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Component for tracking projectile state. Attach this component to entities that need to track projectile data.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; ProjectileComponent</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">projectileAssetName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">projectileAssetName</span>
+                </div>
+                <div class="block">
+                    <p>Field projectileAssetName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">brokenDamageModifier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">brokenDamageModifier</span>
+                </div>
+                <div class="block">
+                    <p>Field brokenDamageModifier.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deadTimer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">deadTimer</span>
+                </div>
+                <div class="block">
+                    <p>Field deadTimer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">creatorUuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">creatorUuid</span>
+                </div>
+                <div class="block">
+                    <p>Field creatorUuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">haveHit</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">haveHit</span>
+                </div>
+                <div class="block">
+                    <p>Field haveHit.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastBouncePosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">lastBouncePosition</span>
+                </div>
+                <div class="block">
+                    <p>Field lastBouncePosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">holder</span>
+                </div>
+                <div class="block">
+                    <p>Field holder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">projectileComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ProjectileComponent</span>
+                    <span class="memberName">projectileComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field projectileComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">appearance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">appearance</span>
+                </div>
+                <div class="block">
+                    <p>Field appearance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bounceParticles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldParticle</span>
+                    <span class="memberName">bounceParticles</span>
+                </div>
+                <div class="block">
+                    <p>Field bounceParticles.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">results</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectList<Ref<EntityStore>></span>
+                    <span class="memberName">results</span>
+                </div>
+                <div class="block">
+                    <p>Field results.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hitParticles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldParticle</span>
+                    <span class="memberName">hitParticles</span>
+                </div>
+                <div class="block">
+                    <p>Field hitParticles.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetEntity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Entity</span>
+                    <span class="memberName">targetEntity</span>
+                </div>
+                <div class="block">
+                    <p>Field targetEntity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">shooterRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">shooterRef</span>
+                </div>
+                <div class="block">
+                    <p>Field shooterRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">missParticles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldParticle</span>
+                    <span class="memberName">missParticles</span>
+                </div>
+                <div class="block">
+                    <p>Field missParticles.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EntityStore</span>
+                    <span class="memberName">entityStore</span>
+                </div>
+                <div class="block">
+                    <p>Field entityStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">explosionConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ExplosionConfig</span>
+                    <span class="memberName">explosionConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field explosionConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<ChunkStore></span>
+                    <span class="memberName">chunkStore</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">creatorRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">creatorRef</span>
+                </div>
+                <div class="block">
+                    <p>Field creatorRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">damageSource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Damage.ProjectileSource</span>
+                    <span class="memberName">damageSource</span>
+                </div>
+                <div class="block">
+                    <p>Field damageSource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deathParticles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldParticle</span>
+                    <span class="memberName">deathParticles</span>
+                </div>
+                <div class="block">
+                    <p>Field deathParticles.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">direction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">direction</span>
+                </div>
+                <div class="block">
+                    <p>Field direction.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="getComponentType">
+                <h4 class="methodName">getComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ProjectileComponent></code></span>
+                    <span class="memberName">getComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ProjectileComponent">
+                <h4 class="methodName">ProjectileComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>private</code></span>
+                    <span class="memberName">ProjectileComponent</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ProjectileComponent.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="assembleDefaultProjectile">
+                <h4 class="methodName">assembleDefaultProjectile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../../../component/Holder.html" class="type-link"><code>Holder<EntityStore></code></a></span>
+                    <span class="memberName">assembleDefaultProjectile</span>
+                    <span class="arguments">(<span class="param"><a href="../../modules/time/TimeResource.html" class="type-link"><code>@Nonnull final TimeResource</code></a> <span class="param-name">time</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">projectileAssetName</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../protocol/Vector3f.html" class="type-link"><code>@Nonnull final Vector3f</code></a> <span class="param-name">rotation</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method assembleDefaultProjectile.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../modules/time/TimeResource.html" class="type-link"><code>@Nonnull final TimeResource</code></a> <b>time</b></dd>
+<dd><code>@Nonnull final String</code> <b>projectileAssetName</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../../protocol/Vector3f.html" class="type-link"><code>@Nonnull final Vector3f</code></a> <b>rotation</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="TransformComponent">
+                <h4 class="methodName">TransformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">TransformComponent</span>
+                    <span class="arguments">(<span class="param">position.clone(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method TransformComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>position.clone(</code> <b>position.clone(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="initialize">
+                <h4 class="methodName">initialize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">initialize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method initialize.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="initializePhysics">
+                <h4 class="methodName">initializePhysics</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">initializePhysics</span>
+                    <span class="arguments">(<span class="param"><a href="../../modules/entity/component/BoundingBox.html" class="type-link"><code>@Nonnull final BoundingBox</code></a> <span class="param-name">boundingBox</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initializePhysics.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../modules/entity/component/BoundingBox.html" class="type-link"><code>@Nonnull final BoundingBox</code></a> <b>boundingBox</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onProjectileBounce">
+                <h4 class="methodName">onProjectileBounce</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onProjectileBounce</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onProjectileBounce.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onProjectileHitEvent">
+                <h4 class="methodName">onProjectileHitEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onProjectileHitEvent</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">targetRef</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onProjectileHitEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>targetRef</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Damage">
+                <h4 class="methodName">Damage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Damage</span>
+                    <span class="arguments">(<span class="param"><code>new Damage.ProjectileSource((shooterRef !=</code> <span class="param-name">null</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Damage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>new Damage.ProjectileSource((shooterRef !=</code> <b>null</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="consumeDeadTimer">
+                <h4 class="methodName">consumeDeadTimer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">consumeDeadTimer</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method consumeDeadTimer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="bounceHandler">
+                <h4 class="methodName">bounceHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">bounceHandler</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method bounceHandler.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="impactHandler">
+                <h4 class="methodName">impactHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">impactHandler</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nullable final Ref<EntityStore></code></a> <span class="param-name">targetRef</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method impactHandler.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nullable final Ref<EntityStore></code></a> <b>targetRef</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onProjectileMissEvent">
+                <h4 class="methodName">onProjectileMissEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onProjectileMissEvent</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onProjectileMissEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onProjectileDeath">
+                <h4 class="methodName">onProjectileDeath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onProjectileDeath</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onProjectileDeath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="shoot">
+                <h4 class="methodName">shoot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">shoot</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<EntityStore></code></a> <span class="param-name">holder</span></span>, <span class="param"><code>@Nonnull final UUID</code> <span class="param-name">creatorUuid</span></span>, <span class="param"><code>double</code> <span class="param-name">x</span></span>, <span class="param"><code>double</code> <span class="param-name">y</span></span>, <span class="param"><code>double</code> <span class="param-name">z</span></span>, <span class="param"><code>final float</code> <span class="param-name">yaw</span></span>, <span class="param"><code>final float</code> <span class="param-name">pitch</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method shoot.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<EntityStore></code></a> <b>holder</b></dd>
+<dd><code>@Nonnull final UUID</code> <b>creatorUuid</b></dd>
+<dd><code>double</code> <b>x</b></dd>
+<dd><code>double</code> <b>y</b></dd>
+<dd><code>double</code> <b>z</b></dd>
+<dd><code>final float</code> <b>yaw</b></dd>
+<dd><code>final float</code> <b>pitch</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="computeStartOffset">
+                <h4 class="methodName">computeStartOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">computeStartOffset</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">pitchAdjust</span></span>, <span class="param"><code>final double</code> <span class="param-name">verticalCenterShot</span></span>, <span class="param"><code>final double</code> <span class="param-name">horizontalCenterShot</span></span>, <span class="param"><code>final double</code> <span class="param-name">depthShot</span></span>, <span class="param"><code>final float</code> <span class="param-name">yaw</span></span>, <span class="param"><code>final float</code> <span class="param-name">pitch</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">offset</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method computeStartOffset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>pitchAdjust</b></dd>
+<dd><code>final double</code> <b>verticalCenterShot</b></dd>
+<dd><code>final double</code> <b>horizontalCenterShot</b></dd>
+<dd><code>final double</code> <b>depthShot</b></dd>
+<dd><code>final float</code> <b>yaw</b></dd>
+<dd><code>final float</code> <b>pitch</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>offset</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isOnGround">
+                <h4 class="methodName">isOnGround</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isOnGround</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isOnGround.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getProjectile">
+                <h4 class="methodName">getProjectile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../modules/projectile/component/Projectile.html" class="type-link"><code>Projectile</code></a></span>
+                    <span class="memberName">getProjectile</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getProjectile.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAppearance">
+                <h4 class="methodName">getAppearance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getAppearance</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAppearance.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getProjectileAssetName">
+                <h4 class="methodName">getProjectileAssetName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getProjectileAssetName</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getProjectileAssetName.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSimplePhysicsProvider">
+                <h4 class="methodName">getSimplePhysicsProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../modules/physics/SimplePhysicsProvider.html" class="type-link"><code>SimplePhysicsProvider</code></a></span>
+                    <span class="memberName">getSimplePhysicsProvider</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSimplePhysicsProvider.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="applyBrokenPenalty">
+                <h4 class="methodName">applyBrokenPenalty</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">applyBrokenPenalty</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">penalty</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method applyBrokenPenalty.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>penalty</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clone">
+                <h4 class="methodName">clone</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../component/Component.html" class="type-link"><code>Component<EntityStore></code></a></span>
+                    <span class="memberName">clone</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clone.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

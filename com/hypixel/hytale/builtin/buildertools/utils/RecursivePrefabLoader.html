@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RecursivePrefabLoader (com.hypixel.hytale.builtin.buildertools.utils)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/builtin/buildertools/utils/package-summary.html">com.hypixel.hytale.builtin.buildertools.utils</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">RecursivePrefabLoader</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">abstract class <a href="RecursivePrefabLoader.html" class="type-link">RecursivePrefabLoader</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class RecursivePrefabLoader. Provides recursiveprefabloader functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; RecursivePrefabLoader</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">depthTracker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">depthTracker</span>
+                </div>
+                <div class="block">
+                    <p>Field depthTracker.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">prefabs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">DistinctCollector<Path></span>
+                    <span class="memberName">prefabs</span>
+                </div>
+                <div class="block">
+                    <p>Field prefabs.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">path</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">path</span>
+                </div>
+                <div class="block">
+                    <p>Field path.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">prefab</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">prefab</span>
+                </div>
+                <div class="block">
+                    <p>Field prefab.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">file</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">file</span>
+                </div>
+                <div class="block">
+                    <p>Field file.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">children</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<BlockSelection></span>
+                    <span class="memberName">children</span>
+                </div>
+                <div class="block">
+                    <p>Field children.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">state</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<ChunkStore></span>
+                    <span class="memberName">state</span>
+                </div>
+                <div class="block">
+                    <p>Field state.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawner</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrefabSpawnerState</span>
+                    <span class="memberName">spawner</span>
+                </div>
+                <div class="block">
+                    <p>Field spawner.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockType</span>
+                    <span class="memberName">blockType</span>
+                </div>
+                <div class="block">
+                    <p>Field blockType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">childX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">childX</span>
+                </div>
+                <div class="block">
+                    <p>Field childX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">childY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">childY</span>
+                </div>
+                <div class="block">
+                    <p>Field childY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">childZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">childZ</span>
+                </div>
+                <div class="block">
+                    <p>Field childZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">childPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">childPath</span>
+                </div>
+                <div class="block">
+                    <p>Field childPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">childWeights</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrefabWeights</span>
+                    <span class="memberName">childWeights</span>
+                </div>
+                <div class="block">
+                    <p>Field childWeights.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">childRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrefabRotation</span>
+                    <span class="memberName">childRotation</span>
+                </div>
+                <div class="block">
+                    <p>Field childRotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">child</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockSelection</span>
+                    <span class="memberName">child</span>
+                </div>
+                <div class="block">
+                    <p>Field child.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Rotation</span>
+                    <span class="memberName">rotation</span>
+                </div>
+                <div class="block">
+                    <p>Field rotation.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="RecursivePrefabLoader">
+                <h4 class="methodName">RecursivePrefabLoader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">RecursivePrefabLoader</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">rootPrefabsDir</span></span>, <span class="param"><code>final Function<String, T></code> <span class="param-name">prefabsLoader</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method RecursivePrefabLoader.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>rootPrefabsDir</b></dd>
+<dd><code>final Function<String, T></code> <b>prefabsLoader</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="apply">
+                <h4 class="methodName">apply</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>T</code></span>
+                    <span class="memberName">apply</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">name</span></span>, <span class="param"><code>@Nonnull final Random</code> <span class="param-name">random</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method apply.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>name</b></dd>
+<dd><code>@Nonnull final Random</code> <b>random</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="load">
+                <h4 class="methodName">load</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>T</code></span>
+                    <span class="memberName">load</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">name</span></span>, <span class="param"><code>@Nonnull final Random</code> <span class="param-name">random</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method load.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>name</b></dd>
+<dd><code>@Nonnull final Random</code> <b>random</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadSinglePrefab">
+                <h4 class="methodName">loadSinglePrefab</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>T</code></span>
+                    <span class="memberName">loadSinglePrefab</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>@Nonnull final Path</code> <span class="param-name">file</span></span>, <span class="param"><a href="../../../server/core/prefab/PrefabRotation.html" class="type-link"><code>final PrefabRotation</code></a> <span class="param-name">rotation</span></span>, <span class="param"><code>final Random</code> <span class="param-name">random</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadSinglePrefab.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>@Nonnull final Path</code> <b>file</b></dd>
+<dd><a href="../../../server/core/prefab/PrefabRotation.html" class="type-link"><code>final PrefabRotation</code></a> <b>rotation</b></dd>
+<dd><code>final Random</code> <b>random</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadWeightedPrefab">
+                <h4 class="methodName">loadWeightedPrefab</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>T</code></span>
+                    <span class="memberName">loadWeightedPrefab</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">name</span></span>, <span class="param"><code>@Nonnull final List<Path></code> <span class="param-name">files</span></span>, <span class="param"><a href="../../../server/core/prefab/PrefabRotation.html" class="type-link"><code>final PrefabRotation</code></a> <span class="param-name">rotation</span></span>, <span class="param"><a href="../../../server/core/prefab/PrefabWeights.html" class="type-link"><code>@Nonnull final PrefabWeights</code></a> <span class="param-name">weights</span></span>, <span class="param"><code>@Nonnull final Random</code> <span class="param-name">random</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadWeightedPrefab.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>@Nonnull final String</code> <b>name</b></dd>
+<dd><code>@Nonnull final List<Path></code> <b>files</b></dd>
+<dd><a href="../../../server/core/prefab/PrefabRotation.html" class="type-link"><code>final PrefabRotation</code></a> <b>rotation</b></dd>
+<dd><a href="../../../server/core/prefab/PrefabWeights.html" class="type-link"><code>@Nonnull final PrefabWeights</code></a> <b>weights</b></dd>
+<dd><code>@Nonnull final Random</code> <b>random</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadRandomPrefab">
+                <h4 class="methodName">loadRandomPrefab</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>T</code></span>
+                    <span class="memberName">loadRandomPrefab</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>@Nonnull final List<Path></code> <span class="param-name">files</span></span>, <span class="param"><a href="../../../server/core/prefab/PrefabRotation.html" class="type-link"><code>final PrefabRotation</code></a> <span class="param-name">rotation</span></span>, <span class="param"><code>@Nonnull final Random</code> <span class="param-name">random</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadRandomPrefab.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>@Nonnull final List<Path></code> <b>files</b></dd>
+<dd><a href="../../../server/core/prefab/PrefabRotation.html" class="type-link"><code>final PrefabRotation</code></a> <b>rotation</b></dd>
+<dd><code>@Nonnull final Random</code> <b>random</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="stripSuffix">
+                <h4 class="methodName">stripSuffix</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">stripSuffix</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">path</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method stripSuffix.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>path</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="appendSuffix">
+                <h4 class="methodName">appendSuffix</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">appendSuffix</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">path</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method appendSuffix.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>path</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BlockSelectionLoader">
+                <h4 class="methodName">BlockSelectionLoader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">BlockSelectionLoader</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">rootPrefabsDir</span></span>, <span class="param"><code>@Nonnull final Function<String, BlockSelection></code> <span class="param-name">prefabsLoader</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BlockSelectionLoader.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>rootPrefabsDir</b></dd>
+<dd><code>@Nonnull final Function<String, BlockSelection></code> <b>prefabsLoader</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRotation">
+                <h4 class="methodName">getRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../../server/core/prefab/PrefabRotation.html" class="type-link"><code>PrefabRotation</code></a></span>
+                    <span class="memberName">getRotation</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/BlockType.html" class="type-link"><code>@Nonnull final BlockType</code></a> <span class="param-name">blockType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getRotation.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/BlockType.html" class="type-link"><code>@Nonnull final BlockType</code></a> <b>blockType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="accept">
+                <h4 class="methodName">accept</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">accept</span>
+                    <span class="arguments">(<span class="param"><code>final T</code> <span class="param-name">t</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method accept.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final T</code> <b>t</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

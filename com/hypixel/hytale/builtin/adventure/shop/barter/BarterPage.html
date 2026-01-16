@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BarterPage (com.hypixel.hytale.builtin.adventure.shop.barter)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/builtin/adventure/shop/barter/package-summary.html">com.hypixel.hytale.builtin.adventure.shop.barter</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">BarterPage</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="BarterPage.html" class="type-link">BarterPage</a> extends <a href="../../../../server/core/entity/entities/player/pages/InteractiveCustomUIPage.html" class="type-link" data-class="InteractiveCustomUIPage"><code>InteractiveCustomUIPage</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class BarterPage. Provides barterpage functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; InteractiveCustomUIPage &gt; BarterPage</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">titleKey</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">titleKey</span>
+                </div>
+                <div class="block">
+                    <p>Field titleKey.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">timeResource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldTimeResource</span>
+                    <span class="memberName">timeResource</span>
+                </div>
+                <div class="block">
+                    <p>Field timeResource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">gameTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">gameTime</span>
+                </div>
+                <div class="block">
+                    <p>Field gameTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">barterState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BarterShopState</span>
+                    <span class="memberName">barterState</span>
+                </div>
+                <div class="block">
+                    <p>Field barterState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stockArray</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">stockArray</span>
+                </div>
+                <div class="block">
+                    <p>Field stockArray.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">refreshText</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">refreshText</span>
+                </div>
+                <div class="block">
+                    <p>Field refreshText.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerEntityRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">playerEntityRef</span>
+                </div>
+                <div class="block">
+                    <p>Field playerEntityRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">playerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">trades</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BarterTrade[]</span>
+                    <span class="memberName">trades</span>
+                </div>
+                <div class="block">
+                    <p>Field trades.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">trade</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BarterTrade</span>
+                    <span class="memberName">trade</span>
+                </div>
+                <div class="block">
+                    <p>Field trade.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">selector</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">selector</span>
+                </div>
+                <div class="block">
+                    <p>Field selector.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">stock</span>
+                </div>
+                <div class="block">
+                    <p>Field stock.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tradeValid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">tradeValid</span>
+                </div>
+                <div class="block">
+                    <p>Field tradeValid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">outputQty</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">outputQty</span>
+                </div>
+                <div class="block">
+                    <p>Field outputQty.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">firstInput</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BarterItemStack</span>
+                    <span class="memberName">firstInput</span>
+                </div>
+                <div class="block">
+                    <p>Field firstInput.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inputItemId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">inputItemId</span>
+                </div>
+                <div class="block">
+                    <p>Field inputItemId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inputQty</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">inputQty</span>
+                </div>
+                <div class="block">
+                    <p>Field inputQty.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cardsPerRow</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">cardsPerRow</span>
+                </div>
+                <div class="block">
+                    <p>Field cardsPerRow.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">remainder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">remainder</span>
+                </div>
+                <div class="block">
+                    <p>Field remainder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tradeIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">tradeIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field tradeIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">requestedQuantity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">requestedQuantity</span>
+                </div>
+                <div class="block">
+                    <p>Field requestedQuantity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">shopState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BarterShopState.ShopInstanceState</span>
+                    <span class="memberName">shopState</span>
+                </div>
+                <div class="block">
+                    <p>Field shopState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentStock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">currentStock</span>
+                </div>
+                <div class="block">
+                    <p>Field currentStock.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inventory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Inventory</span>
+                    <span class="memberName">inventory</span>
+                </div>
+                <div class="block">
+                    <p>Field inventory.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">container</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CombinedItemContainer</span>
+                    <span class="memberName">container</span>
+                </div>
+                <div class="block">
+                    <p>Field container.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">has</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">has</span>
+                </div>
+                <div class="block">
+                    <p>Field has.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">canAfford</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">canAfford</span>
+                </div>
+                <div class="block">
+                    <p>Field canAfford.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">quantity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">quantity</span>
+                </div>
+                <div class="block">
+                    <p>Field quantity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">toRemove</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">toRemove</span>
+                </div>
+                <div class="block">
+                    <p>Field toRemove.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">output</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BarterItemStack</span>
+                    <span class="memberName">output</span>
+                </div>
+                <div class="block">
+                    <p>Field output.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">outputStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">outputStack</span>
+                </div>
+                <div class="block">
+                    <p>Field outputStack.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transaction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStackTransaction</span>
+                    <span class="memberName">transaction</span>
+                </div>
+                <div class="block">
+                    <p>Field transaction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">addedQty</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">addedQty</span>
+                </div>
+                <div class="block">
+                    <p>Field addedQty.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">commandBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UICommandBuilder</span>
+                    <span class="memberName">commandBuilder</span>
+                </div>
+                <div class="block">
+                    <p>Field commandBuilder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">eventBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UIEventBuilder</span>
+                    <span class="memberName">eventBuilder</span>
+                </div>
+                <div class="block">
+                    <p>Field eventBuilder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">interval</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RefreshInterval</span>
+                    <span class="memberName">interval</span>
+                </div>
+                <div class="block">
+                    <p>Field interval.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nextRefresh</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">nextRefresh</span>
+                </div>
+                <div class="block">
+                    <p>Field nextRefresh.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">remaining</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Duration</span>
+                    <span class="memberName">remaining</span>
+                </div>
+                <div class="block">
+                    <p>Field remaining.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentDayNumber</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">currentDayNumber</span>
+                </div>
+                <div class="block">
+                    <p>Field currentDayNumber.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">refreshDayNumber</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">refreshDayNumber</span>
+                </div>
+                <div class="block">
+                    <p>Field refreshDayNumber.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">daysUntilRefresh</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">daysUntilRefresh</span>
+                </div>
+                <div class="block">
+                    <p>Field daysUntilRefresh.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hour</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">hour</span>
+                </div>
+                <div class="block">
+                    <p>Field hour.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">amPm</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">amPm</span>
+                </div>
+                <div class="block">
+                    <p>Field amPm.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">timeString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">timeString</span>
+                </div>
+                <div class="block">
+                    <p>Field timeString.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">shiftHeld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">shiftHeld</span>
+                </div>
+                <div class="block">
+                    <p>Field shiftHeld.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="BarterPage">
+                <h4 class="methodName">BarterPage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">BarterPage</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../server/core/universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <span class="param-name">playerRef</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">shopId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BarterPage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../server/core/universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <b>playerRef</b></dd>
+<dd><code>@Nonnull final String</code> <b>shopId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isTradeValid">
+                <h4 class="methodName">isTradeValid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isTradeValid</span>
+                    <span class="arguments">(<span class="param"><a href="BarterTrade.html" class="type-link"><code>final BarterTrade</code></a> <span class="param-name">trade</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isTradeValid.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="BarterTrade.html" class="type-link"><code>final BarterTrade</code></a> <b>trade</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSafeItemId">
+                <h4 class="methodName">getSafeItemId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getSafeItemId</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">itemId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getSafeItemId.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>itemId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="build">
+                <h4 class="methodName">build</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">build</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../server/core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <span class="param-name">commandBuilder</span></span>, <span class="param"><a href="../../../../server/core/ui/builder/UIEventBuilder.html" class="type-link"><code>@Nonnull final UIEventBuilder</code></a> <span class="param-name">eventBuilder</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method build.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../server/core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <b>commandBuilder</b></dd>
+<dd><a href="../../../../server/core/ui/builder/UIEventBuilder.html" class="type-link"><code>@Nonnull final UIEventBuilder</code></a> <b>eventBuilder</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param"><code>stock <=</code> <span class="param-name">0</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>stock <=</code> <b>0</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleDataEvent">
+                <h4 class="methodName">handleDataEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleDataEvent</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>@Nonnull final BarterEventData</code> <span class="param-name">data</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleDataEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>@Nonnull final BarterEventData</code> <b>data</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ItemStack">
+                <h4 class="methodName">ItemStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ItemStack</span>
+                    <span class="arguments">(<span class="param">output.getItemId(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ItemStack.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>output.getItemId(</code> <b>output.getItemId(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateAfterTrade">
+                <h4 class="methodName">updateAfterTrade</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateAfterTrade</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>final int</code> <span class="param-name">tradedIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateAfterTrade.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>final int</code> <b>tradedIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="UIEventBuilder">
+                <h4 class="methodName">UIEventBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">UIEventBuilder</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method UIEventBuilder.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="countItemsInContainer">
+                <h4 class="methodName">countItemsInContainer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">countItemsInContainer</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../server/core/inventory/container/ItemContainer.html" class="type-link"><code>final ItemContainer</code></a> <span class="param-name">container</span></span>, <span class="param"><code>final String</code> <span class="param-name">itemId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method countItemsInContainer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../server/core/inventory/container/ItemContainer.html" class="type-link"><code>final ItemContainer</code></a> <b>container</b></dd>
+<dd><code>final String</code> <b>itemId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeItemsFromContainer">
+                <h4 class="methodName">removeItemsFromContainer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">removeItemsFromContainer</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../server/core/inventory/container/ItemContainer.html" class="type-link"><code>final ItemContainer</code></a> <span class="param-name">container</span></span>, <span class="param"><code>final String</code> <span class="param-name">itemId</span></span>, <span class="param"><code>final int</code> <span class="param-name">amount</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removeItemsFromContainer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../server/core/inventory/container/ItemContainer.html" class="type-link"><code>final ItemContainer</code></a> <b>container</b></dd>
+<dd><code>final String</code> <b>itemId</b></dd>
+<dd><code>final int</code> <b>amount</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="refreshUI">
+                <h4 class="methodName">refreshUI</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">refreshUI</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method refreshUI.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRefreshTimerText">
+                <h4 class="methodName">getRefreshTimerText</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../../../server/core/Message.html" class="type-link"><code>Message</code></a></span>
+                    <span class="memberName">getRefreshTimerText</span>
+                    <span class="arguments">(<span class="param"><a href="BarterShopState.html" class="type-link"><code>final BarterShopState</code></a> <span class="param-name">barterState</span></span>, <span class="param"><code>final Instant</code> <span class="param-name">gameTime</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getRefreshTimerText.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="BarterShopState.html" class="type-link"><code>final BarterShopState</code></a> <b>barterState</b></dd>
+<dd><code>final Instant</code> <b>gameTime</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BarterEventData">
+                <h4 class="methodName">BarterEventData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">BarterEventData</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method BarterEventData.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTradeIndex">
+                <h4 class="methodName">getTradeIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getTradeIndex</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTradeIndex.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getQuantity">
+                <h4 class="methodName">getQuantity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getQuantity</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getQuantity.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isShiftHeld">
+                <h4 class="methodName">isShiftHeld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isShiftHeld</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isShiftHeld.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

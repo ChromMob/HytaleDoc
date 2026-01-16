@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VoidInvasionPortalsSpawnSystem (com.hypixel.hytale.builtin.portals.systems.voidevent)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/builtin/portals/systems/voidevent/package-summary.html">com.hypixel.hytale.builtin.portals.systems.voidevent</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">VoidInvasionPortalsSpawnSystem</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="VoidInvasionPortalsSpawnSystem.html" class="type-link">VoidInvasionPortalsSpawnSystem</a> extends <a href="../../../../component/system/tick/DelayedEntitySystem.html" class="type-link" data-class="DelayedEntitySystem"><code>DelayedEntitySystem</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>System for handling voidinvasionportalsspawn mechanics. Systems contain game logic that operates on entities with specific component types.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; DelayedEntitySystem &gt; VoidInvasionPortalsSpawnSystem</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">findPortalSpawnPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">CompletableFuture<Vector3d></span>
+                    <span class="memberName">findPortalSpawnPos</span>
+                </div>
+                <div class="block">
+                    <p>Field findPortalSpawnPos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">voidEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">VoidEvent</span>
+                    <span class="memberName">voidEvent</span>
+                </div>
+                <div class="block">
+                    <p>Field voidEvent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawners</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SpatialHashGrid<Ref<EntityStore>></span>
+                    <span class="memberName">spawners</span>
+                </div>
+                <div class="block">
+                    <p>Field spawners.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">voidSpawnerHolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">voidSpawnerHolder</span>
+                </div>
+                <div class="block">
+                    <p>Field voidSpawnerHolder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">voidSpawner</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">voidSpawner</span>
+                </div>
+                <div class="block">
+                    <p>Field voidSpawner.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">eventConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">VoidEventConfig</span>
+                    <span class="memberName">eventConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field eventConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">invasionPortalConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InvasionPortalConfig</span>
+                    <span class="memberName">invasionPortalConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field invasionPortalConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">portalBlockPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">portalBlockPos</span>
+                </div>
+                <div class="block">
+                    <p>Field portalBlockPos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockType</span>
+                    <span class="memberName">blockType</span>
+                </div>
+                <div class="block">
+                    <p>Field blockType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">portalWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PortalWorld</span>
+                    <span class="memberName">portalWorld</span>
+                </div>
+                <div class="block">
+                    <p>Field portalWorld.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">spawnPos</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnPos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerTransform</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Transform</span>
+                    <span class="memberName">playerTransform</span>
+                </div>
+                <div class="block">
+                    <p>Field playerTransform.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">origin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">origin</span>
+                </div>
+                <div class="block">
+                    <p>Field origin.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">direction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">direction</span>
+                </div>
+                <div class="block">
+                    <p>Field direction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">existingSpawners</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SpatialHashGrid<Ref<EntityStore>></span>
+                    <span class="memberName">existingSpawners</span>
+                </div>
+                <div class="block">
+                    <p>Field existingSpawners.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">noNearbySpawners</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NotNearAnyInHashGrid</span>
+                    <span class="memberName">noNearbySpawners</span>
+                </div>
+                <div class="block">
+                    <p>Field noNearbySpawners.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRefs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Collection<PlayerRef></span>
+                    <span class="memberName">playerRefs</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRefs.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">players</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<Ref<EntityStore>></span>
+                    <span class="memberName">players</span>
+                </div>
+                <div class="block">
+                    <p>Field players.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">randomPlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">randomPlayer</span>
+                </div>
+                <div class="block">
+                    <p>Field randomPlayer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="VoidInvasionPortalsSpawnSystem">
+                <h4 class="methodName">VoidInvasionPortalsSpawnSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">VoidInvasionPortalsSpawnSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method VoidInvasionPortalsSpawnSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tick">
+                <h4 class="methodName">tick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tick</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>, <span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><a href="../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <span class="param-name">archetypeChunk</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><a href="../../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <b>archetypeChunk</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="VoidSpawner">
+                <h4 class="methodName">VoidSpawner</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">VoidSpawner</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method VoidSpawner.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="TransformComponent">
+                <h4 class="methodName">TransformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">TransformComponent</span>
+                    <span class="arguments">(<span class="param">portalPos</span>, <span class="param"><code>new</code> <span class="param-name">Vector3f(</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method TransformComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>portalPos</code> <b>portalPos</b></dd>
+<dd><code>new</code> <b>Vector3f(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="findPortalSpawnPosition">
+                <h4 class="methodName">findPortalSpawnPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>CompletableFuture<Vector3d></code></span>
+                    <span class="memberName">findPortalSpawnPosition</span>
+                    <span class="arguments">(<span class="param"><code>final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../components/voidevent/VoidEvent.html" class="type-link"><code>final VoidEvent</code></a> <span class="param-name">voidEvent</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method findPortalSpawnPosition.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final World</code> <b>world</b></dd>
+<dd><a href="../../components/voidevent/VoidEvent.html" class="type-link"><code>final VoidEvent</code></a> <b>voidEvent</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SearchCone">
+                <h4 class="methodName">SearchCone</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SearchCone</span>
+                    <span class="arguments">(<span class="param">direction</span>, <span class="param">48.0</span>, <span class="param">64.0</span>, <span class="param">90.0</span>, <span class="param">8</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SearchCone.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>direction</code> <b>direction</b></dd>
+<dd><code>48.0</code> <b>48.0</b></dd>
+<dd><code>64.0</code> <b>64.0</b></dd>
+<dd><code>90.0</code> <b>90.0</b></dd>
+<dd><code>8</code> <b>8</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NotNearPointXZ">
+                <h4 class="methodName">NotNearPointXZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NotNearPointXZ</span>
+                    <span class="arguments">(<span class="param">spawnPos</span>, <span class="param">18.0</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NotNearPointXZ.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>spawnPos</code> <b>spawnPos</b></dd>
+<dd><code>18.0</code> <b>18.0</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SearchBelow">
+                <h4 class="methodName">SearchBelow</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SearchBelow</span>
+                    <span class="arguments">(<span class="param">12</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SearchBelow.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>12</code> <b>12</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="FitsAPortal">
+                <h4 class="methodName">FitsAPortal</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">FitsAPortal</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method FitsAPortal.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="findRandomPlayerTransform">
+                <h4 class="methodName">findRandomPlayerTransform</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../../../protocol/Transform.html" class="type-link"><code>Transform</code></a></span>
+                    <span class="memberName">findRandomPlayerTransform</span>
+                    <span class="arguments">(<span class="param"><code>final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method findRandomPlayerTransform.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final World</code> <b>world</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="cleanupAndGetSpawners">
+                <h4 class="methodName">cleanupAndGetSpawners</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../utils/spatial/SpatialHashGrid.html" class="type-link"><code>SpatialHashGrid<Ref<EntityStore>></code></a></span>
+                    <span class="memberName">cleanupAndGetSpawners</span>
+                    <span class="arguments">(<span class="param"><a href="../../components/voidevent/VoidEvent.html" class="type-link"><code>final VoidEvent</code></a> <span class="param-name">voidEvent</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method cleanupAndGetSpawners.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../components/voidevent/VoidEvent.html" class="type-link"><code>final VoidEvent</code></a> <b>voidEvent</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getQuery">
+                <h4 class="methodName">getQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../component/query/Query.html" class="type-link"><code>Query<EntityStore></code></a></span>
+                    <span class="memberName">getQuery</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getQuery.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

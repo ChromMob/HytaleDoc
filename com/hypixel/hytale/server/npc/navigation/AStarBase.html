@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AStarBase (com.hypixel.hytale.server.npc.navigation)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/npc/navigation/package-summary.html">com.hypixel.hytale.server.npc.navigation</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">AStarBase</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="AStarBase.html" class="type-link">AStarBase</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class AStarBase. Provides astarbase functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; AStarBase</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxPathLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxPathLength</span>
+                </div>
+                <div class="block">
+                    <p>Field maxPathLength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">openNodesLimit</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">openNodesLimit</span>
+                </div>
+                <div class="block">
+                    <p>Field openNodesLimit.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalNodesLimit</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">totalNodesLimit</span>
+                </div>
+                <div class="block">
+                    <p>Field totalNodesLimit.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">canMoveDiagonal</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">canMoveDiagonal</span>
+                </div>
+                <div class="block">
+                    <p>Field canMoveDiagonal.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">optimizedBuildPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">optimizedBuildPath</span>
+                </div>
+                <div class="block">
+                    <p>Field optimizedBuildPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isAvoidingBlockDamage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isAvoidingBlockDamage</span>
+                </div>
+                <div class="block">
+                    <p>Field isAvoidingBlockDamage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isRelaxedMoveConstraints</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isRelaxedMoveConstraints</span>
+                </div>
+                <div class="block">
+                    <p>Field isRelaxedMoveConstraints.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">evaluator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">AStarEvaluator</span>
+                    <span class="memberName">evaluator</span>
+                </div>
+                <div class="block">
+                    <p>Field evaluator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">positionToIndexOffsetX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">positionToIndexOffsetX</span>
+                </div>
+                <div class="block">
+                    <p>Field positionToIndexOffsetX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">positionToIndexOffsetY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">positionToIndexOffsetY</span>
+                </div>
+                <div class="block">
+                    <p>Field positionToIndexOffsetY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">positionToIndexOffsetZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">positionToIndexOffsetZ</span>
+                </div>
+                <div class="block">
+                    <p>Field positionToIndexOffsetZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">indexToPositionOffsetX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">indexToPositionOffsetX</span>
+                </div>
+                <div class="block">
+                    <p>Field indexToPositionOffsetX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">indexToPositionOffsetY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">indexToPositionOffsetY</span>
+                </div>
+                <div class="block">
+                    <p>Field indexToPositionOffsetY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">indexToPositionOffsetZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">indexToPositionOffsetZ</span>
+                </div>
+                <div class="block">
+                    <p>Field indexToPositionOffsetZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">startPositionIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">startPositionIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field startPositionIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">is2D</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">is2D</span>
+                </div>
+                <div class="block">
+                    <p>Field is2D.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">projectedX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">projectedX</span>
+                </div>
+                <div class="block">
+                    <p>Field projectedX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">projectedY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">projectedY</span>
+                </div>
+                <div class="block">
+                    <p>Field projectedY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">projectedZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">projectedZ</span>
+                </div>
+                <div class="block">
+                    <p>Field projectedZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">searchDirectionIsDiagonalMoves</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">searchDirectionIsDiagonalMoves</span>
+                </div>
+                <div class="block">
+                    <p>Field searchDirectionIsDiagonalMoves.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">searchDirectionIs2D</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">searchDirectionIs2D</span>
+                </div>
+                <div class="block">
+                    <p>Field searchDirectionIs2D.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">searchDirections</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Vector3d[]</span>
+                    <span class="memberName">searchDirections</span>
+                </div>
+                <div class="block">
+                    <p>Field searchDirections.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">searchDirectionDistances</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double[]</span>
+                    <span class="memberName">searchDirectionDistances</span>
+                </div>
+                <div class="block">
+                    <p>Field searchDirectionDistances.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inverseSearchDirections</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">inverseSearchDirections</span>
+                </div>
+                <div class="block">
+                    <p>Field inverseSearchDirections.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">normalsPerDirection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">normalsPerDirection</span>
+                </div>
+                <div class="block">
+                    <p>Field normalsPerDirection.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">normalDirections</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">normalDirections</span>
+                </div>
+                <div class="block">
+                    <p>Field normalDirections.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nodePool</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">AStarNodePool</span>
+                    <span class="memberName">nodePool</span>
+                </div>
+                <div class="block">
+                    <p>Field nodePool.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iterations</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">iterations</span>
+                </div>
+                <div class="block">
+                    <p>Field iterations.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">path</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">AStarNode</span>
+                    <span class="memberName">path</span>
+                </div>
+                <div class="block">
+                    <p>Field path.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">progress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Progress</span>
+                    <span class="memberName">progress</span>
+                </div>
+                <div class="block">
+                    <p>Field progress.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">startBlockX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">startBlockX</span>
+                </div>
+                <div class="block">
+                    <p>Field startBlockX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">startBlockY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">startBlockY</span>
+                </div>
+                <div class="block">
+                    <p>Field startBlockY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">startBlockZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">startBlockZ</span>
+                </div>
+                <div class="block">
+                    <p>Field startBlockZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">twoX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">twoX</span>
+                </div>
+                <div class="block">
+                    <p>Field twoX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">twoY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">twoY</span>
+                </div>
+                <div class="block">
+                    <p>Field twoY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">twoZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">twoZ</span>
+                </div>
+                <div class="block">
+                    <p>Field twoZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">positionToIndexOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">positionToIndexOffset</span>
+                </div>
+                <div class="block">
+                    <p>Field positionToIndexOffset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">componentSelector</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">componentSelector</span>
+                </div>
+                <div class="block">
+                    <p>Field componentSelector.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">searchDirectionCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">searchDirectionCount</span>
+                </div>
+                <div class="block">
+                    <p>Field searchDirectionCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">direction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">direction</span>
+                </div>
+                <div class="block">
+                    <p>Field direction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">direction2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">direction2</span>
+                </div>
+                <div class="block">
+                    <p>Field direction2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">endIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">endIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field endIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">otherDirection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">otherDirection</span>
+                </div>
+                <div class="block">
+                    <p>Field otherDirection.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">startX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">startX</span>
+                </div>
+                <div class="block">
+                    <p>Field startX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">endX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">endX</span>
+                </div>
+                <div class="block">
+                    <p>Field endX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">startY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">startY</span>
+                </div>
+                <div class="block">
+                    <p>Field startY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">endY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">endY</span>
+                </div>
+                <div class="block">
+                    <p>Field endY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">startZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">startZ</span>
+                </div>
+                <div class="block">
+                    <p>Field startZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">endZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">endZ</span>
+                </div>
+                <div class="block">
+                    <p>Field endZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">idx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">idx</span>
+                </div>
+                <div class="block">
+                    <p>Field idx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">node</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AStarNode</span>
+                    <span class="memberName">node</span>
+                </div>
+                <div class="block">
+                    <p>Field node.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nodePosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">nodePosition</span>
+                </div>
+                <div class="block">
+                    <p>Field nodePosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">successors</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AStarNode[]</span>
+                    <span class="memberName">successors</span>
+                </div>
+                <div class="block">
+                    <p>Field successors.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">directionLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">directionLength</span>
+                </div>
+                <div class="block">
+                    <p>Field directionLength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">distance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">distance</span>
+                </div>
+                <div class="block">
+                    <p>Field distance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">halfThreshold</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">halfThreshold</span>
+                </div>
+                <div class="block">
+                    <p>Field halfThreshold.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">halfDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">halfDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field halfDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">halfPositionIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">halfPositionIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field halfPositionIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">otherNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AStarNode</span>
+                    <span class="memberName">otherNode</span>
+                </div>
+                <div class="block">
+                    <p>Field otherNode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">normal</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">normal</span>
+                </div>
+                <div class="block">
+                    <p>Field normal.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">diagonalVertexIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">diagonalVertexIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field diagonalVertexIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">diagonalNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AStarNode</span>
+                    <span class="memberName">diagonalNode</span>
+                </div>
+                <div class="block">
+                    <p>Field diagonalNode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">otherDiagonalNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AStarNode</span>
+                    <span class="memberName">otherDiagonalNode</span>
+                </div>
+                <div class="block">
+                    <p>Field otherDiagonalNode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">destination</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">destination</span>
+                </div>
+                <div class="block">
+                    <p>Field destination.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iterator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectIterator<Long2ObjectMap.Entry<AStarNode>></span>
+                    <span class="memberName">iterator</span>
+                </div>
+                <div class="block">
+                    <p>Field iterator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">v</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">v</span>
+                </div>
+                <div class="block">
+                    <p>Field v.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">x</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">x</span>
+                </div>
+                <div class="block">
+                    <p>Field x.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">y</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">y</span>
+                </div>
+                <div class="block">
+                    <p>Field y.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">z</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">z</span>
+                </div>
+                <div class="block">
+                    <p>Field z.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">positionIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">positionIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field positionIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cost</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">cost</span>
+                </div>
+                <div class="block">
+                    <p>Field cost.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inverseSearchDirection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">inverseSearchDirection</span>
+                </div>
+                <div class="block">
+                    <p>Field inverseSearchDirection.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stepCost</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">stepCost</span>
+                </div>
+                <div class="block">
+                    <p>Field stepCost.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AStarNode</span>
+                    <span class="memberName">targetNode</span>
+                </div>
+                <div class="block">
+                    <p>Field targetNode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">travelCostToNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">travelCostToNode</span>
+                </div>
+                <div class="block">
+                    <p>Field travelCostToNode.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">delta</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">delta</span>
+                </div>
+                <div class="block">
+                    <p>Field delta.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">dx</span>
+                </div>
+                <div class="block">
+                    <p>Field dx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dy</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">dy</span>
+                </div>
+                <div class="block">
+                    <p>Field dy.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dz</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">dz</span>
+                </div>
+                <div class="block">
+                    <p>Field dz.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="AStarBase">
+                <h4 class="methodName">AStarBase</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">AStarBase</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method AStarBase.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setCanMoveDiagonal">
+                <h4 class="methodName">setCanMoveDiagonal</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setCanMoveDiagonal</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">canMoveDiagonal</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setCanMoveDiagonal.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>canMoveDiagonal</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setMaxPathLength">
+                <h4 class="methodName">setMaxPathLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setMaxPathLength</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">maxPathLength</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setMaxPathLength.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>maxPathLength</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setOpenNodesLimit">
+                <h4 class="methodName">setOpenNodesLimit</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setOpenNodesLimit</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">openNodesLimit</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setOpenNodesLimit.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>openNodesLimit</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setTotalNodesLimit">
+                <h4 class="methodName">setTotalNodesLimit</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setTotalNodesLimit</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">totalNodesLimit</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setTotalNodesLimit.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>totalNodesLimit</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setStartPosition">
+                <h4 class="methodName">setStartPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setStartPosition</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setStartPosition.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getStartPosition">
+                <h4 class="methodName">getStartPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/Vector3d.html" class="type-link"><code>Vector3d</code></a></span>
+                    <span class="memberName">getStartPosition</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getStartPosition.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setOptimizedBuildPath">
+                <h4 class="methodName">setOptimizedBuildPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setOptimizedBuildPath</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">optimizedBuildPath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setOptimizedBuildPath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>optimizedBuildPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEvaluator">
+                <h4 class="methodName">getEvaluator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="AStarEvaluator.html" class="type-link"><code>AStarEvaluator</code></a></span>
+                    <span class="memberName">getEvaluator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEvaluator.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOpenNodes">
+                <h4 class="methodName">getOpenNodes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<AStarNode></code></span>
+                    <span class="memberName">getOpenNodes</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getOpenNodes.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOpenCount">
+                <h4 class="methodName">getOpenCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getOpenCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getOpenCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getVisitedBlocks">
+                <h4 class="methodName">getVisitedBlocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Long2ObjectMap<AStarNode></code></span>
+                    <span class="memberName">getVisitedBlocks</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getVisitedBlocks.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getStartPositionIndex">
+                <h4 class="methodName">getStartPositionIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">getStartPositionIndex</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getStartPositionIndex.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPath">
+                <h4 class="methodName">getPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="AStarNode.html" class="type-link"><code>AStarNode</code></a></span>
+                    <span class="memberName">getPath</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPath.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPosition">
+                <h4 class="methodName">getPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/Vector3d.html" class="type-link"><code>Vector3d</code></a></span>
+                    <span class="memberName">getPosition</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPosition.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLength">
+                <h4 class="methodName">getLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getLength</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLength.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getIterations">
+                <h4 class="methodName">getIterations</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getIterations</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getIterations.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEndPosition">
+                <h4 class="methodName">getEndPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/Vector3d.html" class="type-link"><code>Vector3d</code></a></span>
+                    <span class="memberName">getEndPosition</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEndPosition.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearPath">
+                <h4 class="methodName">clearPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearPath</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearPath.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="initComputePath">
+                <h4 class="methodName">initComputePath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Progress</code></span>
+                    <span class="memberName">initComputePath</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">start</span></span>, <span class="param"><a href="AStarEvaluator.html" class="type-link"><code>final AStarEvaluator</code></a> <span class="param-name">evaluator</span></span>, <span class="param"><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>, <span class="param"><a href="../movement/controllers/ProbeMoveData.html" class="type-link"><code>@Nonnull final ProbeMoveData</code></a> <span class="param-name">probeMoveData</span></span>, <span class="param"><a href="AStarNodePoolProvider.html" class="type-link"><code>@Nonnull final AStarNodePoolProvider</code></a> <span class="param-name">nodePoolProvider</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initComputePath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>start</b></dd>
+<dd><a href="AStarEvaluator.html" class="type-link"><code>final AStarEvaluator</code></a> <b>evaluator</b></dd>
+<dd><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+<dd><a href="../movement/controllers/ProbeMoveData.html" class="type-link"><code>@Nonnull final ProbeMoveData</code></a> <b>probeMoveData</b></dd>
+<dd><a href="AStarNodePoolProvider.html" class="type-link"><code>@Nonnull final AStarNodePoolProvider</code></a> <b>nodePoolProvider</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="computePath">
+                <h4 class="methodName">computePath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Progress</code></span>
+                    <span class="memberName">computePath</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>, <span class="param"><a href="../movement/controllers/ProbeMoveData.html" class="type-link"><code>@Nonnull final ProbeMoveData</code></a> <span class="param-name">probeMoveData</span></span>, <span class="param"><code>int</code> <span class="param-name">nodesToProcess</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method computePath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+<dd><a href="../movement/controllers/ProbeMoveData.html" class="type-link"><code>@Nonnull final ProbeMoveData</code></a> <b>probeMoveData</b></dd>
+<dd><code>int</code> <b>nodesToProcess</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getProgress">
+                <h4 class="methodName">getProgress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Progress</code></span>
+                    <span class="memberName">getProgress</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getProgress.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isComputing">
+                <h4 class="methodName">isComputing</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isComputing</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isComputing.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="buildLongestPath">
+                <h4 class="methodName">buildLongestPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">buildLongestPath</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method buildLongestPath.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="buildFurthestPath">
+                <h4 class="methodName">buildFurthestPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">buildFurthestPath</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method buildFurthestPath.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="buildBestPath">
+                <h4 class="methodName">buildBestPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="AStarNode.html" class="type-link"><code>AStarNode</code></a></span>
+                    <span class="memberName">buildBestPath</span>
+                    <span class="arguments">(<span class="param"><a href="../../../function/function/ToFloatFunction.html" class="type-link"><code>@Nonnull final ToFloatFunction<AStarNode></code></a> <span class="param-name">weight</span></span>, <span class="param"><a href="../../../function/predicate/BiFloatPredicate.html" class="type-link"><code>@Nonnull final BiFloatPredicate</code></a> <span class="param-name">predicate</span></span>, <span class="param"><code>final float</code> <span class="param-name">initialValue</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method buildBestPath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../function/function/ToFloatFunction.html" class="type-link"><code>@Nonnull final ToFloatFunction<AStarNode></code></a> <b>weight</b></dd>
+<dd><a href="../../../function/predicate/BiFloatPredicate.html" class="type-link"><code>@Nonnull final BiFloatPredicate</code></a> <b>predicate</b></dd>
+<dd><code>final float</code> <b>initialValue</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="findBestVisitedNode">
+                <h4 class="methodName">findBestVisitedNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="AStarNode.html" class="type-link"><code>AStarNode</code></a></span>
+                    <span class="memberName">findBestVisitedNode</span>
+                    <span class="arguments">(<span class="param"><a href="../../../function/function/ToFloatFunction.html" class="type-link"><code>@Nonnull final ToFloatFunction<AStarNode></code></a> <span class="param-name">weight</span></span>, <span class="param"><a href="../../../function/predicate/BiFloatPredicate.html" class="type-link"><code>@Nonnull final BiFloatPredicate</code></a> <span class="param-name">predicate</span></span>, <span class="param"><code>final float</code> <span class="param-name">initialValue</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method findBestVisitedNode.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../function/function/ToFloatFunction.html" class="type-link"><code>@Nonnull final ToFloatFunction<AStarNode></code></a> <b>weight</b></dd>
+<dd><a href="../../../function/predicate/BiFloatPredicate.html" class="type-link"><code>@Nonnull final BiFloatPredicate</code></a> <b>predicate</b></dd>
+<dd><code>final float</code> <b>initialValue</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createDebugHelper">
+                <h4 class="methodName">createDebugHelper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="AStarDebugBase.html" class="type-link"><code>AStarDebugBase</code></a></span>
+                    <span class="memberName">createDebugHelper</span>
+                    <span class="arguments">(<span class="param"><a href="../../../logger/HytaleLogger.html" class="type-link"><code>@Nonnull final HytaleLogger</code></a> <span class="param-name">logger</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createDebugHelper.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../logger/HytaleLogger.html" class="type-link"><code>@Nonnull final HytaleLogger</code></a> <b>logger</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="indexFromXYZ">
+                <h4 class="methodName">indexFromXYZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">indexFromXYZ</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">dx</span></span>, <span class="param"><code>final long</code> <span class="param-name">dy</span></span>, <span class="param"><code>final long</code> <span class="param-name">dz</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method indexFromXYZ.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>dx</b></dd>
+<dd><code>final long</code> <b>dy</b></dd>
+<dd><code>final long</code> <b>dz</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="zFromIndex">
+                <h4 class="methodName">zFromIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">zFromIndex</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method zFromIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="yFromIndex">
+                <h4 class="methodName">yFromIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">yFromIndex</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method yFromIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="xFromIndex">
+                <h4 class="methodName">xFromIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">xFromIndex</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method xFromIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="positionIndexToString">
+                <h4 class="methodName">positionIndexToString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">positionIndexToString</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method positionIndexToString.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setProgress">
+                <h4 class="methodName">setProgress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>Progress</code></span>
+                    <span class="memberName">setProgress</span>
+                    <span class="arguments">(<span class="param"><code>final Progress</code> <span class="param-name">progress</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setProgress.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Progress</code> <b>progress</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="canAdvance">
+                <h4 class="methodName">canAdvance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><a href="../../../protocol/Vector3d.html" class="type-link"><code>Vector3d</code></a></span>
+                    <span class="memberName">canAdvance</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">startPosition</span></span>, <span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">destination</span></span>, <span class="param"><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>, <span class="param"><a href="../movement/controllers/ProbeMoveData.html" class="type-link"><code>@Nonnull final ProbeMoveData</code></a> <span class="param-name">probeMoveData</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method canAdvance.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>startPosition</b></dd>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>destination</b></dd>
+<dd><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+<dd><a href="../movement/controllers/ProbeMoveData.html" class="type-link"><code>@Nonnull final ProbeMoveData</code></a> <b>probeMoveData</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addStartNode">
+                <h4 class="methodName">addStartNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addStartNode</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <span class="param-name">startPosition</span></span>, <span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addStartNode.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <b>startPosition</b></dd>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addOpenNode">
+                <h4 class="methodName">addOpenNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addOpenNode</span>
+                    <span class="arguments">(<span class="param"><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <span class="param-name">parentNode</span></span>, <span class="param"><code>final int</code> <span class="param-name">directionIndex</span></span>, <span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><code>final long</code> <span class="param-name">positionIndex</span></span>, <span class="param"><code>final float</code> <span class="param-name">cost</span></span>, <span class="param"><a href="../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addOpenNode.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <b>parentNode</b></dd>
+<dd><code>final int</code> <b>directionIndex</b></dd>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><code>final long</code> <b>positionIndex</b></dd>
+<dd><code>final float</code> <b>cost</b></dd>
+<dd><a href="../movement/controllers/MotionController.html" class="type-link"><code>final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateNode">
+                <h4 class="methodName">updateNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateNode</span>
+                    <span class="arguments">(<span class="param"><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <span class="param-name">node</span></span>, <span class="param"><code>final int</code> <span class="param-name">directionIndex</span></span>, <span class="param"><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <span class="param-name">targetNode</span></span>, <span class="param"><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateNode.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <b>node</b></dd>
+<dd><code>final int</code> <b>directionIndex</b></dd>
+<dd><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <b>targetNode</b></dd>
+<dd><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addOrUpdateNode">
+                <h4 class="methodName">addOrUpdateNode</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addOrUpdateNode</span>
+                    <span class="arguments">(<span class="param"><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <span class="param-name">node</span></span>, <span class="param"><code>final int</code> <span class="param-name">directionIndex</span></span>, <span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addOrUpdateNode.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <b>node</b></dd>
+<dd><code>final int</code> <b>directionIndex</b></dd>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateNodeCost">
+                <h4 class="methodName">updateNodeCost</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateNodeCost</span>
+                    <span class="arguments">(<span class="param"><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <span class="param-name">node</span></span>, <span class="param"><code>final int</code> <span class="param-name">directionIndex</span></span>, <span class="param"><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <span class="param-name">targetNode</span></span>, <span class="param"><code>final float</code> <span class="param-name">stepCost</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateNodeCost.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <b>node</b></dd>
+<dd><code>final int</code> <b>directionIndex</b></dd>
+<dd><a href="AStarNode.html" class="type-link"><code>@Nonnull final AStarNode</code></a> <b>targetNode</b></dd>
+<dd><code>final float</code> <b>stepCost</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="positionToIndex">
+                <h4 class="methodName">positionToIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">positionToIndex</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method positionToIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="measureWalkCost">
+                <h4 class="methodName">measureWalkCost</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">measureWalkCost</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <span class="param-name">fromPosition</span></span>, <span class="param"><a href="../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <span class="param-name">toPosition</span></span>, <span class="param"><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <span class="param-name">motionController</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method measureWalkCost.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <b>fromPosition</b></dd>
+<dd><a href="../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <b>toPosition</b></dd>
+<dd><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nonnull final MotionController</code></a> <b>motionController</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="buildPath">
+                <h4 class="methodName">buildPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">buildPath</span>
+                    <span class="arguments">(<span class="param"><a href="AStarNode.html" class="type-link"><code>@Nullable AStarNode</code></a> <span class="param-name">endNode</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method buildPath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="AStarNode.html" class="type-link"><code>@Nullable AStarNode</code></a> <b>endNode</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addOffsetToIndex">
+                <h4 class="methodName">addOffsetToIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">addOffsetToIndex</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">index</span></span>, <span class="param"><code>final long</code> <span class="param-name">xSteps</span></span>, <span class="param"><code>final long</code> <span class="param-name">ySteps</span></span>, <span class="param"><code>final long</code> <span class="param-name">zSteps</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addOffsetToIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>index</b></dd>
+<dd><code>final long</code> <b>xSteps</b></dd>
+<dd><code>final long</code> <b>ySteps</b></dd>
+<dd><code>final long</code> <b>zSteps</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

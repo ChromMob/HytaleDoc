@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UpdateSleepPacketSystem (com.hypixel.hytale.builtin.beds.sleep.systems.player)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../../com/hypixel/hytale/builtin/beds/sleep/systems/player/package-summary.html">com.hypixel.hytale.builtin.beds.sleep.systems.player</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">UpdateSleepPacketSystem</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="UpdateSleepPacketSystem.html" class="type-link">UpdateSleepPacketSystem</a> extends <a href="../../../../../component/system/tick/DelayedEntitySystem.html" class="type-link" data-class="DelayedEntitySystem"><code>DelayedEntitySystem</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>System for handling updatesleeppacket mechanics. Systems contain game logic that operates on entities with specific component types.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; DelayedEntitySystem &gt; UpdateSleepPacketSystem</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">sleepTracker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SleepTracker</span>
+                    <span class="memberName">sleepTracker</span>
+                </div>
+                <div class="block">
+                    <p>Field sleepTracker.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">playerRef</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldSomnolence</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldSomnolence</span>
+                    <span class="memberName">worldSomnolence</span>
+                </div>
+                <div class="block">
+                    <p>Field worldSomnolence.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldSleepState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldSleep</span>
+                    <span class="memberName">worldSleepState</span>
+                </div>
+                <div class="block">
+                    <p>Field worldSleepState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerSomnolence</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerSomnolence</span>
+                    <span class="memberName">playerSomnolence</span>
+                </div>
+                <div class="block">
+                    <p>Field playerSomnolence.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerSleepState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerSleep</span>
+                    <span class="memberName">playerSleepState</span>
+                </div>
+                <div class="block">
+                    <p>Field playerSleepState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">clock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SleepClock</span>
+                    <span class="memberName">clock</span>
+                </div>
+                <div class="block">
+                    <p>Field clock.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">obj</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerSleep</span>
+                    <span class="memberName">obj</span>
+                </div>
+                <div class="block">
+                    <p>Field obj.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerSleep</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerSleep</span>
+                    <span class="memberName">playerSleep</span>
+                </div>
+                <div class="block">
+                    <p>Field playerSleep.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ignored</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerSleep.FullyAwake</span>
+                    <span class="memberName">ignored</span>
+                </div>
+                <div class="block">
+                    <p>Field ignored.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ignored2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerSleep.MorningWakeUp</span>
+                    <span class="memberName">ignored2</span>
+                </div>
+                <div class="block">
+                    <p>Field ignored2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">noddingOff</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerSleep.NoddingOff</span>
+                    <span class="memberName">noddingOff</span>
+                </div>
+                <div class="block">
+                    <p>Field noddingOff.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">elapsedMs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">elapsedMs</span>
+                </div>
+                <div class="block">
+                    <p>Field elapsedMs.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">grayFade</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">grayFade</span>
+                </div>
+                <div class="block">
+                    <p>Field grayFade.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ref</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">ref</span>
+                </div>
+                <div class="block">
+                    <p>Field ref.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">readyToSleep</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">readyToSleep</span>
+                </div>
+                <div class="block">
+                    <p>Field readyToSleep.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ignored3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerSleep.Slumber</span>
+                    <span class="memberName">ignored3</span>
+                </div>
+                <div class="block">
+                    <p>Field ignored3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRefs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<PlayerRef></span>
+                    <span class="memberName">playerRefs</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRefs.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">awakeSampleList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<UUID></span>
+                    <span class="memberName">awakeSampleList</span>
+                </div>
+                <div class="block">
+                    <p>Field awakeSampleList.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">awakeSample</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID[]</span>
+                    <span class="memberName">awakeSample</span>
+                </div>
+                <div class="block">
+                    <p>Field awakeSample.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">handle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MethodHandle</span>
+                    <span class="memberName">handle</span>
+                </div>
+                <div class="block">
+                    <p>Field handle.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="getQuery">
+                <h4 class="methodName">getQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../component/query/Query.html" class="type-link"><code>Query<EntityStore></code></a></span>
+                    <span class="memberName">getQuery</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getQuery.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="UpdateSleepPacketSystem">
+                <h4 class="methodName">UpdateSleepPacketSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">UpdateSleepPacketSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method UpdateSleepPacketSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tick">
+                <h4 class="methodName">tick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tick</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>, <span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><a href="../../../../../component/ArchetypeChunk.html" class="type-link"><code>@NonNullDecl final ArchetypeChunk<EntityStore></code></a> <span class="param-name">archetypeChunk</span></span>, <span class="param"><a href="../../../../../component/Store.html" class="type-link"><code>@NonNullDecl final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@NonNullDecl final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><a href="../../../../../component/ArchetypeChunk.html" class="type-link"><code>@NonNullDecl final ArchetypeChunk<EntityStore></code></a> <b>archetypeChunk</b></dd>
+<dd><a href="../../../../../component/Store.html" class="type-link"><code>@NonNullDecl final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../../component/CommandBuffer.html" class="type-link"><code>@NonNullDecl final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createSleepPacket">
+                <h4 class="methodName">createSleepPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../../../../protocol/packets/world/UpdateSleepState.html" class="type-link"><code>UpdateSleepState</code></a></span>
+                    <span class="memberName">createSleepPacket</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Store.html" class="type-link"><code>final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><a href="../../../../../component/ArchetypeChunk.html" class="type-link"><code>final ArchetypeChunk<EntityStore></code></a> <span class="param-name">archetypeChunk</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createSleepPacket.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Store.html" class="type-link"><code>final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><a href="../../../../../component/ArchetypeChunk.html" class="type-link"><code>final ArchetypeChunk<EntityStore></code></a> <b>archetypeChunk</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="switch">
+                <h4 class="methodName">switch</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>return</code></span>
+                    <span class="memberName">switch</span>
+                    <span class="arguments">(<span class="param"><code>/*</code> <span class="param-name">invokedynamic(!</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method switch.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>/*</code> <b>invokedynamic(!</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="UpdateSleepState">
+                <h4 class="methodName">UpdateSleepState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">UpdateSleepState</span>
+                    <span class="arguments">(<span class="param">grayFade</span>, <span class="param">false</span>, <span class="param">clock</span>, <span class="param"><code>readyToSleep ?</code> <span class="param-name">this.createSleepMultiplayer(store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method UpdateSleepState.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>grayFade</code> <b>grayFade</b></dd>
+<dd><code>false</code> <b>false</b></dd>
+<dd><code>clock</code> <b>clock</b></dd>
+<dd><code>readyToSleep ?</code> <b>this.createSleepMultiplayer(store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createSleepMultiplayer">
+                <h4 class="methodName">createSleepMultiplayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../../../../protocol/packets/world/SleepMultiplayer.html" class="type-link"><code>SleepMultiplayer</code></a></span>
+                    <span class="memberName">createSleepMultiplayer</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Store.html" class="type-link"><code>final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createSleepMultiplayer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Store.html" class="type-link"><code>final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handle">
+                <h4 class="methodName">handle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>MethodHandle</code></span>
+                    <span class="memberName">handle</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method handle.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ensureHandle">
+                <h4 class="methodName">ensureHandle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>MethodHandle</code></span>
+                    <span class="memberName">ensureHandle</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ensureHandle.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="invoke">
+                <h4 class="methodName">invoke</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">invoke</span>
+                    <span class="arguments">(<span class="param"><code>Object</code> <span class="param-name">p0</span></span>, <span class="param"><code>int</code> <span class="param-name">p1</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method invoke.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Object</code> <b>p0</b></dd>
+<dd><code>int</code> <b>p1</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

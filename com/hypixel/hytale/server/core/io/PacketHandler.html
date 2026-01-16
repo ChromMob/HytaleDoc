@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PacketHandler (com.hypixel.hytale.server.core.io)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/core/io/package-summary.html">com.hypixel.hytale.server.core.io</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">PacketHandler</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">abstract class <a href="PacketHandler.html" class="type-link">PacketHandler</a> implements <a href="../receiver/IPacketReceiver.html" class="type-link" data-class="IPacketReceiver"><code>IPacketReceiver</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class PacketHandler. Provides packethandler functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; PacketHandler</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">auth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">PlayerAuthentication</span>
+                    <span class="memberName">auth</span>
+                </div>
+                <div class="block">
+                    <p>Field auth.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">queuePackets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">queuePackets</span>
+                </div>
+                <div class="block">
+                    <p>Field queuePackets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pingTimer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">pingTimer</span>
+                </div>
+                <div class="block">
+                    <p>Field pingTimer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">registered</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">registered</span>
+                </div>
+                <div class="block">
+                    <p>Field registered.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">timeoutTask</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ScheduledFuture<?></span>
+                    <span class="memberName">timeoutTask</span>
+                </div>
+                <div class="block">
+                    <p>Field timeoutTask.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">clientReadyForChunksFutureStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Throwable</span>
+                    <span class="memberName">clientReadyForChunksFutureStack</span>
+                </div>
+                <div class="block">
+                    <p>Field clientReadyForChunksFutureStack.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">clientReadyForChunksFuture</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">clientReadyForChunksFuture</span>
+                </div>
+                <div class="block">
+                    <p>Field clientReadyForChunksFuture.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cachedPackets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Packet[]</span>
+                    <span class="memberName">cachedPackets</span>
+                </div>
+                <div class="block">
+                    <p>Field cachedPackets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Packet</span>
+                    <span class="memberName">packet</span>
+                </div>
+                <div class="block">
+                    <p>Field packet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">average</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">average</span>
+                </div>
+                <div class="block">
+                    <p>Field average.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">id</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">id</span>
+                </div>
+                <div class="block">
+                    <p>Field id.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nowInstant</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">nowInstant</span>
+                </div>
+                <div class="block">
+                    <p>Field nowInstant.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nowTimestamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">nowTimestamp</span>
+                </div>
+                <div class="block">
+                    <p>Field nowTimestamp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">channel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Channel</span>
+                    <span class="memberName">channel</span>
+                </div>
+                <div class="block">
+                    <p>Field channel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">address</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InetAddress</span>
+                    <span class="memberName">address</span>
+                </div>
+                <div class="block">
+                    <p>Field address.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">loginStartAttribute</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Attribute<Long></span>
+                    <span class="memberName">loginStartAttribute</span>
+                </div>
+                <div class="block">
+                    <p>Field loginStartAttribute.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">now</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">now</span>
+                </div>
+                <div class="block">
+                    <p>Field now.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">before</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Long</span>
+                    <span class="memberName">before</span>
+                </div>
+                <div class="block">
+                    <p>Field before.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nanoTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">nanoTime</span>
+                </div>
+                <div class="block">
+                    <p>Field nanoTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pingValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">pingValue</span>
+                </div>
+                <div class="block">
+                    <p>Field pingValue.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">serverDisconnectReason</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">serverDisconnectReason</span>
+                </div>
+                <div class="block">
+                    <p>Field serverDisconnectReason.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">clientDisconnectType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">DisconnectType</span>
+                    <span class="memberName">clientDisconnectType</span>
+                </div>
+                <div class="block">
+                    <p>Field clientDisconnectType.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="PacketHandler">
+                <h4 class="methodName">PacketHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">PacketHandler</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Channel</code> <span class="param-name">channel</span></span>, <span class="param"><a href="ProtocolVersion.html" class="type-link"><code>@Nonnull final ProtocolVersion</code></a> <span class="param-name">protocolVersion</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PacketHandler.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Channel</code> <b>channel</b></dd>
+<dd><a href="ProtocolVersion.html" class="type-link"><code>@Nonnull final ProtocolVersion</code></a> <b>protocolVersion</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChannel">
+                <h4 class="methodName">getChannel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Channel</code></span>
+                    <span class="memberName">getChannel</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChannel.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setCompressionEnabled">
+                <h4 class="methodName">setCompressionEnabled</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setCompressionEnabled</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">compressionEnabled</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setCompressionEnabled.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>compressionEnabled</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isCompressionEnabled">
+                <h4 class="methodName">isCompressionEnabled</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isCompressionEnabled</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isCompressionEnabled.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getProtocolVersion">
+                <h4 class="methodName">getProtocolVersion</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="ProtocolVersion.html" class="type-link"><code>ProtocolVersion</code></a></span>
+                    <span class="memberName">getProtocolVersion</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getProtocolVersion.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="registered">
+                <h4 class="methodName">registered</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">registered</span>
+                    <span class="arguments">(<span class="param"><a href="PacketHandler.html" class="type-link"><code>@Nullable final PacketHandler</code></a> <span class="param-name">oldHandler</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registered.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="PacketHandler.html" class="type-link"><code>@Nullable final PacketHandler</code></a> <b>oldHandler</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="registered0">
+                <h4 class="methodName">registered0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">registered0</span>
+                    <span class="arguments">(<span class="param"><a href="PacketHandler.html" class="type-link"><code>@Nullable final PacketHandler</code></a> <span class="param-name">oldHandler</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registered0.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="PacketHandler.html" class="type-link"><code>@Nullable final PacketHandler</code></a> <b>oldHandler</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="unregistered">
+                <h4 class="methodName">unregistered</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">unregistered</span>
+                    <span class="arguments">(<span class="param"><a href="PacketHandler.html" class="type-link"><code>@Nullable final PacketHandler</code></a> <span class="param-name">newHandler</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method unregistered.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="PacketHandler.html" class="type-link"><code>@Nullable final PacketHandler</code></a> <b>newHandler</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="unregistered0">
+                <h4 class="methodName">unregistered0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">unregistered0</span>
+                    <span class="arguments">(<span class="param"><a href="PacketHandler.html" class="type-link"><code>@Nullable final PacketHandler</code></a> <span class="param-name">newHandler</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method unregistered0.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="PacketHandler.html" class="type-link"><code>@Nullable final PacketHandler</code></a> <b>newHandler</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handle">
+                <h4 class="methodName">handle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handle</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <span class="param-name">packet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handle.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="logCloseMessage">
+                <h4 class="methodName">logCloseMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">logCloseMessage</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method logCloseMessage.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="closed">
+                <h4 class="methodName">closed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">closed</span>
+                    <span class="arguments">(<span class="param"><code>final ChannelHandlerContext</code> <span class="param-name">ctx</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method closed.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final ChannelHandlerContext</code> <b>ctx</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setQueuePackets">
+                <h4 class="methodName">setQueuePackets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setQueuePackets</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">queuePackets</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setQueuePackets.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>queuePackets</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryFlush">
+                <h4 class="methodName">tryFlush</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tryFlush</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method tryFlush.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="write">
+                <h4 class="methodName">write</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">write</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Packet...</code> <span class="param-name">packets</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method write.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Packet...</code> <b>packets</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="writeNoCache">
+                <h4 class="methodName">writeNoCache</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">writeNoCache</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <span class="param-name">packet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method writeNoCache.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="writePacket">
+                <h4 class="methodName">writePacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">writePacket</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <span class="param-name">packet</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">cache</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method writePacket.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <b>packet</b></dd>
+<dd><code>final boolean</code> <b>cache</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleOutboundAndCachePackets">
+                <h4 class="methodName">handleOutboundAndCachePackets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleOutboundAndCachePackets</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Packet[]</code> <span class="param-name">packets</span></span>, <span class="param"><code>@Nonnull final Packet[]</code> <span class="param-name">cachedPackets</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleOutboundAndCachePackets.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Packet[]</code> <b>packets</b></dd>
+<dd><code>@Nonnull final Packet[]</code> <b>cachedPackets</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleOutboundAndCachePacket">
+                <h4 class="methodName">handleOutboundAndCachePacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../../protocol/Packet.html" class="type-link"><code>Packet</code></a></span>
+                    <span class="memberName">handleOutboundAndCachePacket</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <span class="param-name">packet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleOutboundAndCachePacket.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="disconnect">
+                <h4 class="methodName">disconnect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">disconnect</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">message</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method disconnect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>message</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="disconnect0">
+                <h4 class="methodName">disconnect0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">disconnect0</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">message</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method disconnect0.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>message</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Disconnect">
+                <h4 class="methodName">Disconnect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Disconnect</span>
+                    <span class="arguments">(<span class="param">message</span>, <span class="param">DisconnectType.Disconnect</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Disconnect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>message</code> <b>message</b></dd>
+<dd><code>DisconnectType.Disconnect</code> <b>DisconnectType.Disconnect</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPacketStatsRecorder">
+                <h4 class="methodName">getPacketStatsRecorder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/io/PacketStatsRecorder.html" class="type-link"><code>PacketStatsRecorder</code></a></span>
+                    <span class="memberName">getPacketStatsRecorder</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPacketStatsRecorder.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPingInfo">
+                <h4 class="methodName">getPingInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PingInfo</code></span>
+                    <span class="memberName">getPingInfo</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/packets/connection/PongType.html" class="type-link"><code>@Nonnull final PongType</code></a> <span class="param-name">pongType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getPingInfo.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/packets/connection/PongType.html" class="type-link"><code>@Nonnull final PongType</code></a> <b>pongType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOperationTimeoutThreshold">
+                <h4 class="methodName">getOperationTimeoutThreshold</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">getOperationTimeoutThreshold</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getOperationTimeoutThreshold.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tickPing">
+                <h4 class="methodName">tickPing</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tickPing</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tickPing.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendPing">
+                <h4 class="methodName">sendPing</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">sendPing</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method sendPing.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="Ping">
+                <h4 class="methodName">Ping</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Ping</span>
+                    <span class="arguments">(<span class="param">id</span>, <span class="param">WorldTimeResource.instantToInstantData(nowInstant</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Ping.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>id</code> <b>id</b></dd>
+<dd><code>WorldTimeResource.instantToInstantData(nowInstant</code> <b>WorldTimeResource.instantToInstantData(nowInstant</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handlePong">
+                <h4 class="methodName">handlePong</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handlePong</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/packets/connection/Pong.html" class="type-link"><code>@Nonnull final Pong</code></a> <span class="param-name">packet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handlePong.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/packets/connection/Pong.html" class="type-link"><code>@Nonnull final Pong</code></a> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setTimeout">
+                <h4 class="methodName">setTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setTimeout</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">stageId</span></span>, <span class="param"><code>@Nonnull final BooleanSupplier</code> <span class="param-name">meets</span></span>, <span class="param"><code>final long</code> <span class="param-name">def</span></span>, <span class="param"><code>@Nonnull final TimeUnit</code> <span class="param-name">timeUnit</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setTimeout.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>stageId</b></dd>
+<dd><code>@Nonnull final BooleanSupplier</code> <b>meets</b></dd>
+<dd><code>final long</code> <b>def</b></dd>
+<dd><code>@Nonnull final TimeUnit</code> <b>timeUnit</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearTimeout">
+                <h4 class="methodName">clearTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearTimeout</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearTimeout.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAuth">
+                <h4 class="methodName">getAuth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../auth/PlayerAuthentication.html" class="type-link"><code>PlayerAuthentication</code></a></span>
+                    <span class="memberName">getAuth</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAuth.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="stillActive">
+                <h4 class="methodName">stillActive</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">stillActive</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method stillActive.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getQueuedPacketsCount">
+                <h4 class="methodName">getQueuedPacketsCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getQueuedPacketsCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getQueuedPacketsCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isLocalConnection">
+                <h4 class="methodName">isLocalConnection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isLocalConnection</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isLocalConnection.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isLANConnection">
+                <h4 class="methodName">isLANConnection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isLANConnection</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isLANConnection.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDisconnectReason">
+                <h4 class="methodName">getDisconnectReason</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>DisconnectReason</code></span>
+                    <span class="memberName">getDisconnectReason</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDisconnectReason.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setClientReadyForChunksFuture">
+                <h4 class="methodName">setClientReadyForChunksFuture</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setClientReadyForChunksFuture</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final CompletableFuture<Void></code> <span class="param-name">clientReadyFuture</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setClientReadyForChunksFuture.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final CompletableFuture<Void></code> <b>clientReadyFuture</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getClientReadyForChunksFuture">
+                <h4 class="methodName">getClientReadyForChunksFuture</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>CompletableFuture<Void></code></span>
+                    <span class="memberName">getClientReadyForChunksFuture</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getClientReadyForChunksFuture.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="logConnectionTimings">
+                <h4 class="methodName">logConnectionTimings</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">logConnectionTimings</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Channel</code> <span class="param-name">channel</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">message</span></span>, <span class="param"><code>@Nonnull final Level</code> <span class="param-name">level</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method logConnectionTimings.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Channel</code> <b>channel</b></dd>
+<dd><code>@Nonnull final String</code> <b>message</b></dd>
+<dd><code>@Nonnull final Level</code> <b>level</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="recordSent">
+                <h4 class="methodName">recordSent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">recordSent</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">id</span></span>, <span class="param"><code>final long</code> <span class="param-name">timestamp</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method recordSent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>id</b></dd>
+<dd><code>final long</code> <b>timestamp</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handlePacket">
+                <h4 class="methodName">handlePacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handlePacket</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/packets/connection/Pong.html" class="type-link"><code>@Nonnull final Pong</code></a> <span class="param-name">packet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handlePacket.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/packets/connection/Pong.html" class="type-link"><code>@Nonnull final Pong</code></a> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="IllegalArgumentException">
+                <h4 class="methodName">IllegalArgumentException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IllegalArgumentException</span>
+                    <span class="arguments">(<span class="param"><code>"Got packet for " +</code> <span class="param-name">String.valueOf(packet.type</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IllegalArgumentException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Got packet for " +</code> <b>String.valueOf(packet.type</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPingType">
+                <h4 class="methodName">getPingType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/packets/connection/PongType.html" class="type-link"><code>PongType</code></a></span>
+                    <span class="memberName">getPingType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPingType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPacketQueueMetric">
+                <h4 class="methodName">getPacketQueueMetric</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../metrics/metric/Metric.html" class="type-link"><code>Metric</code></a></span>
+                    <span class="memberName">getPacketQueueMetric</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPacketQueueMetric.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPingMetricSet">
+                <h4 class="methodName">getPingMetricSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../metrics/metric/HistoricMetric.html" class="type-link"><code>HistoricMetric</code></a></span>
+                    <span class="memberName">getPingMetricSet</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPingMetricSet.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clear">
+                <h4 class="methodName">clear</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clear</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clear.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getServerDisconnectReason">
+                <h4 class="methodName">getServerDisconnectReason</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getServerDisconnectReason</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getServerDisconnectReason.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setServerDisconnectReason">
+                <h4 class="methodName">setServerDisconnectReason</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setServerDisconnectReason</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">serverDisconnectReason</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setServerDisconnectReason.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>serverDisconnectReason</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getClientDisconnectType">
+                <h4 class="methodName">getClientDisconnectType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/packets/connection/DisconnectType.html" class="type-link"><code>DisconnectType</code></a></span>
+                    <span class="memberName">getClientDisconnectType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getClientDisconnectType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setClientDisconnectType">
+                <h4 class="methodName">setClientDisconnectType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setClientDisconnectType</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/packets/connection/DisconnectType.html" class="type-link"><code>final DisconnectType</code></a> <span class="param-name">clientDisconnectType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setClientDisconnectType.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/packets/connection/DisconnectType.html" class="type-link"><code>final DisconnectType</code></a> <b>clientDisconnectType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="toString">
+                <h4 class="methodName">toString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">toString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toString.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

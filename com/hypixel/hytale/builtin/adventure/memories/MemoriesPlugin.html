@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MemoriesPlugin (com.hypixel.hytale.builtin.adventure.memories)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/builtin/adventure/memories/package-summary.html">com.hypixel.hytale.builtin.adventure.memories</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">MemoriesPlugin</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="MemoriesPlugin.html" class="type-link">MemoriesPlugin</a> extends <a href="../../../server/core/plugin/JavaPlugin.html" class="type-link" data-class="JavaPlugin"><code>JavaPlugin</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>The main plugin class for Memories. This plugin provides gameplay features for the Hytale server. Extend this class to create a plugin.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; JavaPlugin &gt; MemoriesPlugin</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">recordedMemories</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">RecordedMemories</span>
+                    <span class="memberName">recordedMemories</span>
+                </div>
+                <div class="block">
+                    <p>Field recordedMemories.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hasInitializedMemories</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasInitializedMemories</span>
+                </div>
+                <div class="block">
+                    <p>Field hasInitializedMemories.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityStoreRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ComponentRegistryProxy<EntityStore></span>
+                    <span class="memberName">entityStoreRegistry</span>
+                </div>
+                <div class="block">
+                    <p>Field entityStoreRegistry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">npcMemoryProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NPCMemoryProvider</span>
+                    <span class="memberName">npcMemoryProvider</span>
+                </div>
+                <div class="block">
+                    <p>Field npcMemoryProvider.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">path</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">path</span>
+                </div>
+                <div class="block">
+                    <p>Field path.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">config</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MemoriesGameplayConfig</span>
+                    <span class="memberName">config</span>
+                </div>
+                <div class="block">
+                    <p>Field config.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">recordedMemoriesCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">recordedMemoriesCount</span>
+                </div>
+                <div class="block">
+                    <p>Field recordedMemoriesCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">memoriesAmountPerLevel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">memoriesAmountPerLevel</span>
+                </div>
+                <div class="block">
+                    <p>Field memoriesAmountPerLevel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">memoriesConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MemoriesGameplayConfig</span>
+                    <span class="memberName">memoriesConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field memoriesConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">memoriesLevel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">memoriesLevel</span>
+                </div>
+                <div class="block">
+                    <p>Field memoriesLevel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">collectionRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Object2DoubleMap<String></span>
+                    <span class="memberName">collectionRadius</span>
+                </div>
+                <div class="block">
+                    <p>Field collectionRadius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">playerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRefComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">playerRefComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRefComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerMemoriesComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerMemories</span>
+                    <span class="memberName">playerMemoriesComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerMemoriesComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isFeatureUnlockedByPlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isFeatureUnlockedByPlayer</span>
+                </div>
+                <div class="block">
+                    <p>Field isFeatureUnlockedByPlayer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerConnection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PacketHandler</span>
+                    <span class="memberName">playerConnection</span>
+                </div>
+                <div class="block">
+                    <p>Field playerConnection.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="get">
+                <h4 class="methodName">get</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="MemoriesPlugin.html" class="type-link"><code>MemoriesPlugin</code></a></span>
+                    <span class="memberName">get</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method get.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="MemoriesPlugin">
+                <h4 class="methodName">MemoriesPlugin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">MemoriesPlugin</span>
+                    <span class="arguments">(<span class="param"><a href="../../../server/core/plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <span class="param-name">init</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method MemoriesPlugin.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../server/core/plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <b>init</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="MemoriesCommand">
+                <h4 class="methodName">MemoriesCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">MemoriesCommand</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method MemoriesCommand.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="MemoriesPageSupplier">
+                <h4 class="methodName">MemoriesPageSupplier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">MemoriesPageSupplier</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method MemoriesPageSupplier.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlayerAddedSystem">
+                <h4 class="methodName">PlayerAddedSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PlayerAddedSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PlayerAddedSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="TempleRespawnPlayersSystem">
+                <h4 class="methodName">TempleRespawnPlayersSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">TempleRespawnPlayersSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method TempleRespawnPlayersSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="start">
+                <h4 class="methodName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">start</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method start.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdown">
+                <h4 class="methodName">shutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">shutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onAssetsLoad">
+                <h4 class="methodName">onAssetsLoad</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onAssetsLoad</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method onAssetsLoad.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="HashSet">
+                <h4 class="methodName">HashSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">HashSet</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method HashSet.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getConfig">
+                <h4 class="methodName">getConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>MemoriesPluginConfig</code></span>
+                    <span class="memberName">getConfig</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getConfig.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayerMemoriesComponentType">
+                <h4 class="methodName">getPlayerMemoriesComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PlayerMemories></code></span>
+                    <span class="memberName">getPlayerMemoriesComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayerMemoriesComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerMemoryProvider">
+                <h4 class="methodName">registerMemoryProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">registerMemoryProvider</span>
+                    <span class="arguments">(<span class="param"><a href="memories/MemoryProvider.html" class="type-link"><code>final MemoryProvider<T></code></a> <span class="param-name">memoryProvider</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registerMemoryProvider.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="memories/MemoryProvider.html" class="type-link"><code>final MemoryProvider<T></code></a> <b>memoryProvider</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAllMemories">
+                <h4 class="methodName">getAllMemories</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Set<Memory>></code></span>
+                    <span class="memberName">getAllMemories</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAllMemories.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMemoriesLevel">
+                <h4 class="methodName">getMemoriesLevel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getMemoriesLevel</span>
+                    <span class="arguments">(<span class="param"><a href="../../../server/core/asset/type/gameplay/GameplayConfig.html" class="type-link"><code>@Nonnull final GameplayConfig</code></a> <span class="param-name">gameplayConfig</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getMemoriesLevel.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../server/core/asset/type/gameplay/GameplayConfig.html" class="type-link"><code>@Nonnull final GameplayConfig</code></a> <b>gameplayConfig</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMemoriesForNextLevel">
+                <h4 class="methodName">getMemoriesForNextLevel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getMemoriesForNextLevel</span>
+                    <span class="arguments">(<span class="param"><a href="../../../server/core/asset/type/gameplay/GameplayConfig.html" class="type-link"><code>@Nonnull final GameplayConfig</code></a> <span class="param-name">gameplayConfig</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getMemoriesForNextLevel.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../server/core/asset/type/gameplay/GameplayConfig.html" class="type-link"><code>@Nonnull final GameplayConfig</code></a> <b>gameplayConfig</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasRecordedMemory">
+                <h4 class="methodName">hasRecordedMemory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasRecordedMemory</span>
+                    <span class="arguments">(<span class="param"><a href="memories/Memory.html" class="type-link"><code>final Memory</code></a> <span class="param-name">memory</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method hasRecordedMemory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="memories/Memory.html" class="type-link"><code>final Memory</code></a> <b>memory</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="recordPlayerMemories">
+                <h4 class="methodName">recordPlayerMemories</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">recordPlayerMemories</span>
+                    <span class="arguments">(<span class="param"><a href="component/PlayerMemories.html" class="type-link"><code>@Nonnull final PlayerMemories</code></a> <span class="param-name">playerMemories</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method recordPlayerMemories.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="component/PlayerMemories.html" class="type-link"><code>@Nonnull final PlayerMemories</code></a> <b>playerMemories</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRecordedMemories">
+                <h4 class="methodName">getRecordedMemories</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Set<Memory></code></span>
+                    <span class="memberName">getRecordedMemories</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRecordedMemories.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearRecordedMemories">
+                <h4 class="methodName">clearRecordedMemories</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearRecordedMemories</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearRecordedMemories.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="recordAllMemories">
+                <h4 class="methodName">recordAllMemories</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">recordAllMemories</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method recordAllMemories.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCollectionRadius">
+                <h4 class="methodName">getCollectionRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Object2DoubleMap<String></code></span>
+                    <span class="memberName">getCollectionRadius</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCollectionRadius.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="SystemDependency">
+                <h4 class="methodName">SystemDependency</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SystemDependency</span>
+                    <span class="arguments">(<span class="param">Order.AFTER</span>, <span class="param">PlayerSystems.PlayerSpawnedSystem.class</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SystemDependency.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Order.AFTER</code> <b>Order.AFTER</b></dd>
+<dd><code>PlayerSystems.PlayerSpawnedSystem.class</code> <b>PlayerSystems.PlayerSpawnedSystem.class</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getQuery">
+                <h4 class="methodName">getQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../component/query/Query.html" class="type-link"><code>Query<EntityStore></code></a></span>
+                    <span class="memberName">getQuery</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getQuery.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDependencies">
+                <h4 class="methodName">getDependencies</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Set<Dependency<EntityStore>></code></span>
+                    <span class="memberName">getDependencies</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDependencies.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEntityAdded">
+                <h4 class="methodName">onEntityAdded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEntityAdded</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/AddReason.html" class="type-link"><code>@Nonnull final AddReason</code></a> <span class="param-name">reason</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEntityAdded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/AddReason.html" class="type-link"><code>@Nonnull final AddReason</code></a> <b>reason</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="UpdateMemoriesFeatureStatus">
+                <h4 class="methodName">UpdateMemoriesFeatureStatus</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">UpdateMemoriesFeatureStatus</span>
+                    <span class="arguments">(<span class="param">isFeatureUnlockedByPlayer</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method UpdateMemoriesFeatureStatus.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>isFeatureUnlockedByPlayer</code> <b>isFeatureUnlockedByPlayer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEntityRemove">
+                <h4 class="methodName">onEntityRemove</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEntityRemove</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/RemoveReason.html" class="type-link"><code>@Nonnull final RemoveReason</code></a> <span class="param-name">reason</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEntityRemove.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/RemoveReason.html" class="type-link"><code>@Nonnull final RemoveReason</code></a> <b>reason</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

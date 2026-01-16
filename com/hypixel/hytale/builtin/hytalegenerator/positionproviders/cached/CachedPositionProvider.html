@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CachedPositionProvider (com.hypixel.hytale.builtin.hytalegenerator.positionproviders.cached)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/builtin/hytalegenerator/positionproviders/cached/package-summary.html">com.hypixel.hytale.builtin.hytalegenerator.positionproviders.cached</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">CachedPositionProvider</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="CachedPositionProvider.html" class="type-link">CachedPositionProvider</a> extends <a href="../../../../server/npc/sensorinfo/PositionProvider.html" class="type-link" data-class="PositionProvider"><code>PositionProvider</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class CachedPositionProvider. Provides cachedpositionprovider functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; PositionProvider &gt; CachedPositionProvider</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">threadData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">WorkerIndexer.Data<CacheThreadMemory></span>
+                    <span class="memberName">threadData</span>
+                </div>
+                <div class="block">
+                    <p>Field threadData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cachedData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CacheThreadMemory</span>
+                    <span class="memberName">cachedData</span>
+                </div>
+                <div class="block">
+                    <p>Field cachedData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minSection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">minSection</span>
+                </div>
+                <div class="block">
+                    <p>Field minSection.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxSection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">maxSection</span>
+                </div>
+                <div class="block">
+                    <p>Field maxSection.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sectionAddress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">sectionAddress</span>
+                </div>
+                <div class="block">
+                    <p>Field sectionAddress.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">key</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">key</span>
+                </div>
+                <div class="block">
+                    <p>Field key.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sectionMin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">sectionMin</span>
+                </div>
+                <div class="block">
+                    <p>Field sectionMin.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sectionMax</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">sectionMax</span>
+                </div>
+                <div class="block">
+                    <p>Field sectionMax.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">generatedPositions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ArrayList<Vector3d></span>
+                    <span class="memberName">generatedPositions</span>
+                </div>
+                <div class="block">
+                    <p>Field generatedPositions.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minInclusive</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">minInclusive</span>
+                </div>
+                <div class="block">
+                    <p>Field minInclusive.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxExclusive</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">maxExclusive</span>
+                </div>
+                <div class="block">
+                    <p>Field maxExclusive.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">obj</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ArrayList<Vector3d></span>
+                    <span class="memberName">obj</span>
+                </div>
+                <div class="block">
+                    <p>Field obj.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">childContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Context</span>
+                    <span class="memberName">childContext</span>
+                </div>
+                <div class="block">
+                    <p>Field childContext.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">removedKey</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">removedKey</span>
+                </div>
+                <div class="block">
+                    <p>Field removedKey.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">vector3i</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">vector3i</span>
+                </div>
+                <div class="block">
+                    <p>Field vector3i.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">vector3i2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">vector3i2</span>
+                </div>
+                <div class="block">
+                    <p>Field vector3i2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">vector3i3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">vector3i3</span>
+                </div>
+                <div class="block">
+                    <p>Field vector3i3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">address</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">address</span>
+                </div>
+                <div class="block">
+                    <p>Field address.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">vector3d</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">vector3d</span>
+                </div>
+                <div class="block">
+                    <p>Field vector3d.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">min</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">min</span>
+                </div>
+                <div class="block">
+                    <p>Field min.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">vector3d2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">vector3d2</span>
+                </div>
+                <div class="block">
+                    <p>Field vector3d2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">vector3d3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">vector3d3</span>
+                </div>
+                <div class="block">
+                    <p>Field vector3d3.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="CachedPositionProvider">
+                <h4 class="methodName">CachedPositionProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">CachedPositionProvider</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../server/npc/sensorinfo/PositionProvider.html" class="type-link"><code>@Nonnull final PositionProvider</code></a> <span class="param-name">positionProvider</span></span>, <span class="param"><code>final int</code> <span class="param-name">sectionSize</span></span>, <span class="param"><code>final int</code> <span class="param-name">cacheSize</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">useInternalThreadData</span></span>, <span class="param"><code>final int</code> <span class="param-name">threadCount</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method CachedPositionProvider.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../server/npc/sensorinfo/PositionProvider.html" class="type-link"><code>@Nonnull final PositionProvider</code></a> <b>positionProvider</b></dd>
+<dd><code>final int</code> <b>sectionSize</b></dd>
+<dd><code>final int</code> <b>cacheSize</b></dd>
+<dd><code>final boolean</code> <b>useInternalThreadData</b></dd>
+<dd><code>final int</code> <b>threadCount</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="CacheThreadMemory">
+                <h4 class="methodName">CacheThreadMemory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">CacheThreadMemory</span>
+                    <span class="arguments">(<span class="param">cacheSize</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method CacheThreadMemory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>cacheSize</code> <b>cacheSize</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="positionsIn">
+                <h4 class="methodName">positionsIn</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">positionsIn</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Context</code> <span class="param-name">context</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method positionsIn.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Context</code> <b>context</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="get">
+                <h4 class="methodName">get</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">get</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Context</code> <span class="param-name">context</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method get.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Context</code> <b>context</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Context">
+                <h4 class="methodName">Context</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Context</span>
+                    <span class="arguments">(<span class="param">minInclusive</span>, <span class="param">maxExclusive</span>, <span class="param">(Consumer<Vector3d></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Context.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>minInclusive</code> <b>minInclusive</b></dd>
+<dd><code>maxExclusive</code> <b>maxExclusive</b></dd>
+<dd><code>(Consumer<Vector3d></code> <b>(Consumer<Vector3d></b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sectionAddress">
+                <h4 class="methodName">sectionAddress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../../../protocol/Vector3i.html" class="type-link"><code>Vector3i</code></a></span>
+                    <span class="memberName">sectionAddress</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">pointer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method sectionAddress.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>pointer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sectionMin">
+                <h4 class="methodName">sectionMin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>Vector3d</code></a></span>
+                    <span class="memberName">sectionMin</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <span class="param-name">sectionAddress</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method sectionMin.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <b>sectionAddress</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="toSectionAddress">
+                <h4 class="methodName">toSectionAddress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">toSectionAddress</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">position</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method toSectionAddress.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>position</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sectionFloor">
+                <h4 class="methodName">sectionFloor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">sectionFloor</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">voxelAddress</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method sectionFloor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>voxelAddress</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

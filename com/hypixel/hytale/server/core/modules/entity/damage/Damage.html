@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Damage (com.hypixel.hytale.server.core.modules.entity.damage)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../../com/hypixel/hytale/server/core/modules/entity/damage/package-summary.html">com.hypixel.hytale.server.core.modules.entity.damage</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">Damage</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="Damage.html" class="type-link">Damage</a> extends <a href="../../../../../component/system/CancellableEcsEvent.html" class="type-link" data-class="CancellableEcsEvent"><code>CancellableEcsEvent</code></a> implements <a href="../../../meta/IMetaStore.html" class="type-link" data-class="IMetaStore"><code>IMetaStore<Damage></code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class Damage. Provides damage functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; CancellableEcsEvent &gt; Damage</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">damageCauseIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">damageCauseIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field damageCauseIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">source</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Source</span>
+                    <span class="memberName">source</span>
+                </div>
+                <div class="block">
+                    <p>Field source.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">amount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">amount</span>
+                </div>
+                <div class="block">
+                    <p>Field amount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelParticles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">ModelParticle[]</span>
+                    <span class="memberName">modelParticles</span>
+                </div>
+                <div class="block">
+                    <p>Field modelParticles.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldParticles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">WorldParticle[]</span>
+                    <span class="memberName">worldParticles</span>
+                </div>
+                <div class="block">
+                    <p>Field worldParticles.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">viewDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">viewDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field viewDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">soundEventIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">soundEventIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field soundEventIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">damageCauseAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">DamageCause</span>
+                    <span class="memberName">damageCauseAsset</span>
+                </div>
+                <div class="block">
+                    <p>Field damageCauseAsset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">causeId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">causeId</span>
+                </div>
+                <div class="block">
+                    <p>Field causeId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">damageCauseMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">damageCauseMessage</span>
+                </div>
+                <div class="block">
+                    <p>Field damageCauseMessage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">displayNameComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">DisplayNameComponent</span>
+                    <span class="memberName">displayNameComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field displayNameComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">displayName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">displayName</span>
+                </div>
+                <div class="block">
+                    <p>Field displayName.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="Damage">
+                <h4 class="methodName">Damage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">Damage</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Source</code> <span class="param-name">source</span></span>, <span class="param"><a href="DamageCause.html" class="type-link"><code>@Nonnull final DamageCause</code></a> <span class="param-name">damageCause</span></span>, <span class="param"><code>final float</code> <span class="param-name">amount</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Damage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Source</code> <b>source</b></dd>
+<dd><a href="DamageCause.html" class="type-link"><code>@Nonnull final DamageCause</code></a> <b>damageCause</b></dd>
+<dd><code>final float</code> <b>amount</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDamageCauseIndex">
+                <h4 class="methodName">getDamageCauseIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getDamageCauseIndex</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDamageCauseIndex.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDamageCauseIndex">
+                <h4 class="methodName">setDamageCauseIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDamageCauseIndex</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">damageCauseIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setDamageCauseIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>damageCauseIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCause">
+                <h4 class="methodName">getCause</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="DamageCause.html" class="type-link"><code>DamageCause</code></a></span>
+                    <span class="memberName">getCause</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCause.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSource">
+                <h4 class="methodName">getSource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Source</code></span>
+                    <span class="memberName">getSource</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSource.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setSource">
+                <h4 class="methodName">setSource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setSource</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Source</code> <span class="param-name">source</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setSource.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Source</code> <b>source</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAmount">
+                <h4 class="methodName">getAmount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">getAmount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAmount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setAmount">
+                <h4 class="methodName">setAmount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setAmount</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">amount</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setAmount.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>amount</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInitialAmount">
+                <h4 class="methodName">getInitialAmount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">getInitialAmount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getInitialAmount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDeathMessage">
+                <h4 class="methodName">getDeathMessage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../..//Message.html" class="type-link"><code>Message</code></a></span>
+                    <span class="memberName">getDeathMessage</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">targetRef</span></span>, <span class="param"><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getDeathMessage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>targetRef</b></dd>
+<dd><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMetaStore">
+                <h4 class="methodName">getMetaStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../meta/IMetaStoreImpl.html" class="type-link"><code>IMetaStoreImpl<Damage></code></a></span>
+                    <span class="memberName">getMetaStore</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMetaStore.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="Source">
+                <h4 class="methodName">Source</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Source</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method Source.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="Particles">
+                <h4 class="methodName">Particles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">Particles</span>
+                    <span class="arguments">(<span class="param"><code>@Nullable final ModelParticle[]</code> <span class="param-name">modelParticles</span></span>, <span class="param"><code>@Nullable final WorldParticle[]</code> <span class="param-name">worldParticles</span></span>, <span class="param"><code>final double</code> <span class="param-name">viewDistance</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Particles.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nullable final ModelParticle[]</code> <b>modelParticles</b></dd>
+<dd><code>@Nullable final WorldParticle[]</code> <b>worldParticles</b></dd>
+<dd><code>final double</code> <b>viewDistance</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getModelParticles">
+                <h4 class="methodName">getModelParticles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ModelParticle[]</code></span>
+                    <span class="memberName">getModelParticles</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getModelParticles.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setModelParticles">
+                <h4 class="methodName">setModelParticles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setModelParticles</span>
+                    <span class="arguments">(<span class="param"><code>@Nullable final ModelParticle[]</code> <span class="param-name">modelParticles</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setModelParticles.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nullable final ModelParticle[]</code> <b>modelParticles</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWorldParticles">
+                <h4 class="methodName">getWorldParticles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>WorldParticle[]</code></span>
+                    <span class="memberName">getWorldParticles</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getWorldParticles.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setWorldParticles">
+                <h4 class="methodName">setWorldParticles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setWorldParticles</span>
+                    <span class="arguments">(<span class="param"><code>@Nullable final WorldParticle[]</code> <span class="param-name">worldParticles</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setWorldParticles.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nullable final WorldParticle[]</code> <b>worldParticles</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getViewDistance">
+                <h4 class="methodName">getViewDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getViewDistance</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getViewDistance.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setViewDistance">
+                <h4 class="methodName">setViewDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setViewDistance</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">viewDistance</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setViewDistance.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>viewDistance</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SoundEffect">
+                <h4 class="methodName">SoundEffect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">SoundEffect</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">soundEventIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SoundEffect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>soundEventIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setSoundEventIndex">
+                <h4 class="methodName">setSoundEventIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setSoundEventIndex</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">soundEventIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setSoundEventIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>soundEventIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSoundEventIndex">
+                <h4 class="methodName">getSoundEventIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getSoundEventIndex</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSoundEventIndex.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="CameraEffect">
+                <h4 class="methodName">CameraEffect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>record</code></span>
+                    <span class="memberName">CameraEffect</span>
+                    <span class="arguments">(<span class="param"><code>int</code> <span class="param-name">cameraEffectIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method CameraEffect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>int</code> <b>cameraEffectIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEffectIndex">
+                <h4 class="methodName">getEffectIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getEffectIndex</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEffectIndex.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="EnvironmentSource">
+                <h4 class="methodName">EnvironmentSource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">EnvironmentSource</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">type</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method EnvironmentSource.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>type</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getType">
+                <h4 class="methodName">getType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="EntitySource">
+                <h4 class="methodName">EntitySource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">EntitySource</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">sourceRef</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method EntitySource.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>sourceRef</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRef">
+                <h4 class="methodName">getRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../component/Ref.html" class="type-link"><code>Ref<EntityStore></code></a></span>
+                    <span class="memberName">getRef</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRef.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ProjectileSource">
+                <h4 class="methodName">ProjectileSource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">ProjectileSource</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">shooter</span></span>, <span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">projectile</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ProjectileSource.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>shooter</b></dd>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>projectile</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getProjectile">
+                <h4 class="methodName">getProjectile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../component/Ref.html" class="type-link"><code>Ref<EntityStore></code></a></span>
+                    <span class="memberName">getProjectile</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getProjectile.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="CommandSource">
+                <h4 class="methodName">CommandSource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">CommandSource</span>
+                    <span class="arguments">(<span class="param"><a href="../../../command/system/CommandSender.html" class="type-link"><code>@Nonnull final CommandSender</code></a> <span class="param-name">commandSender</span></span>, <span class="param"><a href="../../../command/system/AbstractCommand.html" class="type-link"><code>@Nonnull final AbstractCommand</code></a> <span class="param-name">cmd</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method CommandSource.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../command/system/CommandSender.html" class="type-link"><code>@Nonnull final CommandSender</code></a> <b>commandSender</b></dd>
+<dd><a href="../../../command/system/AbstractCommand.html" class="type-link"><code>@Nonnull final AbstractCommand</code></a> <b>cmd</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,2939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BlockSelection (com.hypixel.hytale.server.core.prefab.selection.standard)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../../com/hypixel/hytale/server/core/prefab/selection/standard/package-summary.html">com.hypixel.hytale.server.core.prefab.selection.standard</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">BlockSelection</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="BlockSelection.html" class="type-link">BlockSelection</a> implements <a href="../../../io/NetworkSerializable.html" class="type-link" data-class="NetworkSerializable"><code>NetworkSerializable<EditorBlocksChange></code></a>, <a href="../../../../../metrics/MetricProvider.html" class="type-link" data-class="MetricProvider"><code>MetricProvider</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class BlockSelection. Provides blockselection functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; BlockSelection</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">x</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">x</span>
+                </div>
+                <div class="block">
+                    <p>Field x.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">y</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">y</span>
+                </div>
+                <div class="block">
+                    <p>Field y.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">z</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">z</span>
+                </div>
+                <div class="block">
+                    <p>Field z.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">anchorX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">anchorX</span>
+                </div>
+                <div class="block">
+                    <p>Field anchorX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">anchorY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">anchorY</span>
+                </div>
+                <div class="block">
+                    <p>Field anchorY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">anchorZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">anchorZ</span>
+                </div>
+                <div class="block">
+                    <p>Field anchorZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">prefabId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">prefabId</span>
+                </div>
+                <div class="block">
+                    <p>Field prefabId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">min</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">min</span>
+                </div>
+                <div class="block">
+                    <p>Field min.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">max</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">max</span>
+                </div>
+                <div class="block">
+                    <p>Field max.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">xLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">xLength</span>
+                </div>
+                <div class="block">
+                    <p>Field xLength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">yLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">yLength</span>
+                </div>
+                <div class="block">
+                    <p>Field yLength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">zLength</span>
+                </div>
+                <div class="block">
+                    <p>Field zLength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">blockX</span>
+                </div>
+                <div class="block">
+                    <p>Field blockX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">blockY</span>
+                </div>
+                <div class="block">
+                    <p>Field blockY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">blockZ</span>
+                </div>
+                <div class="block">
+                    <p>Field blockZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">blockId</span>
+                </div>
+                <div class="block">
+                    <p>Field blockId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">packed</span>
+                </div>
+                <div class="block">
+                    <p>Field packed.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">value</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockHolder</span>
+                    <span class="memberName">value</span>
+                </div>
+                <div class="block">
+                    <p>Field value.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">x1</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">x1</span>
+                </div>
+                <div class="block">
+                    <p>Field x1.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">y1</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">y1</span>
+                </div>
+                <div class="block">
+                    <p>Field y1.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">z1</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">z1</span>
+                </div>
+                <div class="block">
+                    <p>Field z1.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockHolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockHolder</span>
+                    <span class="memberName">blockHolder</span>
+                </div>
+                <div class="block">
+                    <p>Field blockHolder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fluidStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">FluidHolder</span>
+                    <span class="memberName">fluidStore</span>
+                </div>
+                <div class="block">
+                    <p>Field fluidStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<ChunkStore></span>
+                    <span class="memberName">holder</span>
+                </div>
+                <div class="block">
+                    <p>Field holder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">block</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockHolder</span>
+                    <span class="memberName">block</span>
+                </div>
+                <div class="block">
+                    <p>Field block.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockType</span>
+                    <span class="memberName">blockType</span>
+                </div>
+                <div class="block">
+                    <p>Field blockType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">state</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StateData</span>
+                    <span class="memberName">state</span>
+                </div>
+                <div class="block">
+                    <p>Field state.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockState</span>
+                    <span class="memberName">blockState</span>
+                </div>
+                <div class="block">
+                    <p>Field blockState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">registry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ComponentRegistry<ChunkStore></span>
+                    <span class="memberName">registry</span>
+                </div>
+                <div class="block">
+                    <p>Field registry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">data</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ComponentRegistry.Data<ChunkStore></span>
+                    <span class="memberName">data</span>
+                </div>
+                <div class="block">
+                    <p>Field data.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">systemIndexes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BitSet</span>
+                    <span class="memberName">systemIndexes</span>
+                </div>
+                <div class="block">
+                    <p>Field systemIndexes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">o</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object</span>
+                    <span class="memberName">o</span>
+                </div>
+                <div class="block">
+                    <p>Field o.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">system</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockModule.MigrationSystem</span>
+                    <span class="memberName">system</span>
+                </div>
+                <div class="block">
+                    <p>Field system.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">o2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object</span>
+                    <span class="memberName">o2</span>
+                </div>
+                <div class="block">
+                    <p>Field o2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">system2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockModule.MigrationSystem</span>
+                    <span class="memberName">system2</span>
+                </div>
+                <div class="block">
+                    <p>Field system2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dirtyChunks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LongSet</span>
+                    <span class="memberName">dirtyChunks</span>
+                </div>
+                <div class="block">
+                    <p>Field dirtyChunks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalBlocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">totalBlocks</span>
+                </div>
+                <div class="block">
+                    <p>Field totalBlocks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">counter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AtomicInteger</span>
+                    <span class="memberName">counter</span>
+                </div>
+                <div class="block">
+                    <p>Field counter.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newBlockId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">newBlockId</span>
+                </div>
+                <div class="block">
+                    <p>Field newBlockId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldBlockId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">oldBlockId</span>
+                </div>
+                <div class="block">
+                    <p>Field oldBlockId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockChunk</span>
+                    <span class="memberName">blockChunk</span>
+                </div>
+                <div class="block">
+                    <p>Field blockChunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newBlockType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockType</span>
+                    <span class="memberName">newBlockType</span>
+                </div>
+                <div class="block">
+                    <p>Field newBlockType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">height</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">short</span>
+                    <span class="memberName">height</span>
+                </div>
+                <div class="block">
+                    <p>Field height.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sectionY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">sectionY</span>
+                </div>
+                <div class="block">
+                    <p>Field sectionY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">store</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<ChunkStore></span>
+                    <span class="memberName">store</span>
+                </div>
+                <div class="block">
+                    <p>Field store.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">column</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkColumn</span>
+                    <span class="memberName">column</span>
+                </div>
+                <div class="block">
+                    <p>Field column.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">section</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<ChunkStore></span>
+                    <span class="memberName">section</span>
+                </div>
+                <div class="block">
+                    <p>Field section.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fluidSection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">FluidSection</span>
+                    <span class="memberName">fluidSection</span>
+                </div>
+                <div class="block">
+                    <p>Field fluidSection.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ref</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<ChunkStore></span>
+                    <span class="memberName">ref</span>
+                </div>
+                <div class="block">
+                    <p>Field ref.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">before</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockSelection</span>
+                    <span class="memberName">before</span>
+                </div>
+                <div class="block">
+                    <p>Field before.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<ChunkStore></span>
+                    <span class="memberName">chunkStore</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkColumn</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkColumn</span>
+                    <span class="memberName">chunkColumn</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkColumn.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockSection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockSection</span>
+                    <span class="memberName">blockSection</span>
+                </div>
+                <div class="block">
+                    <p>Field blockSection.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">supportValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">supportValue</span>
+                </div>
+                <div class="block">
+                    <p>Field supportValue.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">filler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">filler</span>
+                </div>
+                <div class="block">
+                    <p>Field filler.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">rotation</span>
+                </div>
+                <div class="block">
+                    <p>Field rotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldFluidId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">oldFluidId</span>
+                </div>
+                <div class="block">
+                    <p>Field oldFluidId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldFluidLevel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">byte</span>
+                    <span class="memberName">oldFluidLevel</span>
+                </div>
+                <div class="block">
+                    <p>Field oldFluidLevel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">entity</span>
+                </div>
+                <div class="block">
+                    <p>Field entity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">prefabPlaceEntityEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrefabPlaceEntityEvent</span>
+                    <span class="memberName">prefabPlaceEntityEvent</span>
+                </div>
+                <div class="block">
+                    <p>Field prefabPlaceEntityEvent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">entityRef</span>
+                </div>
+                <div class="block">
+                    <p>Field entityRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">selection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockSelection</span>
+                    <span class="memberName">selection</span>
+                </div>
+                <div class="block">
+                    <p>Field selection.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">mutable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">mutable</span>
+                </div>
+                <div class="block">
+                    <p>Field mutable.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RotationTuple</span>
+                    <span class="memberName">blockRotation</span>
+                </div>
+                <div class="block">
+                    <p>Field blockRotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotationTuple</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RotationTuple</span>
+                    <span class="memberName">rotationTuple</span>
+                </div>
+                <div class="block">
+                    <p>Field rotationTuple.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotatedFiller</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">rotatedFiller</span>
+                </div>
+                <div class="block">
+                    <p>Field rotatedFiller.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">copy</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">copy</span>
+                </div>
+                <div class="block">
+                    <p>Field copy.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">headRotationComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HeadRotation</span>
+                    <span class="memberName">headRotationComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field headRotationComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">finalOriginOfRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3f</span>
+                    <span class="memberName">finalOriginOfRotation</span>
+                </div>
+                <div class="block">
+                    <p>Field finalOriginOfRotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pitchRad</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">pitchRad</span>
+                </div>
+                <div class="block">
+                    <p>Field pitchRad.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">yawRad</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">yawRad</span>
+                </div>
+                <div class="block">
+                    <p>Field yawRad.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rollRad</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">rollRad</span>
+                </div>
+                <div class="block">
+                    <p>Field rollRad.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inverse</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Matrix4d</span>
+                    <span class="memberName">inverse</span>
+                </div>
+                <div class="block">
+                    <p>Field inverse.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempVec</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">tempVec</span>
+                </div>
+                <div class="block">
+                    <p>Field tempVec.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">bx</span>
+                </div>
+                <div class="block">
+                    <p>Field bx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">by</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">by</span>
+                </div>
+                <div class="block">
+                    <p>Field by.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bz</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">bz</span>
+                </div>
+                <div class="block">
+                    <p>Field bz.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">array</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[][]</span>
+                    <span class="memberName">array</span>
+                </div>
+                <div class="block">
+                    <p>Field array.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">corners</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[][]</span>
+                    <span class="memberName">corners</span>
+                </div>
+                <div class="block">
+                    <p>Field corners.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">rx</span>
+                </div>
+                <div class="block">
+                    <p>Field rx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">ry</span>
+                </div>
+                <div class="block">
+                    <p>Field ry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rz</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">rz</span>
+                </div>
+                <div class="block">
+                    <p>Field rz.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">selection2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockSelection</span>
+                    <span class="memberName">selection2</span>
+                </div>
+                <div class="block">
+                    <p>Field selection2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">snappedYaw</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Rotation</span>
+                    <span class="memberName">snappedYaw</span>
+                </div>
+                <div class="block">
+                    <p>Field snappedYaw.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">snappedPitch</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Rotation</span>
+                    <span class="memberName">snappedPitch</span>
+                </div>
+                <div class="block">
+                    <p>Field snappedPitch.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">snappedRoll</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Rotation</span>
+                    <span class="memberName">snappedRoll</span>
+                </div>
+                <div class="block">
+                    <p>Field snappedRoll.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">sx</span>
+                </div>
+                <div class="block">
+                    <p>Field sx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sy</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">sy</span>
+                </div>
+                <div class="block">
+                    <p>Field sy.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sz</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">sz</span>
+                </div>
+                <div class="block">
+                    <p>Field sz.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packedSource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">packedSource</span>
+                </div>
+                <div class="block">
+                    <p>Field packedSource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fillerX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">fillerX</span>
+                </div>
+                <div class="block">
+                    <p>Field fillerX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fillerY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">fillerY</span>
+                </div>
+                <div class="block">
+                    <p>Field fillerY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fillerZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">fillerZ</span>
+                </div>
+                <div class="block">
+                    <p>Field fillerZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fluid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">FluidHolder</span>
+                    <span class="memberName">fluid</span>
+                </div>
+                <div class="block">
+                    <p>Field fluid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">yawRadF</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">yawRadF</span>
+                </div>
+                <div class="block">
+                    <p>Field yawRadF.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pitchRadF</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">pitchRadF</span>
+                </div>
+                <div class="block">
+                    <p>Field pitchRadF.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rollRadF</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">rollRadF</span>
+                </div>
+                <div class="block">
+                    <p>Field rollRadF.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">headRotationComp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HeadRotation</span>
+                    <span class="memberName">headRotationComp</span>
+                </div>
+                <div class="block">
+                    <p>Field headRotationComp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bodyRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3f</span>
+                    <span class="memberName">bodyRotation</span>
+                </div>
+                <div class="block">
+                    <p>Field bodyRotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">headRot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3f</span>
+                    <span class="memberName">headRot</span>
+                </div>
+                <div class="block">
+                    <p>Field headRot.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">variantRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">VariantRotation</span>
+                    <span class="memberName">variantRotation</span>
+                </div>
+                <div class="block">
+                    <p>Field variantRotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">headRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3f</span>
+                    <span class="memberName">headRotation</span>
+                </div>
+                <div class="block">
+                    <p>Field headRotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EditorBlocksChange</span>
+                    <span class="memberName">packet</span>
+                </div>
+                <div class="block">
+                    <p>Field packet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">blockCount</span>
+                </div>
+                <div class="block">
+                    <p>Field blockCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<BlockChange></span>
+                    <span class="memberName">blockList</span>
+                </div>
+                <div class="block">
+                    <p>Field blockList.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fluidList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<FluidChange></span>
+                    <span class="memberName">fluidList</span>
+                </div>
+                <div class="block">
+                    <p>Field fluidList.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">it</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LongIterator</span>
+                    <span class="memberName">it</span>
+                </div>
+                <div class="block">
+                    <p>Field it.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">id</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">id</span>
+                </div>
+                <div class="block">
+                    <p>Field id.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">baseBlockHolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockHolder</span>
+                    <span class="memberName">baseBlockHolder</span>
+                </div>
+                <div class="block">
+                    <p>Field baseBlockHolder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">baseBlock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockType</span>
+                    <span class="memberName">baseBlock</span>
+                </div>
+                <div class="block">
+                    <p>Field baseBlock.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">baseId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">baseId</span>
+                </div>
+                <div class="block">
+                    <p>Field baseId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hitbox</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockBoundingBoxes</span>
+                    <span class="memberName">hitbox</span>
+                </div>
+                <div class="block">
+                    <p>Field hitbox.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hitbox2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockBoundingBoxes</span>
+                    <span class="memberName">hitbox2</span>
+                </div>
+                <div class="block">
+                    <p>Field hitbox2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">worldX</span>
+                </div>
+                <div class="block">
+                    <p>Field worldX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">worldY</span>
+                </div>
+                <div class="block">
+                    <p>Field worldY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">worldZ</span>
+                </div>
+                <div class="block">
+                    <p>Field worldZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fillerBlockHolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockHolder</span>
+                    <span class="memberName">fillerBlockHolder</span>
+                </div>
+                <div class="block">
+                    <p>Field fillerBlockHolder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fillerBlock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockType</span>
+                    <span class="memberName">fillerBlock</span>
+                </div>
+                <div class="block">
+                    <p>Field fillerBlock.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">holder2</span>
+                </div>
+                <div class="block">
+                    <p>Field holder2.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="BlockSelection">
+                <h4 class="methodName">BlockSelection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">BlockSelection</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method BlockSelection.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="IllegalArgumentException">
+                <h4 class="methodName">IllegalArgumentException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IllegalArgumentException</span>
+                    <span class="arguments">(<span class="param"><code>"Cannot duplicate a BlockSelection with this method! Use</code> <span class="param-name">clone(</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IllegalArgumentException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Cannot duplicate a BlockSelection with this method! Use</code> <b>clone(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getX">
+                <h4 class="methodName">getX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getX</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getX.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getY">
+                <h4 class="methodName">getY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getY</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getY.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getZ">
+                <h4 class="methodName">getZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getZ</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getZ.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAnchorX">
+                <h4 class="methodName">getAnchorX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getAnchorX</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAnchorX.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAnchorY">
+                <h4 class="methodName">getAnchorY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getAnchorY</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAnchorY.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAnchorZ">
+                <h4 class="methodName">getAnchorZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getAnchorZ</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAnchorZ.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSelectionMin">
+                <h4 class="methodName">getSelectionMin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>Vector3i</code></a></span>
+                    <span class="memberName">getSelectionMin</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSelectionMin.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSelectionMax">
+                <h4 class="methodName">getSelectionMax</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>Vector3i</code></a></span>
+                    <span class="memberName">getSelectionMax</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSelectionMax.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasSelectionBounds">
+                <h4 class="methodName">hasSelectionBounds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasSelectionBounds</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method hasSelectionBounds.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlockCount">
+                <h4 class="methodName">getBlockCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getBlockCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlockCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFluidCount">
+                <h4 class="methodName">getFluidCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getFluidCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getFluidCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSelectionVolume">
+                <h4 class="methodName">getSelectionVolume</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getSelectionVolume</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSelectionVolume.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEntityCount">
+                <h4 class="methodName">getEntityCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getEntityCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEntityCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setPosition">
+                <h4 class="methodName">setPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setPosition</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setPosition.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setAnchorAtWorldPos">
+                <h4 class="methodName">setAnchorAtWorldPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setAnchorAtWorldPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">anchorX</span></span>, <span class="param"><code>final int</code> <span class="param-name">anchorY</span></span>, <span class="param"><code>final int</code> <span class="param-name">anchorZ</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setAnchorAtWorldPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>anchorX</b></dd>
+<dd><code>final int</code> <b>anchorY</b></dd>
+<dd><code>final int</code> <b>anchorZ</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setAnchor">
+                <h4 class="methodName">setAnchor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setAnchor</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">anchorX</span></span>, <span class="param"><code>final int</code> <span class="param-name">anchorY</span></span>, <span class="param"><code>final int</code> <span class="param-name">anchorZ</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setAnchor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>anchorX</b></dd>
+<dd><code>final int</code> <b>anchorY</b></dd>
+<dd><code>final int</code> <b>anchorZ</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setSelectionArea">
+                <h4 class="methodName">setSelectionArea</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setSelectionArea</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <span class="param-name">min</span></span>, <span class="param"><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <span class="param-name">max</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setSelectionArea.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <b>min</b></dd>
+<dd><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <b>max</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setPrefabId">
+                <h4 class="methodName">setPrefabId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setPrefabId</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">id</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setPrefabId.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>id</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="copyPropertiesFrom">
+                <h4 class="methodName">copyPropertiesFrom</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">copyPropertiesFrom</span>
+                    <span class="arguments">(<span class="param"><a href="BlockSelection.html" class="type-link"><code>@Nonnull final BlockSelection</code></a> <span class="param-name">other</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method copyPropertiesFrom.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="BlockSelection.html" class="type-link"><code>@Nonnull final BlockSelection</code></a> <b>other</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="canPlace">
+                <h4 class="methodName">canPlace</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">canPlace</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <span class="param-name">position</span></span>, <span class="param"><code>@Nullable final IntList</code> <span class="param-name">mask</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method canPlace.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <b>position</b></dd>
+<dd><code>@Nullable final IntList</code> <b>mask</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="matches">
+                <h4 class="methodName">matches</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">matches</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <span class="param-name">position</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method matches.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <b>position</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="compare">
+                <h4 class="methodName">compare</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">compare</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final BlockComparingIterator</code> <span class="param-name">iterator</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method compare.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final BlockComparingIterator</code> <b>iterator</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasBlockAtWorldPos">
+                <h4 class="methodName">hasBlockAtWorldPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasBlockAtWorldPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method hasBlockAtWorldPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasBlockAtLocalPos">
+                <h4 class="methodName">hasBlockAtLocalPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasBlockAtLocalPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method hasBlockAtLocalPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlockAtWorldPos">
+                <h4 class="methodName">getBlockAtWorldPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getBlockAtWorldPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlockAtWorldPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlockAtLocalPos">
+                <h4 class="methodName">getBlockAtLocalPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getBlockAtLocalPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlockAtLocalPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlockHolderAtWorldPos">
+                <h4 class="methodName">getBlockHolderAtWorldPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>BlockHolder</code></span>
+                    <span class="memberName">getBlockHolderAtWorldPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlockHolderAtWorldPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlockHolderAtLocalPos">
+                <h4 class="methodName">getBlockHolderAtLocalPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>BlockHolder</code></span>
+                    <span class="memberName">getBlockHolderAtLocalPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlockHolderAtLocalPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFluidAtWorldPos">
+                <h4 class="methodName">getFluidAtWorldPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getFluidAtWorldPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getFluidAtWorldPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFluidAtLocalPos">
+                <h4 class="methodName">getFluidAtLocalPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getFluidAtLocalPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getFluidAtLocalPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFluidLevelAtWorldPos">
+                <h4 class="methodName">getFluidLevelAtWorldPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>byte</code></span>
+                    <span class="memberName">getFluidLevelAtWorldPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getFluidLevelAtWorldPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFluidLevelAtLocalPos">
+                <h4 class="methodName">getFluidLevelAtLocalPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>byte</code></span>
+                    <span class="memberName">getFluidLevelAtLocalPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getFluidLevelAtLocalPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSupportValueAtWorldPos">
+                <h4 class="methodName">getSupportValueAtWorldPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getSupportValueAtWorldPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getSupportValueAtWorldPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSupportValueAtLocalPos">
+                <h4 class="methodName">getSupportValueAtLocalPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getSupportValueAtLocalPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getSupportValueAtLocalPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getStateAtWorldPos">
+                <h4 class="methodName">getStateAtWorldPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../component/Holder.html" class="type-link"><code>Holder<ChunkStore></code></a></span>
+                    <span class="memberName">getStateAtWorldPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getStateAtWorldPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getStateAtLocalPos">
+                <h4 class="methodName">getStateAtLocalPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../../../../component/Holder.html" class="type-link"><code>Holder<ChunkStore></code></a></span>
+                    <span class="memberName">getStateAtLocalPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getStateAtLocalPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="forEachBlock">
+                <h4 class="methodName">forEachBlock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">forEachBlock</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../math/iterator/BlockIterator.html" class="type-link"><code>@Nonnull final BlockIterator</code></a> <span class="param-name">iterator</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method forEachBlock.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../math/iterator/BlockIterator.html" class="type-link"><code>@Nonnull final BlockIterator</code></a> <b>iterator</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="forEachFluid">
+                <h4 class="methodName">forEachFluid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">forEachFluid</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final FluidIterator</code> <span class="param-name">iterator</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method forEachFluid.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final FluidIterator</code> <b>iterator</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="forEachEntity">
+                <h4 class="methodName">forEachEntity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">forEachEntity</span>
+                    <span class="arguments">(<span class="param"><code>final Consumer<Holder<EntityStore>></code> <span class="param-name">consumer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method forEachEntity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Consumer<Holder<EntityStore>></code> <b>consumer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="copyFromAtWorld">
+                <h4 class="methodName">copyFromAtWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">copyFromAtWorld</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><a href="../../../universe/world/chunk/WorldChunk.html" class="type-link"><code>@Nonnull final WorldChunk</code></a> <span class="param-name">other</span></span>, <span class="param"><a href="../../../blocktype/component/BlockPhysics.html" class="type-link"><code>@Nullable final BlockPhysics</code></a> <span class="param-name">blockPhysics</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method copyFromAtWorld.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><a href="../../../universe/world/chunk/WorldChunk.html" class="type-link"><code>@Nonnull final WorldChunk</code></a> <b>other</b></dd>
+<dd><a href="../../../blocktype/component/BlockPhysics.html" class="type-link"><code>@Nullable final BlockPhysics</code></a> <b>blockPhysics</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addEmptyAtWorldPos">
+                <h4 class="methodName">addEmptyAtWorldPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addEmptyAtWorldPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addEmptyAtWorldPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addBlockAtWorldPos">
+                <h4 class="methodName">addBlockAtWorldPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addBlockAtWorldPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">block</span></span>, <span class="param"><code>final int</code> <span class="param-name">rotation</span></span>, <span class="param"><code>final int</code> <span class="param-name">filler</span></span>, <span class="param"><code>final int</code> <span class="param-name">supportValue</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addBlockAtWorldPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>block</b></dd>
+<dd><code>final int</code> <b>rotation</b></dd>
+<dd><code>final int</code> <b>filler</b></dd>
+<dd><code>final int</code> <b>supportValue</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addBlockAtLocalPos">
+                <h4 class="methodName">addBlockAtLocalPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addBlockAtLocalPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">block</span></span>, <span class="param"><code>final int</code> <span class="param-name">rotation</span></span>, <span class="param"><code>final int</code> <span class="param-name">filler</span></span>, <span class="param"><code>final int</code> <span class="param-name">supportValue</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addBlockAtLocalPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>block</b></dd>
+<dd><code>final int</code> <b>rotation</b></dd>
+<dd><code>final int</code> <b>filler</b></dd>
+<dd><code>final int</code> <b>supportValue</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addBlock0">
+                <h4 class="methodName">addBlock0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addBlock0</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">block</span></span>, <span class="param"><code>final int</code> <span class="param-name">rotation</span></span>, <span class="param"><code>final int</code> <span class="param-name">filler</span></span>, <span class="param"><code>final int</code> <span class="param-name">supportValue</span></span>, <span class="param"><a href="../../../../../component/Holder.html" class="type-link"><code>final Holder<ChunkStore></code></a> <span class="param-name">state</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addBlock0.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>block</b></dd>
+<dd><code>final int</code> <b>rotation</b></dd>
+<dd><code>final int</code> <b>filler</b></dd>
+<dd><code>final int</code> <b>supportValue</b></dd>
+<dd><a href="../../../../../component/Holder.html" class="type-link"><code>final Holder<ChunkStore></code></a> <b>state</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BlockHolder">
+                <h4 class="methodName">BlockHolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BlockHolder</span>
+                    <span class="arguments">(<span class="param">block</span>, <span class="param">rotation</span>, <span class="param">filler</span>, <span class="param">supportValue</span>, <span class="param">state</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BlockHolder.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>block</code> <b>block</b></dd>
+<dd><code>rotation</code> <b>rotation</b></dd>
+<dd><code>filler</code> <b>filler</b></dd>
+<dd><code>supportValue</code> <b>supportValue</b></dd>
+<dd><code>state</code> <b>state</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addFluidAtWorldPos">
+                <h4 class="methodName">addFluidAtWorldPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addFluidAtWorldPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">fluidId</span></span>, <span class="param"><code>final byte</code> <span class="param-name">fluidLevel</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addFluidAtWorldPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>fluidId</b></dd>
+<dd><code>final byte</code> <b>fluidLevel</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addFluidAtLocalPos">
+                <h4 class="methodName">addFluidAtLocalPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addFluidAtLocalPos</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">fluidId</span></span>, <span class="param"><code>final byte</code> <span class="param-name">fluidLevel</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addFluidAtLocalPos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>fluidId</b></dd>
+<dd><code>final byte</code> <b>fluidLevel</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addFluid0">
+                <h4 class="methodName">addFluid0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addFluid0</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">fluidId</span></span>, <span class="param"><code>final byte</code> <span class="param-name">fluidLevel</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addFluid0.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>fluidId</b></dd>
+<dd><code>final byte</code> <b>fluidLevel</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="FluidHolder">
+                <h4 class="methodName">FluidHolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">FluidHolder</span>
+                    <span class="arguments">(<span class="param">fluidId</span>, <span class="param">fluidLevel</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method FluidHolder.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>fluidId</code> <b>fluidId</b></dd>
+<dd><code>fluidLevel</code> <b>fluidLevel</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addEntity0">
+                <h4 class="methodName">addEntity0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addEntity0</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Holder.html" class="type-link"><code>final Holder<EntityStore></code></a> <span class="param-name">holder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addEntity0.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Holder.html" class="type-link"><code>final Holder<EntityStore></code></a> <b>holder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="reserializeBlockStates">
+                <h4 class="methodName">reserializeBlockStates</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">reserializeBlockStates</span>
+                    <span class="arguments">(<span class="param"><a href="../../../universe/world/storage/ChunkStore.html" class="type-link"><code>final ChunkStore</code></a> <span class="param-name">store</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">destructive</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method reserializeBlockStates.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../universe/world/storage/ChunkStore.html" class="type-link"><code>final ChunkStore</code></a> <b>store</b></dd>
+<dd><code>final boolean</code> <b>destructive</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Vector3i">
+                <h4 class="methodName">Vector3i</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Vector3i</span>
+                    <span class="arguments">(<span class="param">BlockUtil.unpackX(k</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Vector3i.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>BlockUtil.unpackX(k</code> <b>BlockUtil.unpackX(k</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BsonDocument">
+                <h4 class="methodName">BsonDocument</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BsonDocument</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method BsonDocument.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="RuntimeException">
+                <h4 class="methodName">RuntimeException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">RuntimeException</span>
+                    <span class="arguments">(<span class="param"><code>"Failed to read block state: " +</code> <span class="param-name">String.valueOf(b</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method RuntimeException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Failed to read block state: " +</code> <b>String.valueOf(b</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addEntityFromWorld">
+                <h4 class="methodName">addEntityFromWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addEntityFromWorld</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<EntityStore></code></a> <span class="param-name">entityHolder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addEntityFromWorld.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<EntityStore></code></a> <b>entityHolder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addEntityHolderRaw">
+                <h4 class="methodName">addEntityHolderRaw</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addEntityHolderRaw</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Holder.html" class="type-link"><code>final Holder<EntityStore></code></a> <span class="param-name">entityHolder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addEntityHolderRaw.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Holder.html" class="type-link"><code>final Holder<EntityStore></code></a> <b>entityHolder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="placeNoReturn">
+                <h4 class="methodName">placeNoReturn</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">placeNoReturn</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>final Vector3i</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method placeNoReturn.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>final Vector3i</code></a> <b>position</b></dd>
+<dd><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="placeBlockNoReturn">
+                <h4 class="methodName">placeBlockNoReturn</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">placeBlockNoReturn</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">feedbackKey</span></span>, <span class="param"><a href="../../../command/system/CommandSender.html" class="type-link"><code>final CommandSender</code></a> <span class="param-name">feedback</span></span>, <span class="param"><a href="FeedbackConsumer.html" class="type-link"><code>@Nonnull final FeedbackConsumer</code></a> <span class="param-name">feedbackConsumer</span></span>, <span class="param"><code>@Nonnull final World</code> <span class="param-name">outerWorld</span></span>, <span class="param"><a href="../mask/BlockMask.html" class="type-link"><code>@Nullable final BlockMask</code></a> <span class="param-name">blockMask</span></span>, <span class="param"><code>@Nonnull final LongSet</code> <span class="param-name">dirtyChunks</span></span>, <span class="param"><a href="../../../../../assetstore/map/BlockTypeAssetMap.html" class="type-link"><code>@Nonnull final BlockTypeAssetMap<String, BlockType></code></a> <span class="param-name">assetMap</span></span>, <span class="param"><code>final int</code> <span class="param-name">totalBlocks</span></span>, <span class="param"><code>final int</code> <span class="param-name">counter</span></span>, <span class="param"><code>final long</code> <span class="param-name">chunkIndex</span></span>, <span class="param"><a href="../../../universe/world/chunk/WorldChunk.html" class="type-link"><code>@Nonnull final WorldChunk</code></a> <span class="param-name">chunk</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockX</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockY</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockZ</span></span>, <span class="param"><code>final int</code> <span class="param-name">newBlockId</span></span>, <span class="param"><code>final int</code> <span class="param-name">newRotation</span></span>, <span class="param"><code>final int</code> <span class="param-name">newFiller</span></span>, <span class="param"><a href="../../../../../component/Holder.html" class="type-link"><code>final Holder<ChunkStore></code></a> <span class="param-name">holder</span></span>, <span class="param"><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method placeBlockNoReturn.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>feedbackKey</b></dd>
+<dd><a href="../../../command/system/CommandSender.html" class="type-link"><code>final CommandSender</code></a> <b>feedback</b></dd>
+<dd><a href="FeedbackConsumer.html" class="type-link"><code>@Nonnull final FeedbackConsumer</code></a> <b>feedbackConsumer</b></dd>
+<dd><code>@Nonnull final World</code> <b>outerWorld</b></dd>
+<dd><a href="../mask/BlockMask.html" class="type-link"><code>@Nullable final BlockMask</code></a> <b>blockMask</b></dd>
+<dd><code>@Nonnull final LongSet</code> <b>dirtyChunks</b></dd>
+<dd><a href="../../../../../assetstore/map/BlockTypeAssetMap.html" class="type-link"><code>@Nonnull final BlockTypeAssetMap<String, BlockType></code></a> <b>assetMap</b></dd>
+<dd><code>final int</code> <b>totalBlocks</b></dd>
+<dd><code>final int</code> <b>counter</b></dd>
+<dd><code>final long</code> <b>chunkIndex</b></dd>
+<dd><a href="../../../universe/world/chunk/WorldChunk.html" class="type-link"><code>@Nonnull final WorldChunk</code></a> <b>chunk</b></dd>
+<dd><code>final int</code> <b>blockX</b></dd>
+<dd><code>final int</code> <b>blockY</b></dd>
+<dd><code>final int</code> <b>blockZ</b></dd>
+<dd><code>final int</code> <b>newBlockId</b></dd>
+<dd><code>final int</code> <b>newRotation</b></dd>
+<dd><code>final int</code> <b>newFiller</b></dd>
+<dd><a href="../../../../../component/Holder.html" class="type-link"><code>final Holder<ChunkStore></code></a> <b>holder</b></dd>
+<dd><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param"><code>height < blockY && newBlockId != 0 && newBlockType != null &&</code> <span class="param-name">newBlockType.getOpacity(</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>height < blockY && newBlockId != 0 && newBlockType != null &&</code> <b>newBlockType.getOpacity(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="placeFluidNoReturn">
+                <h4 class="methodName">placeFluidNoReturn</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">placeFluidNoReturn</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">feedbackKey</span></span>, <span class="param"><a href="../../../command/system/CommandSender.html" class="type-link"><code>final CommandSender</code></a> <span class="param-name">feedback</span></span>, <span class="param"><a href="FeedbackConsumer.html" class="type-link"><code>@Nonnull final FeedbackConsumer</code></a> <span class="param-name">feedbackConsumer</span></span>, <span class="param"><code>@Nonnull final World</code> <span class="param-name">outerWorld</span></span>, <span class="param"><a href="../mask/BlockMask.html" class="type-link"><code>final BlockMask</code></a> <span class="param-name">blockMask</span></span>, <span class="param"><code>@Nonnull final LongSet</code> <span class="param-name">dirtyChunks</span></span>, <span class="param"><a href="../../../../../assetstore/map/BlockTypeAssetMap.html" class="type-link"><code>final BlockTypeAssetMap<String, BlockType></code></a> <span class="param-name">assetMap</span></span>, <span class="param"><code>final int</code> <span class="param-name">totalBlocks</span></span>, <span class="param"><code>final int</code> <span class="param-name">counter</span></span>, <span class="param"><code>final long</code> <span class="param-name">chunkIndex</span></span>, <span class="param"><a href="../../../universe/world/chunk/WorldChunk.html" class="type-link"><code>@Nonnull final WorldChunk</code></a> <span class="param-name">chunk</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockX</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockY</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockZ</span></span>, <span class="param"><code>final int</code> <span class="param-name">newFluidId</span></span>, <span class="param"><code>final byte</code> <span class="param-name">newFluidLevel</span></span>, <span class="param"><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method placeFluidNoReturn.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>feedbackKey</b></dd>
+<dd><a href="../../../command/system/CommandSender.html" class="type-link"><code>final CommandSender</code></a> <b>feedback</b></dd>
+<dd><a href="FeedbackConsumer.html" class="type-link"><code>@Nonnull final FeedbackConsumer</code></a> <b>feedbackConsumer</b></dd>
+<dd><code>@Nonnull final World</code> <b>outerWorld</b></dd>
+<dd><a href="../mask/BlockMask.html" class="type-link"><code>final BlockMask</code></a> <b>blockMask</b></dd>
+<dd><code>@Nonnull final LongSet</code> <b>dirtyChunks</b></dd>
+<dd><a href="../../../../../assetstore/map/BlockTypeAssetMap.html" class="type-link"><code>final BlockTypeAssetMap<String, BlockType></code></a> <b>assetMap</b></dd>
+<dd><code>final int</code> <b>totalBlocks</b></dd>
+<dd><code>final int</code> <b>counter</b></dd>
+<dd><code>final long</code> <b>chunkIndex</b></dd>
+<dd><a href="../../../universe/world/chunk/WorldChunk.html" class="type-link"><code>@Nonnull final WorldChunk</code></a> <b>chunk</b></dd>
+<dd><code>final int</code> <b>blockX</b></dd>
+<dd><code>final int</code> <b>blockY</b></dd>
+<dd><code>final int</code> <b>blockZ</b></dd>
+<dd><code>final int</code> <b>newFluidId</b></dd>
+<dd><code>final byte</code> <b>newFluidLevel</b></dd>
+<dd><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearFluidAtPosition">
+                <h4 class="methodName">clearFluidAtPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearFluidAtPosition</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../universe/world/chunk/WorldChunk.html" class="type-link"><code>@Nonnull final WorldChunk</code></a> <span class="param-name">chunk</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockX</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockY</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockZ</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method clearFluidAtPosition.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><a href="../../../universe/world/chunk/WorldChunk.html" class="type-link"><code>@Nonnull final WorldChunk</code></a> <b>chunk</b></dd>
+<dd><code>final int</code> <b>blockX</b></dd>
+<dd><code>final int</code> <b>blockY</b></dd>
+<dd><code>final int</code> <b>blockZ</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="place">
+                <h4 class="methodName">place</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BlockSelection.html" class="type-link"><code>BlockSelection</code></a></span>
+                    <span class="memberName">place</span>
+                    <span class="arguments">(<span class="param"><a href="../../../command/system/CommandSender.html" class="type-link"><code>final CommandSender</code></a> <span class="param-name">feedback</span></span>, <span class="param"><code>@Nonnull final World</code> <span class="param-name">outerWorld</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method place.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../command/system/CommandSender.html" class="type-link"><code>final CommandSender</code></a> <b>feedback</b></dd>
+<dd><code>@Nonnull final World</code> <b>outerWorld</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="placeBlock">
+                <h4 class="methodName">placeBlock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">placeBlock</span>
+                    <span class="arguments">(<span class="param"><a href="../../../command/system/CommandSender.html" class="type-link"><code>final CommandSender</code></a> <span class="param-name">feedback</span></span>, <span class="param"><code>@Nonnull final World</code> <span class="param-name">outerWorld</span></span>, <span class="param"><a href="../mask/BlockMask.html" class="type-link"><code>@Nullable final BlockMask</code></a> <span class="param-name">blockMask</span></span>, <span class="param"><a href="BlockSelection.html" class="type-link"><code>@Nonnull final BlockSelection</code></a> <span class="param-name">before</span></span>, <span class="param"><code>@Nonnull final LongSet</code> <span class="param-name">dirtyChunks</span></span>, <span class="param"><a href="../../../../../assetstore/map/BlockTypeAssetMap.html" class="type-link"><code>@Nonnull final BlockTypeAssetMap<String, BlockType></code></a> <span class="param-name">assetMap</span></span>, <span class="param"><code>final long</code> <span class="param-name">chunkIndex</span></span>, <span class="param"><a href="../../../universe/world/chunk/WorldChunk.html" class="type-link"><code>@Nonnull final WorldChunk</code></a> <span class="param-name">chunk</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockX</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockY</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockZ</span></span>, <span class="param"><code>final int</code> <span class="param-name">localX</span></span>, <span class="param"><code>final int</code> <span class="param-name">localY</span></span>, <span class="param"><code>final int</code> <span class="param-name">localZ</span></span>, <span class="param"><code>final int</code> <span class="param-name">newBlockId</span></span>, <span class="param"><code>final int</code> <span class="param-name">newRotation</span></span>, <span class="param"><code>final int</code> <span class="param-name">newFiller</span></span>, <span class="param"><a href="../../../../../component/Holder.html" class="type-link"><code>final Holder<ChunkStore></code></a> <span class="param-name">holder</span></span>, <span class="param"><code>final int</code> <span class="param-name">newSupportValue</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method placeBlock.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../command/system/CommandSender.html" class="type-link"><code>final CommandSender</code></a> <b>feedback</b></dd>
+<dd><code>@Nonnull final World</code> <b>outerWorld</b></dd>
+<dd><a href="../mask/BlockMask.html" class="type-link"><code>@Nullable final BlockMask</code></a> <b>blockMask</b></dd>
+<dd><a href="BlockSelection.html" class="type-link"><code>@Nonnull final BlockSelection</code></a> <b>before</b></dd>
+<dd><code>@Nonnull final LongSet</code> <b>dirtyChunks</b></dd>
+<dd><a href="../../../../../assetstore/map/BlockTypeAssetMap.html" class="type-link"><code>@Nonnull final BlockTypeAssetMap<String, BlockType></code></a> <b>assetMap</b></dd>
+<dd><code>final long</code> <b>chunkIndex</b></dd>
+<dd><a href="../../../universe/world/chunk/WorldChunk.html" class="type-link"><code>@Nonnull final WorldChunk</code></a> <b>chunk</b></dd>
+<dd><code>final int</code> <b>blockX</b></dd>
+<dd><code>final int</code> <b>blockY</b></dd>
+<dd><code>final int</code> <b>blockZ</b></dd>
+<dd><code>final int</code> <b>localX</b></dd>
+<dd><code>final int</code> <b>localY</b></dd>
+<dd><code>final int</code> <b>localZ</b></dd>
+<dd><code>final int</code> <b>newBlockId</b></dd>
+<dd><code>final int</code> <b>newRotation</b></dd>
+<dd><code>final int</code> <b>newFiller</b></dd>
+<dd><a href="../../../../../component/Holder.html" class="type-link"><code>final Holder<ChunkStore></code></a> <b>holder</b></dd>
+<dd><code>final int</code> <b>newSupportValue</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="placeFluid">
+                <h4 class="methodName">placeFluid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">placeFluid</span>
+                    <span class="arguments">(<span class="param"><a href="../../../command/system/CommandSender.html" class="type-link"><code>final CommandSender</code></a> <span class="param-name">feedback</span></span>, <span class="param"><code>@Nonnull final World</code> <span class="param-name">outerWorld</span></span>, <span class="param"><a href="BlockSelection.html" class="type-link"><code>@Nonnull final BlockSelection</code></a> <span class="param-name">before</span></span>, <span class="param"><code>@Nonnull final LongSet</code> <span class="param-name">dirtyChunks</span></span>, <span class="param"><a href="../../../../../assetstore/map/IndexedLookupTableAssetMap.html" class="type-link"><code>final IndexedLookupTableAssetMap<String, Fluid></code></a> <span class="param-name">assetMap</span></span>, <span class="param"><code>final long</code> <span class="param-name">chunkIndex</span></span>, <span class="param"><a href="../../../universe/world/chunk/WorldChunk.html" class="type-link"><code>@Nonnull final WorldChunk</code></a> <span class="param-name">chunk</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockX</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockY</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockZ</span></span>, <span class="param"><code>final int</code> <span class="param-name">localX</span></span>, <span class="param"><code>final int</code> <span class="param-name">localY</span></span>, <span class="param"><code>final int</code> <span class="param-name">localZ</span></span>, <span class="param"><code>final int</code> <span class="param-name">newFluidId</span></span>, <span class="param"><code>final byte</code> <span class="param-name">newFluidLevel</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method placeFluid.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../command/system/CommandSender.html" class="type-link"><code>final CommandSender</code></a> <b>feedback</b></dd>
+<dd><code>@Nonnull final World</code> <b>outerWorld</b></dd>
+<dd><a href="BlockSelection.html" class="type-link"><code>@Nonnull final BlockSelection</code></a> <b>before</b></dd>
+<dd><code>@Nonnull final LongSet</code> <b>dirtyChunks</b></dd>
+<dd><a href="../../../../../assetstore/map/IndexedLookupTableAssetMap.html" class="type-link"><code>final IndexedLookupTableAssetMap<String, Fluid></code></a> <b>assetMap</b></dd>
+<dd><code>final long</code> <b>chunkIndex</b></dd>
+<dd><a href="../../../universe/world/chunk/WorldChunk.html" class="type-link"><code>@Nonnull final WorldChunk</code></a> <b>chunk</b></dd>
+<dd><code>final int</code> <b>blockX</b></dd>
+<dd><code>final int</code> <b>blockY</b></dd>
+<dd><code>final int</code> <b>blockZ</b></dd>
+<dd><code>final int</code> <b>localX</b></dd>
+<dd><code>final int</code> <b>localY</b></dd>
+<dd><code>final int</code> <b>localZ</b></dd>
+<dd><code>final int</code> <b>newFluidId</b></dd>
+<dd><code>final byte</code> <b>newFluidLevel</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="placeEntities">
+                <h4 class="methodName">placeEntities</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">placeEntities</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <span class="param-name">pos</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method placeEntities.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <b>pos</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="placeEntity">
+                <h4 class="methodName">placeEntity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../../../../component/Ref.html" class="type-link"><code>Ref<EntityStore></code></a></span>
+                    <span class="memberName">placeEntity</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<EntityStore></code></a> <span class="param-name">entityHolder</span></span>, <span class="param"><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <span class="param-name">pos</span></span>, <span class="param"><code>final int</code> <span class="param-name">prefabId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method placeEntity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><a href="../../../../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<EntityStore></code></a> <b>entityHolder</b></dd>
+<dd><a href="../../../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <b>pos</b></dd>
+<dd><code>final int</code> <b>prefabId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="rotate">
+                <h4 class="methodName">rotate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BlockSelection.html" class="type-link"><code>BlockSelection</code></a></span>
+                    <span class="memberName">rotate</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../protocol/packets/buildertools/Axis.html" class="type-link"><code>@Nonnull final Axis</code></a> <span class="param-name">axis</span></span>, <span class="param"><code>final int</code> <span class="param-name">angle</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method rotate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../protocol/packets/buildertools/Axis.html" class="type-link"><code>@Nonnull final Axis</code></a> <b>axis</b></dd>
+<dd><code>final int</code> <b>angle</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="rotateArbitrary">
+                <h4 class="methodName">rotateArbitrary</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BlockSelection.html" class="type-link"><code>BlockSelection</code></a></span>
+                    <span class="memberName">rotateArbitrary</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">yawDegrees</span></span>, <span class="param"><code>final float</code> <span class="param-name">pitchDegrees</span></span>, <span class="param"><code>final float</code> <span class="param-name">rollDegrees</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method rotateArbitrary.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>yawDegrees</b></dd>
+<dd><code>final float</code> <b>pitchDegrees</b></dd>
+<dd><code>final float</code> <b>rollDegrees</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="flip">
+                <h4 class="methodName">flip</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BlockSelection.html" class="type-link"><code>BlockSelection</code></a></span>
+                    <span class="memberName">flip</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../protocol/packets/buildertools/Axis.html" class="type-link"><code>@Nonnull final Axis</code></a> <span class="param-name">axis</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method flip.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../protocol/packets/buildertools/Axis.html" class="type-link"><code>@Nonnull final Axis</code></a> <b>axis</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="relativize">
+                <h4 class="methodName">relativize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BlockSelection.html" class="type-link"><code>BlockSelection</code></a></span>
+                    <span class="memberName">relativize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method relativize.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="cloneSelection">
+                <h4 class="methodName">cloneSelection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="BlockSelection.html" class="type-link"><code>BlockSelection</code></a></span>
+                    <span class="memberName">cloneSelection</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method cloneSelection.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="add">
+                <h4 class="methodName">add</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">add</span>
+                    <span class="arguments">(<span class="param"><a href="BlockSelection.html" class="type-link"><code>@Nonnull final BlockSelection</code></a> <span class="param-name">other</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method add.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="BlockSelection.html" class="type-link"><code>@Nonnull final BlockSelection</code></a> <b>other</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="toMetricResults">
+                <h4 class="methodName">toMetricResults</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../metrics/MetricResults.html" class="type-link"><code>MetricResults</code></a></span>
+                    <span class="memberName">toMetricResults</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toMetricResults.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="toPacket">
+                <h4 class="methodName">toPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../protocol/packets/interface_/EditorBlocksChange.html" class="type-link"><code>EditorBlocksChange</code></a></span>
+                    <span class="memberName">toPacket</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toPacket.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="BlockChange">
+                <h4 class="methodName">BlockChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BlockChange</span>
+                    <span class="arguments">(<span class="param"><code>x1 -</code> <span class="param-name">this.anchorX</span></span>, <span class="param"><code>y1 -</code> <span class="param-name">this.anchorY</span></span>, <span class="param"><code>z1 -</code> <span class="param-name">this.anchorZ</span></span>, <span class="param">block.blockId</span>, <span class="param">(byte</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BlockChange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>x1 -</code> <b>this.anchorX</b></dd>
+<dd><code>y1 -</code> <b>this.anchorY</b></dd>
+<dd><code>z1 -</code> <b>this.anchorZ</b></dd>
+<dd><code>block.blockId</code> <b>block.blockId</b></dd>
+<dd><code>(byte</code> <b>(byte</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="FluidChange">
+                <h4 class="methodName">FluidChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">FluidChange</span>
+                    <span class="arguments">(<span class="param"><code>x1 -</code> <span class="param-name">this.anchorX</span></span>, <span class="param"><code>y1 -</code> <span class="param-name">this.anchorY</span></span>, <span class="param"><code>z1 -</code> <span class="param-name">this.anchorZ</span></span>, <span class="param">fluidId</span>, <span class="param">fluidLevel</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method FluidChange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>x1 -</code> <b>this.anchorX</b></dd>
+<dd><code>y1 -</code> <b>this.anchorY</b></dd>
+<dd><code>z1 -</code> <b>this.anchorZ</b></dd>
+<dd><code>fluidId</code> <b>fluidId</b></dd>
+<dd><code>fluidLevel</code> <b>fluidLevel</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="toSelectionPacket">
+                <h4 class="methodName">toSelectionPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../protocol/packets/interface_/EditorBlocksChange.html" class="type-link"><code>EditorBlocksChange</code></a></span>
+                    <span class="memberName">toSelectionPacket</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toSelectionPacket.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="toPacketWithSelection">
+                <h4 class="methodName">toPacketWithSelection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../protocol/packets/interface_/EditorBlocksChange.html" class="type-link"><code>EditorBlocksChange</code></a></span>
+                    <span class="memberName">toPacketWithSelection</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toPacketWithSelection.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryFixFiller">
+                <h4 class="methodName">tryFixFiller</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tryFixFiller</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">allowDestructive</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryFixFiller.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>allowDestructive</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="reserializeEntities">
+                <h4 class="methodName">reserializeEntities</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">reserializeEntities</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">destructive</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method reserializeEntities.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>final boolean</code> <b>destructive</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="toString">
+                <h4 class="methodName">toString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">toString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toString.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="cloneBlockHolder">
+                <h4 class="methodName">cloneBlockHolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>BlockHolder</code></span>
+                    <span class="memberName">cloneBlockHolder</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method cloneBlockHolder.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

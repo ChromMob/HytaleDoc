@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChunkGeneratorJsonLoader (com.hypixel.hytale.server.worldgen.loader)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/worldgen/loader/package-summary.html">com.hypixel.hytale.server.worldgen.loader</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">ChunkGeneratorJsonLoader</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="ChunkGeneratorJsonLoader.html" class="type-link">ChunkGeneratorJsonLoader</a> extends <a href="../../../procedurallib/json/Loader.html" class="type-link" data-class="Loader"><code>Loader</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class ChunkGeneratorJsonLoader. Provides chunkgeneratorjsonloader functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; Loader &gt; ChunkGeneratorJsonLoader</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldFile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">worldFile</span>
+                </div>
+                <div class="block">
+                    <p>Field worldFile.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldJson</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonObject</span>
+                    <span class="memberName">worldJson</span>
+                </div>
+                <div class="block">
+                    <p>Field worldJson.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector2i</span>
+                    <span class="memberName">worldSize</span>
+                </div>
+                <div class="block">
+                    <p>Field worldSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector2i</span>
+                    <span class="memberName">worldOffset</span>
+                </div>
+                <div class="block">
+                    <p>Field worldOffset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maskProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MaskProvider</span>
+                    <span class="memberName">maskProvider</span>
+                </div>
+                <div class="block">
+                    <p>Field maskProvider.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">prefabStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrefabStoreRoot</span>
+                    <span class="memberName">prefabStore</span>
+                </div>
+                <div class="block">
+                    <p>Field prefabStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">overrideDataFolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">overrideDataFolder</span>
+                </div>
+                <div class="block">
+                    <p>Field overrideDataFolder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">loader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ZonePatternProviderJsonLoader</span>
+                    <span class="memberName">loader</span>
+                </div>
+                <div class="block">
+                    <p>Field loader.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">loadingContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">FileLoadingContext</span>
+                    <span class="memberName">loadingContext</span>
+                </div>
+                <div class="block">
+                    <p>Field loadingContext.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zones</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Zone[]</span>
+                    <span class="memberName">zones</span>
+                </div>
+                <div class="block">
+                    <p>Field zones.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">overrideFolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">overrideFolder</span>
+                </div>
+                <div class="block">
+                    <p>Field overrideFolder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">parent</span>
+                </div>
+                <div class="block">
+                    <p>Field parent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">builder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WeightedMap.Builder<String></span>
+                    <span class="memberName">builder</span>
+                </div>
+                <div class="block">
+                    <p>Field builder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">masks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonElement</span>
+                    <span class="memberName">masks</span>
+                </div>
+                <div class="block">
+                    <p>Field masks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">arr</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonArray</span>
+                    <span class="memberName">arr</span>
+                </div>
+                <div class="block">
+                    <p>Field arr.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">obj</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonObject</span>
+                    <span class="memberName">obj</span>
+                </div>
+                <div class="block">
+                    <p>Field obj.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">weightedMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IWeightedMap<String></span>
+                    <span class="memberName">weightedMap</span>
+                </div>
+                <div class="block">
+                    <p>Field weightedMap.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maskFile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">maskFile</span>
+                </div>
+                <div class="block">
+                    <p>Field maskFile.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">storeJson</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonElement</span>
+                    <span class="memberName">storeJson</span>
+                </div>
+                <div class="block">
+                    <p>Field storeJson.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">store</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">store</span>
+                </div>
+                <div class="block">
+                    <p>Field store.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zoneFile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">zoneFile</span>
+                </div>
+                <div class="block">
+                    <p>Field zoneFile.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zoneJson</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonObject</span>
+                    <span class="memberName">zoneJson</span>
+                </div>
+                <div class="block">
+                    <p>Field zoneJson.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="ChunkGeneratorJsonLoader">
+                <h4 class="methodName">ChunkGeneratorJsonLoader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">ChunkGeneratorJsonLoader</span>
+                    <span class="arguments">(<span class="param"><a href="../../../procedurallib/json/SeedString.html" class="type-link"><code>final SeedString<SeedStringResource></code></a> <span class="param-name">seed</span></span>, <span class="param"><code>final Path</code> <span class="param-name">dataFolder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ChunkGeneratorJsonLoader.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../procedurallib/json/SeedString.html" class="type-link"><code>final SeedString<SeedStringResource></code></a> <b>seed</b></dd>
+<dd><code>final Path</code> <b>dataFolder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="load">
+                <h4 class="methodName">load</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../chunk/ChunkGenerator.html" class="type-link"><code>ChunkGenerator</code></a></span>
+                    <span class="memberName">load</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method load.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="IllegalArgumentException">
+                <h4 class="methodName">IllegalArgumentException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IllegalArgumentException</span>
+                    <span class="arguments">(<span class="param">String.valueOf(worldFile</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IllegalArgumentException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>String.valueOf(worldFile</code> <b>String.valueOf(worldFile</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="FileContextLoader">
+                <h4 class="methodName">FileContextLoader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">FileContextLoader</span>
+                    <span class="arguments">(<span class="param">overrideDataFolder</span>, <span class="param">loader.loadZoneRequirement(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method FileContextLoader.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>overrideDataFolder</code> <b>overrideDataFolder</b></dd>
+<dd><code>loader.loadZoneRequirement(</code> <b>loader.loadZoneRequirement(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ZonesJsonLoader">
+                <h4 class="methodName">ZonesJsonLoader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ZonesJsonLoader</span>
+                    <span class="arguments">(<span class="param">(SeedString<SeedStringResource></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ZonesJsonLoader.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>(SeedString<SeedStringResource></code> <b>(SeedString<SeedStringResource></b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ChunkGenerator">
+                <h4 class="methodName">ChunkGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ChunkGenerator</span>
+                    <span class="arguments">(<span class="param">loader.load(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ChunkGenerator.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>loader.load(</code> <b>loader.load(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadOverrideDataFolderPath">
+                <h4 class="methodName">loadOverrideDataFolderPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>Path</code></span>
+                    <span class="memberName">loadOverrideDataFolderPath</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final JsonObject</code> <span class="param-name">worldJson</span></span>, <span class="param"><code>@Nonnull final Path</code> <span class="param-name">dataFolder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadOverrideDataFolderPath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final JsonObject</code> <b>worldJson</b></dd>
+<dd><code>@Nonnull final Path</code> <b>dataFolder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Error">
+                <h4 class="methodName">Error</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Error</span>
+                    <span class="arguments">(<span class="param"><code>String.format("Override folder '%s' must exist within:</code> <span class="param-name">'%s'"</span></span>, <span class="param">overrideFolder.getFileName(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Error.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>String.format("Override folder '%s' must exist within:</code> <b>'%s'"</b></dd>
+<dd><code>overrideFolder.getFileName(</code> <b>overrideFolder.getFileName(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadWorldJson">
+                <h4 class="methodName">loadWorldJson</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>JsonObject</code></span>
+                    <span class="memberName">loadWorldJson</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Path</code> <span class="param-name">file</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadWorldJson.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Path</code> <b>file</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="JsonReader">
+                <h4 class="methodName">JsonReader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">JsonReader</span>
+                    <span class="arguments">(<span class="param">Files.newBufferedReader(file</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method JsonReader.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Files.newBufferedReader(file</code> <b>Files.newBufferedReader(file</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadWorldSize">
+                <h4 class="methodName">loadWorldSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><a href="../../../protocol/Vector2i.html" class="type-link"><code>Vector2i</code></a></span>
+                    <span class="memberName">loadWorldSize</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final JsonObject</code> <span class="param-name">worldJson</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadWorldSize.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final JsonObject</code> <b>worldJson</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadWorldOffset">
+                <h4 class="methodName">loadWorldOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><a href="../../../protocol/Vector2i.html" class="type-link"><code>Vector2i</code></a></span>
+                    <span class="memberName">loadWorldOffset</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final JsonObject</code> <span class="param-name">worldJson</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadWorldOffset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final JsonObject</code> <b>worldJson</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadMaskProvider">
+                <h4 class="methodName">loadMaskProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><a href="../chunk/MaskProvider.html" class="type-link"><code>MaskProvider</code></a></span>
+                    <span class="memberName">loadMaskProvider</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final JsonObject</code> <span class="param-name">worldJson</span></span>, <span class="param"><a href="../../../protocol/Vector2i.html" class="type-link"><code>final Vector2i</code></a> <span class="param-name">worldSize</span></span>, <span class="param"><a href="../../../protocol/Vector2i.html" class="type-link"><code>final Vector2i</code></a> <span class="param-name">worldOffset</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadMaskProvider.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final JsonObject</code> <b>worldJson</b></dd>
+<dd><a href="../../../protocol/Vector2i.html" class="type-link"><code>final Vector2i</code></a> <b>worldSize</b></dd>
+<dd><a href="../../../protocol/Vector2i.html" class="type-link"><code>final Vector2i</code></a> <b>worldOffset</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">masks.isJsonPrimitive(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>masks.isJsonPrimitive(</code> <b>masks.isJsonPrimitive(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="FastRandom">
+                <h4 class="methodName">FastRandom</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">FastRandom</span>
+                    <span class="arguments">(<span class="param">this.seed.hashCode(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method FastRandom.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.seed.hashCode(</code> <b>this.seed.hashCode(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ClimateMaskJsonLoader">
+                <h4 class="methodName">ClimateMaskJsonLoader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ClimateMaskJsonLoader</span>
+                    <span class="arguments">(<span class="param">this.seed</span>, <span class="param">this.dataFolder</span>, <span class="param">maskFile</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ClimateMaskJsonLoader.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.seed</code> <b>this.seed</b></dd>
+<dd><code>this.dataFolder</code> <b>this.dataFolder</b></dd>
+<dd><code>maskFile</code> <b>maskFile</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="MaskProviderJsonLoader">
+                <h4 class="methodName">MaskProviderJsonLoader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">MaskProviderJsonLoader</span>
+                    <span class="arguments">(<span class="param">(SeedString<SeedStringResource></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method MaskProviderJsonLoader.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>(SeedString<SeedStringResource></code> <b>(SeedString<SeedStringResource></b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadPrefabStore">
+                <h4 class="methodName">loadPrefabStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><a href="../prefab/PrefabStoreRoot.html" class="type-link"><code>PrefabStoreRoot</code></a></span>
+                    <span class="memberName">loadPrefabStore</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final JsonObject</code> <span class="param-name">worldJson</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadPrefabStore.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final JsonObject</code> <b>worldJson</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadZonePatternGenerator">
+                <h4 class="methodName">loadZonePatternGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><a href="zone/ZonePatternProviderJsonLoader.html" class="type-link"><code>ZonePatternProviderJsonLoader</code></a></span>
+                    <span class="memberName">loadZonePatternGenerator</span>
+                    <span class="arguments">(<span class="param"><a href="../chunk/MaskProvider.html" class="type-link"><code>final MaskProvider</code></a> <span class="param-name">maskProvider</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadZonePatternGenerator.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../chunk/MaskProvider.html" class="type-link"><code>final MaskProvider</code></a> <b>maskProvider</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ZonePatternProviderJsonLoader">
+                <h4 class="methodName">ZonePatternProviderJsonLoader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ZonePatternProviderJsonLoader</span>
+                    <span class="arguments">(<span class="param">(SeedString<SeedStringResource></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ZonePatternProviderJsonLoader.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>(SeedString<SeedStringResource></code> <b>(SeedString<SeedStringResource></b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

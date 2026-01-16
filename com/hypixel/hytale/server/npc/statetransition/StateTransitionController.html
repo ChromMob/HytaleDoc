@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StateTransitionController (com.hypixel.hytale.server.npc.statetransition)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/npc/statetransition/package-summary.html">com.hypixel.hytale.server.npc.statetransition</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">StateTransitionController</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="StateTransitionController.html" class="type-link">StateTransitionController</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class StateTransitionController. Provides statetransitioncontroller functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; StateTransitionController</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">runningActions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">IActionListHolder</span>
+                    <span class="memberName">runningActions</span>
+                </div>
+                <div class="block">
+                    <p>Field runningActions.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stateHelper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StateMappingHelper</span>
+                    <span class="memberName">stateHelper</span>
+                </div>
+                <div class="block">
+                    <p>Field stateHelper.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stateTransitionEntries</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<BuilderStateTransition.StateTransition></span>
+                    <span class="memberName">stateTransitionEntries</span>
+                </div>
+                <div class="block">
+                    <p>Field stateTransitionEntries.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">actions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ActionList</span>
+                    <span class="memberName">actions</span>
+                </div>
+                <div class="block">
+                    <p>Field actions.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">priority</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">priority</span>
+                </div>
+                <div class="block">
+                    <p>Field priority.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fromStateIndices</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">fromStateIndices</span>
+                </div>
+                <div class="block">
+                    <p>Field fromStateIndices.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">toStateIndices</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">toStateIndices</span>
+                </div>
+                <div class="block">
+                    <p>Field toStateIndices.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">combinedValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">combinedValue</span>
+                </div>
+                <div class="block">
+                    <p>Field combinedValue.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IActionListHolder</span>
+                    <span class="memberName">currentList</span>
+                </div>
+                <div class="block">
+                    <p>Field currentList.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transitionControllerFactory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderFactory<StateTransitionController></span>
+                    <span class="memberName">transitionControllerFactory</span>
+                </div>
+                <div class="block">
+                    <p>Field transitionControllerFactory.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transitionEntryFactory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderFactory<BuilderStateTransition.StateTransition></span>
+                    <span class="memberName">transitionEntryFactory</span>
+                </div>
+                <div class="block">
+                    <p>Field transitionEntryFactory.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transitionFactory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderFactory<BuilderStateTransitionEdges.StateTransitionEdges></span>
+                    <span class="memberName">transitionFactory</span>
+                </div>
+                <div class="block">
+                    <p>Field transitionFactory.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">currentIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field currentIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">actionList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrioritisedActionList</span>
+                    <span class="memberName">actionList</span>
+                </div>
+                <div class="block">
+                    <p>Field actionList.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="StateTransitionController">
+                <h4 class="methodName">StateTransitionController</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">StateTransitionController</span>
+                    <span class="arguments">(<span class="param"><a href="builders/BuilderStateTransitionController.html" class="type-link"><code>@Nonnull final BuilderStateTransitionController</code></a> <span class="param-name">builder</span></span>, <span class="param"><a href="../asset/builder/BuilderSupport.html" class="type-link"><code>@Nonnull final BuilderSupport</code></a> <span class="param-name">support</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method StateTransitionController.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="builders/BuilderStateTransitionController.html" class="type-link"><code>@Nonnull final BuilderStateTransitionController</code></a> <b>builder</b></dd>
+<dd><a href="../asset/builder/BuilderSupport.html" class="type-link"><code>@Nonnull final BuilderSupport</code></a> <b>support</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PrioritisedActionList">
+                <h4 class="methodName">PrioritisedActionList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PrioritisedActionList</span>
+                    <span class="arguments">(<span class="param">priority</span>, <span class="param">actions</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PrioritisedActionList.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>priority</code> <b>priority</b></dd>
+<dd><code>actions</code> <b>actions</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="CompositeActionList">
+                <h4 class="methodName">CompositeActionList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">CompositeActionList</span>
+                    <span class="arguments">(<span class="param">(PrioritisedActionList</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method CompositeActionList.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>(PrioritisedActionList</code> <b>(PrioritisedActionList</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerWithSupport">
+                <h4 class="methodName">registerWithSupport</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">registerWithSupport</span>
+                    <span class="arguments">(<span class="param"><a href="../role/Role.html" class="type-link"><code>final Role</code></a> <span class="param-name">role</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registerWithSupport.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../role/Role.html" class="type-link"><code>final Role</code></a> <b>role</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="motionControllerChanged">
+                <h4 class="methodName">motionControllerChanged</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">motionControllerChanged</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nullable final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../entities/NPCEntity.html" class="type-link"><code>@Nonnull final NPCEntity</code></a> <span class="param-name">npcComponent</span></span>, <span class="param"><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nullable final MotionController</code></a> <span class="param-name">motionController</span></span>, <span class="param"><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nullable final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method motionControllerChanged.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nullable final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../entities/NPCEntity.html" class="type-link"><code>@Nonnull final NPCEntity</code></a> <b>npcComponent</b></dd>
+<dd><a href="../movement/controllers/MotionController.html" class="type-link"><code>@Nullable final MotionController</code></a> <b>motionController</b></dd>
+<dd><a href="../../../component/ComponentAccessor.html" class="type-link"><code>@Nullable final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loaded">
+                <h4 class="methodName">loaded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">loaded</span>
+                    <span class="arguments">(<span class="param"><a href="../role/Role.html" class="type-link"><code>final Role</code></a> <span class="param-name">role</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loaded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../role/Role.html" class="type-link"><code>final Role</code></a> <b>role</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="spawned">
+                <h4 class="methodName">spawned</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">spawned</span>
+                    <span class="arguments">(<span class="param"><a href="../role/Role.html" class="type-link"><code>final Role</code></a> <span class="param-name">role</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method spawned.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../role/Role.html" class="type-link"><code>final Role</code></a> <b>role</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="unloaded">
+                <h4 class="methodName">unloaded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">unloaded</span>
+                    <span class="arguments">(<span class="param"><a href="../role/Role.html" class="type-link"><code>final Role</code></a> <span class="param-name">role</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method unloaded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../role/Role.html" class="type-link"><code>final Role</code></a> <b>role</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="removed">
+                <h4 class="methodName">removed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">removed</span>
+                    <span class="arguments">(<span class="param"><a href="../role/Role.html" class="type-link"><code>final Role</code></a> <span class="param-name">role</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removed.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../role/Role.html" class="type-link"><code>final Role</code></a> <b>role</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="teleported">
+                <h4 class="methodName">teleported</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">teleported</span>
+                    <span class="arguments">(<span class="param"><a href="../role/Role.html" class="type-link"><code>final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><code>final World</code> <span class="param-name">from</span></span>, <span class="param"><code>final World</code> <span class="param-name">to</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method teleported.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../role/Role.html" class="type-link"><code>final Role</code></a> <b>role</b></dd>
+<dd><code>final World</code> <b>from</b></dd>
+<dd><code>final World</code> <b>to</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearOnce">
+                <h4 class="methodName">clearOnce</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearOnce</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearOnce.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="initiateStateTransition">
+                <h4 class="methodName">initiateStateTransition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">initiateStateTransition</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">fromState</span></span>, <span class="param"><code>final int</code> <span class="param-name">toState</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initiateStateTransition.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>fromState</b></dd>
+<dd><code>final int</code> <b>toState</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isRunningTransitionActions">
+                <h4 class="methodName">isRunningTransitionActions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isRunningTransitionActions</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isRunningTransitionActions.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="runTransitionActions">
+                <h4 class="methodName">runTransitionActions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">runTransitionActions</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../role/Role.html" class="type-link"><code>final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><code>final double</code> <span class="param-name">dt</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method runTransitionActions.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../role/Role.html" class="type-link"><code>final Role</code></a> <b>role</b></dd>
+<dd><code>final double</code> <b>dt</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerFactories">
+                <h4 class="methodName">registerFactories</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">registerFactories</span>
+                    <span class="arguments">(<span class="param"><a href="../asset/builder/BuilderManager.html" class="type-link"><code>@Nonnull final BuilderManager</code></a> <span class="param-name">builderManager</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registerFactories.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../asset/builder/BuilderManager.html" class="type-link"><code>@Nonnull final BuilderManager</code></a> <b>builderManager</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="indexStateTransitionEdge">
+                <h4 class="methodName">indexStateTransitionEdge</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">indexStateTransitionEdge</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">from</span></span>, <span class="param"><code>final int</code> <span class="param-name">to</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method indexStateTransitionEdge.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>from</b></dd>
+<dd><code>final int</code> <b>to</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="canExecute">
+                <h4 class="methodName">canExecute</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">canExecute</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="../sensorinfo/InfoProvider.html" class="type-link"><code>final InfoProvider</code></a> <span class="param-name">sensorInfo</span></span>, <span class="param"><code>final double</code> <span class="param-name">dt</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method canExecute.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <b>role</b></dd>
+<dd><a href="../sensorinfo/InfoProvider.html" class="type-link"><code>final InfoProvider</code></a> <b>sensorInfo</b></dd>
+<dd><code>final double</code> <b>dt</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="execute">
+                <h4 class="methodName">execute</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">execute</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="../sensorinfo/InfoProvider.html" class="type-link"><code>final InfoProvider</code></a> <span class="param-name">sensorInfo</span></span>, <span class="param"><code>final double</code> <span class="param-name">dt</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method execute.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <b>role</b></dd>
+<dd><a href="../sensorinfo/InfoProvider.html" class="type-link"><code>final InfoProvider</code></a> <b>sensorInfo</b></dd>
+<dd><code>final double</code> <b>dt</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasCompletedRun">
+                <h4 class="methodName">hasCompletedRun</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasCompletedRun</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method hasCompletedRun.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="addActionList">
+                <h4 class="methodName">addActionList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addActionList</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">priority</span></span>, <span class="param"><a href="../instructions/ActionList.html" class="type-link"><code>final ActionList</code></a> <span class="param-name">actionList</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addActionList.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>priority</b></dd>
+<dd><a href="../instructions/ActionList.html" class="type-link"><code>final ActionList</code></a> <b>actionList</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

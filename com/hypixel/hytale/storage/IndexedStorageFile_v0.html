@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IndexedStorageFile_v0 (com.hypixel.hytale.storage)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../com/hypixel/hytale/storage/package-summary.html">com.hypixel.hytale.storage</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">IndexedStorageFile_v0</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="IndexedStorageFile_v0.html" class="type-link">IndexedStorageFile_v0</a> implements <code>Closeable</code></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class IndexedStorageFile_v0. Provides indexedstoragefile v0 functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; IndexedStorageFile_v0</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">compressionLevel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">compressionLevel</span>
+                </div>
+                <div class="block">
+                    <p>Field compressionLevel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">contiguousBlobs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">contiguousBlobs</span>
+                </div>
+                <div class="block">
+                    <p>Field contiguousBlobs.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blobCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">blobCount</span>
+                </div>
+                <div class="block">
+                    <p>Field blobCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">segmentSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">segmentSize</span>
+                </div>
+                <div class="block">
+                    <p>Field segmentSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">indexLocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">StampedLock[]</span>
+                    <span class="memberName">indexLocks</span>
+                </div>
+                <div class="block">
+                    <p>Field indexLocks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">mappedBlobIndexes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">MappedByteBuffer</span>
+                    <span class="memberName">mappedBlobIndexes</span>
+                </div>
+                <div class="block">
+                    <p>Field mappedBlobIndexes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">segmentLocks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">StampedLock[]</span>
+                    <span class="memberName">segmentLocks</span>
+                </div>
+                <div class="block">
+                    <p>Field segmentLocks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nextSegmentIndexes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">nextSegmentIndexes</span>
+                </div>
+                <div class="block">
+                    <p>Field nextSegmentIndexes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">buffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ByteBuffer</span>
+                    <span class="memberName">buffer</span>
+                </div>
+                <div class="block">
+                    <p>Field buffer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">storageFile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IndexedStorageFile_v0</span>
+                    <span class="memberName">storageFile</span>
+                </div>
+                <div class="block">
+                    <p>Field storageFile.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">header</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ByteBuffer</span>
+                    <span class="memberName">header</span>
+                </div>
+                <div class="block">
+                    <p>Field header.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dst</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">byte[]</span>
+                    <span class="memberName">dst</span>
+                </div>
+                <div class="block">
+                    <p>Field dst.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">version</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">version</span>
+                </div>
+                <div class="block">
+                    <p>Field version.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">indexesSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">indexesSize</span>
+                </div>
+                <div class="block">
+                    <p>Field indexesSize.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempIndexBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ByteBuffer</span>
+                    <span class="memberName">tempIndexBuffer</span>
+                </div>
+                <div class="block">
+                    <p>Field tempIndexBuffer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">stamp</span>
+                </div>
+                <div class="block">
+                    <p>Field stamp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">indexesLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">indexesLength</span>
+                </div>
+                <div class="block">
+                    <p>Field indexesLength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempIndexPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">tempIndexPos</span>
+                </div>
+                <div class="block">
+                    <p>Field tempIndexPos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">firstSegmentIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">firstSegmentIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field firstSegmentIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">segmentIndex2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">segmentIndex2</span>
+                </div>
+                <div class="block">
+                    <p>Field segmentIndex2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">segmentLock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StampedLock</span>
+                    <span class="memberName">segmentLock</span>
+                </div>
+                <div class="block">
+                    <p>Field segmentLock.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">segmentStamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">segmentStamp</span>
+                </div>
+                <div class="block">
+                    <p>Field segmentStamp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">indexesStamp2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">indexesStamp2</span>
+                </div>
+                <div class="block">
+                    <p>Field indexesStamp2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">value</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">value</span>
+                </div>
+                <div class="block">
+                    <p>Field value.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">list</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntArrayList</span>
+                    <span class="memberName">list</span>
+                </div>
+                <div class="block">
+                    <p>Field list.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">indexPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">indexPos</span>
+                </div>
+                <div class="block">
+                    <p>Field indexPos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StampedLock</span>
+                    <span class="memberName">lock</span>
+                </div>
+                <div class="block">
+                    <p>Field lock.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">segmentIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">segmentIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field segmentIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blobHeaderBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ByteBuffer</span>
+                    <span class="memberName">blobHeaderBuffer</span>
+                </div>
+                <div class="block">
+                    <p>Field blobHeaderBuffer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">compressedLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">compressedLength</span>
+                </div>
+                <div class="block">
+                    <p>Field compressedLength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempDest</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ByteBuffer</span>
+                    <span class="memberName">tempDest</span>
+                </div>
+                <div class="block">
+                    <p>Field tempDest.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">segmentPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">segmentPosition</span>
+                </div>
+                <div class="block">
+                    <p>Field segmentPosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dataToRead</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">dataToRead</span>
+                </div>
+                <div class="block">
+                    <p>Field dataToRead.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">srcLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">srcLength</span>
+                </div>
+                <div class="block">
+                    <p>Field srcLength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxCompressedLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxCompressedLength</span>
+                </div>
+                <div class="block">
+                    <p>Field maxCompressedLength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dest</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ByteBuffer</span>
+                    <span class="memberName">dest</span>
+                </div>
+                <div class="block">
+                    <p>Field dest.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempSrc</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ByteBuffer</span>
+                    <span class="memberName">tempSrc</span>
+                </div>
+                <div class="block">
+                    <p>Field tempSrc.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldFirstSegmentIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">oldFirstSegmentIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field oldFirstSegmentIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">segmentsCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">segmentsCount</span>
+                </div>
+                <div class="block">
+                    <p>Field segmentsCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">endSegmentIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">endSegmentIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field endSegmentIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">indexesResizeStamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">indexesResizeStamp</span>
+                </div>
+                <div class="block">
+                    <p>Field indexesResizeStamp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">next</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">next</span>
+                </div>
+                <div class="block">
+                    <p>Field next.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nextSegmentIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">nextSegmentIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field nextSegmentIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">indexesStamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">indexesStamp</span>
+                </div>
+                <div class="block">
+                    <p>Field indexesStamp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dataToWrite</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">dataToWrite</span>
+                </div>
+                <div class="block">
+                    <p>Field dataToWrite.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">next2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">next2</span>
+                </div>
+                <div class="block">
+                    <p>Field next2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">newLength</span>
+                </div>
+                <div class="block">
+                    <p>Field newLength.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newArray</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StampedLock[]</span>
+                    <span class="memberName">newArray</span>
+                </div>
+                <div class="block">
+                    <p>Field newArray.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stamps</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long[]</span>
+                    <span class="memberName">stamps</span>
+                </div>
+                <div class="block">
+                    <p>Field stamps.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">segmentOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">segmentOffset</span>
+                </div>
+                <div class="block">
+                    <p>Field segmentOffset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">size</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">size</span>
+                </div>
+                <div class="block">
+                    <p>Field size.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">index</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">index</span>
+                </div>
+                <div class="block">
+                    <p>Field index.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cur</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">cur</span>
+                </div>
+                <div class="block">
+                    <p>Field cur.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="getTempBuffer">
+                <h4 class="methodName">getTempBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>ByteBuffer</code></span>
+                    <span class="memberName">getTempBuffer</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">length</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getTempBuffer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>length</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="allocateDirect">
+                <h4 class="methodName">allocateDirect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>ByteBuffer</code></span>
+                    <span class="memberName">allocateDirect</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">length</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method allocateDirect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>length</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="open">
+                <h4 class="methodName">open</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="IndexedStorageFile_v0.html" class="type-link"><code>IndexedStorageFile_v0</code></a></span>
+                    <span class="memberName">open</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Path</code> <span class="param-name">path</span></span>, <span class="param"><code>final OpenOption...</code> <span class="param-name">options</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method open.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Path</code> <b>path</b></dd>
+<dd><code>final OpenOption...</code> <b>options</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPath">
+                <h4 class="methodName">getPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Path</code></span>
+                    <span class="memberName">getPath</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPath.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlobCount">
+                <h4 class="methodName">getBlobCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getBlobCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlobCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSegmentSize">
+                <h4 class="methodName">getSegmentSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getSegmentSize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSegmentSize.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCompressionLevel">
+                <h4 class="methodName">getCompressionLevel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getCompressionLevel</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCompressionLevel.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setCompressionLevel">
+                <h4 class="methodName">setCompressionLevel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setCompressionLevel</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">compressionLevel</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setCompressionLevel.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>compressionLevel</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isContiguousBlobs">
+                <h4 class="methodName">isContiguousBlobs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isContiguousBlobs</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isContiguousBlobs.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setContiguousBlobs">
+                <h4 class="methodName">setContiguousBlobs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setContiguousBlobs</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">contiguousBlobs</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setContiguousBlobs.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>contiguousBlobs</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="create">
+                <h4 class="methodName">create</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><a href="IndexedStorageFile_v0.html" class="type-link"><code>IndexedStorageFile_v0</code></a></span>
+                    <span class="memberName">create</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">blobCount</span></span>, <span class="param"><code>final int</code> <span class="param-name">segmentSize</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method create.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>blobCount</b></dd>
+<dd><code>final int</code> <b>segmentSize</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="writeHeader">
+                <h4 class="methodName">writeHeader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">writeHeader</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">blobCount</span></span>, <span class="param"><code>final int</code> <span class="param-name">segmentSize</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method writeHeader.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>blobCount</b></dd>
+<dd><code>final int</code> <b>segmentSize</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="readHeader">
+                <h4 class="methodName">readHeader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">readHeader</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method readHeader.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="memoryMapBlobIndexes">
+                <h4 class="methodName">memoryMapBlobIndexes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">memoryMapBlobIndexes</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method memoryMapBlobIndexes.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="readNextIndexes">
+                <h4 class="methodName">readNextIndexes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">readNextIndexes</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method readNextIndexes.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="processTempIndexes">
+                <h4 class="methodName">processTempIndexes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">processTempIndexes</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method processTempIndexes.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearSegments">
+                <h4 class="methodName">clearSegments</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">clearSegments</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">firstSegmentIndex</span></span>, <span class="param"><code>@Nonnull final ByteBuffer</code> <span class="param-name">tempIndexBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method clearSegments.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>firstSegmentIndex</b></dd>
+<dd><code>@Nonnull final ByteBuffer</code> <b>tempIndexBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="size">
+                <h4 class="methodName">size</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">size</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method size.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="segmentSize">
+                <h4 class="methodName">segmentSize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">segmentSize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method segmentSize.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="segmentCount">
+                <h4 class="methodName">segmentCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">segmentCount</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method segmentCount.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="keys">
+                <h4 class="methodName">keys</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>IntList</code></span>
+                    <span class="memberName">keys</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method keys.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="readBlobLength">
+                <h4 class="methodName">readBlobLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">readBlobLength</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">blobIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method readBlobLength.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>blobIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="readBlobCompressedLength">
+                <h4 class="methodName">readBlobCompressedLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">readBlobCompressedLength</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">blobIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method readBlobCompressedLength.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>blobIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="readBlob">
+                <h4 class="methodName">readBlob</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ByteBuffer</code></span>
+                    <span class="memberName">readBlob</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">blobIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method readBlob.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>blobIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="readBlobHeader">
+                <h4 class="methodName">readBlobHeader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>ByteBuffer</code></span>
+                    <span class="memberName">readBlobHeader</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">firstSegmentIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method readBlobHeader.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>firstSegmentIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="readSegments">
+                <h4 class="methodName">readSegments</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>ByteBuffer</code></span>
+                    <span class="memberName">readSegments</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">firstSegmentIndex</span></span>, <span class="param"><code>final int</code> <span class="param-name">compressedLength</span></span>, <span class="param"><code>@Nonnull final ByteBuffer</code> <span class="param-name">tempHeaderBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method readSegments.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>firstSegmentIndex</b></dd>
+<dd><code>final int</code> <b>compressedLength</b></dd>
+<dd><code>@Nonnull final ByteBuffer</code> <b>tempHeaderBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="writeBlob">
+                <h4 class="methodName">writeBlob</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">writeBlob</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">blobIndex</span></span>, <span class="param"><code>@Nonnull final ByteBuffer</code> <span class="param-name">src</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method writeBlob.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>blobIndex</b></dd>
+<dd><code>@Nonnull final ByteBuffer</code> <b>src</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeBlob">
+                <h4 class="methodName">removeBlob</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">removeBlob</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">blobIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removeBlob.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>blobIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="writeSegments">
+                <h4 class="methodName">writeSegments</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">writeSegments</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">blobIndex</span></span>, <span class="param"><code>@Nonnull final ByteBuffer</code> <span class="param-name">data</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method writeSegments.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>blobIndex</b></dd>
+<dd><code>@Nonnull final ByteBuffer</code> <b>data</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="findFreeSegment">
+                <h4 class="methodName">findFreeSegment</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>SegmentRangeLock</code></span>
+                    <span class="memberName">findFreeSegment</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">count</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method findFreeSegment.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>count</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNextIndex">
+                <h4 class="methodName">getNextIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getNextIndex</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">segmentIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getNextIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>segmentIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSegmentLock">
+                <h4 class="methodName">getSegmentLock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>StampedLock</code></span>
+                    <span class="memberName">getSegmentLock</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">segmentIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getSegmentLock.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>segmentIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryWriteLockSegmentRange">
+                <h4 class="methodName">tryWriteLockSegmentRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>SegmentRangeLock</code></span>
+                    <span class="memberName">tryWriteLockSegmentRange</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">start</span></span>, <span class="param"><code>final int</code> <span class="param-name">count</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryWriteLockSegmentRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>start</b></dd>
+<dd><code>final int</code> <b>count</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="indexesLength">
+                <h4 class="methodName">indexesLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">indexesLength</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method indexesLength.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="segmentsBase">
+                <h4 class="methodName">segmentsBase</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">segmentsBase</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method segmentsBase.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="segmentOffset">
+                <h4 class="methodName">segmentOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">segmentOffset</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">segmentIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method segmentOffset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>segmentIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="segmentPosition">
+                <h4 class="methodName">segmentPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">segmentPosition</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">segmentIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method segmentPosition.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>segmentIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="positionToSegment">
+                <h4 class="methodName">positionToSegment</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">positionToSegment</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">position</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method positionToSegment.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>position</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="blobHeaderPosition">
+                <h4 class="methodName">blobHeaderPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">blobHeaderPosition</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">segmentIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method blobHeaderPosition.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>segmentIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="requiredSegments">
+                <h4 class="methodName">requiredSegments</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">requiredSegments</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">dataLength</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method requiredSegments.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>dataLength</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="lock">
+                <h4 class="methodName">lock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>FileLock</code></span>
+                    <span class="memberName">lock</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method lock.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="force">
+                <h4 class="methodName">force</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">force</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">metaData</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method force.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>metaData</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="close">
+                <h4 class="methodName">close</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">close</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method close.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="toString">
+                <h4 class="methodName">toString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">toString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toString.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="next">
+                <h4 class="methodName">next</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">next</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">len</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method next.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>len</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="length">
+                <h4 class="methodName">length</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">length</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method length.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unlockRead">
+                <h4 class="methodName">unlockRead</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">unlockRead</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unlockRead.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="unlockWrite">
+                <h4 class="methodName">unlockWrite</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">unlockWrite</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method unlockWrite.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

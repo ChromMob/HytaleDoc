@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InteractionChain (com.hypixel.hytale.server.core.entity)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/core/entity/package-summary.html">com.hypixel.hytale.server.core.entity</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">InteractionChain</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="InteractionChain.html" class="type-link">InteractionChain</a> implements <a href="ChainSyncStorage.html" class="type-link" data-class="ChainSyncStorage"><code>ChainSyncStorage</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class InteractionChain. Provides interactionchain functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; InteractionChain</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">baseType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">InteractionType</span>
+                    <span class="memberName">baseType</span>
+                </div>
+                <div class="block">
+                    <p>Field baseType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chainId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chainId</span>
+                </div>
+                <div class="block">
+                    <p>Field chainId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">predicted</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">predicted</span>
+                </div>
+                <div class="block">
+                    <p>Field predicted.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rootInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">RootInteraction</span>
+                    <span class="memberName">rootInteraction</span>
+                </div>
+                <div class="block">
+                    <p>Field rootInteraction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">operationCounter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">operationCounter</span>
+                </div>
+                <div class="block">
+                    <p>Field operationCounter.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">simulatedCallStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">simulatedCallStack</span>
+                </div>
+                <div class="block">
+                    <p>Field simulatedCallStack.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">simulatedOperationCounter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">simulatedOperationCounter</span>
+                </div>
+                <div class="block">
+                    <p>Field simulatedOperationCounter.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">simulatedRootInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">RootInteraction</span>
+                    <span class="memberName">simulatedRootInteraction</span>
+                </div>
+                <div class="block">
+                    <p>Field simulatedRootInteraction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">operationIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">operationIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field operationIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">operationIndexOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">operationIndexOffset</span>
+                </div>
+                <div class="block">
+                    <p>Field operationIndexOffset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">clientOperationIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">clientOperationIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field clientOperationIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempSyncDataOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">tempSyncDataOffset</span>
+                </div>
+                <div class="block">
+                    <p>Field tempSyncDataOffset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">timestamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">timestamp</span>
+                </div>
+                <div class="block">
+                    <p>Field timestamp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">waitingForServerFinished</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">waitingForServerFinished</span>
+                </div>
+                <div class="block">
+                    <p>Field waitingForServerFinished.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">waitingForClientFinished</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">waitingForClientFinished</span>
+                </div>
+                <div class="block">
+                    <p>Field waitingForClientFinished.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">clientState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">InteractionState</span>
+                    <span class="memberName">clientState</span>
+                </div>
+                <div class="block">
+                    <p>Field clientState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">serverState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">InteractionState</span>
+                    <span class="memberName">serverState</span>
+                </div>
+                <div class="block">
+                    <p>Field serverState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">finalState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">InteractionState</span>
+                    <span class="memberName">finalState</span>
+                </div>
+                <div class="block">
+                    <p>Field finalState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">onCompletion</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Runnable</span>
+                    <span class="memberName">onCompletion</span>
+                </div>
+                <div class="block">
+                    <p>Field onCompletion.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sentInitial</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">sentInitial</span>
+                </div>
+                <div class="block">
+                    <p>Field sentInitial.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">desynced</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">desynced</span>
+                </div>
+                <div class="block">
+                    <p>Field desynced.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">timeShift</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">timeShift</span>
+                </div>
+                <div class="block">
+                    <p>Field timeShift.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">firstRun</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">firstRun</span>
+                </div>
+                <div class="block">
+                    <p>Field firstRun.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isFirstRun</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isFirstRun</span>
+                </div>
+                <div class="block">
+                    <p>Field isFirstRun.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">completed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">completed</span>
+                </div>
+                <div class="block">
+                    <p>Field completed.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">preTicked</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">preTicked</span>
+                </div>
+                <div class="block">
+                    <p>Field preTicked.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">altId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">altId</span>
+                </div>
+                <div class="block">
+                    <p>Field altId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionEntry</span>
+                    <span class="memberName">entry</span>
+                </div>
+                <div class="block">
+                    <p>Field entry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rootId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">rootId</span>
+                </div>
+                <div class="block">
+                    <p>Field rootId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">opCounter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">opCounter</span>
+                </div>
+                <div class="block">
+                    <p>Field opCounter.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">root</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RootInteraction</span>
+                    <span class="memberName">root</span>
+                </div>
+                <div class="block">
+                    <p>Field root.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">op</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Operation</span>
+                    <span class="memberName">op</span>
+                </div>
+                <div class="block">
+                    <p>Field op.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">found</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TempChain</span>
+                    <span class="memberName">found</span>
+                </div>
+                <div class="block">
+                    <p>Field found.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionEntry</span>
+                    <span class="memberName">iEntry</span>
+                </div>
+                <div class="block">
+                    <p>Field iEntry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">it</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectIterator<Long2ObjectMap.Entry<TempChain>></span>
+                    <span class="memberName">it</span>
+                </div>
+                <div class="block">
+                    <p>Field it.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TempChain</span>
+                    <span class="memberName">tempChain</span>
+                </div>
+                <div class="block">
+                    <p>Field tempChain.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entryId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">entryId</span>
+                </div>
+                <div class="block">
+                    <p>Field entryId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionChain</span>
+                    <span class="memberName">chain</span>
+                </div>
+                <div class="block">
+                    <p>Field chain.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">state</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CallState</span>
+                    <span class="memberName">state</span>
+                </div>
+                <div class="block">
+                    <p>Field state.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">diff</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">diff</span>
+                </div>
+                <div class="block">
+                    <p>Field diff.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cooldown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionCooldown</span>
+                    <span class="memberName">cooldown</span>
+                </div>
+                <div class="block">
+                    <p>Field cooldown.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cooldownTracker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CooldownHandler.Cooldown</span>
+                    <span class="memberName">cooldownTracker</span>
+                </div>
+                <div class="block">
+                    <p>Field cooldownTracker.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">oIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field oIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempIdx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">tempIdx</span>
+                </div>
+                <div class="block">
+                    <p>Field tempIdx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">idx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">idx</span>
+                </div>
+                <div class="block">
+                    <p>Field idx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fork</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InteractionChain</span>
+                    <span class="memberName">fork</span>
+                </div>
+                <div class="block">
+                    <p>Field fork.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">temp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TempChain</span>
+                    <span class="memberName">temp</span>
+                </div>
+                <div class="block">
+                    <p>Field temp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempForkedChainData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Long2ObjectMap<TempChain></span>
+                    <span class="memberName">tempForkedChainData</span>
+                </div>
+                <div class="block">
+                    <p>Field tempForkedChainData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempSyncData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<InteractionSyncData></span>
+                    <span class="memberName">tempSyncData</span>
+                </div>
+                <div class="block">
+                    <p>Field tempSyncData.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="InteractionChain">
+                <h4 class="methodName">InteractionChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">InteractionChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/InteractionType.html" class="type-link"><code>final InteractionType</code></a> <span class="param-name">type</span></span>, <span class="param"><a href="InteractionContext.html" class="type-link"><code>final InteractionContext</code></a> <span class="param-name">context</span></span>, <span class="param"><a href="../../../protocol/InteractionChainData.html" class="type-link"><code>final InteractionChainData</code></a> <span class="param-name">chainData</span></span>, <span class="param"><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>@Nonnull final RootInteraction</code></a> <span class="param-name">rootInteraction</span></span>, <span class="param"><code>@Nullable final Runnable</code> <span class="param-name">onCompletion</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">requiresClient</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method InteractionChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/InteractionType.html" class="type-link"><code>final InteractionType</code></a> <b>type</b></dd>
+<dd><a href="InteractionContext.html" class="type-link"><code>final InteractionContext</code></a> <b>context</b></dd>
+<dd><a href="../../../protocol/InteractionChainData.html" class="type-link"><code>final InteractionChainData</code></a> <b>chainData</b></dd>
+<dd><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>@Nonnull final RootInteraction</code></a> <b>rootInteraction</b></dd>
+<dd><code>@Nullable final Runnable</code> <b>onCompletion</b></dd>
+<dd><code>final boolean</code> <b>requiresClient</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getType">
+                <h4 class="methodName">getType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/InteractionType.html" class="type-link"><code>InteractionType</code></a></span>
+                    <span class="memberName">getType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChainId">
+                <h4 class="methodName">getChainId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getChainId</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChainId.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getForkedChainId">
+                <h4 class="methodName">getForkedChainId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>ForkedChainId</code></a></span>
+                    <span class="memberName">getForkedChainId</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getForkedChainId.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBaseForkedChainId">
+                <h4 class="methodName">getBaseForkedChainId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>ForkedChainId</code></a></span>
+                    <span class="memberName">getBaseForkedChainId</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBaseForkedChainId.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInitialRootInteraction">
+                <h4 class="methodName">getInitialRootInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>RootInteraction</code></a></span>
+                    <span class="memberName">getInitialRootInteraction</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getInitialRootInteraction.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isPredicted">
+                <h4 class="methodName">isPredicted</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isPredicted</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isPredicted.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getContext">
+                <h4 class="methodName">getContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="InteractionContext.html" class="type-link"><code>InteractionContext</code></a></span>
+                    <span class="memberName">getContext</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getContext.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChainData">
+                <h4 class="methodName">getChainData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/InteractionChainData.html" class="type-link"><code>InteractionChainData</code></a></span>
+                    <span class="memberName">getChainData</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChainData.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getServerState">
+                <h4 class="methodName">getServerState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/InteractionState.html" class="type-link"><code>InteractionState</code></a></span>
+                    <span class="memberName">getServerState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getServerState.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="requiresClient">
+                <h4 class="methodName">requiresClient</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">requiresClient</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method requiresClient.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRootInteraction">
+                <h4 class="methodName">getRootInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>RootInteraction</code></a></span>
+                    <span class="memberName">getRootInteraction</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRootInteraction.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSimulatedRootInteraction">
+                <h4 class="methodName">getSimulatedRootInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>RootInteraction</code></a></span>
+                    <span class="memberName">getSimulatedRootInteraction</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSimulatedRootInteraction.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOperationCounter">
+                <h4 class="methodName">getOperationCounter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getOperationCounter</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getOperationCounter.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setOperationCounter">
+                <h4 class="methodName">setOperationCounter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setOperationCounter</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">operationCounter</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setOperationCounter.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>operationCounter</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSimulatedOperationCounter">
+                <h4 class="methodName">getSimulatedOperationCounter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getSimulatedOperationCounter</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSimulatedOperationCounter.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setSimulatedOperationCounter">
+                <h4 class="methodName">setSimulatedOperationCounter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setSimulatedOperationCounter</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">simulatedOperationCounter</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setSimulatedOperationCounter.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>simulatedOperationCounter</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="wasPreTicked">
+                <h4 class="methodName">wasPreTicked</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">wasPreTicked</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method wasPreTicked.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setPreTicked">
+                <h4 class="methodName">setPreTicked</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setPreTicked</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">preTicked</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setPreTicked.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>preTicked</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOperationIndex">
+                <h4 class="methodName">getOperationIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getOperationIndex</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getOperationIndex.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="nextOperationIndex">
+                <h4 class="methodName">nextOperationIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">nextOperationIndex</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method nextOperationIndex.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getClientOperationIndex">
+                <h4 class="methodName">getClientOperationIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getClientOperationIndex</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getClientOperationIndex.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="findForkedChain">
+                <h4 class="methodName">findForkedChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="InteractionChain.html" class="type-link"><code>InteractionChain</code></a></span>
+                    <span class="memberName">findForkedChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nonnull final ForkedChainId</code></a> <span class="param-name">chainId</span></span>, <span class="param"><a href="../../../protocol/InteractionChainData.html" class="type-link"><code>@Nullable final InteractionChainData</code></a> <span class="param-name">data</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method findForkedChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nonnull final ForkedChainId</code></a> <b>chainId</b></dd>
+<dd><a href="../../../protocol/InteractionChainData.html" class="type-link"><code>@Nullable final InteractionChainData</code></a> <b>data</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getForkedChain">
+                <h4 class="methodName">getForkedChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="InteractionChain.html" class="type-link"><code>InteractionChain</code></a></span>
+                    <span class="memberName">getForkedChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nonnull final ForkedChainId</code></a> <span class="param-name">chainId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getForkedChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nonnull final ForkedChainId</code></a> <b>chainId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="putForkedChain">
+                <h4 class="methodName">putForkedChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">putForkedChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nonnull final ForkedChainId</code></a> <span class="param-name">chainId</span></span>, <span class="param"><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <span class="param-name">chain</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method putForkedChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nonnull final ForkedChainId</code></a> <b>chainId</b></dd>
+<dd><a href="InteractionChain.html" class="type-link"><code>@Nonnull final InteractionChain</code></a> <b>chain</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTempForkedChain">
+                <h4 class="methodName">getTempForkedChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>TempChain</code></span>
+                    <span class="memberName">getTempForkedChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nonnull final ForkedChainId</code></a> <span class="param-name">chainId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getTempForkedChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nonnull final ForkedChainId</code></a> <b>chainId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param"><code>chainId.entryIndex <</code> <span class="param-name">this.operationIndexOffset</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>chainId.entryIndex <</code> <b>this.operationIndexOffset</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="TempChain">
+                <h4 class="methodName">TempChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">TempChain</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method TempChain.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeTempForkedChain">
+                <h4 class="methodName">removeTempForkedChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>TempChain</code></span>
+                    <span class="memberName">removeTempForkedChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nonnull final ForkedChainId</code></a> <span class="param-name">chainId</span></span>, <span class="param"><a href="InteractionChain.html" class="type-link"><code>final InteractionChain</code></a> <span class="param-name">forkChain</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removeTempForkedChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nonnull final ForkedChainId</code></a> <b>chainId</b></dd>
+<dd><a href="InteractionChain.html" class="type-link"><code>final InteractionChain</code></a> <b>forkChain</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasSentInitial">
+                <h4 class="methodName">hasSentInitial</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasSentInitial</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method hasSentInitial.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setSentInitial">
+                <h4 class="methodName">setSentInitial</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setSentInitial</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">sentInitial</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setSentInitial.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>sentInitial</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTimeShift">
+                <h4 class="methodName">getTimeShift</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">getTimeShift</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTimeShift.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setTimeShift">
+                <h4 class="methodName">setTimeShift</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setTimeShift</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">timeShift</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setTimeShift.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>timeShift</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="consumeFirstRun">
+                <h4 class="methodName">consumeFirstRun</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">consumeFirstRun</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method consumeFirstRun.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isFirstRun">
+                <h4 class="methodName">isFirstRun</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isFirstRun</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isFirstRun.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setFirstRun">
+                <h4 class="methodName">setFirstRun</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setFirstRun</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">firstRun</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setFirstRun.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>firstRun</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCallDepth">
+                <h4 class="methodName">getCallDepth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getCallDepth</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCallDepth.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSimulatedCallDepth">
+                <h4 class="methodName">getSimulatedCallDepth</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getSimulatedCallDepth</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSimulatedCallDepth.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="pushRoot">
+                <h4 class="methodName">pushRoot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">pushRoot</span>
+                    <span class="arguments">(<span class="param"><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>final RootInteraction</code></a> <span class="param-name">nextInteraction</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">simulate</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method pushRoot.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../modules/interaction/interaction/config/RootInteraction.html" class="type-link"><code>final RootInteraction</code></a> <b>nextInteraction</b></dd>
+<dd><code>final boolean</code> <b>simulate</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="CallState">
+                <h4 class="methodName">CallState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">CallState</span>
+                    <span class="arguments">(<span class="param">this.rootInteraction</span>, <span class="param">this.operationCounter</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method CallState.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.rootInteraction</code> <b>this.rootInteraction</b></dd>
+<dd><code>this.operationCounter</code> <b>this.operationCounter</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="popRoot">
+                <h4 class="methodName">popRoot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">popRoot</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method popRoot.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTimeInSeconds">
+                <h4 class="methodName">getTimeInSeconds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">getTimeInSeconds</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTimeInSeconds.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setOnCompletion">
+                <h4 class="methodName">setOnCompletion</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setOnCompletion</span>
+                    <span class="arguments">(<span class="param"><code>final Runnable</code> <span class="param-name">onCompletion</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setOnCompletion.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Runnable</code> <b>onCompletion</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onCompletion">
+                <h4 class="methodName">onCompletion</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onCompletion</span>
+                    <span class="arguments">(<span class="param"><a href="../modules/interaction/interaction/CooldownHandler.html" class="type-link"><code>final CooldownHandler</code></a> <span class="param-name">cooldownHandler</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">isRemote</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onCompletion.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../modules/interaction/interaction/CooldownHandler.html" class="type-link"><code>final CooldownHandler</code></a> <b>cooldownHandler</b></dd>
+<dd><code>final boolean</code> <b>isRemote</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateServerState">
+                <h4 class="methodName">updateServerState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateServerState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method updateServerState.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateSimulatedState">
+                <h4 class="methodName">updateSimulatedState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateSimulatedState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method updateSimulatedState.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getClientState">
+                <h4 class="methodName">getClientState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/InteractionState.html" class="type-link"><code>InteractionState</code></a></span>
+                    <span class="memberName">getClientState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getClientState.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setClientState">
+                <h4 class="methodName">setClientState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setClientState</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/InteractionState.html" class="type-link"><code>final InteractionState</code></a> <span class="param-name">state</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setClientState.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/InteractionState.html" class="type-link"><code>final InteractionState</code></a> <b>state</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOrCreateInteractionEntry">
+                <h4 class="methodName">getOrCreateInteractionEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="InteractionEntry.html" class="type-link"><code>InteractionEntry</code></a></span>
+                    <span class="memberName">getOrCreateInteractionEntry</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getOrCreateInteractionEntry.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="InteractionEntry">
+                <h4 class="methodName">InteractionEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">InteractionEntry</span>
+                    <span class="arguments">(<span class="param">index</span>, <span class="param">this.operationCounter</span>, <span class="param">RootInteraction.getRootInteractionIdOrUnknown(this.rootInteraction.getId(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method InteractionEntry.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>index</code> <b>index</b></dd>
+<dd><code>this.operationCounter</code> <b>this.operationCounter</b></dd>
+<dd><code>RootInteraction.getRootInteractionIdOrUnknown(this.rootInteraction.getId(</code> <b>RootInteraction.getRootInteractionIdOrUnknown(this.rootInteraction.getId(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInteraction">
+                <h4 class="methodName">getInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="InteractionEntry.html" class="type-link"><code>InteractionEntry</code></a></span>
+                    <span class="memberName">getInteraction</span>
+                    <span class="arguments">(<span class="param"><code>int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getInteraction.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeInteractionEntry">
+                <h4 class="methodName">removeInteractionEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">removeInteractionEntry</span>
+                    <span class="arguments">(<span class="param"><a href="InteractionManager.html" class="type-link"><code>@Nonnull final InteractionManager</code></a> <span class="param-name">interactionManager</span></span>, <span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removeInteractionEntry.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="InteractionManager.html" class="type-link"><code>@Nonnull final InteractionManager</code></a> <b>interactionManager</b></dd>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="putInteractionSyncData">
+                <h4 class="methodName">putInteractionSyncData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">putInteractionSyncData</span>
+                    <span class="arguments">(<span class="param"><code>int</code> <span class="param-name">index</span></span>, <span class="param"><a href="../../../protocol/InteractionSyncData.html" class="type-link"><code>final InteractionSyncData</code></a> <span class="param-name">data</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method putInteractionSyncData.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>int</code> <b>index</b></dd>
+<dd><a href="../../../protocol/InteractionSyncData.html" class="type-link"><code>final InteractionSyncData</code></a> <b>data</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearInteractionSyncData">
+                <h4 class="methodName">clearInteractionSyncData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearInteractionSyncData</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">operationIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method clearInteractionSyncData.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>operationIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeInteractionSyncData">
+                <h4 class="methodName">removeInteractionSyncData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/InteractionSyncData.html" class="type-link"><code>InteractionSyncData</code></a></span>
+                    <span class="memberName">removeInteractionSyncData</span>
+                    <span class="arguments">(<span class="param"><code>int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removeInteractionSyncData.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateSyncPosition">
+                <h4 class="methodName">updateSyncPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateSyncPosition</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateSyncPosition.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isSyncDataOutOfOrder">
+                <h4 class="methodName">isSyncDataOutOfOrder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isSyncDataOutOfOrder</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isSyncDataOutOfOrder.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="syncFork">
+                <h4 class="methodName">syncFork</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">syncFork</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="InteractionManager.html" class="type-link"><code>@Nonnull final InteractionManager</code></a> <span class="param-name">manager</span></span>, <span class="param"><a href="../../../protocol/packets/interaction/SyncInteractionChain.html" class="type-link"><code>@Nonnull final SyncInteractionChain</code></a> <span class="param-name">packet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method syncFork.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="InteractionManager.html" class="type-link"><code>@Nonnull final InteractionManager</code></a> <b>manager</b></dd>
+<dd><a href="../../../protocol/packets/interaction/SyncInteractionChain.html" class="type-link"><code>@Nonnull final SyncInteractionChain</code></a> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="copyTempFrom">
+                <h4 class="methodName">copyTempFrom</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">copyTempFrom</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final TempChain</code> <span class="param-name">temp</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method copyTempFrom.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final TempChain</code> <b>temp</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="forkedIdToIndex">
+                <h4 class="methodName">forkedIdToIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">forkedIdToIndex</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nonnull final ForkedChainId</code></a> <span class="param-name">chainId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method forkedIdToIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nonnull final ForkedChainId</code></a> <b>chainId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setChainId">
+                <h4 class="methodName">setChainId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setChainId</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">chainId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setChainId.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>chainId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBaseType">
+                <h4 class="methodName">getBaseType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/InteractionType.html" class="type-link"><code>InteractionType</code></a></span>
+                    <span class="memberName">getBaseType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBaseType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setBaseType">
+                <h4 class="methodName">setBaseType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setBaseType</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/InteractionType.html" class="type-link"><code>final InteractionType</code></a> <span class="param-name">baseType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setBaseType.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/InteractionType.html" class="type-link"><code>final InteractionType</code></a> <b>baseType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getForkedChains">
+                <h4 class="methodName">getForkedChains</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Long2ObjectMap<InteractionChain></code></span>
+                    <span class="memberName">getForkedChains</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getForkedChains.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTempForkedChainData">
+                <h4 class="methodName">getTempForkedChainData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Long2ObjectMap<TempChain></code></span>
+                    <span class="memberName">getTempForkedChainData</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTempForkedChainData.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTimestamp">
+                <h4 class="methodName">getTimestamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">getTimestamp</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTimestamp.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setTimestamp">
+                <h4 class="methodName">setTimestamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setTimestamp</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">timestamp</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setTimestamp.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>timestamp</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWaitingForServerFinished">
+                <h4 class="methodName">getWaitingForServerFinished</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">getWaitingForServerFinished</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getWaitingForServerFinished.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setWaitingForServerFinished">
+                <h4 class="methodName">setWaitingForServerFinished</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setWaitingForServerFinished</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">waitingForServerFinished</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setWaitingForServerFinished.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>waitingForServerFinished</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWaitingForClientFinished">
+                <h4 class="methodName">getWaitingForClientFinished</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">getWaitingForClientFinished</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getWaitingForClientFinished.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setWaitingForClientFinished">
+                <h4 class="methodName">setWaitingForClientFinished</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setWaitingForClientFinished</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">waitingForClientFinished</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setWaitingForClientFinished.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>waitingForClientFinished</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setServerState">
+                <h4 class="methodName">setServerState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setServerState</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/InteractionState.html" class="type-link"><code>final InteractionState</code></a> <span class="param-name">serverState</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setServerState.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/InteractionState.html" class="type-link"><code>final InteractionState</code></a> <b>serverState</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFinalState">
+                <h4 class="methodName">getFinalState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/InteractionState.html" class="type-link"><code>InteractionState</code></a></span>
+                    <span class="memberName">getFinalState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getFinalState.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setFinalState">
+                <h4 class="methodName">setFinalState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setFinalState</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/InteractionState.html" class="type-link"><code>final InteractionState</code></a> <span class="param-name">finalState</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setFinalState.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/InteractionState.html" class="type-link"><code>final InteractionState</code></a> <b>finalState</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setPredicted">
+                <h4 class="methodName">setPredicted</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setPredicted</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">predicted</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setPredicted.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>predicted</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="flagDesync">
+                <h4 class="methodName">flagDesync</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">flagDesync</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method flagDesync.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isDesynced">
+                <h4 class="methodName">isDesynced</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isDesynced</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isDesynced.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNewForks">
+                <h4 class="methodName">getNewForks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>List<InteractionChain></code></span>
+                    <span class="memberName">getNewForks</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNewForks.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="toString">
+                <h4 class="methodName">toString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">toString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toString.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ForkedChainId">
+                <h4 class="methodName">ForkedChainId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ForkedChainId</span>
+                    <span class="arguments">(<span class="param">-1</span>, <span class="param">Integer.MAX_VALUE</span>, <span class="param">null</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ForkedChainId.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>-1</code> <b>-1</b></dd>
+<dd><code>Integer.MAX_VALUE</code> <b>Integer.MAX_VALUE</b></dd>
+<dd><code>null</code> <b>null</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOrCreateTempForkedChain">
+                <h4 class="methodName">getOrCreateTempForkedChain</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>TempChain</code></span>
+                    <span class="memberName">getOrCreateTempForkedChain</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nonnull final ForkedChainId</code></a> <span class="param-name">chainId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getOrCreateTempForkedChain.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>@Nonnull final ForkedChainId</code></a> <b>chainId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setChainData">
+                <h4 class="methodName">setChainData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setChainData</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/InteractionChainData.html" class="type-link"><code>final InteractionChainData</code></a> <span class="param-name">chainData</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setChainData.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/InteractionChainData.html" class="type-link"><code>final InteractionChainData</code></a> <b>chainData</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setBaseForkedChainId">
+                <h4 class="methodName">setBaseForkedChainId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setBaseForkedChainId</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>final ForkedChainId</code></a> <span class="param-name">baseForkedChainId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setBaseForkedChainId.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>final ForkedChainId</code></a> <b>baseForkedChainId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setForkedChainId">
+                <h4 class="methodName">setForkedChainId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setForkedChainId</span>
+                    <span class="arguments">(<span class="param"><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>final ForkedChainId</code></a> <span class="param-name">forkedChainId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setForkedChainId.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../protocol/ForkedChainId.html" class="type-link"><code>final ForkedChainId</code></a> <b>forkedChainId</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

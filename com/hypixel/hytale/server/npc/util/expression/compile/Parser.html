@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parser (com.hypixel.hytale.server.npc.util.expression.compile)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../../com/hypixel/hytale/server/npc/util/expression/compile/package-summary.html">com.hypixel.hytale.server.npc.util.expression.compile</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">Parser</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="Parser.html" class="type-link">Parser</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class Parser. Provides parser functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; Parser</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">lexer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Lexer<Token></span>
+                    <span class="memberName">lexer</span>
+                </div>
+                <div class="block">
+                    <p>Field lexer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">context</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">LexerContext<Token></span>
+                    <span class="memberName">context</span>
+                </div>
+                <div class="block">
+                    <p>Field context.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">operatorStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Deque<ParsedToken></span>
+                    <span class="memberName">operatorStack</span>
+                </div>
+                <div class="block">
+                    <p>Field operatorStack.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bracketStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Deque<ParsedToken></span>
+                    <span class="memberName">bracketStack</span>
+                </div>
+                <div class="block">
+                    <p>Field bracketStack.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parsedToken2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ParsedToken</span>
+                    <span class="memberName">parsedToken2</span>
+                </div>
+                <div class="block">
+                    <p>Field parsedToken2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">otherBracket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Token</span>
+                    <span class="memberName">otherBracket</span>
+                </div>
+                <div class="block">
+                    <p>Field otherBracket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parsedToken3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ParsedToken</span>
+                    <span class="memberName">parsedToken3</span>
+                </div>
+                <div class="block">
+                    <p>Field parsedToken3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parsedToken4</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ParsedToken</span>
+                    <span class="memberName">parsedToken4</span>
+                </div>
+                <div class="block">
+                    <p>Field parsedToken4.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parsedToken5</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ParsedToken</span>
+                    <span class="memberName">parsedToken5</span>
+                </div>
+                <div class="block">
+                    <p>Field parsedToken5.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parsedToken6</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ParsedToken</span>
+                    <span class="memberName">parsedToken6</span>
+                </div>
+                <div class="block">
+                    <p>Field parsedToken6.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">mustBeUnary</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">mustBeUnary</span>
+                </div>
+                <div class="block">
+                    <p>Field mustBeUnary.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">requiredOperands</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">requiredOperands</span>
+                </div>
+                <div class="block">
+                    <p>Field requiredOperands.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tokenPrecedence</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">tokenPrecedence</span>
+                </div>
+                <div class="block">
+                    <p>Field tokenPrecedence.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stackTokenPrecedence</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">stackTokenPrecedence</span>
+                </div>
+                <div class="block">
+                    <p>Field stackTokenPrecedence.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">token</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">Token</span>
+                    <span class="memberName">token</span>
+                </div>
+                <div class="block">
+                    <p>Field token.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tokenString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">tokenString</span>
+                </div>
+                <div class="block">
+                    <p>Field tokenString.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tokenNumber</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">tokenNumber</span>
+                </div>
+                <div class="block">
+                    <p>Field tokenNumber.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tokenPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">tokenPosition</span>
+                </div>
+                <div class="block">
+                    <p>Field tokenPosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">operandCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">operandCount</span>
+                </div>
+                <div class="block">
+                    <p>Field operandCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isTuple</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isTuple</span>
+                </div>
+                <div class="block">
+                    <p>Field isTuple.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isFunctionCall</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isFunctionCall</span>
+                </div>
+                <div class="block">
+                    <p>Field isFunctionCall.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tupleLength</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">tupleLength</span>
+                </div>
+                <div class="block">
+                    <p>Field tupleLength.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="Parser">
+                <h4 class="methodName">Parser</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">Parser</span>
+                    <span class="arguments">(<span class="param"><a href="Lexer.html" class="type-link"><code>final Lexer<Token></code></a> <span class="param-name">lexer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Parser.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="Lexer.html" class="type-link"><code>final Lexer<Token></code></a> <b>lexer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="nextToken">
+                <h4 class="methodName">nextToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>ParsedToken</code></span>
+                    <span class="memberName">nextToken</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method nextToken.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="parse">
+                <h4 class="methodName">parse</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">parse</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">expression</span></span>, <span class="param"><code>@Nonnull final ParsedTokenConsumer</code> <span class="param-name">tokenConsumer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method parse.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>expression</b></dd>
+<dd><code>@Nonnull final ParsedTokenConsumer</code> <b>tokenConsumer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ParsedToken">
+                <h4 class="methodName">ParsedToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ParsedToken</span>
+                    <span class="arguments">(<span class="param">Token.END</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ParsedToken.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Token.END</code> <b>Token.END</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">token.isOpenBracket(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>token.isOpenBracket(</code> <b>token.isOpenBracket(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="RuntimeException">
+                <h4 class="methodName">RuntimeException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">RuntimeException</span>
+                    <span class="arguments">(<span class="param"><code>"Internal parser error: " +</code> <span class="param-name">String.valueOf(token</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method RuntimeException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Internal parser error: " +</code> <b>String.valueOf(token</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="peekOperator">
+                <h4 class="methodName">peekOperator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ParsedToken</code></span>
+                    <span class="memberName">peekOperator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method peekOperator.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="validateOperandCount">
+                <h4 class="methodName">validateOperandCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">validateOperandCount</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ParsedToken</code> <span class="param-name">bracket</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method validateOperandCount.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ParsedToken</code> <b>bracket</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="adjustOperandCount">
+                <h4 class="methodName">adjustOperandCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">adjustOperandCount</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ParsedToken</code> <span class="param-name">parsedToken</span></span>, <span class="param"><code>final int</code> <span class="param-name">operandCount</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method adjustOperandCount.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ParsedToken</code> <b>parsedToken</b></dd>
+<dd><code>final int</code> <b>operandCount</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasLowerPrecedence">
+                <h4 class="methodName">hasLowerPrecedence</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasLowerPrecedence</span>
+                    <span class="arguments">(<span class="param"><a href="Token.html" class="type-link"><code>@Nonnull final Token</code></a> <span class="param-name">token</span></span>, <span class="param"><code>@Nullable final ParsedToken</code> <span class="param-name">stackToken</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method hasLowerPrecedence.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="Token.html" class="type-link"><code>@Nonnull final Token</code></a> <b>token</b></dd>
+<dd><code>@Nullable final ParsedToken</code> <b>stackToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="arity">
+                <h4 class="methodName">arity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">arity</span>
+                    <span class="arguments">(<span class="param"><a href="Token.html" class="type-link"><code>@Nonnull final Token</code></a> <span class="param-name">operator</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method arity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="Token.html" class="type-link"><code>@Nonnull final Token</code></a> <b>operator</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="fromLexer">
+                <h4 class="methodName">fromLexer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>ParsedToken</code></span>
+                    <span class="memberName">fromLexer</span>
+                    <span class="arguments">(<span class="param"><a href="Lexer.html" class="type-link"><code>@Nonnull final Lexer<Token></code></a> <span class="param-name">lexer</span></span>, <span class="param"><a href="LexerContext.html" class="type-link"><code>@Nonnull final LexerContext<Token></code></a> <span class="param-name">context</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method fromLexer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="Lexer.html" class="type-link"><code>@Nonnull final Lexer<Token></code></a> <b>lexer</b></dd>
+<dd><a href="LexerContext.html" class="type-link"><code>@Nonnull final LexerContext<Token></code></a> <b>context</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

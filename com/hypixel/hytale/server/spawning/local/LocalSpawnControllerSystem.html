@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LocalSpawnControllerSystem (com.hypixel.hytale.server.spawning.local)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/spawning/local/package-summary.html">com.hypixel.hytale.server.spawning.local</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">LocalSpawnControllerSystem</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="LocalSpawnControllerSystem.html" class="type-link">LocalSpawnControllerSystem</a> extends <a href="../../../component/system/tick/TickingSystem.html" class="type-link" data-class="TickingSystem"><code>TickingSystem</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>System for handling localspawncontroller mechanics. Systems contain game logic that operates on entities with specific component types.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; TickingSystem &gt; LocalSpawnControllerSystem</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">localSpawnState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LocalSpawnState</span>
+                    <span class="memberName">localSpawnState</span>
+                </div>
+                <div class="block">
+                    <p>Field localSpawnState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">controllers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<Ref<EntityStore>></span>
+                    <span class="memberName">controllers</span>
+                </div>
+                <div class="block">
+                    <p>Field controllers.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnControllerComponent2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LocalSpawnController</span>
+                    <span class="memberName">spawnControllerComponent2</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnControllerComponent2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pendingSpawns</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<LegacySpawnBeaconEntity></span>
+                    <span class="memberName">pendingSpawns</span>
+                </div>
+                <div class="block">
+                    <p>Field pendingSpawns.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">existingBeacons</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectList<Ref<EntityStore>></span>
+                    <span class="memberName">existingBeacons</span>
+                </div>
+                <div class="block">
+                    <p>Field existingBeacons.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">reference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">reference</span>
+                </div>
+                <div class="block">
+                    <p>Field reference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnControllerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LocalSpawnController</span>
+                    <span class="memberName">spawnControllerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnControllerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRefComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">playerRefComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRefComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">weatherTrackerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WeatherTracker</span>
+                    <span class="memberName">weatherTrackerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field weatherTrackerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environmentIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">environmentIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field environmentIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">possibleBeacons</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<BeaconSpawnWrapper></span>
+                    <span class="memberName">possibleBeacons</span>
+                </div>
+                <div class="block">
+                    <p>Field possibleBeacons.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">firstBeacon</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BeaconSpawnWrapper</span>
+                    <span class="memberName">firstBeacon</span>
+                </div>
+                <div class="block">
+                    <p>Field firstBeacon.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">firstRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">firstRange</span>
+                </div>
+                <div class="block">
+                    <p>Field firstRange.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">beacon</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BeaconSpawnWrapper</span>
+                    <span class="memberName">beacon</span>
+                </div>
+                <div class="block">
+                    <p>Field beacon.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">radius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">radius</span>
+                </div>
+                <div class="block">
+                    <p>Field radius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">yRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">yRange</span>
+                </div>
+                <div class="block">
+                    <p>Field yRange.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">largestDistanceSquared</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">largestDistanceSquared</span>
+                </div>
+                <div class="block">
+                    <p>Field largestDistanceSquared.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">yDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">yDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field yDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">y</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">y</span>
+                </div>
+                <div class="block">
+                    <p>Field y.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">minY</span>
+                </div>
+                <div class="block">
+                    <p>Field minY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxY</span>
+                </div>
+                <div class="block">
+                    <p>Field maxY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldTimeResource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldTimeResource</span>
+                    <span class="memberName">worldTimeResource</span>
+                </div>
+                <div class="block">
+                    <p>Field worldTimeResource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sunlightFactor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">sunlightFactor</span>
+                </div>
+                <div class="block">
+                    <p>Field sunlightFactor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">xPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">xPos</span>
+                </div>
+                <div class="block">
+                    <p>Field xPos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">yPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">yPos</span>
+                </div>
+                <div class="block">
+                    <p>Field yPos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zPos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">zPos</span>
+                </div>
+                <div class="block">
+                    <p>Field zPos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">averageLightValues</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object2ByteOpenHashMap<LightType></span>
+                    <span class="memberName">averageLightValues</span>
+                </div>
+                <div class="block">
+                    <p>Field averageLightValues.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">possibleBeacon</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BeaconSpawnWrapper</span>
+                    <span class="memberName">possibleBeacon</span>
+                </div>
+                <div class="block">
+                    <p>Field possibleBeacon.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">existingBeaconReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">existingBeaconReference</span>
+                </div>
+                <div class="block">
+                    <p>Field existingBeaconReference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">existingBeaconComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LegacySpawnBeaconEntity</span>
+                    <span class="memberName">existingBeaconComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field existingBeaconComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">existingBeaconTransformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">existingBeaconTransformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field existingBeaconTransformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">existingY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">existingY</span>
+                </div>
+                <div class="block">
+                    <p>Field existingY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">existingBeaconIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">existingBeaconIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field existingBeaconIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pending</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LegacySpawnBeaconEntity</span>
+                    <span class="memberName">pending</span>
+                </div>
+                <div class="block">
+                    <p>Field pending.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pendingReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">pendingReference</span>
+                </div>
+                <div class="block">
+                    <p>Field pendingReference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pendingTransformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">pendingTransformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field pendingTransformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pendingPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">pendingPosition</span>
+                </div>
+                <div class="block">
+                    <p>Field pendingPosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pendingY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">pendingY</span>
+                </div>
+                <div class="block">
+                    <p>Field pendingY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">xDiff</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">xDiff</span>
+                </div>
+                <div class="block">
+                    <p>Field xDiff.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zDiff</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">zDiff</span>
+                </div>
+                <div class="block">
+                    <p>Field zDiff.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">distSquared</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">distSquared</span>
+                </div>
+                <div class="block">
+                    <p>Field distSquared.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">existingBeaconIndex2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">existingBeaconIndex2</span>
+                </div>
+                <div class="block">
+                    <p>Field existingBeaconIndex2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">beaconRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">beaconRef</span>
+                </div>
+                <div class="block">
+                    <p>Field beaconRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lightRangePredicate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">LightRangePredicate</span>
+                    <span class="memberName">lightRangePredicate</span>
+                </div>
+                <div class="block">
+                    <p>Field lightRangePredicate.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lightValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">byte</span>
+                    <span class="memberName">lightValue</span>
+                </div>
+                <div class="block">
+                    <p>Field lightValue.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">chunk</span>
+                </div>
+                <div class="block">
+                    <p>Field chunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockChunk</span>
+                    <span class="memberName">blockChunk</span>
+                </div>
+                <div class="block">
+                    <p>Field blockChunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">blockId</span>
+                </div>
+                <div class="block">
+                    <p>Field blockId.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="LocalSpawnControllerSystem">
+                <h4 class="methodName">LocalSpawnControllerSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">LocalSpawnControllerSystem</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/ComponentType.html" class="type-link"><code>final ComponentType<EntityStore, LocalSpawnController></code></a> <span class="param-name">spawnControllerComponentType</span></span>, <span class="param"><a href="../../../component/ComponentType.html" class="type-link"><code>final ComponentType<EntityStore, TransformComponent></code></a> <span class="param-name">transformComponentype</span></span>, <span class="param"><a href="../../../component/ComponentType.html" class="type-link"><code>final ComponentType<EntityStore, WeatherTracker></code></a> <span class="param-name">weatherTrackerComponentType</span></span>, <span class="param"><a href="../../../component/ComponentType.html" class="type-link"><code>final ComponentType<EntityStore, LocalSpawnBeacon></code></a> <span class="param-name">localSpawnBeaconComponentType</span></span>, <span class="param"><a href="../../../component/ComponentType.html" class="type-link"><code>final ComponentType<EntityStore, LegacySpawnBeaconEntity></code></a> <span class="param-name">spawnBeaconComponentType</span></span>, <span class="param"><a href="../../core/asset/type/item/config/ResourceType.html" class="type-link"><code>final ResourceType<EntityStore, LocalSpawnState></code></a> <span class="param-name">localSpawnStateResourceType</span></span>, <span class="param"><a href="../../core/asset/type/item/config/ResourceType.html" class="type-link"><code>final ResourceType<EntityStore, SpatialResource<Ref<EntityStore>, EntityStore>></code></a> <span class="param-name">beaconSpatialComponent</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method LocalSpawnControllerSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/ComponentType.html" class="type-link"><code>final ComponentType<EntityStore, LocalSpawnController></code></a> <b>spawnControllerComponentType</b></dd>
+<dd><a href="../../../component/ComponentType.html" class="type-link"><code>final ComponentType<EntityStore, TransformComponent></code></a> <b>transformComponentype</b></dd>
+<dd><a href="../../../component/ComponentType.html" class="type-link"><code>final ComponentType<EntityStore, WeatherTracker></code></a> <b>weatherTrackerComponentType</b></dd>
+<dd><a href="../../../component/ComponentType.html" class="type-link"><code>final ComponentType<EntityStore, LocalSpawnBeacon></code></a> <b>localSpawnBeaconComponentType</b></dd>
+<dd><a href="../../../component/ComponentType.html" class="type-link"><code>final ComponentType<EntityStore, LegacySpawnBeaconEntity></code></a> <b>spawnBeaconComponentType</b></dd>
+<dd><a href="../../core/asset/type/item/config/ResourceType.html" class="type-link"><code>final ResourceType<EntityStore, LocalSpawnState></code></a> <b>localSpawnStateResourceType</b></dd>
+<dd><a href="../../core/asset/type/item/config/ResourceType.html" class="type-link"><code>final ResourceType<EntityStore, SpatialResource<Ref<EntityStore>, EntityStore>></code></a> <b>beaconSpatialComponent</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tick">
+                <h4 class="methodName">tick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tick</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>, <span class="param"><code>final int</code> <span class="param-name">systemIndex</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+<dd><code>final int</code> <b>systemIndex</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="spawnLightLevelMatches">
+                <h4 class="methodName">spawnLightLevelMatches</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">spawnLightLevelMatches</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final double</code> <span class="param-name">sunlightFactor</span></span>, <span class="param"><a href="../wrappers/BeaconSpawnWrapper.html" class="type-link"><code>@Nonnull final BeaconSpawnWrapper</code></a> <span class="param-name">wrapper</span></span>, <span class="param"><code>@Nonnull final Object2ByteMap<LightType></code> <span class="param-name">averageValues</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method spawnLightLevelMatches.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final double</code> <b>sunlightFactor</b></dd>
+<dd><a href="../wrappers/BeaconSpawnWrapper.html" class="type-link"><code>@Nonnull final BeaconSpawnWrapper</code></a> <b>wrapper</b></dd>
+<dd><code>@Nonnull final Object2ByteMap<LightType></code> <b>averageValues</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCachedAverageLightValue">
+                <h4 class="methodName">getCachedAverageLightValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>byte</code></span>
+                    <span class="memberName">getCachedAverageLightValue</span>
+                    <span class="arguments">(<span class="param"><a href="../assets/spawns/LightType.html" class="type-link"><code>final LightType</code></a> <span class="param-name">lightType</span></span>, <span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final double</code> <span class="param-name">sunlightFactor</span></span>, <span class="param"><a href="../../../function/function/TriIntObjectDoubleToByteFunction.html" class="type-link"><code>@Nonnull final TriIntObjectDoubleToByteFunction<BlockChunk></code></a> <span class="param-name">valueCalculator</span></span>, <span class="param"><code>@Nonnull final Object2ByteMap<LightType></code> <span class="param-name">averageValues</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getCachedAverageLightValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../assets/spawns/LightType.html" class="type-link"><code>final LightType</code></a> <b>lightType</b></dd>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final double</code> <b>sunlightFactor</b></dd>
+<dd><a href="../../../function/function/TriIntObjectDoubleToByteFunction.html" class="type-link"><code>@Nonnull final TriIntObjectDoubleToByteFunction<BlockChunk></code></a> <b>valueCalculator</b></dd>
+<dd><code>@Nonnull final Object2ByteMap<LightType></code> <b>averageValues</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

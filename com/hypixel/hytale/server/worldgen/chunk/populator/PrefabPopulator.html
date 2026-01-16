@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PrefabPopulator (com.hypixel.hytale.server.worldgen.chunk.populator)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/worldgen/chunk/populator/package-summary.html">com.hypixel.hytale.server.worldgen.chunk.populator</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">PrefabPopulator</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="PrefabPopulator.html" class="type-link">PrefabPopulator</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class PrefabPopulator. Provides prefabpopulator functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; PrefabPopulator</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldSeed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">worldSeed</span>
+                </div>
+                <div class="block">
+                    <p>Field worldSeed.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">prefabSeed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">prefabSeed</span>
+                </div>
+                <div class="block">
+                    <p>Field prefabSeed.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minPriority</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">minPriority</span>
+                </div>
+                <div class="block">
+                    <p>Field minPriority.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">biome</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Biome</span>
+                    <span class="memberName">biome</span>
+                </div>
+                <div class="block">
+                    <p>Field biome.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">PrefabContainer.PrefabContainerEntry</span>
+                    <span class="memberName">entry</span>
+                </div>
+                <div class="block">
+                    <p>Field entry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">execution</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ChunkGeneratorExecution</span>
+                    <span class="memberName">execution</span>
+                </div>
+                <div class="block">
+                    <p>Field execution.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">uniquePrefabs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">UniquePrefabContainer.UniquePrefabEntry[]</span>
+                    <span class="memberName">uniquePrefabs</span>
+                </div>
+                <div class="block">
+                    <p>Field uniquePrefabs.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkX</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkZ</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkMinX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkMinX</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkMinX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkMinZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkMinZ</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkMinZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkMaxX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkMaxX</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkMaxX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkMaxZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkMaxZ</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkMaxZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">extents</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">extents</span>
+                </div>
+                <div class="block">
+                    <p>Field extents.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">regionMinX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">regionMinX</span>
+                </div>
+                <div class="block">
+                    <p>Field regionMinX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">regionMinZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">regionMinZ</span>
+                </div>
+                <div class="block">
+                    <p>Field regionMinZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">regionMaxX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">regionMaxX</span>
+                </div>
+                <div class="block">
+                    <p>Field regionMaxX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">regionMaxZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">regionMaxZ</span>
+                </div>
+                <div class="block">
+                    <p>Field regionMaxZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zoneResult</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ZoneGeneratorResult</span>
+                    <span class="memberName">zoneResult</span>
+                </div>
+                <div class="block">
+                    <p>Field zoneResult.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zoneGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ZonePatternGenerator</span>
+                    <span class="memberName">zoneGenerator</span>
+                </div>
+                <div class="block">
+                    <p>Field zoneGenerator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zone</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Zone</span>
+                    <span class="memberName">zone</span>
+                </div>
+                <div class="block">
+                    <p>Field zone.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">biomeGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BiomePatternGenerator</span>
+                    <span class="memberName">biomeGenerator</span>
+                </div>
+                <div class="block">
+                    <p>Field biomeGenerator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">minX</span>
+                </div>
+                <div class="block">
+                    <p>Field minX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">minZ</span>
+                </div>
+                <div class="block">
+                    <p>Field minZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxX</span>
+                </div>
+                <div class="block">
+                    <p>Field maxX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxZ</span>
+                </div>
+                <div class="block">
+                    <p>Field maxZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">biome2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TileBiome</span>
+                    <span class="memberName">biome2</span>
+                </div>
+                <div class="block">
+                    <p>Field biome2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">container</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrefabContainer</span>
+                    <span class="memberName">container</span>
+                </div>
+                <div class="block">
+                    <p>Field container.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">prefab</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Candidate</span>
+                    <span class="memberName">prefab</span>
+                </div>
+                <div class="block">
+                    <p>Field prefab.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">x</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">x</span>
+                </div>
+                <div class="block">
+                    <p>Field x.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">y</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">y</span>
+                </div>
+                <div class="block">
+                    <p>Field y.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">z</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">z</span>
+                </div>
+                <div class="block">
+                    <p>Field z.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrefabRotation</span>
+                    <span class="memberName">rotation</span>
+                </div>
+                <div class="block">
+                    <p>Field rotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">supplier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldGenPrefabSupplier</span>
+                    <span class="memberName">supplier</span>
+                </div>
+                <div class="block">
+                    <p>Field supplier.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">config</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockMaskCondition</span>
+                    <span class="memberName">config</span>
+                </div>
+                <div class="block">
+                    <p>Field config.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">heightCondition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ICoordinateRndCondition</span>
+                    <span class="memberName">heightCondition</span>
+                </div>
+                <div class="block">
+                    <p>Field heightCondition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environment</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">environment</span>
+                </div>
+                <div class="block">
+                    <p>Field environment.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fitHeightmap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">fitHeightmap</span>
+                </div>
+                <div class="block">
+                    <p>Field fitHeightmap.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">submerge</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">submerge</span>
+                </div>
+                <div class="block">
+                    <p>Field submerge.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">v</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">v</span>
+                </div>
+                <div class="block">
+                    <p>Field v.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">id</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">id</span>
+                </div>
+                <div class="block">
+                    <p>Field id.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">patternGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrefabPatternGenerator</span>
+                    <span class="memberName">patternGenerator</span>
+                </div>
+                <div class="block">
+                    <p>Field patternGenerator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">result</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ZoneBiomeResult</span>
+                    <span class="memberName">result</span>
+                </div>
+                <div class="block">
+                    <p>Field result.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">prefabs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IWeightedMap<WorldGenPrefabSupplier></span>
+                    <span class="memberName">prefabs</span>
+                </div>
+                <div class="block">
+                    <p>Field prefabs.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">category</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrefabCategory</span>
+                    <span class="memberName">category</span>
+                </div>
+                <div class="block">
+                    <p>Field category.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">candidate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Candidate</span>
+                    <span class="memberName">candidate</span>
+                </div>
+                <div class="block">
+                    <p>Field candidate.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">minY</span>
+                </div>
+                <div class="block">
+                    <p>Field minY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxY</span>
+                </div>
+                <div class="block">
+                    <p>Field maxY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">other</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Candidate</span>
+                    <span class="memberName">other</span>
+                </div>
+                <div class="block">
+                    <p>Field other.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">radius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">radius</span>
+                </div>
+                <div class="block">
+                    <p>Field radius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">radius2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">radius2</span>
+                </div>
+                <div class="block">
+                    <p>Field radius2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">priority</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">priority</span>
+                </div>
+                <div class="block">
+                    <p>Field priority.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">dx</span>
+                </div>
+                <div class="block">
+                    <p>Field dx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dz</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">dz</span>
+                </div>
+                <div class="block">
+                    <p>Field dz.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">max</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">max</span>
+                </div>
+                <div class="block">
+                    <p>Field max.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cx</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">cx</span>
+                </div>
+                <div class="block">
+                    <p>Field cx.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cz</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">cz</span>
+                </div>
+                <div class="block">
+                    <p>Field cz.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">externalSeed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">externalSeed</span>
+                </div>
+                <div class="block">
+                    <p>Field externalSeed.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">buffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PrefabPasteUtil.PrefabPasteBuffer</span>
+                    <span class="memberName">buffer</span>
+                </div>
+                <div class="block">
+                    <p>Field buffer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zb</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ZoneBiomeResult</span>
+                    <span class="memberName">zb</span>
+                </div>
+                <div class="block">
+                    <p>Field zb.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zoneName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">zoneName</span>
+                </div>
+                <div class="block">
+                    <p>Field zoneName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">biomeName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">biomeName</span>
+                </div>
+                <div class="block">
+                    <p>Field biomeName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parentCondition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IBlockFluidCondition</span>
+                    <span class="memberName">parentCondition</span>
+                </div>
+                <div class="block">
+                    <p>Field parentCondition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">groundCover</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockFluidEntry</span>
+                    <span class="memberName">groundCover</span>
+                </div>
+                <div class="block">
+                    <p>Field groundCover.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">topBlock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockFluidEntry</span>
+                    <span class="memberName">topBlock</span>
+                </div>
+                <div class="block">
+                    <p>Field topBlock.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">coverEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CoverContainer.CoverContainerEntry.CoverContainerEntryPart</span>
+                    <span class="memberName">coverEntry</span>
+                </div>
+                <div class="block">
+                    <p>Field coverEntry.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="PrefabPopulator">
+                <h4 class="methodName">PrefabPopulator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">PrefabPopulator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PrefabPopulator.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="populate">
+                <h4 class="methodName">populate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">populate</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>@Nonnull final ChunkGeneratorExecution</code></a> <span class="param-name">execution</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method populate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>@Nonnull final ChunkGeneratorExecution</code></a> <b>execution</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="run">
+                <h4 class="methodName">run</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">run</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>@Nonnull final ChunkGeneratorExecution</code></a> <span class="param-name">execution</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method run.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>@Nonnull final ChunkGeneratorExecution</code></a> <b>execution</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="collectBiomes">
+                <h4 class="methodName">collectBiomes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">collectBiomes</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>final ChunkGeneratorExecution</code></a> <span class="param-name">execution</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method collectBiomes.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>final ChunkGeneratorExecution</code></a> <b>execution</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="collectPrefabs">
+                <h4 class="methodName">collectPrefabs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">collectPrefabs</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>final ChunkGeneratorExecution</code></a> <span class="param-name">execution</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method collectPrefabs.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>final ChunkGeneratorExecution</code></a> <b>execution</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generatePrefabs">
+                <h4 class="methodName">generatePrefabs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">generatePrefabs</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>@Nonnull final ChunkGeneratorExecution</code></a> <span class="param-name">execution</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generatePrefabs.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>@Nonnull final ChunkGeneratorExecution</code></a> <b>execution</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateUniquePrefabs">
+                <h4 class="methodName">generateUniquePrefabs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">generateUniquePrefabs</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>@Nonnull final ChunkGeneratorExecution</code></a> <span class="param-name">execution</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateUniquePrefabs.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>@Nonnull final ChunkGeneratorExecution</code></a> <b>execution</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="collectBiome">
+                <h4 class="methodName">collectBiome</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">collectBiome</span>
+                    <span class="arguments">(<span class="param"><a href="../../biome/Biome.html" class="type-link"><code>@Nonnull final Biome</code></a> <span class="param-name">biome</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method collectBiome.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../biome/Biome.html" class="type-link"><code>@Nonnull final Biome</code></a> <b>biome</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="collectPrefab">
+                <h4 class="methodName">collectPrefab</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">collectPrefab</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">px</span></span>, <span class="param"><code>final double</code> <span class="param-name">pz</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method collectPrefab.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>px</b></dd>
+<dd><code>final double</code> <b>pz</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Candidate">
+                <h4 class="methodName">Candidate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Candidate</span>
+                    <span class="arguments">(<span class="param">x</span>, <span class="param">y</span>, <span class="param">z</span>, <span class="param">category.priority(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Candidate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>x</code> <b>x</b></dd>
+<dd><code>y</code> <b>y</b></dd>
+<dd><code>z</code> <b>z</b></dd>
+<dd><code>category.priority(</code> <b>category.priority(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="collectConflicts">
+                <h4 class="methodName">collectConflicts</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">collectConflicts</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method collectConflicts.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="intersects">
+                <h4 class="methodName">intersects</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">intersects</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">minX1</span></span>, <span class="param"><code>final int</code> <span class="param-name">minY1</span></span>, <span class="param"><code>final int</code> <span class="param-name">minZ1</span></span>, <span class="param"><code>final int</code> <span class="param-name">maxX1</span></span>, <span class="param"><code>final int</code> <span class="param-name">maxY1</span></span>, <span class="param"><code>final int</code> <span class="param-name">maxZ1</span></span>, <span class="param"><code>final int</code> <span class="param-name">minX2</span></span>, <span class="param"><code>final int</code> <span class="param-name">minY2</span></span>, <span class="param"><code>final int</code> <span class="param-name">minZ2</span></span>, <span class="param"><code>final int</code> <span class="param-name">maxX2</span></span>, <span class="param"><code>final int</code> <span class="param-name">maxY2</span></span>, <span class="param"><code>final int</code> <span class="param-name">maxZ2</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method intersects.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>minX1</b></dd>
+<dd><code>final int</code> <b>minY1</b></dd>
+<dd><code>final int</code> <b>minZ1</b></dd>
+<dd><code>final int</code> <b>maxX1</b></dd>
+<dd><code>final int</code> <b>maxY1</b></dd>
+<dd><code>final int</code> <b>maxZ1</b></dd>
+<dd><code>final int</code> <b>minX2</b></dd>
+<dd><code>final int</code> <b>minY2</b></dd>
+<dd><code>final int</code> <b>minZ2</b></dd>
+<dd><code>final int</code> <b>maxX2</b></dd>
+<dd><code>final int</code> <b>maxY2</b></dd>
+<dd><code>final int</code> <b>maxZ2</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isWithinUniquePrefabExclusionRange">
+                <h4 class="methodName">isWithinUniquePrefabExclusionRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isWithinUniquePrefabExclusionRange</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><a href="../../prefab/PrefabPatternGenerator.html" class="type-link"><code>@Nonnull final PrefabPatternGenerator</code></a> <span class="param-name">generator</span></span>, <span class="param"><code>@Nonnull final UniquePrefabContainer.UniquePrefabEntry[]</code> <span class="param-name">uniquePrefabs</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isWithinUniquePrefabExclusionRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><a href="../../prefab/PrefabPatternGenerator.html" class="type-link"><code>@Nonnull final PrefabPatternGenerator</code></a> <b>generator</b></dd>
+<dd><code>@Nonnull final UniquePrefabContainer.UniquePrefabEntry[]</code> <b>uniquePrefabs</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getHeight">
+                <h4 class="methodName">getHeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getHeight</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>@Nonnull final ChunkGeneratorExecution</code></a> <span class="param-name">execution</span></span>, <span class="param"><a href="../../biome/Biome.html" class="type-link"><code>@Nonnull final Biome</code></a> <span class="param-name">biome</span></span>, <span class="param"><a href="../../prefab/PrefabPatternGenerator.html" class="type-link"><code>@Nonnull final PrefabPatternGenerator</code></a> <span class="param-name">prefabPatternGenerator</span></span>, <span class="param"><code>final Random</code> <span class="param-name">random</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getHeight.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>@Nonnull final ChunkGeneratorExecution</code></a> <b>execution</b></dd>
+<dd><a href="../../biome/Biome.html" class="type-link"><code>@Nonnull final Biome</code></a> <b>biome</b></dd>
+<dd><a href="../../prefab/PrefabPatternGenerator.html" class="type-link"><code>@Nonnull final PrefabPatternGenerator</code></a> <b>prefabPatternGenerator</b></dd>
+<dd><code>final Random</code> <b>random</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">prefabPatternGenerator.isOnWater(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>prefabPatternGenerator.isOnWater(</code> <b>prefabPatternGenerator.isOnWater(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateRotation">
+                <h4 class="methodName">generateRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../../core/prefab/PrefabRotation.html" class="type-link"><code>PrefabRotation</code></a></span>
+                    <span class="memberName">generateRotation</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>@Nonnull final Random</code> <span class="param-name">random</span></span>, <span class="param"><a href="../../prefab/PrefabPatternGenerator.html" class="type-link"><code>@Nonnull final PrefabPatternGenerator</code></a> <span class="param-name">patternGenerator</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateRotation.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>@Nonnull final Random</code> <b>random</b></dd>
+<dd><a href="../../prefab/PrefabPatternGenerator.html" class="type-link"><code>@Nonnull final PrefabPatternGenerator</code></a> <b>patternGenerator</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generatePrefabAt">
+                <h4 class="methodName">generatePrefabAt</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">generatePrefabAt</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">height</span></span>, <span class="param"><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>@Nonnull final ChunkGeneratorExecution</code></a> <span class="param-name">execution</span></span>, <span class="param"><a href="../../loader/WorldGenPrefabSupplier.html" class="type-link"><code>@Nonnull final WorldGenPrefabSupplier</code></a> <span class="param-name">supplier</span></span>, <span class="param"><a href="../../util/condition/BlockMaskCondition.html" class="type-link"><code>final BlockMaskCondition</code></a> <span class="param-name">configuration</span></span>, <span class="param"><a href="../../../core/prefab/PrefabRotation.html" class="type-link"><code>final PrefabRotation</code></a> <span class="param-name">rotation</span></span>, <span class="param"><a href="../../../../procedurallib/condition/ICoordinateRndCondition.html" class="type-link"><code>final ICoordinateRndCondition</code></a> <span class="param-name">heightCondition</span></span>, <span class="param"><code>final int</code> <span class="param-name">environmentId</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">fitHeightmap</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">submerge</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generatePrefabAt.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>height</b></dd>
+<dd><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>@Nonnull final ChunkGeneratorExecution</code></a> <b>execution</b></dd>
+<dd><a href="../../loader/WorldGenPrefabSupplier.html" class="type-link"><code>@Nonnull final WorldGenPrefabSupplier</code></a> <b>supplier</b></dd>
+<dd><a href="../../util/condition/BlockMaskCondition.html" class="type-link"><code>final BlockMaskCondition</code></a> <b>configuration</b></dd>
+<dd><a href="../../../core/prefab/PrefabRotation.html" class="type-link"><code>final PrefabRotation</code></a> <b>rotation</b></dd>
+<dd><a href="../../../../procedurallib/condition/ICoordinateRndCondition.html" class="type-link"><code>final ICoordinateRndCondition</code></a> <b>heightCondition</b></dd>
+<dd><code>final int</code> <b>environmentId</b></dd>
+<dd><code>final boolean</code> <b>fitHeightmap</b></dd>
+<dd><code>final boolean</code> <b>submerge</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isMatchingBiome">
+                <h4 class="methodName">isMatchingBiome</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isMatchingBiome</span>
+                    <span class="arguments">(<span class="param"><a href="../../biome/Biome.html" class="type-link"><code>final Biome</code></a> <span class="param-name">biome</span></span>, <span class="param"><a href="..//ZoneBiomeResult.html" class="type-link"><code>@Nonnull final ZoneBiomeResult</code></a> <span class="param-name">zoneAndBiomeResult</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isMatchingBiome.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../biome/Biome.html" class="type-link"><code>final Biome</code></a> <b>biome</b></dd>
+<dd><a href="..//ZoneBiomeResult.html" class="type-link"><code>@Nonnull final ZoneBiomeResult</code></a> <b>zoneAndBiomeResult</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isMatchingChunkBounds">
+                <h4 class="methodName">isMatchingChunkBounds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isMatchingChunkBounds</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>@Nonnull final ChunkGeneratorExecution</code></a> <span class="param-name">execution</span></span>, <span class="param"><a href="../../../core/prefab/PrefabRotation.html" class="type-link"><code>@Nonnull final PrefabRotation</code></a> <span class="param-name">rotation</span></span>, <span class="param"><a href="../../util/bounds/IChunkBounds.html" class="type-link"><code>@Nonnull final IChunkBounds</code></a> <span class="param-name">bounds</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isMatchingChunkBounds.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><a href="..//ChunkGeneratorExecution.html" class="type-link"><code>@Nonnull final ChunkGeneratorExecution</code></a> <b>execution</b></dd>
+<dd><a href="../../../core/prefab/PrefabRotation.html" class="type-link"><code>@Nonnull final PrefabRotation</code></a> <b>rotation</b></dd>
+<dd><a href="../../util/bounds/IChunkBounds.html" class="type-link"><code>@Nonnull final IChunkBounds</code></a> <b>bounds</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isMatchingHeight">
+                <h4 class="methodName">isMatchingHeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isMatchingHeight</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final Random</code> <span class="param-name">random</span></span>, <span class="param"><a href="../../prefab/PrefabPatternGenerator.html" class="type-link"><code>@Nonnull final PrefabPatternGenerator</code></a> <span class="param-name">prefabPatternGenerator</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isMatchingHeight.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final Random</code> <b>random</b></dd>
+<dd><a href="../../prefab/PrefabPatternGenerator.html" class="type-link"><code>@Nonnull final PrefabPatternGenerator</code></a> <b>prefabPatternGenerator</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isMatchingNoiseDensity">
+                <h4 class="methodName">isMatchingNoiseDensity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isMatchingNoiseDensity</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><a href="../../prefab/PrefabPatternGenerator.html" class="type-link"><code>@Nonnull final PrefabPatternGenerator</code></a> <span class="param-name">prefabPatternGenerator</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isMatchingNoiseDensity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><a href="../../prefab/PrefabPatternGenerator.html" class="type-link"><code>@Nonnull final PrefabPatternGenerator</code></a> <b>prefabPatternGenerator</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isMatchingParentBlock">
+                <h4 class="methodName">isMatchingParentBlock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isMatchingParentBlock</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>@Nonnull final Random</code> <span class="param-name">random</span></span>, <span class="param"><a href="..//ZoneBiomeResult.html" class="type-link"><code>@Nonnull final ZoneBiomeResult</code></a> <span class="param-name">zoneAndBiomeResult</span></span>, <span class="param"><code>@Nonnull final PrefabContainer.PrefabContainerEntry</code> <span class="param-name">containerEntry</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isMatchingParentBlock.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>@Nonnull final Random</code> <b>random</b></dd>
+<dd><a href="..//ZoneBiomeResult.html" class="type-link"><code>@Nonnull final ZoneBiomeResult</code></a> <b>zoneAndBiomeResult</b></dd>
+<dd><code>@Nonnull final PrefabContainer.PrefabContainerEntry</code> <b>containerEntry</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCoverInGroundAt">
+                <h4 class="methodName">getCoverInGroundAt</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../util/BlockFluidEntry.html" class="type-link"><code>BlockFluidEntry</code></a></span>
+                    <span class="memberName">getCoverInGroundAt</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>@Nonnull final Random</code> <span class="param-name">random</span></span>, <span class="param"><a href="../../biome/Biome.html" class="type-link"><code>@Nonnull final Biome</code></a> <span class="param-name">biome</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getCoverInGroundAt.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>@Nonnull final Random</code> <b>random</b></dd>
+<dd><a href="../../biome/Biome.html" class="type-link"><code>@Nonnull final Biome</code></a> <b>biome</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isMatchingCover">
+                <h4 class="methodName">isMatchingCover</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isMatchingCover</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>@Nonnull final Random</code> <span class="param-name">random</span></span>, <span class="param"><code>@Nonnull final CoverContainer.CoverContainerEntry</code> <span class="param-name">coverContainerEntry</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isMatchingCover.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>@Nonnull final Random</code> <b>random</b></dd>
+<dd><code>@Nonnull final CoverContainer.CoverContainerEntry</code> <b>coverContainerEntry</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

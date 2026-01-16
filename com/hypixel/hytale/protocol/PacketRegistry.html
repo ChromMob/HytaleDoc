@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PacketRegistry (com.hypixel.hytale.protocol)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../com/hypixel/hytale/protocol/package-summary.html">com.hypixel.hytale.protocol</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">PacketRegistry</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">final class <a href="PacketRegistry.html" class="type-link">PacketRegistry</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Registry for managing packet registration. Provides methods to register and query packet items.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; PacketRegistry</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">existing</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PacketInfo</span>
+                    <span class="memberName">existing</span>
+                </div>
+                <div class="block">
+                    <p>Field existing.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">info</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PacketInfo</span>
+                    <span class="memberName">info</span>
+                </div>
+                <div class="block">
+                    <p>Field info.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="PacketRegistry">
+                <h4 class="methodName">PacketRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>private</code></span>
+                    <span class="memberName">PacketRegistry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PacketRegistry.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="register">
+                <h4 class="methodName">register</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">register</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">id</span></span>, <span class="param"><code>final String</code> <span class="param-name">name</span></span>, <span class="param"><code>final Class<? extends Packet></code> <span class="param-name">type</span></span>, <span class="param"><code>final int</code> <span class="param-name">fixedBlockSize</span></span>, <span class="param"><code>final int</code> <span class="param-name">maxSize</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">compressed</span></span>, <span class="param"><code>final BiFunction<ByteBuf, Integer, ValidationResult></code> <span class="param-name">validate</span></span>, <span class="param"><code>final BiFunction<ByteBuf, Integer, Packet></code> <span class="param-name">deserialize</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method register.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>id</b></dd>
+<dd><code>final String</code> <b>name</b></dd>
+<dd><code>final Class<? extends Packet></code> <b>type</b></dd>
+<dd><code>final int</code> <b>fixedBlockSize</b></dd>
+<dd><code>final int</code> <b>maxSize</b></dd>
+<dd><code>final boolean</code> <b>compressed</b></dd>
+<dd><code>final BiFunction<ByteBuf, Integer, ValidationResult></code> <b>validate</b></dd>
+<dd><code>final BiFunction<ByteBuf, Integer, Packet></code> <b>deserialize</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="IllegalStateException">
+                <h4 class="methodName">IllegalStateException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IllegalStateException</span>
+                    <span class="arguments">(<span class="param"><code>"Duplicate packet ID " + id + ": '" + name + "' conflicts with '" +</code> <span class="param-name">existing.name(</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IllegalStateException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Duplicate packet ID " + id + ": '" + name + "' conflicts with '" +</code> <b>existing.name(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getById">
+                <h4 class="methodName">getById</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>PacketInfo</code></span>
+                    <span class="memberName">getById</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">id</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getById.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>id</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getId">
+                <h4 class="methodName">getId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>Integer</code></span>
+                    <span class="memberName">getId</span>
+                    <span class="arguments">(<span class="param"><code>final Class<? extends Packet></code> <span class="param-name">type</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getId.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Class<? extends Packet></code> <b>type</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="all">
+                <h4 class="methodName">all</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PacketInfo></code></span>
+                    <span class="memberName">all</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method all.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="name">
+                <h4 class="methodName">name</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">name</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method name.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="type">
+                <h4 class="methodName">type</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Packet></code></span>
+                    <span class="memberName">type</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method type.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="validate">
+                <h4 class="methodName">validate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ValidationResult></code></span>
+                    <span class="memberName">validate</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method validate.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="deserialize">
+                <h4 class="methodName">deserialize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Packet></code></span>
+                    <span class="memberName">deserialize</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method deserialize.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

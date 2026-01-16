@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NStagedChunkGenerator (com.hypixel.hytale.builtin.hytalegenerator.newsystem)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/builtin/hytalegenerator/newsystem/package-summary.html">com.hypixel.hytale.builtin.hytalegenerator.newsystem</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">NStagedChunkGenerator</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="NStagedChunkGenerator.html" class="type-link">NStagedChunkGenerator</a> implements <a href="../../../server/worldgen/chunk/ChunkGenerator.html" class="type-link" data-class="ChunkGenerator"><code>ChunkGenerator</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class NStagedChunkGenerator. Provides nstagedchunkgenerator functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; NStagedChunkGenerator</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">materialOutput_bufferType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">NBufferType</span>
+                    <span class="memberName">materialOutput_bufferType</span>
+                </div>
+                <div class="block">
+                    <p>Field materialOutput_bufferType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tintOutput_bufferType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">NBufferType</span>
+                    <span class="memberName">tintOutput_bufferType</span>
+                </div>
+                <div class="block">
+                    <p>Field tintOutput_bufferType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environmentOutput_bufferType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">NBufferType</span>
+                    <span class="memberName">environmentOutput_bufferType</span>
+                </div>
+                <div class="block">
+                    <p>Field environmentOutput_bufferType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityOutput_bufferType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">NBufferType</span>
+                    <span class="memberName">entityOutput_bufferType</span>
+                </div>
+                <div class="block">
+                    <p>Field entityOutput_bufferType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stages</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">NStage[]</span>
+                    <span class="memberName">stages</span>
+                </div>
+                <div class="block">
+                    <p>Field stages.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stagesOutputBounds_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Bounds3i[]</span>
+                    <span class="memberName">stagesOutputBounds_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field stagesOutputBounds_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bufferBundle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">NBufferBundle</span>
+                    <span class="memberName">bufferBundle</span>
+                </div>
+                <div class="block">
+                    <p>Field bufferBundle.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">concurrentExecutor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ExecutorService</span>
+                    <span class="memberName">concurrentExecutor</span>
+                </div>
+                <div class="block">
+                    <p>Field concurrentExecutor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">materialCache</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">MaterialCache</span>
+                    <span class="memberName">materialCache</span>
+                </div>
+                <div class="block">
+                    <p>Field materialCache.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">workerIndexer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">WorkerIndexer</span>
+                    <span class="memberName">workerIndexer</span>
+                </div>
+                <div class="block">
+                    <p>Field workerIndexer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">timeInstrument</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">TimeInstrument</span>
+                    <span class="memberName">timeInstrument</span>
+                </div>
+                <div class="block">
+                    <p>Field timeInstrument.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">statsCheckpoints</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Set<Integer></span>
+                    <span class="memberName">statsCheckpoints</span>
+                </div>
+                <div class="block">
+                    <p>Field statsCheckpoints.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">generatedChunkCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">generatedChunkCount</span>
+                </div>
+                <div class="block">
+                    <p>Field generatedChunkCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalCacheBufferRequests</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">totalCacheBufferRequests</span>
+                </div>
+                <div class="block">
+                    <p>Field totalCacheBufferRequests.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">missedCacheBufferRequests</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">missedCacheBufferRequests</span>
+                </div>
+                <div class="block">
+                    <p>Field missedCacheBufferRequests.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">total_timeProbe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeInstrument.Probe</span>
+                    <span class="memberName">total_timeProbe</span>
+                </div>
+                <div class="block">
+                    <p>Field total_timeProbe.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">contentGeneration_timeProbe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeInstrument.Probe</span>
+                    <span class="memberName">contentGeneration_timeProbe</span>
+                </div>
+                <div class="block">
+                    <p>Field contentGeneration_timeProbe.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">accessInit_timeProbe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeInstrument.Probe</span>
+                    <span class="memberName">accessInit_timeProbe</span>
+                </div>
+                <div class="block">
+                    <p>Field accessInit_timeProbe.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">localChunkBounds_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Bounds3i</span>
+                    <span class="memberName">localChunkBounds_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field localChunkBounds_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stage_timeProbe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeInstrument.Probe</span>
+                    <span class="memberName">stage_timeProbe</span>
+                </div>
+                <div class="block">
+                    <p>Field stage_timeProbe.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stagePrep_timeProbe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeInstrument.Probe</span>
+                    <span class="memberName">stagePrep_timeProbe</span>
+                </div>
+                <div class="block">
+                    <p>Field stagePrep_timeProbe.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stageIndexConst</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">stageIndexConst</span>
+                </div>
+                <div class="block">
+                    <p>Field stageIndexConst.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NStage</span>
+                    <span class="memberName">stage</span>
+                </div>
+                <div class="block">
+                    <p>Field stage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">outputTypes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<NBufferType></span>
+                    <span class="memberName">outputTypes</span>
+                </div>
+                <div class="block">
+                    <p>Field outputTypes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">outputGrids</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<NBufferBundle.Grid></span>
+                    <span class="memberName">outputGrids</span>
+                </div>
+                <div class="block">
+                    <p>Field outputGrids.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">grid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NBufferBundle.Grid</span>
+                    <span class="memberName">grid</span>
+                </div>
+                <div class="block">
+                    <p>Field grid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stageChunkOutputBounds_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Bounds3i</span>
+                    <span class="memberName">stageChunkOutputBounds_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field stageChunkOutputBounds_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">positions_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<Vector3i></span>
+                    <span class="memberName">positions_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field positions_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tilePos_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">tilePos_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field tilePos_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">access</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NBufferBundle.Access</span>
+                    <span class="memberName">access</span>
+                </div>
+                <div class="block">
+                    <p>Field access.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">vector3i</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">vector3i</span>
+                </div>
+                <div class="block">
+                    <p>Field vector3i.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">vector3i2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">vector3i2</span>
+                </div>
+                <div class="block">
+                    <p>Field vector3i2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">splitPositions_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<List<Vector3i>></span>
+                    <span class="memberName">splitPositions_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field splitPositions_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">workerSession</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorkerIndexer.Session</span>
+                    <span class="memberName">workerSession</span>
+                </div>
+                <div class="block">
+                    <p>Field workerSession.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allTasks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<List<Runnable>></span>
+                    <span class="memberName">allTasks</span>
+                </div>
+                <div class="block">
+                    <p>Field allTasks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">workerPositions_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<Vector3i></span>
+                    <span class="memberName">workerPositions_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field workerPositions_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">workerId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorkerIndexer.Id</span>
+                    <span class="memberName">workerId</span>
+                </div>
+                <div class="block">
+                    <p>Field workerId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">position_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field position_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tileTask</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Runnable</span>
+                    <span class="memberName">tileTask</span>
+                </div>
+                <div class="block">
+                    <p>Field tileTask.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stageExecution_timeProbe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeInstrument.Probe</span>
+                    <span class="memberName">stageExecution_timeProbe</span>
+                </div>
+                <div class="block">
+                    <p>Field stageExecution_timeProbe.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">taskStart_timeProbe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeInstrument.Probe</span>
+                    <span class="memberName">taskStart_timeProbe</span>
+                </div>
+                <div class="block">
+                    <p>Field taskStart_timeProbe.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">futures</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<CompletableFuture<Void>></span>
+                    <span class="memberName">futures</span>
+                </div>
+                <div class="block">
+                    <p>Field futures.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">future</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">future</span>
+                </div>
+                <div class="block">
+                    <p>Field future.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transfer_timeProbe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeInstrument.Probe</span>
+                    <span class="memberName">transfer_timeProbe</span>
+                </div>
+                <div class="block">
+                    <p>Field transfer_timeProbe.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">outputChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">GeneratedChunk</span>
+                    <span class="memberName">outputChunk</span>
+                </div>
+                <div class="block">
+                    <p>Field outputChunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">futures2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<CompletableFuture<Void>></span>
+                    <span class="memberName">futures2</span>
+                </div>
+                <div class="block">
+                    <p>Field futures2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bufferMemoryReport</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NBufferBundle.MemoryReport</span>
+                    <span class="memberName">bufferMemoryReport</span>
+                </div>
+                <div class="block">
+                    <p>Field bufferMemoryReport.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stringBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">stringBuilder</span>
+                </div>
+                <div class="block">
+                    <p>Field stringBuilder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bounds_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Bounds3i</span>
+                    <span class="memberName">bounds_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field bounds_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bufferAccessCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">bufferAccessCount</span>
+                </div>
+                <div class="block">
+                    <p>Field bufferAccessCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">context</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NStage.Context</span>
+                    <span class="memberName">context</span>
+                </div>
+                <div class="block">
+                    <p>Field context.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bufferType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NBufferType</span>
+                    <span class="memberName">bufferType</span>
+                </div>
+                <div class="block">
+                    <p>Field bufferType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">localInputBounds_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Bounds3i</span>
+                    <span class="memberName">localInputBounds_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field localInputBounds_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bufferAccess</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NBufferBundle.Access.View</span>
+                    <span class="memberName">bufferAccess</span>
+                </div>
+                <div class="block">
+                    <p>Field bufferAccess.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">columnBounds_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Bounds3i</span>
+                    <span class="memberName">columnBounds_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field columnBounds_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bufferAccess2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NBufferBundle.Access.View</span>
+                    <span class="memberName">bufferAccess2</span>
+                </div>
+                <div class="block">
+                    <p>Field bufferAccess2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bufferPositionClone_bufferTileGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">bufferPositionClone_bufferTileGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field bufferPositionClone_bufferTileGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkBounds_voxelGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Bounds3i</span>
+                    <span class="memberName">chunkBounds_voxelGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkBounds_voxelGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkBounds_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Bounds3i</span>
+                    <span class="memberName">chunkBounds_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkBounds_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">materialBufferAccess</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NBufferBundle.Access</span>
+                    <span class="memberName">materialBufferAccess</span>
+                </div>
+                <div class="block">
+                    <p>Field materialBufferAccess.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">materialVoxelSpace</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">VoxelSpace<Material></span>
+                    <span class="memberName">materialVoxelSpace</span>
+                </div>
+                <div class="block">
+                    <p>Field materialVoxelSpace.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">timeProbe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeInstrument.Probe</span>
+                    <span class="memberName">timeProbe</span>
+                </div>
+                <div class="block">
+                    <p>Field timeProbe.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position_voxelGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">position_voxelGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field position_voxelGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">solidMaterial</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SolidMaterial</span>
+                    <span class="memberName">solidMaterial</span>
+                </div>
+                <div class="block">
+                    <p>Field solidMaterial.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">vector3i3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">vector3i3</span>
+                </div>
+                <div class="block">
+                    <p>Field vector3i3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">GeneratedBlockChunk</span>
+                    <span class="memberName">blockChunk</span>
+                </div>
+                <div class="block">
+                    <p>Field blockChunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sections</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<ChunkStore>[]</span>
+                    <span class="memberName">sections</span>
+                </div>
+                <div class="block">
+                    <p>Field sections.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fluidSections</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">FluidSection[]</span>
+                    <span class="memberName">fluidSections</span>
+                </div>
+                <div class="block">
+                    <p>Field fluidSections.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">section</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<ChunkStore></span>
+                    <span class="memberName">section</span>
+                </div>
+                <div class="block">
+                    <p>Field section.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fluidSection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">FluidSection</span>
+                    <span class="memberName">fluidSection</span>
+                </div>
+                <div class="block">
+                    <p>Field fluidSection.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sectionIndexFinal</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">sectionIndexFinal</span>
+                </div>
+                <div class="block">
+                    <p>Field sectionIndexFinal.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">section_timeProbe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeInstrument.Probe</span>
+                    <span class="memberName">section_timeProbe</span>
+                </div>
+                <div class="block">
+                    <p>Field section_timeProbe.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">task</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">task</span>
+                </div>
+                <div class="block">
+                    <p>Field task.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">section2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<ChunkStore></span>
+                    <span class="memberName">section2</span>
+                </div>
+                <div class="block">
+                    <p>Field section2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fluidSection2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">FluidSection</span>
+                    <span class="memberName">fluidSection2</span>
+                </div>
+                <div class="block">
+                    <p>Field fluidSection2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minY_voxelGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">minY_voxelGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field minY_voxelGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sectionY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">sectionY</span>
+                </div>
+                <div class="block">
+                    <p>Field sectionY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldX_voxelGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">worldX_voxelGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field worldX_voxelGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldY_voxelGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">worldY_voxelGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field worldY_voxelGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldZ_voxelGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">worldZ_voxelGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field worldZ_voxelGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">material</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Material</span>
+                    <span class="memberName">material</span>
+                </div>
+                <div class="block">
+                    <p>Field material.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">all</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">all</span>
+                </div>
+                <div class="block">
+                    <p>Field all.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">obj</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">GeneratedBlockChunk</span>
+                    <span class="memberName">obj</span>
+                </div>
+                <div class="block">
+                    <p>Field obj.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tintBufferAccess</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NBufferBundle.Access</span>
+                    <span class="memberName">tintBufferAccess</span>
+                </div>
+                <div class="block">
+                    <p>Field tintBufferAccess.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tintVoxelSpace</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">VoxelSpace<Integer></span>
+                    <span class="memberName">tintVoxelSpace</span>
+                </div>
+                <div class="block">
+                    <p>Field tintVoxelSpace.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tintsTransfer_timeProbe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeInstrument.Probe</span>
+                    <span class="memberName">tintsTransfer_timeProbe</span>
+                </div>
+                <div class="block">
+                    <p>Field tintsTransfer_timeProbe.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Integer</span>
+                    <span class="memberName">tint</span>
+                </div>
+                <div class="block">
+                    <p>Field tint.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environmentBufferAccess</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NBufferBundle.Access</span>
+                    <span class="memberName">environmentBufferAccess</span>
+                </div>
+                <div class="block">
+                    <p>Field environmentBufferAccess.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environmentVoxelSpace</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">VoxelSpace<Integer></span>
+                    <span class="memberName">environmentVoxelSpace</span>
+                </div>
+                <div class="block">
+                    <p>Field environmentVoxelSpace.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxY_voxelGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxY_voxelGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field maxY_voxelGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environment</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Integer</span>
+                    <span class="memberName">environment</span>
+                </div>
+                <div class="block">
+                    <p>Field environment.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityBufferAccess</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NBufferBundle.Access</span>
+                    <span class="memberName">entityBufferAccess</span>
+                </div>
+                <div class="block">
+                    <p>Field entityBufferAccess.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityView</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NEntityBufferView</span>
+                    <span class="memberName">entityView</span>
+                </div>
+                <div class="block">
+                    <p>Field entityView.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">GeneratedEntityChunk</span>
+                    <span class="memberName">entityChunk</span>
+                </div>
+                <div class="block">
+                    <p>Field entityChunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entitesTransfer_timeProbe</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeInstrument.Probe</span>
+                    <span class="memberName">entitesTransfer_timeProbe</span>
+                </div>
+                <div class="block">
+                    <p>Field entitesTransfer_timeProbe.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">builder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">builder</span>
+                </div>
+                <div class="block">
+                    <p>Field builder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ratio</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">ratio</span>
+                </div>
+                <div class="block">
+                    <p>Field ratio.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">size_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">size_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field size_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">size_chunkGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">size_chunkGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field size_chunkGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockType</span>
+                    <span class="memberName">blockType</span>
+                </div>
+                <div class="block">
+                    <p>Field blockType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tracker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NBufferBundle.Tracker</span>
+                    <span class="memberName">tracker</span>
+                </div>
+                <div class="block">
+                    <p>Field tracker.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">statsHeader</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">statsHeader</span>
+                </div>
+                <div class="block">
+                    <p>Field statsHeader.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bufferCapacityFactor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">bufferCapacityFactor</span>
+                </div>
+                <div class="block">
+                    <p>Field bufferCapacityFactor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetViewDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">targetViewDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field targetViewDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetPlayerCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">targetPlayerCount</span>
+                </div>
+                <div class="block">
+                    <p>Field targetPlayerCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">instance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NStagedChunkGenerator</span>
+                    <span class="memberName">instance</span>
+                </div>
+                <div class="block">
+                    <p>Field instance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allUsedBufferTypes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set<NBufferType></span>
+                    <span class="memberName">allUsedBufferTypes</span>
+                </div>
+                <div class="block">
+                    <p>Field allUsedBufferTypes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stagesThatReadFromThis</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<Integer></span>
+                    <span class="memberName">stagesThatReadFromThis</span>
+                </div>
+                <div class="block">
+                    <p>Field stagesThatReadFromThis.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">outputType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NBufferType</span>
+                    <span class="memberName">outputType</span>
+                </div>
+                <div class="block">
+                    <p>Field outputType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dependentStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NStage</span>
+                    <span class="memberName">dependentStage</span>
+                </div>
+                <div class="block">
+                    <p>Field dependentStage.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">outputBounds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Bounds3i</span>
+                    <span class="memberName">outputBounds</span>
+                </div>
+                <div class="block">
+                    <p>Field outputBounds.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">size</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">size</span>
+                </div>
+                <div class="block">
+                    <p>Field size.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">viewDistance_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">viewDistance_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field viewDistance_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ringArea</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">ringArea</span>
+                </div>
+                <div class="block">
+                    <p>Field ringArea.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalPlayersArea</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">totalPlayersArea</span>
+                </div>
+                <div class="block">
+                    <p>Field totalPlayersArea.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">factoredArea</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">factoredArea</span>
+                </div>
+                <div class="block">
+                    <p>Field factoredArea.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalVolume</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">totalVolume</span>
+                </div>
+                <div class="block">
+                    <p>Field totalVolume.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">initialOutputBounds_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Bounds3i</span>
+                    <span class="memberName">initialOutputBounds_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field initialOutputBounds_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allOutputBounds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<Bounds3i></span>
+                    <span class="memberName">allOutputBounds</span>
+                </div>
+                <div class="block">
+                    <p>Field allOutputBounds.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dependentStageInputBounds_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Bounds3i</span>
+                    <span class="memberName">dependentStageInputBounds_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field dependentStageInputBounds_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalDependentStageOutputBounds_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Bounds3i</span>
+                    <span class="memberName">totalDependentStageOutputBounds_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field totalDependentStageOutputBounds_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalThisStageOutputBounds_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Bounds3i</span>
+                    <span class="memberName">totalThisStageOutputBounds_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field totalThisStageOutputBounds_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalOutputBounds_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Bounds3i</span>
+                    <span class="memberName">totalOutputBounds_bufferGrid</span>
+                </div>
+                <div class="block">
+                    <p>Field totalOutputBounds_bufferGrid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allBufferTypes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set<NBufferType></span>
+                    <span class="memberName">allBufferTypes</span>
+                </div>
+                <div class="block">
+                    <p>Field allBufferTypes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">out</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Bounds3i</span>
+                    <span class="memberName">out</span>
+                </div>
+                <div class="block">
+                    <p>Field out.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="NStagedChunkGenerator">
+                <h4 class="methodName">NStagedChunkGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>private</code></span>
+                    <span class="memberName">NStagedChunkGenerator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method NStagedChunkGenerator.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="generate">
+                <h4 class="methodName">generate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../server/core/universe/world/worldgen/GeneratedChunk.html" class="type-link"><code>GeneratedChunk</code></a></span>
+                    <span class="memberName">generate</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ChunkRequest.Arguments</code> <span class="param-name">arguments</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ChunkRequest.Arguments</code> <b>arguments</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="GeneratedChunk">
+                <h4 class="methodName">GeneratedChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">GeneratedChunk</span>
+                    <span class="arguments">(<span class="param"><code>new</code> <span class="param-name">GeneratedBlockChunk(arguments.index(</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method GeneratedChunk.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>new</code> <b>GeneratedBlockChunk(arguments.index(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="GeneratedBlockStateChunk">
+                <h4 class="methodName">GeneratedBlockStateChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">GeneratedBlockStateChunk</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method GeneratedBlockStateChunk.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="GeneratedEntityChunk">
+                <h4 class="methodName">GeneratedEntityChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">GeneratedEntityChunk</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method GeneratedEntityChunk.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="createAccesses">
+                <h4 class="methodName">createAccesses</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>NBufferBundle.Access></code></span>
+                    <span class="memberName">createAccesses</span>
+                    <span class="arguments">(<span class="param"><a href="../bounds/Bounds3i.html" class="type-link"><code>@Nonnull final Bounds3i</code></a> <span class="param-name">localChunkBounds_bufferGrid</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createAccesses.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../bounds/Bounds3i.html" class="type-link"><code>@Nonnull final Bounds3i</code></a> <b>localChunkBounds_bufferGrid</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createTileTask">
+                <h4 class="methodName">createTileTask</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>Runnable</code></span>
+                    <span class="memberName">createTileTask</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">stageIndex</span></span>, <span class="param"><a href="../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <span class="param-name">position_bufferTileGrid</span></span>, <span class="param"><code>@Nonnull final WorkerIndexer.Id</code> <span class="param-name">workerId</span></span>, <span class="param"><code>@Nonnull final Map<NBufferType, NBufferBundle.Access></code> <span class="param-name">accessMap</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createTileTask.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>stageIndex</b></dd>
+<dd><a href="../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <b>position_bufferTileGrid</b></dd>
+<dd><code>@Nonnull final WorkerIndexer.Id</code> <b>workerId</b></dd>
+<dd><code>@Nonnull final Map<NBufferType, NBufferBundle.Access></code> <b>accessMap</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="transferBlockStates">
+                <h4 class="methodName">transferBlockStates</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>CompletableFuture<Void></code></span>
+                    <span class="memberName">transferBlockStates</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ChunkRequest.Arguments</code> <span class="param-name">arguments</span></span>, <span class="param"><a href="../../../server/core/universe/world/worldgen/GeneratedBlockStateChunk.html" class="type-link"><code>@Nonnull final GeneratedBlockStateChunk</code></a> <span class="param-name">blockStateChunk</span></span>, <span class="param"><code>@Nonnull final TimeInstrument.Probe</code> <span class="param-name">transfer_timeProbe</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method transferBlockStates.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ChunkRequest.Arguments</code> <b>arguments</b></dd>
+<dd><a href="../../../server/core/universe/world/worldgen/GeneratedBlockStateChunk.html" class="type-link"><code>@Nonnull final GeneratedBlockStateChunk</code></a> <b>blockStateChunk</b></dd>
+<dd><code>@Nonnull final TimeInstrument.Probe</code> <b>transfer_timeProbe</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="transferMaterials">
+                <h4 class="methodName">transferMaterials</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>CompletableFuture<Void></code></span>
+                    <span class="memberName">transferMaterials</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ChunkRequest.Arguments</code> <span class="param-name">arguments</span></span>, <span class="param"><a href="../../../server/core/universe/world/worldgen/GeneratedChunk.html" class="type-link"><code>@Nonnull final GeneratedChunk</code></a> <span class="param-name">generatedChunk</span></span>, <span class="param"><code>@Nonnull final TimeInstrument.Probe</code> <span class="param-name">transfer_timeProbe</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method transferMaterials.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ChunkRequest.Arguments</code> <b>arguments</b></dd>
+<dd><a href="../../../server/core/universe/world/worldgen/GeneratedChunk.html" class="type-link"><code>@Nonnull final GeneratedChunk</code></a> <b>generatedChunk</b></dd>
+<dd><code>@Nonnull final TimeInstrument.Probe</code> <b>transfer_timeProbe</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="transferTints">
+                <h4 class="methodName">transferTints</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>CompletableFuture<Void></code></span>
+                    <span class="memberName">transferTints</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ChunkRequest.Arguments</code> <span class="param-name">arguments</span></span>, <span class="param"><a href="../../../server/core/universe/world/worldgen/GeneratedChunk.html" class="type-link"><code>@Nonnull final GeneratedChunk</code></a> <span class="param-name">generatedChunk</span></span>, <span class="param"><code>@Nonnull final TimeInstrument.Probe</code> <span class="param-name">transfer_timeProbe</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method transferTints.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ChunkRequest.Arguments</code> <b>arguments</b></dd>
+<dd><a href="../../../server/core/universe/world/worldgen/GeneratedChunk.html" class="type-link"><code>@Nonnull final GeneratedChunk</code></a> <b>generatedChunk</b></dd>
+<dd><code>@Nonnull final TimeInstrument.Probe</code> <b>transfer_timeProbe</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="transferEnvironments">
+                <h4 class="methodName">transferEnvironments</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>CompletableFuture<Void></code></span>
+                    <span class="memberName">transferEnvironments</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ChunkRequest.Arguments</code> <span class="param-name">arguments</span></span>, <span class="param"><a href="../../../server/core/universe/world/worldgen/GeneratedChunk.html" class="type-link"><code>@Nonnull final GeneratedChunk</code></a> <span class="param-name">generatedChunk</span></span>, <span class="param"><code>@Nonnull final TimeInstrument.Probe</code> <span class="param-name">transfer_timeProbe</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method transferEnvironments.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ChunkRequest.Arguments</code> <b>arguments</b></dd>
+<dd><a href="../../../server/core/universe/world/worldgen/GeneratedChunk.html" class="type-link"><code>@Nonnull final GeneratedChunk</code></a> <b>generatedChunk</b></dd>
+<dd><code>@Nonnull final TimeInstrument.Probe</code> <b>transfer_timeProbe</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="transferEntities">
+                <h4 class="methodName">transferEntities</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>CompletableFuture<Void></code></span>
+                    <span class="memberName">transferEntities</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ChunkRequest.Arguments</code> <span class="param-name">arguments</span></span>, <span class="param"><a href="../../../server/core/universe/world/worldgen/GeneratedChunk.html" class="type-link"><code>@Nonnull final GeneratedChunk</code></a> <span class="param-name">generatedChunk</span></span>, <span class="param"><code>@Nonnull final TimeInstrument.Probe</code> <span class="param-name">transfer_timeProbe</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method transferEntities.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ChunkRequest.Arguments</code> <b>arguments</b></dd>
+<dd><a href="../../../server/core/universe/world/worldgen/GeneratedChunk.html" class="type-link"><code>@Nonnull final GeneratedChunk</code></a> <b>generatedChunk</b></dd>
+<dd><code>@Nonnull final TimeInstrument.Probe</code> <b>transfer_timeProbe</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NEntityBufferView">
+                <h4 class="methodName">NEntityBufferView</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NEntityBufferView</span>
+                    <span class="arguments">(<span class="param">entityBufferAccess.createView(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NEntityBufferView.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>entityBufferAccess.createView(</code> <b>entityBufferAccess.createView(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createBufferRequestCacheReport">
+                <h4 class="methodName">createBufferRequestCacheReport</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">createBufferRequestCacheReport</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method createBufferRequestCacheReport.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="createContextDependencyReport">
+                <h4 class="methodName">createContextDependencyReport</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">createContextDependencyReport</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">indentation</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createContextDependencyReport.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>indentation</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Size">
+                <h4 class="methodName">Size</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Output</code></span>
+                    <span class="memberName">Size</span>
+                    <span class="arguments">(<span class="param"><code>Buffer</code> <span class="param-name">Column</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Size.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Buffer</code> <b>Column</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setSupport">
+                <h4 class="methodName">setSupport</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setSupport</span>
+                    <span class="arguments">(<span class="param"><a href="../../../server/core/universe/world/worldgen/GeneratedChunk.html" class="type-link"><code>@Nonnull final GeneratedChunk</code></a> <span class="param-name">chunk</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockId</span></span>, <span class="param"><code>final int</code> <span class="param-name">supportValue</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setSupport.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../server/core/universe/world/worldgen/GeneratedChunk.html" class="type-link"><code>@Nonnull final GeneratedChunk</code></a> <b>chunk</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>blockId</b></dd>
+<dd><code>final int</code> <b>supportValue</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setBoundsToWorldHeight_bufferGrid">
+                <h4 class="methodName">setBoundsToWorldHeight_bufferGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setBoundsToWorldHeight_bufferGrid</span>
+                    <span class="arguments">(<span class="param"><a href="../bounds/Bounds3i.html" class="type-link"><code>@Nonnull final Bounds3i</code></a> <span class="param-name">bounds_bufferGrid</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setBoundsToWorldHeight_bufferGrid.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../bounds/Bounds3i.html" class="type-link"><code>@Nonnull final Bounds3i</code></a> <b>bounds_bufferGrid</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isColumnCached">
+                <h4 class="methodName">isColumnCached</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isColumnCached</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final NBufferBundle.Access</code> <span class="param-name">access</span></span>, <span class="param"><a href="../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <span class="param-name">position_bufferGrid</span></span>, <span class="param"><code>final int</code> <span class="param-name">stageIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isColumnCached.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final NBufferBundle.Access</code> <b>access</b></dd>
+<dd><a href="../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <b>position_bufferGrid</b></dd>
+<dd><code>final int</code> <b>stageIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateTrackersForColumn">
+                <h4 class="methodName">updateTrackersForColumn</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateTrackersForColumn</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">stageIndex</span></span>, <span class="param"><code>@Nonnull final NBufferBundle.Access.View</code> <span class="param-name">access</span></span>, <span class="param"><a href="../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <span class="param-name">position_bufferGrid</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateTrackersForColumn.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>stageIndex</b></dd>
+<dd><code>@Nonnull final NBufferBundle.Access.View</code> <b>access</b></dd>
+<dd><a href="../../../protocol/Vector3i.html" class="type-link"><code>@Nonnull final Vector3i</code></a> <b>position_bufferGrid</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Bounds3i">
+                <h4 class="methodName">Bounds3i</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Bounds3i</span>
+                    <span class="arguments">(<span class="param">Vector3i.ZERO</span>, <span class="param"><code>new</code> <span class="param-name">Vector3i(4</span></span>, <span class="param">40</span>, <span class="param">4</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Bounds3i.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Vector3i.ZERO</code> <b>Vector3i.ZERO</b></dd>
+<dd><code>new</code> <b>Vector3i(4</b></dd>
+<dd><code>40</code> <b>40</b></dd>
+<dd><code>4</code> <b>4</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Builder">
+                <h4 class="methodName">Builder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">Builder</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method Builder.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="NParametrizedBufferType">
+                <h4 class="methodName">NParametrizedBufferType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NParametrizedBufferType</span>
+                    <span class="arguments">(<span class="param">"MaterialResult"</span>, <span class="param">-1</span>, <span class="param">(Class</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NParametrizedBufferType.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"MaterialResult"</code> <b>"MaterialResult"</b></dd>
+<dd><code>-1</code> <b>-1</b></dd>
+<dd><code>(Class</code> <b>(Class</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NVoxelBuffer">
+                <h4 class="methodName">NVoxelBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NVoxelBuffer</span>
+                    <span class="arguments">(<span class="param">(Class<Object></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NVoxelBuffer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>(Class<Object></code> <b>(Class<Object></b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NSimplePixelBuffer">
+                <h4 class="methodName">NSimplePixelBuffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NSimplePixelBuffer</span>
+                    <span class="arguments">(<span class="param">(Class<Object></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NSimplePixelBuffer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>(Class<Object></code> <b>(Class<Object></b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NBufferType">
+                <h4 class="methodName">NBufferType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NBufferType</span>
+                    <span class="arguments">(<span class="param">"EntityResult"</span>, <span class="param">-5</span>, <span class="param">NEntityBuffer.class</span>, <span class="param">(Supplier<NBuffer></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NBufferType.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"EntityResult"</code> <b>"EntityResult"</b></dd>
+<dd><code>-5</code> <b>-5</b></dd>
+<dd><code>NEntityBuffer.class</code> <b>NEntityBuffer.class</b></dd>
+<dd><code>(Supplier<NBuffer></code> <b>(Supplier<NBuffer></b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="build">
+                <h4 class="methodName">build</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="NStagedChunkGenerator.html" class="type-link"><code>NStagedChunkGenerator</code></a></span>
+                    <span class="memberName">build</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method build.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="NBufferBundle">
+                <h4 class="methodName">NBufferBundle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NBufferBundle</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method NBufferBundle.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="withStats">
+                <h4 class="methodName">withStats</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../server/npc/asset/builder/Builder.html" class="type-link"><code>Builder</code></a></span>
+                    <span class="memberName">withStats</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">statsHeader</span></span>, <span class="param"><code>@Nonnull final Set<Integer></code> <span class="param-name">statsCheckpoints</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method withStats.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>statsHeader</b></dd>
+<dd><code>@Nonnull final Set<Integer></code> <b>statsCheckpoints</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="withConcurrentExecutor">
+                <h4 class="methodName">withConcurrentExecutor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../server/npc/asset/builder/Builder.html" class="type-link"><code>Builder</code></a></span>
+                    <span class="memberName">withConcurrentExecutor</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ExecutorService</code> <span class="param-name">executor</span></span>, <span class="param"><a href="../threadindexer/WorkerIndexer.html" class="type-link"><code>@Nonnull final WorkerIndexer</code></a> <span class="param-name">workerIndexer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method withConcurrentExecutor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ExecutorService</code> <b>executor</b></dd>
+<dd><a href="../threadindexer/WorkerIndexer.html" class="type-link"><code>@Nonnull final WorkerIndexer</code></a> <b>workerIndexer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="withMaterialCache">
+                <h4 class="methodName">withMaterialCache</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../server/npc/asset/builder/Builder.html" class="type-link"><code>Builder</code></a></span>
+                    <span class="memberName">withMaterialCache</span>
+                    <span class="arguments">(<span class="param"><a href="../material/MaterialCache.html" class="type-link"><code>@Nonnull final MaterialCache</code></a> <span class="param-name">materialCache</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method withMaterialCache.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../material/MaterialCache.html" class="type-link"><code>@Nonnull final MaterialCache</code></a> <b>materialCache</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="withBufferCapacity">
+                <h4 class="methodName">withBufferCapacity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../server/npc/asset/builder/Builder.html" class="type-link"><code>Builder</code></a></span>
+                    <span class="memberName">withBufferCapacity</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">factor</span></span>, <span class="param"><code>final double</code> <span class="param-name">targetViewDistance</span></span>, <span class="param"><code>final double</code> <span class="param-name">targetPlayerCount</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method withBufferCapacity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>factor</b></dd>
+<dd><code>final double</code> <b>targetViewDistance</b></dd>
+<dd><code>final double</code> <b>targetPlayerCount</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="appendStage">
+                <h4 class="methodName">appendStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../server/npc/asset/builder/Builder.html" class="type-link"><code>Builder</code></a></span>
+                    <span class="memberName">appendStage</span>
+                    <span class="arguments">(<span class="param"><a href="stages/NStage.html" class="type-link"><code>@Nonnull final NStage</code></a> <span class="param-name">stage</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method appendStage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="stages/NStage.html" class="type-link"><code>@Nonnull final NStage</code></a> <b>stage</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createStagesThatReadFrom">
+                <h4 class="methodName">createStagesThatReadFrom</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>List<Integer></code></span>
+                    <span class="memberName">createStagesThatReadFrom</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">stageIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createStagesThatReadFrom.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>stageIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createStageDependencyMap">
+                <h4 class="methodName">createStageDependencyMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Set<Integer>></code></span>
+                    <span class="memberName">createStageDependencyMap</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method createStageDependencyMap.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="resolveBufferCapacity">
+                <h4 class="methodName">resolveBufferCapacity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">resolveBufferCapacity</span>
+                    <span class="arguments">(<span class="param"><a href="bufferbundle/buffers/type/NBufferType.html" class="type-link"><code>@Nonnull final NBufferType</code></a> <span class="param-name">bufferType</span></span>, <span class="param"><code>@Nonnull final Bounds3i[]</code> <span class="param-name">stagesOutputBounds</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method resolveBufferCapacity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="bufferbundle/buffers/type/NBufferType.html" class="type-link"><code>@Nonnull final NBufferType</code></a> <b>bufferType</b></dd>
+<dd><code>@Nonnull final Bounds3i[]</code> <b>stagesOutputBounds</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createTotalOutputBoundsForStage">
+                <h4 class="methodName">createTotalOutputBoundsForStage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">createTotalOutputBoundsForStage</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">stageIndex</span></span>, <span class="param"><code>@Nonnull final Map<Integer, Set<Integer>></code> <span class="param-name">stageDependencyMap</span></span>, <span class="param"><code>@Nonnull final Bounds3i[]</code> <span class="param-name">totalOutputBoundsPerStage_bufferGrid</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createTotalOutputBoundsForStage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>stageIndex</b></dd>
+<dd><code>@Nonnull final Map<Integer, Set<Integer>></code> <b>stageDependencyMap</b></dd>
+<dd><code>@Nonnull final Bounds3i[]</code> <b>totalOutputBoundsPerStage_bufferGrid</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createTotalOutputBoundsArray">
+                <h4 class="methodName">createTotalOutputBoundsArray</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>Bounds3i[]</code></span>
+                    <span class="memberName">createTotalOutputBoundsArray</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Map<Integer, Set<Integer>></code> <span class="param-name">stageDependencyMap</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createTotalOutputBoundsArray.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Map<Integer, Set<Integer>></code> <b>stageDependencyMap</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createListOfAllBufferTypes">
+                <h4 class="methodName">createListOfAllBufferTypes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>Set<NBufferType></code></span>
+                    <span class="memberName">createListOfAllBufferTypes</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method createListOfAllBufferTypes.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEncompassingBounds">
+                <h4 class="methodName">getEncompassingBounds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../bounds/Bounds3i.html" class="type-link"><code>Bounds3i</code></a></span>
+                    <span class="memberName">getEncompassingBounds</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Collection<Bounds3i></code> <span class="param-name">set</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getEncompassingBounds.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Collection<Bounds3i></code> <b>set</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isGeneratorOutputBufferType">
+                <h4 class="methodName">isGeneratorOutputBufferType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isGeneratorOutputBufferType</span>
+                    <span class="arguments">(<span class="param"><a href="bufferbundle/buffers/type/NBufferType.html" class="type-link"><code>@Nonnull final NBufferType</code></a> <span class="param-name">bufferType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isGeneratorOutputBufferType.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="bufferbundle/buffers/type/NBufferType.html" class="type-link"><code>@Nonnull final NBufferType</code></a> <b>bufferType</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

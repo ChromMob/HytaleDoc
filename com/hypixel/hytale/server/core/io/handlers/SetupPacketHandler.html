@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SetupPacketHandler (com.hypixel.hytale.server.core.io.handlers)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/core/io/handlers/package-summary.html">com.hypixel.hytale.server.core.io.handlers</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">SetupPacketHandler</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="SetupPacketHandler.html" class="type-link">SetupPacketHandler</a> extends <a href="GenericConnectionPacketHandler.html" class="type-link" data-class="GenericConnectionPacketHandler"><code>GenericConnectionPacketHandler</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class SetupPacketHandler. Provides setuppackethandler functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; GenericConnectionPacketHandler &gt; SetupPacketHandler</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">assets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">PlayerCommonAssets</span>
+                    <span class="memberName">assets</span>
+                </div>
+                <div class="block">
+                    <p>Field assets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">receivedRequest</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">receivedRequest</span>
+                </div>
+                <div class="block">
+                    <p>Field receivedRequest.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">clientViewRadiusChunks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">clientViewRadiusChunks</span>
+                </div>
+                <div class="block">
+                    <p>Field clientViewRadiusChunks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">event</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerSetupConnectEvent</span>
+                    <span class="memberName">event</span>
+                </div>
+                <div class="block">
+                    <p>Field event.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">clientReferral</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ClientReferral</span>
+                    <span class="memberName">clientReferral</span>
+                </div>
+                <div class="block">
+                    <p>Field clientReferral.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">serverConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HytaleServerConfig</span>
+                    <span class="memberName">serverConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field serverConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">enableCompression</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">enableCompression</span>
+                </div>
+                <div class="block">
+                    <p>Field enableCompression.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">otherPlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">otherPlayer</span>
+                </div>
+                <div class="block">
+                    <p>Field otherPlayer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">otherPlayerChannel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Channel</span>
+                    <span class="memberName">otherPlayerChannel</span>
+                </div>
+                <div class="block">
+                    <p>Field otherPlayerChannel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">reference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">reference</span>
+                </div>
+                <div class="block">
+                    <p>Field reference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">removalFuture</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">removalFuture</span>
+                </div>
+                <div class="block">
+                    <p>Field removalFuture.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldSettings</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldSettings</span>
+                    <span class="memberName">worldSettings</span>
+                </div>
+                <div class="block">
+                    <p>Field worldSettings.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">requiredAssets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Asset[]</span>
+                    <span class="memberName">requiredAssets</span>
+                </div>
+                <div class="block">
+                    <p>Field requiredAssets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">future</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CompletableFuture<Void></span>
+                    <span class="memberName">future</span>
+                </div>
+                <div class="block">
+                    <p>Field future.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="SetupPacketHandler">
+                <h4 class="methodName">SetupPacketHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">SetupPacketHandler</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Channel</code> <span class="param-name">channel</span></span>, <span class="param"><a href="..//ProtocolVersion.html" class="type-link"><code>@Nonnull final ProtocolVersion</code></a> <span class="param-name">protocolVersion</span></span>, <span class="param"><code>final String</code> <span class="param-name">language</span></span>, <span class="param"><code>final UUID</code> <span class="param-name">uuid</span></span>, <span class="param"><code>final String</code> <span class="param-name">username</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SetupPacketHandler.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Channel</code> <b>channel</b></dd>
+<dd><a href="..//ProtocolVersion.html" class="type-link"><code>@Nonnull final ProtocolVersion</code></a> <b>protocolVersion</b></dd>
+<dd><code>final String</code> <b>language</b></dd>
+<dd><code>final UUID</code> <b>uuid</b></dd>
+<dd><code>final String</code> <b>username</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getIdentifier">
+                <h4 class="methodName">getIdentifier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getIdentifier</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getIdentifier.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="registered0">
+                <h4 class="methodName">registered0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">registered0</span>
+                    <span class="arguments">(<span class="param"><a href="..//PacketHandler.html" class="type-link"><code>@Nonnull final PacketHandler</code></a> <span class="param-name">oldHandler</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registered0.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="..//PacketHandler.html" class="type-link"><code>@Nonnull final PacketHandler</code></a> <b>oldHandler</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlayerSetupConnectEvent">
+                <h4 class="methodName">PlayerSetupConnectEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PlayerSetupConnectEvent</span>
+                    <span class="arguments">(<span class="param">this</span>, <span class="param">this.username</span>, <span class="param">this.uuid</span>, <span class="param">this.auth</span>, <span class="param">this.referralData</span>, <span class="param">this.referralSource</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PlayerSetupConnectEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this</code> <b>this</b></dd>
+<dd><code>this.username</code> <b>this.username</b></dd>
+<dd><code>this.uuid</code> <b>this.uuid</b></dd>
+<dd><code>this.auth</code> <b>this.auth</b></dd>
+<dd><code>this.referralData</code> <b>this.referralData</b></dd>
+<dd><code>this.referralSource</code> <b>this.referralSource</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ServerInfo">
+                <h4 class="methodName">ServerInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ServerInfo</span>
+                    <span class="arguments">(<span class="param">HytaleServer.get(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ServerInfo.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>HytaleServer.get(</code> <b>HytaleServer.get(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="accept">
+                <h4 class="methodName">accept</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">accept</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <span class="param-name">packet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method accept.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="closed">
+                <h4 class="methodName">closed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">closed</span>
+                    <span class="arguments">(<span class="param"><code>final ChannelHandlerContext</code> <span class="param-name">ctx</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method closed.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final ChannelHandlerContext</code> <b>ctx</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlayerSetupDisconnectEvent">
+                <h4 class="methodName">PlayerSetupDisconnectEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PlayerSetupDisconnectEvent</span>
+                    <span class="arguments">(<span class="param">this.username</span>, <span class="param">this.uuid</span>, <span class="param">this.auth</span>, <span class="param">this.disconnectReason</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PlayerSetupDisconnectEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.username</code> <b>this.username</b></dd>
+<dd><code>this.uuid</code> <b>this.uuid</b></dd>
+<dd><code>this.auth</code> <b>this.auth</b></dd>
+<dd><code>this.disconnectReason</code> <b>this.disconnectReason</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">SingleplayerModule.isOwner(this.auth</span>, <span class="param">this.uuid</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>SingleplayerModule.isOwner(this.auth</code> <b>SingleplayerModule.isOwner(this.auth</b></dd>
+<dd><code>this.uuid</code> <b>this.uuid</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handle">
+                <h4 class="methodName">handle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handle</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/packets/connection/Disconnect.html" class="type-link"><code>@Nonnull final Disconnect</code></a> <span class="param-name">packet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handle.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/packets/connection/Disconnect.html" class="type-link"><code>@Nonnull final Disconnect</code></a> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SendCommonAssetsEvent">
+                <h4 class="methodName">SendCommonAssetsEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SendCommonAssetsEvent</span>
+                    <span class="arguments">(<span class="param">this</span>, <span class="param">packet.assets</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SendCommonAssetsEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this</code> <b>this</b></dd>
+<dd><code>packet.assets</code> <b>packet.assets</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="WorldLoadProgress">
+                <h4 class="methodName">WorldLoadProgress</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">WorldLoadProgress</span>
+                    <span class="arguments">(<span class="param"><code>"Loading</code> <span class="param-name">world..."</span></span>, <span class="param">0</span>, <span class="param">0</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method WorldLoadProgress.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Loading</code> <b>world..."</b></dd>
+<dd><code>0</code> <b>0</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="WorldLoadFinished">
+                <h4 class="methodName">WorldLoadFinished</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">WorldLoadFinished</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method WorldLoadFinished.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

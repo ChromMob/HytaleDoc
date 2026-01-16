@@ -1,0 +1,2626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AssetEditorPlugin (com.hypixel.hytale.builtin.asseteditor)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../com/hypixel/hytale/builtin/asseteditor/package-summary.html">com.hypixel.hytale.builtin.asseteditor</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">AssetEditorPlugin</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="AssetEditorPlugin.html" class="type-link">AssetEditorPlugin</a> extends <a href="../../server/core/plugin/JavaPlugin.html" class="type-link" data-class="JavaPlugin"><code>JavaPlugin</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>The main plugin class for Asseteditor. This plugin provides gameplay features for the Hytale server. Extend this class to create a plugin.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; JavaPlugin &gt; AssetEditorPlugin</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">setupSchemasPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">AssetEditorSetupSchemas</span>
+                    <span class="memberName">setupSchemasPacket</span>
+                </div>
+                <div class="block">
+                    <p>Field setupSchemasPacket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">initState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">InitState</span>
+                    <span class="memberName">initState</span>
+                </div>
+                <div class="block">
+                    <p>Field initState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">scheduledReinitFuture</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ScheduledFuture<?></span>
+                    <span class="memberName">scheduledReinitFuture</span>
+                </div>
+                <div class="block">
+                    <p>Field scheduledReinitFuture.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pingClientsTask</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ScheduledFuture<?></span>
+                    <span class="memberName">pingClientsTask</span>
+                </div>
+                <div class="block">
+                    <p>Field pingClientsTask.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">manifest</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PluginManifest</span>
+                    <span class="memberName">manifest</span>
+                </div>
+                <div class="block">
+                    <p>Field manifest.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dataSource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StandardDataSource</span>
+                    <span class="memberName">dataSource</span>
+                </div>
+                <div class="block">
+                    <p>Field dataSource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">message</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">message</span>
+                </div>
+                <div class="block">
+                    <p>Field message.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">list</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<EditorClient></span>
+                    <span class="memberName">list</span>
+                </div>
+                <div class="block">
+                    <p>Field list.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempAssetTree</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetTree</span>
+                    <span class="memberName">tempAssetTree</span>
+                </div>
+                <div class="block">
+                    <p>Field tempAssetTree.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">globalEditStamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">globalEditStamp</span>
+                </div>
+                <div class="block">
+                    <p>Field globalEditStamp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">i18nModule</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">I18nModule</span>
+                    <span class="memberName">i18nModule</span>
+                </div>
+                <div class="block">
+                    <p>Field i18nModule.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">languageKey</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">languageKey</span>
+                </div>
+                <div class="block">
+                    <p>Field languageKey.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">stamp</span>
+                </div>
+                <div class="block">
+                    <p>Field stamp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetEditorAssetListUpdate</span>
+                    <span class="memberName">packet</span>
+                </div>
+                <div class="block">
+                    <p>Field packet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newFiles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<AssetEditorFileEntry></span>
+                    <span class="memberName">newFiles</span>
+                </div>
+                <div class="block">
+                    <p>Field newFiles.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">deletions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<AssetEditorFileEntry></span>
+                    <span class="memberName">deletions</span>
+                </div>
+                <div class="block">
+                    <p>Field deletions.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iterator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Iterator<Path></span>
+                    <span class="memberName">iterator</span>
+                </div>
+                <div class="block">
+                    <p>Field iterator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">relativePath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">relativePath</span>
+                </div>
+                <div class="block">
+                    <p>Field relativePath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">assetFile</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetEditorFileEntry</span>
+                    <span class="memberName">assetFile</span>
+                </div>
+                <div class="block">
+                    <p>Field assetFile.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">relativePath3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">relativePath3</span>
+                </div>
+                <div class="block">
+                    <p>Field relativePath3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">relativePath2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">relativePath2</span>
+                </div>
+                <div class="block">
+                    <p>Field relativePath2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">addedAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetEditorFileEntry</span>
+                    <span class="memberName">addedAsset</span>
+                </div>
+                <div class="block">
+                    <p>Field addedAsset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">relativePath4</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">relativePath4</span>
+                </div>
+                <div class="block">
+                    <p>Field relativePath4.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">addedAsset2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetEditorFileEntry</span>
+                    <span class="memberName">addedAsset2</span>
+                </div>
+                <div class="block">
+                    <p>Field addedAsset2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">assetPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetPath</span>
+                    <span class="memberName">assetPath</span>
+                </div>
+                <div class="block">
+                    <p>Field assetPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">globalEditStamp2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">globalEditStamp2</span>
+                </div>
+                <div class="block">
+                    <p>Field globalEditStamp2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">clientsWithOpenAssetPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<EditorClient></span>
+                    <span class="memberName">clientsWithOpenAssetPath</span>
+                </div>
+                <div class="block">
+                    <p>Field clientsWithOpenAssetPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">updatePacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetEditorAssetUpdated</span>
+                    <span class="memberName">updatePacket</span>
+                </div>
+                <div class="block">
+                    <p>Field updatePacket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRefComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">playerRefComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRefComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">username</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">username</span>
+                </div>
+                <div class="block">
+                    <p>Field username.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">start</span>
+                </div>
+                <div class="block">
+                    <p>Field start.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bytes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">bytes</span>
+                </div>
+                <div class="block">
+                    <p>Field bytes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">initStamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">initStamp</span>
+                </div>
+                <div class="block">
+                    <p>Field initStamp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">defaultDataSource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">DataSource</span>
+                    <span class="memberName">defaultDataSource</span>
+                </div>
+                <div class="block">
+                    <p>Field defaultDataSource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">canDiscard</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">canDiscard</span>
+                </div>
+                <div class="block">
+                    <p>Field canDiscard.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">canEditAssets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">canEditAssets</span>
+                </div>
+                <div class="block">
+                    <p>Field canEditAssets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">canEditAssetPacks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">canEditAssetPacks</span>
+                </div>
+                <div class="block">
+                    <p>Field canEditAssetPacks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">canCreateAssetPacks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">canCreateAssetPacks</span>
+                </div>
+                <div class="block">
+                    <p>Field canCreateAssetPacks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">canDeleteAssetPacks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">canDeleteAssetPacks</span>
+                </div>
+                <div class="block">
+                    <p>Field canDeleteAssetPacks.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packSetupPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetEditorAssetPackSetup</span>
+                    <span class="memberName">packSetupPacket</span>
+                </div>
+                <div class="block">
+                    <p>Field packSetupPacket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">authors</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<AuthorInfo></span>
+                    <span class="memberName">authors</span>
+                </div>
+                <div class="block">
+                    <p>Field authors.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">author</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AuthorInfo</span>
+                    <span class="memberName">author</span>
+                </div>
+                <div class="block">
+                    <p>Field author.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">manifestPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">manifestPath</span>
+                </div>
+                <div class="block">
+                    <p>Field manifestPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newPackId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">newPackId</span>
+                </div>
+                <div class="block">
+                    <p>Field newPackId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">packPath</span>
+                </div>
+                <div class="block">
+                    <p>Field packPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">assetModule</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetModule</span>
+                    <span class="memberName">assetModule</span>
+                </div>
+                <div class="block">
+                    <p>Field assetModule.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">packId</span>
+                </div>
+                <div class="block">
+                    <p>Field packId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modsPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">modsPath</span>
+                </div>
+                <div class="block">
+                    <p>Field modsPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dirName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">dirName</span>
+                </div>
+                <div class="block">
+                    <p>Field dirName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">normalized</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">normalized</span>
+                </div>
+                <div class="block">
+                    <p>Field normalized.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">authorInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">com.hypixel.hytale.protocol.packets.asseteditor.AuthorInfo</span>
+                    <span class="memberName">authorInfo</span>
+                </div>
+                <div class="block">
+                    <p>Field authorInfo.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">manifestPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetPackManifest</span>
+                    <span class="memberName">manifestPacket</span>
+                </div>
+                <div class="block">
+                    <p>Field manifestPacket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">exportedAssets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectArrayList<TimestampedAssetReference></span>
+                    <span class="memberName">exportedAssets</span>
+                </div>
+                <div class="block">
+                    <p>Field exportedAssets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">asset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetEditorAsset</span>
+                    <span class="memberName">asset</span>
+                </div>
+                <div class="block">
+                    <p>Field asset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parts</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">byte[][]</span>
+                    <span class="memberName">parts</span>
+                </div>
+                <div class="block">
+                    <p>Field parts.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Packet[]</span>
+                    <span class="memberName">packets</span>
+                </div>
+                <div class="block">
+                    <p>Field packets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">timestamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Instant</span>
+                    <span class="memberName">timestamp</span>
+                </div>
+                <div class="block">
+                    <p>Field timestamp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetPath</span>
+                    <span class="memberName">currentPath</span>
+                </div>
+                <div class="block">
+                    <p>Field currentPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentAssetTypeHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetTypeHandler</span>
+                    <span class="memberName">currentAssetTypeHandler</span>
+                </div>
+                <div class="block">
+                    <p>Field currentAssetTypeHandler.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">assetTypeHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetTypeHandler</span>
+                    <span class="memberName">assetTypeHandler</span>
+                </div>
+                <div class="block">
+                    <p>Field assetTypeHandler.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">assetStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetStore</span>
+                    <span class="memberName">assetStore</span>
+                </div>
+                <div class="block">
+                    <p>Field assetStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">assetMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetMap</span>
+                    <span class="memberName">assetMap</span>
+                </div>
+                <div class="block">
+                    <p>Field assetMap.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">keyString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">keyString</span>
+                </div>
+                <div class="block">
+                    <p>Field keyString.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">key</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object</span>
+                    <span class="memberName">key</span>
+                </div>
+                <div class="block">
+                    <p>Field key.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">storedPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">storedPath</span>
+                </div>
+                <div class="block">
+                    <p>Field storedPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">storedAssetPack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">storedAssetPack</span>
+                </div>
+                <div class="block">
+                    <p>Field storedAssetPack.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fileExtension</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">fileExtension</span>
+                </div>
+                <div class="block">
+                    <p>Field fileExtension.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rebuildCacheBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetUpdateQuery.RebuildCacheBuilder</span>
+                    <span class="memberName">rebuildCacheBuilder</span>
+                </div>
+                <div class="block">
+                    <p>Field rebuildCacheBuilder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">json</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">json</span>
+                </div>
+                <div class="block">
+                    <p>Field json.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">undoRedo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetUndoRedoInfo</span>
+                    <span class="memberName">undoRedo</span>
+                </div>
+                <div class="block">
+                    <p>Field undoRedo.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">command</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonUpdateCommand</span>
+                    <span class="memberName">command</span>
+                </div>
+                <div class="block">
+                    <p>Field command.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">undoCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JsonUpdateCommand</span>
+                    <span class="memberName">undoCommand</span>
+                </div>
+                <div class="block">
+                    <p>Field undoCommand.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bson</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BsonDocument</span>
+                    <span class="memberName">bson</span>
+                </div>
+                <div class="block">
+                    <p>Field bson.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">children</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set</span>
+                    <span class="memberName">children</span>
+                </div>
+                <div class="block">
+                    <p>Field children.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">childrenIds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HashSet<String></span>
+                    <span class="memberName">childrenIds</span>
+                </div>
+                <div class="block">
+                    <p>Field childrenIds.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetEditorFileEntry</span>
+                    <span class="memberName">entry</span>
+                </div>
+                <div class="block">
+                    <p>Field entry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fileExtensionNew</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">fileExtensionNew</span>
+                </div>
+                <div class="block">
+                    <p>Field fileExtensionNew.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">byte[]</span>
+                    <span class="memberName">oldAsset</span>
+                </div>
+                <div class="block">
+                    <p>Field oldAsset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetEditorFileEntry</span>
+                    <span class="memberName">oldEntry</span>
+                </div>
+                <div class="block">
+                    <p>Field oldEntry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetEditorFileEntry</span>
+                    <span class="memberName">newEntry</span>
+                </div>
+                <div class="block">
+                    <p>Field newEntry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parentDirectoryPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">parentDirectoryPath</span>
+                </div>
+                <div class="block">
+                    <p>Field parentDirectoryPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rebuildCache</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetUpdateQuery.RebuildCache</span>
+                    <span class="memberName">rebuildCache</span>
+                </div>
+                <div class="block">
+                    <p>Field rebuildCache.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">value</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BsonValue</span>
+                    <span class="memberName">value</span>
+                </div>
+                <div class="block">
+                    <p>Field value.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastModifiedAssetsPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AssetEditorLastModifiedAssets</span>
+                    <span class="memberName">lastModifiedAssetsPacket</span>
+                </div>
+                <div class="block">
+                    <p>Field lastModifiedAssetsPacket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allAssets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ArrayList<AssetInfo></span>
+                    <span class="memberName">allAssets</span>
+                </div>
+                <div class="block">
+                    <p>Field allAssets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">standardDataSource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StandardDataSource</span>
+                    <span class="memberName">standardDataSource</span>
+                </div>
+                <div class="block">
+                    <p>Field standardDataSource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">assetPathString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">assetPathString</span>
+                </div>
+                <div class="block">
+                    <p>Field assetPathString.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rootPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">rootPath</span>
+                </div>
+                <div class="block">
+                    <p>Field rootPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">absolutePath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">absolutePath</span>
+                </div>
+                <div class="block">
+                    <p>Field absolutePath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">schemaContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SchemaContext</span>
+                    <span class="memberName">schemaContext</span>
+                </div>
+                <div class="block">
+                    <p>Field schemaContext.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="get">
+                <h4 class="methodName">get</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="AssetEditorPlugin.html" class="type-link"><code>AssetEditorPlugin</code></a></span>
+                    <span class="memberName">get</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method get.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorPlugin">
+                <h4 class="methodName">AssetEditorPlugin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">AssetEditorPlugin</span>
+                    <span class="arguments">(<span class="param"><a href="../../server/core/plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <span class="param-name">init</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorPlugin.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../server/core/plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <b>init</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerDataSourceForPack">
+                <h4 class="methodName">registerDataSourceForPack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="datasource/DataSource.html" class="type-link"><code>DataSource</code></a></span>
+                    <span class="memberName">registerDataSourceForPack</span>
+                    <span class="arguments">(<span class="param"><a href="../../assetstore/AssetPack.html" class="type-link"><code>final AssetPack</code></a> <span class="param-name">assetPack</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registerDataSourceForPack.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../assetstore/AssetPack.html" class="type-link"><code>final AssetPack</code></a> <b>assetPack</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="StandardDataSource">
+                <h4 class="methodName">StandardDataSource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">StandardDataSource</span>
+                    <span class="arguments">(<span class="param">assetPack.getName(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method StandardDataSource.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>assetPack.getName(</code> <b>assetPack.getName(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetStoreTypeHandler">
+                <h4 class="methodName">AssetStoreTypeHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetStoreTypeHandler</span>
+                    <span class="arguments">(<span class="param">assetStore</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetStoreTypeHandler.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>assetStore</code> <b>assetStore</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="CommonAssetTypeHandler">
+                <h4 class="methodName">CommonAssetTypeHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">CommonAssetTypeHandler</span>
+                    <span class="arguments">(<span class="param">"Texture"</span>, <span class="param">"Texture.png"</span>, <span class="param">".png"</span>, <span class="param">AssetEditorEditorType.Texture</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method CommonAssetTypeHandler.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Texture"</code> <b>"Texture"</b></dd>
+<dd><code>"Texture.png"</code> <b>"Texture.png"</b></dd>
+<dd><code>".png"</code> <b>".png"</b></dd>
+<dd><code>AssetEditorEditorType.Texture</code> <b>AssetEditorEditorType.Texture</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="start">
+                <h4 class="methodName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">start</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method start.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdown">
+                <h4 class="methodName">shutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">shutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDataSourceForPath">
+                <h4 class="methodName">getDataSourceForPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="datasource/DataSource.html" class="type-link"><code>DataSource</code></a></span>
+                    <span class="memberName">getDataSourceForPath</span>
+                    <span class="arguments">(<span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>final AssetPath</code></a> <span class="param-name">path</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getDataSourceForPath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>final AssetPath</code></a> <b>path</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDataSourceForPack">
+                <h4 class="methodName">getDataSourceForPack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="datasource/DataSource.html" class="type-link"><code>DataSource</code></a></span>
+                    <span class="memberName">getDataSourceForPack</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">assetPack</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getDataSourceForPack.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>assetPack</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDataSources">
+                <h4 class="methodName">getDataSources</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Collection<DataSource></code></span>
+                    <span class="memberName">getDataSources</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDataSources.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAssetTypeRegistry">
+                <h4 class="methodName">getAssetTypeRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="AssetTypeRegistry.html" class="type-link"><code>AssetTypeRegistry</code></a></span>
+                    <span class="memberName">getAssetTypeRegistry</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAssetTypeRegistry.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSchema">
+                <h4 class="methodName">getSchema</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../codec/schema/config/Schema.html" class="type-link"><code>Schema</code></a></span>
+                    <span class="memberName">getSchema</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">id</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getSchema.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>id</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getClientOpenAssetPathMapping">
+                <h4 class="methodName">getClientOpenAssetPathMapping</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>AssetPath></code></span>
+                    <span class="memberName">getClientOpenAssetPathMapping</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getClientOpenAssetPathMapping.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEditorClients">
+                <h4 class="methodName">getEditorClients</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Set<EditorClient></code></span>
+                    <span class="memberName">getEditorClients</span>
+                    <span class="arguments">(<span class="param"><code>final UUID</code> <span class="param-name">uuid</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getEditorClients.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final UUID</code> <b>uuid</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendPingPackets">
+                <h4 class="methodName">sendPingPackets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">sendPingPackets</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method sendPingPackets.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getClientsWithOpenAssetPath">
+                <h4 class="methodName">getClientsWithOpenAssetPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>List<EditorClient></code></span>
+                    <span class="memberName">getClientsWithOpenAssetPath</span>
+                    <span class="arguments">(<span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>final AssetPath</code></a> <span class="param-name">path</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getClientsWithOpenAssetPath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>final AssetPath</code></a> <b>path</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOpenAssetPath">
+                <h4 class="methodName">getOpenAssetPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>AssetPath</code></a></span>
+                    <span class="memberName">getOpenAssetPath</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>final EditorClient</code></a> <span class="param-name">editorClient</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getOpenAssetPath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>final EditorClient</code></a> <b>editorClient</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onRegisterAssetPack">
+                <h4 class="methodName">onRegisterAssetPack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onRegisterAssetPack</span>
+                    <span class="arguments">(<span class="param"><a href="../../server/core/asset/AssetPackRegisterEvent.html" class="type-link"><code>final AssetPackRegisterEvent</code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onRegisterAssetPack.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../server/core/asset/AssetPackRegisterEvent.html" class="type-link"><code>final AssetPackRegisterEvent</code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onUnregisterAssetPack">
+                <h4 class="methodName">onUnregisterAssetPack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onUnregisterAssetPack</span>
+                    <span class="arguments">(<span class="param"><a href="../../server/core/asset/AssetPackUnregisterEvent.html" class="type-link"><code>final AssetPackUnregisterEvent</code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onUnregisterAssetPack.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../server/core/asset/AssetPackUnregisterEvent.html" class="type-link"><code>final AssetPackUnregisterEvent</code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorDeleteAssetPack">
+                <h4 class="methodName">AssetEditorDeleteAssetPack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorDeleteAssetPack</span>
+                    <span class="arguments">(<span class="param">event.getAssetPack(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorDeleteAssetPack.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>event.getAssetPack(</code> <b>event.getAssetPack(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onI18nMessagesUpdated">
+                <h4 class="methodName">onI18nMessagesUpdated</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onI18nMessagesUpdated</span>
+                    <span class="arguments">(<span class="param"><a href="../../server/core/modules/i18n/event/MessagesUpdated.html" class="type-link"><code>@Nonnull final MessagesUpdated</code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onI18nMessagesUpdated.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../server/core/modules/i18n/event/MessagesUpdated.html" class="type-link"><code>@Nonnull final MessagesUpdated</code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onRegisterAssetStore">
+                <h4 class="methodName">onRegisterAssetStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onRegisterAssetStore</span>
+                    <span class="arguments">(<span class="param"><a href="../../assetstore/event/RegisterAssetStoreEvent.html" class="type-link"><code>@Nonnull final RegisterAssetStoreEvent</code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onRegisterAssetStore.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../assetstore/event/RegisterAssetStoreEvent.html" class="type-link"><code>@Nonnull final RegisterAssetStoreEvent</code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onUnregisterAssetStore">
+                <h4 class="methodName">onUnregisterAssetStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onUnregisterAssetStore</span>
+                    <span class="arguments">(<span class="param"><a href="../../assetstore/event/RemoveAssetStoreEvent.html" class="type-link"><code>@Nonnull final RemoveAssetStoreEvent</code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onUnregisterAssetStore.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../assetstore/event/RemoveAssetStoreEvent.html" class="type-link"><code>@Nonnull final RemoveAssetStoreEvent</code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryReinitializeAssetEditor">
+                <h4 class="methodName">tryReinitializeAssetEditor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tryReinitializeAssetEditor</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method tryReinitializeAssetEditor.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onAssetMonitor">
+                <h4 class="methodName">onAssetMonitor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onAssetMonitor</span>
+                    <span class="arguments">(<span class="param"><a href="../../assetstore/event/AssetMonitorEvent.html" class="type-link"><code>@Nonnull final AssetMonitorEvent<Void></code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onAssetMonitor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../assetstore/event/AssetMonitorEvent.html" class="type-link"><code>@Nonnull final AssetMonitorEvent<Void></code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetPath">
+                <h4 class="methodName">AssetPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetPath</span>
+                    <span class="arguments">(<span class="param">event.getAssetPack(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetPath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>event.getAssetPack(</code> <b>event.getAssetPack(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">!dataSource.shouldReloadAssetFromDisk(relativePath4</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>!dataSource.shouldReloadAssetFromDisk(relativePath4</code> <b>!dataSource.shouldReloadAssetFromDisk(relativePath4</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorAssetUpdated">
+                <h4 class="methodName">AssetEditorAssetUpdated</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorAssetUpdated</span>
+                    <span class="arguments">(<span class="param">assetPath.toPacket(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorAssetUpdated.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>assetPath.toPacket(</code> <b>assetPath.toPacket(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleInitializeEditor">
+                <h4 class="methodName">handleInitializeEditor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleInitializeEditor</span>
+                    <span class="arguments">(<span class="param"><a href="../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleInitializeEditor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleInitializeClient">
+                <h4 class="methodName">handleInitializeClient</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleInitializeClient</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleInitializeClient.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="initializeAssetEditor">
+                <h4 class="methodName">initializeAssetEditor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">initializeAssetEditor</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">updateLoadedAssets</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initializeAssetEditor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>updateLoadedAssets</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SchemaContext">
+                <h4 class="methodName">SchemaContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SchemaContext</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method SchemaContext.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="BsonDocument">
+                <h4 class="methodName">BsonDocument</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BsonDocument</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method BsonDocument.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorSetupSchemas">
+                <h4 class="methodName">AssetEditorSetupSchemas</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorSetupSchemas</span>
+                    <span class="arguments">(<span class="param"><code>new</code> <span class="param-name">SchemaFile[schemas.size(</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorSetupSchemas.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>new</code> <b>SchemaFile[schemas.size(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="initializeClient">
+                <h4 class="methodName">initializeClient</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">initializeClient</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initializeClient.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorCapabilities">
+                <h4 class="methodName">AssetEditorCapabilities</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorCapabilities</span>
+                    <span class="arguments">(<span class="param">false</span>, <span class="param">canEditAssets</span>, <span class="param">canCreateAssetPacks</span>, <span class="param">canEditAssetPacks</span>, <span class="param">canDeleteAssetPacks</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorCapabilities.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>false</code> <b>false</b></dd>
+<dd><code>canEditAssets</code> <b>canEditAssets</b></dd>
+<dd><code>canCreateAssetPacks</code> <b>canCreateAssetPacks</b></dd>
+<dd><code>canEditAssetPacks</code> <b>canEditAssetPacks</b></dd>
+<dd><code>canDeleteAssetPacks</code> <b>canDeleteAssetPacks</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleEditorClientDisconnected">
+                <h4 class="methodName">handleEditorClientDisconnected</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleEditorClientDisconnected</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><code>final PacketHandler.DisconnectReason</code> <span class="param-name">disconnectReason</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleEditorClientDisconnected.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><code>final PacketHandler.DisconnectReason</code> <b>disconnectReason</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorClientDisconnectEvent">
+                <h4 class="methodName">AssetEditorClientDisconnectEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorClientDisconnectEvent</span>
+                    <span class="arguments">(<span class="param">editorClient</span>, <span class="param">disconnectReason</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorClientDisconnectEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>editorClient</code> <b>editorClient</b></dd>
+<dd><code>disconnectReason</code> <b>disconnectReason</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleDeleteAssetPack">
+                <h4 class="methodName">handleDeleteAssetPack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleDeleteAssetPack</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">packId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleDeleteAssetPack.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><code>@Nonnull final String</code> <b>packId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="RuntimeException">
+                <h4 class="methodName">RuntimeException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">RuntimeException</span>
+                    <span class="arguments">(<span class="param"><code>"Failed to resolve the real path for asset pack directory while deleting asset pack '" + packId +</code> <span class="param-name">"'."</span></span>, <span class="param">(Throwable</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method RuntimeException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Failed to resolve the real path for asset pack directory while deleting asset pack '" + packId +</code> <b>"'."</b></dd>
+<dd><code>(Throwable</code> <b>(Throwable</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleUpdateAssetPack">
+                <h4 class="methodName">handleUpdateAssetPack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleUpdateAssetPack</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">packId</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPackManifest.html" class="type-link"><code>@Nonnull final AssetPackManifest</code></a> <span class="param-name">packetManifest</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleUpdateAssetPack.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><code>@Nonnull final String</code> <b>packId</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPackManifest.html" class="type-link"><code>@Nonnull final AssetPackManifest</code></a> <b>packetManifest</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PluginIdentifier">
+                <h4 class="methodName">PluginIdentifier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PluginIdentifier</span>
+                    <span class="arguments">(<span class="param">manifest</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PluginIdentifier.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>manifest</code> <b>manifest</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleCreateAssetPack">
+                <h4 class="methodName">handleCreateAssetPack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleCreateAssetPack</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPackManifest.html" class="type-link"><code>@Nonnull final AssetPackManifest</code></a> <span class="param-name">packetManifest</span></span>, <span class="param"><code>final int</code> <span class="param-name">requestToken</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleCreateAssetPack.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPackManifest.html" class="type-link"><code>@Nonnull final AssetPackManifest</code></a> <b>packetManifest</b></dd>
+<dd><code>final int</code> <b>requestToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="toManifestPacket">
+                <h4 class="methodName">toManifestPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../protocol/packets/asseteditor/AssetPackManifest.html" class="type-link"><code>AssetPackManifest</code></a></span>
+                    <span class="memberName">toManifestPacket</span>
+                    <span class="arguments">(<span class="param"><a href="../../common/plugin/PluginManifest.html" class="type-link"><code>@Nonnull final PluginManifest</code></a> <span class="param-name">manifest</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method toManifestPacket.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../common/plugin/PluginManifest.html" class="type-link"><code>@Nonnull final PluginManifest</code></a> <b>manifest</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="broadcastPackAddedOrUpdated">
+                <h4 class="methodName">broadcastPackAddedOrUpdated</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">broadcastPackAddedOrUpdated</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">packId</span></span>, <span class="param"><a href="../../common/plugin/PluginManifest.html" class="type-link"><code>final PluginManifest</code></a> <span class="param-name">manifest</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method broadcastPackAddedOrUpdated.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>packId</b></dd>
+<dd><a href="../../common/plugin/PluginManifest.html" class="type-link"><code>final PluginManifest</code></a> <b>manifest</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorUpdateAssetPack">
+                <h4 class="methodName">AssetEditorUpdateAssetPack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorUpdateAssetPack</span>
+                    <span class="arguments">(<span class="param">packId</span>, <span class="param">manifestPacket</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorUpdateAssetPack.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>packId</code> <b>packId</b></dd>
+<dd><code>manifestPacket</code> <b>manifestPacket</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleExportAssets">
+                <h4 class="methodName">handleExportAssets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleExportAssets</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><code>@Nonnull final List<AssetPath></code> <span class="param-name">paths</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleExportAssets.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><code>@Nonnull final List<AssetPath></code> <b>paths</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorAsset">
+                <h4 class="methodName">AssetEditorAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorAsset</span>
+                    <span class="arguments">(<span class="param">null</span>, <span class="param">assetPath.toPacket(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorAsset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>null</code> <b>null</b></dd>
+<dd><code>assetPath.toPacket(</code> <b>assetPath.toPacket(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorExportAssetInitialize">
+                <h4 class="methodName">AssetEditorExportAssetInitialize</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorExportAssetInitialize</span>
+                    <span class="arguments">(<span class="param">asset</span>, <span class="param">null</span>, <span class="param">0</span>, <span class="param">true</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorExportAssetInitialize.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>asset</code> <b>asset</b></dd>
+<dd><code>null</code> <b>null</b></dd>
+<dd><code>0</code> <b>0</b></dd>
+<dd><code>true</code> <b>true</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorExportDeleteAssets">
+                <h4 class="methodName">AssetEditorExportDeleteAssets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorExportDeleteAssets</span>
+                    <span class="arguments">(<span class="param"><code>new AssetEditorAsset[] { new</code> <span class="param-name">AssetEditorAsset(null</span></span>, <span class="param">assetPath.toPacket(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorExportDeleteAssets.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>new AssetEditorAsset[] { new</code> <b>AssetEditorAsset(null</b></dd>
+<dd><code>assetPath.toPacket(</code> <b>assetPath.toPacket(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="TimestampedAssetReference">
+                <h4 class="methodName">TimestampedAssetReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">TimestampedAssetReference</span>
+                    <span class="arguments">(<span class="param">assetPath.toPacket(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method TimestampedAssetReference.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>assetPath.toPacket(</code> <b>assetPath.toPacket(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorExportComplete">
+                <h4 class="methodName">AssetEditorExportComplete</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorExportComplete</span>
+                    <span class="arguments">(<span class="param">exportedAssets.toArray(TimestampedAssetReference[]::new</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorExportComplete.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>exportedAssets.toArray(TimestampedAssetReference[]::new</code> <b>exportedAssets.toArray(TimestampedAssetReference[]::new</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleSelectAsset">
+                <h4 class="methodName">handleSelectAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleSelectAsset</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nullable final AssetPath</code></a> <span class="param-name">assetPath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleSelectAsset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nullable final AssetPath</code></a> <b>assetPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorSelectAssetEvent">
+                <h4 class="methodName">AssetEditorSelectAssetEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorSelectAssetEvent</span>
+                    <span class="arguments">(<span class="param">editorClient</span>, <span class="param">assetType</span>, <span class="param">assetPath</span>, <span class="param">currentAssetType</span>, <span class="param">currentPath</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorSelectAssetEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>editorClient</code> <b>editorClient</b></dd>
+<dd><code>assetType</code> <b>assetType</b></dd>
+<dd><code>assetPath</code> <b>assetPath</b></dd>
+<dd><code>currentAssetType</code> <b>currentAssetType</b></dd>
+<dd><code>currentPath</code> <b>currentPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleFetchLastModifiedAssets">
+                <h4 class="methodName">handleFetchLastModifiedAssets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleFetchLastModifiedAssets</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleFetchLastModifiedAssets.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleAssetUpdate">
+                <h4 class="methodName">handleAssetUpdate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleAssetUpdate</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">assetPath</span></span>, <span class="param"><code>@Nonnull final byte[]</code> <span class="param-name">data</span></span>, <span class="param"><code>final int</code> <span class="param-name">requestToken</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleAssetUpdate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>assetPath</b></dd>
+<dd><code>@Nonnull final byte[]</code> <b>data</b></dd>
+<dd><code>final int</code> <b>requestToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleJsonAssetUpdate">
+                <h4 class="methodName">handleJsonAssetUpdate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleJsonAssetUpdate</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>AssetPath</code></a> <span class="param-name">assetPath</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">assetType</span></span>, <span class="param"><code>final int</code> <span class="param-name">assetIndex</span></span>, <span class="param"><code>@Nonnull final JsonUpdateCommand[]</code> <span class="param-name">commands</span></span>, <span class="param"><code>final int</code> <span class="param-name">requestToken</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleJsonAssetUpdate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>AssetPath</code></a> <b>assetPath</b></dd>
+<dd><code>@Nonnull final String</code> <b>assetType</b></dd>
+<dd><code>final int</code> <b>assetIndex</b></dd>
+<dd><code>@Nonnull final JsonUpdateCommand[]</code> <b>commands</b></dd>
+<dd><code>final int</code> <b>requestToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetUpdateQuery">
+                <h4 class="methodName">AssetUpdateQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetUpdateQuery</span>
+                    <span class="arguments">(<span class="param">rebuildCacheBuilder.build(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetUpdateQuery.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>rebuildCacheBuilder.build(</code> <b>rebuildCacheBuilder.build(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleUndo">
+                <h4 class="methodName">handleUndo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleUndo</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">assetPath</span></span>, <span class="param"><code>final int</code> <span class="param-name">requestToken</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleUndo.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>assetPath</b></dd>
+<dd><code>final int</code> <b>requestToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorUndoRedoReply">
+                <h4 class="methodName">AssetEditorUndoRedoReply</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorUndoRedoReply</span>
+                    <span class="arguments">(<span class="param">requestToken</span>, <span class="param">undoCommand</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorUndoRedoReply.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>requestToken</code> <b>requestToken</b></dd>
+<dd><code>undoCommand</code> <b>undoCommand</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleRedo">
+                <h4 class="methodName">handleRedo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleRedo</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">assetPath</span></span>, <span class="param"><code>final int</code> <span class="param-name">requestToken</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleRedo.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>assetPath</b></dd>
+<dd><code>final int</code> <b>requestToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleFetchAsset">
+                <h4 class="methodName">handleFetchAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleFetchAsset</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">assetPath</span></span>, <span class="param"><code>final int</code> <span class="param-name">requestToken</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleFetchAsset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>assetPath</b></dd>
+<dd><code>final int</code> <b>requestToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorFetchAssetReply">
+                <h4 class="methodName">AssetEditorFetchAssetReply</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorFetchAssetReply</span>
+                    <span class="arguments">(<span class="param">requestToken</span>, <span class="param">asset</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorFetchAssetReply.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>requestToken</code> <b>requestToken</b></dd>
+<dd><code>asset</code> <b>asset</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleFetchJsonAssetWithParents">
+                <h4 class="methodName">handleFetchJsonAssetWithParents</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleFetchJsonAssetWithParents</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">assetPath</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">isFromOpenedTab</span></span>, <span class="param"><code>final int</code> <span class="param-name">requestToken</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleFetchJsonAssetWithParents.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>assetPath</b></dd>
+<dd><code>final boolean</code> <b>isFromOpenedTab</b></dd>
+<dd><code>final int</code> <b>requestToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="String">
+                <h4 class="methodName">String</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">String</span>
+                    <span class="arguments">(<span class="param">asset</span>, <span class="param">StandardCharsets.UTF_8</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method String.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>asset</code> <b>asset</b></dd>
+<dd><code>StandardCharsets.UTF_8</code> <b>StandardCharsets.UTF_8</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorFetchJsonAssetWithParentsReply">
+                <h4 class="methodName">AssetEditorFetchJsonAssetWithParentsReply</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorFetchJsonAssetWithParentsReply</span>
+                    <span class="arguments">(<span class="param">requestToken</span>, <span class="param">assets</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorFetchJsonAssetWithParentsReply.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>requestToken</code> <b>requestToken</b></dd>
+<dd><code>assets</code> <b>assets</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleRequestChildIds">
+                <h4 class="methodName">handleRequestChildIds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleRequestChildIds</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">assetPath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleRequestChildIds.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>assetPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorRequestChildrenListReply">
+                <h4 class="methodName">AssetEditorRequestChildrenListReply</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorRequestChildrenListReply</span>
+                    <span class="arguments">(<span class="param">assetPath.toPacket(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorRequestChildrenListReply.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>assetPath.toPacket(</code> <b>assetPath.toPacket(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleDeleteAsset">
+                <h4 class="methodName">handleDeleteAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleDeleteAsset</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">assetPath</span></span>, <span class="param"><code>final int</code> <span class="param-name">requestToken</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleDeleteAsset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>assetPath</b></dd>
+<dd><code>final int</code> <b>requestToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleSubscribeToModifiedAssetsChanges">
+                <h4 class="methodName">handleSubscribeToModifiedAssetsChanges</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleSubscribeToModifiedAssetsChanges</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>final EditorClient</code></a> <span class="param-name">editorClient</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleSubscribeToModifiedAssetsChanges.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>final EditorClient</code></a> <b>editorClient</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleUnsubscribeFromModifiedAssetsChanges">
+                <h4 class="methodName">handleUnsubscribeFromModifiedAssetsChanges</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleUnsubscribeFromModifiedAssetsChanges</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>final EditorClient</code></a> <span class="param-name">editorClient</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleUnsubscribeFromModifiedAssetsChanges.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>final EditorClient</code></a> <b>editorClient</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleRenameAsset">
+                <h4 class="methodName">handleRenameAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleRenameAsset</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">oldAssetPath</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">newAssetPath</span></span>, <span class="param"><code>final int</code> <span class="param-name">requestToken</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleRenameAsset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>oldAssetPath</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>newAssetPath</b></dd>
+<dd><code>final int</code> <b>requestToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleDeleteDirectory">
+                <h4 class="methodName">handleDeleteDirectory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleDeleteDirectory</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">assetPath</span></span>, <span class="param"><code>final int</code> <span class="param-name">requestToken</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleDeleteDirectory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>assetPath</b></dd>
+<dd><code>final int</code> <b>requestToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleRenameDirectory">
+                <h4 class="methodName">handleRenameDirectory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleRenameDirectory</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>final AssetPath</code></a> <span class="param-name">path</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>final AssetPath</code></a> <span class="param-name">newPath</span></span>, <span class="param"><code>final int</code> <span class="param-name">requestToken</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleRenameDirectory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>final AssetPath</code></a> <b>path</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>final AssetPath</code></a> <b>newPath</b></dd>
+<dd><code>final int</code> <b>requestToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleCreateDirectory">
+                <h4 class="methodName">handleCreateDirectory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleCreateDirectory</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">assetPath</span></span>, <span class="param"><code>final int</code> <span class="param-name">requestToken</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleCreateDirectory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>assetPath</b></dd>
+<dd><code>final int</code> <b>requestToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleCreateAsset">
+                <h4 class="methodName">handleCreateAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleCreateAsset</span>
+                    <span class="arguments">(<span class="param"><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <span class="param-name">editorClient</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">assetPath</span></span>, <span class="param"><code>@Nonnull final byte[]</code> <span class="param-name">data</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetEditorRebuildCaches.html" class="type-link"><code>@Nonnull final AssetEditorRebuildCaches</code></a> <span class="param-name">rebuildCaches</span></span>, <span class="param"><code>final String</code> <span class="param-name">buttonId</span></span>, <span class="param"><code>final int</code> <span class="param-name">requestToken</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleCreateAsset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="EditorClient.html" class="type-link"><code>@Nonnull final EditorClient</code></a> <b>editorClient</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>assetPath</b></dd>
+<dd><code>@Nonnull final byte[]</code> <b>data</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetEditorRebuildCaches.html" class="type-link"><code>@Nonnull final AssetEditorRebuildCaches</code></a> <b>rebuildCaches</b></dd>
+<dd><code>final String</code> <b>buttonId</b></dd>
+<dd><code>final int</code> <b>requestToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorAssetCreatedEvent">
+                <h4 class="methodName">AssetEditorAssetCreatedEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorAssetCreatedEvent</span>
+                    <span class="arguments">(<span class="param">editorClient</span>, <span class="param">assetTypeHandler.getConfig(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorAssetCreatedEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>editorClient</code> <b>editorClient</b></dd>
+<dd><code>assetTypeHandler.getConfig(</code> <b>assetTypeHandler.getConfig(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="applyCommandsToAsset">
+                <h4 class="methodName">applyCommandsToAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>BsonDocument</code></span>
+                    <span class="memberName">applyCommandsToAsset</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final byte[]</code> <span class="param-name">bytes</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>final AssetPath</code></a> <span class="param-name">path</span></span>, <span class="param"><code>@Nonnull final JsonUpdateCommand[]</code> <span class="param-name">commands</span></span>, <span class="param"><code>@Nonnull final AssetUpdateQuery.RebuildCacheBuilder</code> <span class="param-name">rebuildCache</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method applyCommandsToAsset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final byte[]</code> <b>bytes</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>final AssetPath</code></a> <b>path</b></dd>
+<dd><code>@Nonnull final JsonUpdateCommand[]</code> <b>commands</b></dd>
+<dd><code>@Nonnull final AssetUpdateQuery.RebuildCacheBuilder</code> <b>rebuildCache</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendModifiedAssetsUpdateToConnectedUsers">
+                <h4 class="methodName">sendModifiedAssetsUpdateToConnectedUsers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">sendModifiedAssetsUpdateToConnectedUsers</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method sendModifiedAssetsUpdateToConnectedUsers.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendPacketToAllEditorUsers">
+                <h4 class="methodName">sendPacketToAllEditorUsers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">sendPacketToAllEditorUsers</span>
+                    <span class="arguments">(<span class="param"><a href="../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <span class="param-name">packet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method sendPacketToAllEditorUsers.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="sendPacketToAllEditorUsersExcept">
+                <h4 class="methodName">sendPacketToAllEditorUsersExcept</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">sendPacketToAllEditorUsersExcept</span>
+                    <span class="arguments">(<span class="param"><a href="../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <span class="param-name">packet</span></span>, <span class="param"><a href="EditorClient.html" class="type-link"><code>final EditorClient</code></a> <span class="param-name">ignoreEditorClient</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method sendPacketToAllEditorUsersExcept.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <b>packet</b></dd>
+<dd><a href="EditorClient.html" class="type-link"><code>final EditorClient</code></a> <b>ignoreEditorClient</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateAssetForConnectedClients">
+                <h4 class="methodName">updateAssetForConnectedClients</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateAssetForConnectedClients</span>
+                    <span class="arguments">(<span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">assetPath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateAssetForConnectedClients.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>assetPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateJsonAssetForConnectedClients">
+                <h4 class="methodName">updateJsonAssetForConnectedClients</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateJsonAssetForConnectedClients</span>
+                    <span class="arguments">(<span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">assetPath</span></span>, <span class="param"><code>final JsonUpdateCommand[]</code> <span class="param-name">commands</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateJsonAssetForConnectedClients.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>assetPath</b></dd>
+<dd><code>final JsonUpdateCommand[]</code> <b>commands</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorJsonAssetUpdated">
+                <h4 class="methodName">AssetEditorJsonAssetUpdated</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorJsonAssetUpdated</span>
+                    <span class="arguments">(<span class="param">assetPath.toPacket(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorJsonAssetUpdated.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>assetPath.toPacket(</code> <b>assetPath.toPacket(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="buildAssetEditorLastModifiedAssetsPacket">
+                <h4 class="methodName">buildAssetEditorLastModifiedAssetsPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../protocol/packets/asseteditor/AssetEditorLastModifiedAssets.html" class="type-link"><code>AssetEditorLastModifiedAssets</code></a></span>
+                    <span class="memberName">buildAssetEditorLastModifiedAssetsPacket</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method buildAssetEditorLastModifiedAssetsPacket.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetEditorLastModifiedAssets">
+                <h4 class="methodName">AssetEditorLastModifiedAssets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AssetEditorLastModifiedAssets</span>
+                    <span class="arguments">(<span class="param"><code>allAssets.toArray(new</code> <span class="param-name">AssetInfo[0]</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetEditorLastModifiedAssets.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>allAssets.toArray(new</code> <b>AssetInfo[0]</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isValidPath">
+                <h4 class="methodName">isValidPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isValidPath</span>
+                    <span class="arguments">(<span class="param"><a href="datasource/DataSource.html" class="type-link"><code>@Nonnull final DataSource</code></a> <span class="param-name">dataSource</span></span>, <span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <span class="param-name">assetPath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isValidPath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="datasource/DataSource.html" class="type-link"><code>@Nonnull final DataSource</code></a> <b>dataSource</b></dd>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>@Nonnull final AssetPath</code></a> <b>assetPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="AssetToDiscard">
+                <h4 class="methodName">AssetToDiscard</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">AssetToDiscard</span>
+                    <span class="arguments">(<span class="param"><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>final AssetPath</code></a> <span class="param-name">path</span></span>, <span class="param"><code>@Nullable final String</code> <span class="param-name">lastModificationDate</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AssetToDiscard.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../protocol/packets/asseteditor/AssetPath.html" class="type-link"><code>final AssetPath</code></a> <b>path</b></dd>
+<dd><code>@Nullable final String</code> <b>lastModificationDate</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

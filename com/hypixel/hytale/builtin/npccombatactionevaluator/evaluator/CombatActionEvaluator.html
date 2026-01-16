@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CombatActionEvaluator (com.hypixel.hytale.builtin.npccombatactionevaluator.evaluator)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/builtin/npccombatactionevaluator/evaluator/package-summary.html">com.hypixel.hytale.builtin.npccombatactionevaluator.evaluator</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">CombatActionEvaluator</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="CombatActionEvaluator.html" class="type-link">CombatActionEvaluator</a> extends <a href="../../../server/npc/decisionmaker/core/Evaluator.html" class="type-link" data-class="Evaluator"><code>Evaluator</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class CombatActionEvaluator. Provides combatactionevaluator functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; Evaluator &gt; CombatActionEvaluator</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">runOption</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">RunOption</span>
+                    <span class="memberName">runOption</span>
+                </div>
+                <div class="block">
+                    <p>Field runOption.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minRunUtility</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">minRunUtility</span>
+                </div>
+                <div class="block">
+                    <p>Field minRunUtility.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastRunNanos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">lastRunNanos</span>
+                </div>
+                <div class="block">
+                    <p>Field lastRunNanos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">runInState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">runInState</span>
+                </div>
+                <div class="block">
+                    <p>Field runInState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">predictability</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">predictability</span>
+                </div>
+                <div class="block">
+                    <p>Field predictability.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minActionUtility</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">minActionUtility</span>
+                </div>
+                <div class="block">
+                    <p>Field minActionUtility.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentBasicAttackSubState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">currentBasicAttackSubState</span>
+                </div>
+                <div class="block">
+                    <p>Field currentBasicAttackSubState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentBasicAttackSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">CombatActionEvaluatorConfig.BasicAttacks</span>
+                    <span class="memberName">currentBasicAttackSet</span>
+                </div>
+                <div class="block">
+                    <p>Field currentBasicAttackSet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentBasicAttack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">currentBasicAttack</span>
+                </div>
+                <div class="block">
+                    <p>Field currentBasicAttack.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentBasicAttackDamageFriendlies</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">currentBasicAttackDamageFriendlies</span>
+                </div>
+                <div class="block">
+                    <p>Field currentBasicAttackDamageFriendlies.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">nextBasicAttackIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">nextBasicAttackIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field nextBasicAttackIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">basicAttackCooldown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">basicAttackCooldown</span>
+                </div>
+                <div class="block">
+                    <p>Field basicAttackCooldown.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">basicAttackTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">basicAttackTarget</span>
+                </div>
+                <div class="block">
+                    <p>Field basicAttackTarget.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">basicAttackTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">basicAttackTimeout</span>
+                </div>
+                <div class="block">
+                    <p>Field basicAttackTimeout.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">primaryTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">primaryTarget</span>
+                </div>
+                <div class="block">
+                    <p>Field primaryTarget.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">previousTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">previousTarget</span>
+                </div>
+                <div class="block">
+                    <p>Field previousTarget.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentAction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">CombatOptionHolder</span>
+                    <span class="memberName">currentAction</span>
+                </div>
+                <div class="block">
+                    <p>Field currentAction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">postExecutionDistanceRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double[]</span>
+                    <span class="memberName">postExecutionDistanceRange</span>
+                </div>
+                <div class="block">
+                    <p>Field postExecutionDistanceRange.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">markedTargetSlot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">markedTargetSlot</span>
+                </div>
+                <div class="block">
+                    <p>Field markedTargetSlot.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minRangeSlot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">minRangeSlot</span>
+                </div>
+                <div class="block">
+                    <p>Field minRangeSlot.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxRangeSlot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxRangeSlot</span>
+                </div>
+                <div class="block">
+                    <p>Field maxRangeSlot.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">positioningAngleSlot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">positioningAngleSlot</span>
+                </div>
+                <div class="block">
+                    <p>Field positioningAngleSlot.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">currentInteraction</span>
+                </div>
+                <div class="block">
+                    <p>Field currentInteraction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentInteractionType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">InteractionType</span>
+                    <span class="memberName">currentInteractionType</span>
+                </div>
+                <div class="block">
+                    <p>Field currentInteractionType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chargeFor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">chargeFor</span>
+                </div>
+                <div class="block">
+                    <p>Field chargeFor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentDamageFriendlies</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">currentDamageFriendlies</span>
+                </div>
+                <div class="block">
+                    <p>Field currentDamageFriendlies.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">requireAiming</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">requireAiming</span>
+                </div>
+                <div class="block">
+                    <p>Field requireAiming.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">positionFirst</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">positionFirst</span>
+                </div>
+                <div class="block">
+                    <p>Field positionFirst.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chargeDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">chargeDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field chargeDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">timeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">timeout</span>
+                </div>
+                <div class="block">
+                    <p>Field timeout.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stateHelper</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StateMappingHelper</span>
+                    <span class="memberName">stateHelper</span>
+                </div>
+                <div class="block">
+                    <p>Field stateHelper.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">activeState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">activeState</span>
+                </div>
+                <div class="block">
+                    <p>Field activeState.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">option</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CombatActionOption</span>
+                    <span class="memberName">option</span>
+                </div>
+                <div class="block">
+                    <p>Field option.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CombatOptionHolder</span>
+                    <span class="memberName">holder</span>
+                </div>
+                <div class="block">
+                    <p>Field holder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">subStateIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">subStateIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field subStateIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">actionSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CombatActionEvaluatorConfig.ActionSet</span>
+                    <span class="memberName">actionSet</span>
+                </div>
+                <div class="block">
+                    <p>Field actionSet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">optionList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<OptionHolder></span>
+                    <span class="memberName">optionList</span>
+                </div>
+                <div class="block">
+                    <p>Field optionList.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">combatActions2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">combatActions2</span>
+                </div>
+                <div class="block">
+                    <p>Field combatActions2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">combatActions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">combatActions</span>
+                </div>
+                <div class="block">
+                    <p>Field combatActions.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">wrappedAction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">OptionHolder</span>
+                    <span class="memberName">wrappedAction</span>
+                </div>
+                <div class="block">
+                    <p>Field wrappedAction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">distance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double[]</span>
+                    <span class="memberName">distance</span>
+                </div>
+                <div class="block">
+                    <p>Field distance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">target</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">target</span>
+                </div>
+                <div class="block">
+                    <p>Field target.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">opt</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CombatActionOption</span>
+                    <span class="memberName">opt</span>
+                </div>
+                <div class="block">
+                    <p>Field opt.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">evaluator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CombatActionEvaluator</span>
+                    <span class="memberName">evaluator</span>
+                </div>
+                <div class="block">
+                    <p>Field evaluator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastUsedNanos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">lastUsedNanos</span>
+                </div>
+                <div class="block">
+                    <p>Field lastUsedNanos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">List<Ref<EntityStore>></span>
+                    <span class="memberName">targets</span>
+                </div>
+                <div class="block">
+                    <p>Field targets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pickedTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">pickedTarget</span>
+                </div>
+                <div class="block">
+                    <p>Field pickedTarget.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetMemory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TargetMemory</span>
+                    <span class="memberName">targetMemory</span>
+                </div>
+                <div class="block">
+                    <p>Field targetMemory.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetUtility</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">targetUtility</span>
+                </div>
+                <div class="block">
+                    <p>Field targetUtility.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="getComponentType">
+                <h4 class="methodName">getComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>CombatActionEvaluator></code></span>
+                    <span class="memberName">getComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="CombatActionEvaluator">
+                <h4 class="methodName">CombatActionEvaluator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">CombatActionEvaluator</span>
+                    <span class="arguments">(<span class="param"><a href="../../../server/npc/role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="CombatActionEvaluatorConfig.html" class="type-link"><code>@Nonnull final CombatActionEvaluatorConfig</code></a> <span class="param-name">config</span></span>, <span class="param"><code>@Nonnull final CombatActionEvaluatorSystems.CombatConstructionData</code> <span class="param-name">data</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method CombatActionEvaluator.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../server/npc/role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <b>role</b></dd>
+<dd><a href="CombatActionEvaluatorConfig.html" class="type-link"><code>@Nonnull final CombatActionEvaluatorConfig</code></a> <b>config</b></dd>
+<dd><code>@Nonnull final CombatActionEvaluatorSystems.CombatConstructionData</code> <b>data</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="RunOption">
+                <h4 class="methodName">RunOption</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">RunOption</span>
+                    <span class="arguments">(<span class="param">config.getRunConditions(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method RunOption.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>config.getRunConditions(</code> <b>config.getRunConditions(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="IllegalStateException">
+                <h4 class="methodName">IllegalStateException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IllegalStateException</span>
+                    <span class="arguments">(<span class="param"><code>String.format("Option %s does not</code> <span class="param-name">exist!"</span></span>, <span class="param">action.getValue(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IllegalStateException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>String.format("Option %s does not</code> <b>exist!"</b></dd>
+<dd><code>action.getValue(</code> <b>action.getValue(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ObjectArrayList">
+                <h4 class="methodName">ObjectArrayList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ObjectArrayList</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ObjectArrayList.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRunOption">
+                <h4 class="methodName">getRunOption</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>RunOption</code></span>
+                    <span class="memberName">getRunOption</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRunOption.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMinRunUtility">
+                <h4 class="methodName">getMinRunUtility</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getMinRunUtility</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMinRunUtility.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEvaluationContext">
+                <h4 class="methodName">getEvaluationContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../server/npc/decisionmaker/core/EvaluationContext.html" class="type-link"><code>EvaluationContext</code></a></span>
+                    <span class="memberName">getEvaluationContext</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEvaluationContext.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLastRunNanos">
+                <h4 class="methodName">getLastRunNanos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>long</code></span>
+                    <span class="memberName">getLastRunNanos</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getLastRunNanos.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setLastRunNanos">
+                <h4 class="methodName">setLastRunNanos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setLastRunNanos</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">lastRunNanos</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setLastRunNanos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>lastRunNanos</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRunInState">
+                <h4 class="methodName">getRunInState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getRunInState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRunInState.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOptionsBySubState">
+                <h4 class="methodName">getOptionsBySubState</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Int2ObjectMap<List<OptionHolder>></code></span>
+                    <span class="memberName">getOptionsBySubState</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getOptionsBySubState.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBasicAttacks">
+                <h4 class="methodName">getBasicAttacks</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>CombatActionEvaluatorConfig.BasicAttacks</code></span>
+                    <span class="memberName">getBasicAttacks</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">subState</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getBasicAttacks.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>subState</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setCurrentBasicAttackSet">
+                <h4 class="methodName">setCurrentBasicAttackSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setCurrentBasicAttackSet</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">subState</span></span>, <span class="param"><code>final CombatActionEvaluatorConfig.BasicAttacks</code> <span class="param-name">attacks</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setCurrentBasicAttackSet.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>subState</b></dd>
+<dd><code>final CombatActionEvaluatorConfig.BasicAttacks</code> <b>attacks</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCurrentBasicAttack">
+                <h4 class="methodName">getCurrentBasicAttack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getCurrentBasicAttack</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCurrentBasicAttack.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCurrentBasicAttackSet">
+                <h4 class="methodName">getCurrentBasicAttackSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>CombatActionEvaluatorConfig.BasicAttacks</code></span>
+                    <span class="memberName">getCurrentBasicAttackSet</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCurrentBasicAttackSet.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setCurrentBasicAttack">
+                <h4 class="methodName">setCurrentBasicAttack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setCurrentBasicAttack</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">attack</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">damageFriendlies</span></span>, <span class="param"><code>final Function<InteractionContext, Map<String, String>></code> <span class="param-name">interactionVarsGetter</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setCurrentBasicAttack.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>attack</b></dd>
+<dd><code>final boolean</code> <b>damageFriendlies</b></dd>
+<dd><code>final Function<InteractionContext, Map<String, String>></code> <b>interactionVarsGetter</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNextBasicAttackIndex">
+                <h4 class="methodName">getNextBasicAttackIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getNextBasicAttackIndex</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNextBasicAttackIndex.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setNextBasicAttackIndex">
+                <h4 class="methodName">setNextBasicAttackIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setNextBasicAttackIndex</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">next</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setNextBasicAttackIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>next</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="canUseBasicAttack">
+                <h4 class="methodName">canUseBasicAttack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">canUseBasicAttack</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">selfIndex</span></span>, <span class="param"><a href="../../../component/ArchetypeChunk.html" class="type-link"><code>final ArchetypeChunk<EntityStore></code></a> <span class="param-name">archetypeChunk</span></span>, <span class="param"><a href="../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method canUseBasicAttack.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>selfIndex</b></dd>
+<dd><a href="../../../component/ArchetypeChunk.html" class="type-link"><code>final ArchetypeChunk<EntityStore></code></a> <b>archetypeChunk</b></dd>
+<dd><a href="../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tickBasicAttackCoolDown">
+                <h4 class="methodName">tickBasicAttackCoolDown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tickBasicAttackCoolDown</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tickBasicAttackCoolDown.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBasicAttackTarget">
+                <h4 class="methodName">getBasicAttackTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../component/Ref.html" class="type-link"><code>Ref<EntityStore></code></a></span>
+                    <span class="memberName">getBasicAttackTarget</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBasicAttackTarget.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setBasicAttackTarget">
+                <h4 class="methodName">setBasicAttackTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setBasicAttackTarget</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <span class="param-name">target</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setBasicAttackTarget.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>final Ref<EntityStore></code></a> <b>target</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tickBasicAttackTimeout">
+                <h4 class="methodName">tickBasicAttackTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">tickBasicAttackTimeout</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tickBasicAttackTimeout.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setBasicAttackTimeout">
+                <h4 class="methodName">setBasicAttackTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setBasicAttackTimeout</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">timeout</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setBasicAttackTimeout.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>timeout</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPrimaryTarget">
+                <h4 class="methodName">getPrimaryTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../component/Ref.html" class="type-link"><code>Ref<EntityStore></code></a></span>
+                    <span class="memberName">getPrimaryTarget</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPrimaryTarget.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearPrimaryTarget">
+                <h4 class="methodName">clearPrimaryTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearPrimaryTarget</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearPrimaryTarget.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setActiveOptions">
+                <h4 class="methodName">setActiveOptions</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setActiveOptions</span>
+                    <span class="arguments">(<span class="param"><code>final List<OptionHolder></code> <span class="param-name">options</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setActiveOptions.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final List<OptionHolder></code> <b>options</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMarkedTargetSlot">
+                <h4 class="methodName">getMarkedTargetSlot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getMarkedTargetSlot</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMarkedTargetSlot.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMaxRangeSlot">
+                <h4 class="methodName">getMaxRangeSlot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getMaxRangeSlot</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMaxRangeSlot.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMinRangeSlot">
+                <h4 class="methodName">getMinRangeSlot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getMinRangeSlot</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMinRangeSlot.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPositioningAngleSlot">
+                <h4 class="methodName">getPositioningAngleSlot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getPositioningAngleSlot</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPositioningAngleSlot.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCurrentAttack">
+                <h4 class="methodName">getCurrentAttack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getCurrentAttack</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCurrentAttack.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChargeFor">
+                <h4 class="methodName">getChargeFor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">getChargeFor</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChargeFor.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCurrentInteractionType">
+                <h4 class="methodName">getCurrentInteractionType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../protocol/InteractionType.html" class="type-link"><code>InteractionType</code></a></span>
+                    <span class="memberName">getCurrentInteractionType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCurrentInteractionType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCurrentInteractionVarsGetter">
+                <h4 class="methodName">getCurrentInteractionVarsGetter</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>></code></span>
+                    <span class="memberName">getCurrentInteractionVarsGetter</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCurrentInteractionVarsGetter.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="shouldDamageFriendlies">
+                <h4 class="methodName">shouldDamageFriendlies</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">shouldDamageFriendlies</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shouldDamageFriendlies.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="requiresAiming">
+                <h4 class="methodName">requiresAiming</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">requiresAiming</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method requiresAiming.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="shouldPositionFirst">
+                <h4 class="methodName">shouldPositionFirst</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">shouldPositionFirst</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shouldPositionFirst.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChargeDistance">
+                <h4 class="methodName">getChargeDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getChargeDistance</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChargeDistance.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setCurrentInteraction">
+                <h4 class="methodName">setCurrentInteraction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setCurrentInteraction</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">currentInteraction</span></span>, <span class="param"><a href="../../../protocol/InteractionType.html" class="type-link"><code>final InteractionType</code></a> <span class="param-name">interactionType</span></span>, <span class="param"><code>final float</code> <span class="param-name">chargeFor</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">damageFriendlies</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">requireAiming</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">positionFirst</span></span>, <span class="param"><code>final double</code> <span class="param-name">chargeDistance</span></span>, <span class="param"><code>final Function<InteractionContext, Map<String, String>></code> <span class="param-name">interactionVarsGetter</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setCurrentInteraction.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>currentInteraction</b></dd>
+<dd><a href="../../../protocol/InteractionType.html" class="type-link"><code>final InteractionType</code></a> <b>interactionType</b></dd>
+<dd><code>final float</code> <b>chargeFor</b></dd>
+<dd><code>final boolean</code> <b>damageFriendlies</b></dd>
+<dd><code>final boolean</code> <b>requireAiming</b></dd>
+<dd><code>final boolean</code> <b>positionFirst</b></dd>
+<dd><code>final double</code> <b>chargeDistance</b></dd>
+<dd><code>final Function<InteractionContext, Map<String, String>></code> <b>interactionVarsGetter</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCurrentAction">
+                <h4 class="methodName">getCurrentAction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>CombatOptionHolder</code></span>
+                    <span class="memberName">getCurrentAction</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCurrentAction.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="consumePostExecutionDistanceRange">
+                <h4 class="methodName">consumePostExecutionDistanceRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double[]</code></span>
+                    <span class="memberName">consumePostExecutionDistanceRange</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method consumePostExecutionDistanceRange.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setTimeout">
+                <h4 class="methodName">setTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setTimeout</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">timeout</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setTimeout.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>timeout</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearTimeout">
+                <h4 class="methodName">clearTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearTimeout</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearTimeout.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasTimedOut">
+                <h4 class="methodName">hasTimedOut</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasTimedOut</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method hasTimedOut.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="selectNextCombatAction">
+                <h4 class="methodName">selectNextCombatAction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">selectNextCombatAction</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><a href="../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <span class="param-name">archetypeChunk</span></span>, <span class="param"><a href="../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>, <span class="param"><a href="../../../server/npc/role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><a href="../../../server/npc/valuestore/ValueStore.html" class="type-link"><code>final ValueStore</code></a> <span class="param-name">valueStore</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method selectNextCombatAction.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><a href="../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <b>archetypeChunk</b></dd>
+<dd><a href="../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+<dd><a href="../../../server/npc/role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <b>role</b></dd>
+<dd><a href="../../../server/npc/valuestore/ValueStore.html" class="type-link"><code>final ValueStore</code></a> <b>valueStore</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="completeCurrentAction">
+                <h4 class="methodName">completeCurrentAction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">completeCurrentAction</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">forceClearAbility</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">clearBasicAttack</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method completeCurrentAction.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>forceClearAbility</b></dd>
+<dd><code>final boolean</code> <b>clearBasicAttack</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="terminateCurrentAction">
+                <h4 class="methodName">terminateCurrentAction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">terminateCurrentAction</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method terminateCurrentAction.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearCurrentBasicAttack">
+                <h4 class="methodName">clearCurrentBasicAttack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearCurrentBasicAttack</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearCurrentBasicAttack.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setupNPC">
+                <h4 class="methodName">setupNPC</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setupNPC</span>
+                    <span class="arguments">(<span class="param"><a href="../../../server/npc/role/Role.html" class="type-link"><code>final Role</code></a> <span class="param-name">role</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setupNPC.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../server/npc/role/Role.html" class="type-link"><code>final Role</code></a> <b>role</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clone">
+                <h4 class="methodName">clone</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../component/Component.html" class="type-link"><code>Component<EntityStore></code></a></span>
+                    <span class="memberName">clone</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clone.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="CombatOptionHolder">
+                <h4 class="methodName">CombatOptionHolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>protected</code></span>
+                    <span class="memberName">CombatOptionHolder</span>
+                    <span class="arguments">(<span class="param"><a href="CombatActionEvaluator.html" class="type-link"><code>final CombatActionEvaluator</code></a> <span class="param-name">this$0</span></span>, <span class="param"><a href="combatactions/CombatActionOption.html" class="type-link"><code>final CombatActionOption</code></a> <span class="param-name">option</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method CombatOptionHolder.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="CombatActionEvaluator.html" class="type-link"><code>final CombatActionEvaluator</code></a> <b>this$0</b></dd>
+<dd><a href="combatactions/CombatActionOption.html" class="type-link"><code>final CombatActionOption</code></a> <b>option</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setLastUsedNanos">
+                <h4 class="methodName">setLastUsedNanos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setLastUsedNanos</span>
+                    <span class="arguments">(<span class="param"><code>final long</code> <span class="param-name">lastUsedNanos</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setLastUsedNanos.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final long</code> <b>lastUsedNanos</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getOptionTarget">
+                <h4 class="methodName">getOptionTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../component/Ref.html" class="type-link"><code>Ref<EntityStore></code></a></span>
+                    <span class="memberName">getOptionTarget</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getOptionTarget.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="calculateUtility">
+                <h4 class="methodName">calculateUtility</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">calculateUtility</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">index</span></span>, <span class="param"><a href="../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <span class="param-name">archetypeChunk</span></span>, <span class="param"><a href="../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>, <span class="param"><a href="../../../server/npc/decisionmaker/core/EvaluationContext.html" class="type-link"><code>@Nonnull final EvaluationContext</code></a> <span class="param-name">context</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method calculateUtility.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>index</b></dd>
+<dd><a href="../../../component/ArchetypeChunk.html" class="type-link"><code>@Nonnull final ArchetypeChunk<EntityStore></code></a> <b>archetypeChunk</b></dd>
+<dd><a href="../../../component/CommandBuffer.html" class="type-link"><code>final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+<dd><a href="../../../server/npc/decisionmaker/core/EvaluationContext.html" class="type-link"><code>@Nonnull final EvaluationContext</code></a> <b>context</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTotalUtility">
+                <h4 class="methodName">getTotalUtility</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getTotalUtility</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">threshold</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getTotalUtility.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>threshold</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryPick">
+                <h4 class="methodName">tryPick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">tryPick</span>
+                    <span class="arguments">(<span class="param"><code>double</code> <span class="param-name">currentWeight</span></span>, <span class="param"><code>final double</code> <span class="param-name">threshold</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryPick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>double</code> <b>currentWeight</b></dd>
+<dd><code>final double</code> <b>threshold</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

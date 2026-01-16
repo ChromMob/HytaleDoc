@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpatialHashGrid (com.hypixel.hytale.builtin.portals.utils.spatial)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/builtin/portals/utils/spatial/package-summary.html">com.hypixel.hytale.builtin.portals.utils.spatial</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">SpatialHashGrid</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="SpatialHashGrid.html" class="type-link">SpatialHashGrid</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class SpatialHashGrid. Provides spatialhashgrid functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; SpatialHashGrid</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">cell</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">cell</span>
+                </div>
+                <div class="block">
+                    <p>Field cell.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Entry<T></span>
+                    <span class="memberName">entry</span>
+                </div>
+                <div class="block">
+                    <p>Field entry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bucket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<Entry<T>></span>
+                    <span class="memberName">bucket</span>
+                </div>
+                <div class="block">
+                    <p>Field bucket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">toRemove</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set<T></span>
+                    <span class="memberName">toRemove</span>
+                </div>
+                <div class="block">
+                    <p>Field toRemove.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldCell</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">oldCell</span>
+                </div>
+                <div class="block">
+                    <p>Field oldCell.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newCell</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">newCell</span>
+                </div>
+                <div class="block">
+                    <p>Field newCell.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">oldBucket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<Entry<T>></span>
+                    <span class="memberName">oldBucket</span>
+                </div>
+                <div class="block">
+                    <p>Field oldBucket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">radiusSq</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">radiusSq</span>
+                </div>
+                <div class="block">
+                    <p>Field radiusSq.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">closestVisitor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CellVisitor<T></span>
+                    <span class="memberName">closestVisitor</span>
+                </div>
+                <div class="block">
+                    <p>Field closestVisitor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">dist</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">dist</span>
+                </div>
+                <div class="block">
+                    <p>Field dist.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">withinVisitor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CellVisitor<T></span>
+                    <span class="memberName">withinVisitor</span>
+                </div>
+                <div class="block">
+                    <p>Field withinVisitor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">minX</span>
+                </div>
+                <div class="block">
+                    <p>Field minX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">minY</span>
+                </div>
+                <div class="block">
+                    <p>Field minY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">minZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">minZ</span>
+                </div>
+                <div class="block">
+                    <p>Field minZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxX</span>
+                </div>
+                <div class="block">
+                    <p>Field maxX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxY</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxY</span>
+                </div>
+                <div class="block">
+                    <p>Field maxY.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">maxZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">maxZ</span>
+                </div>
+                <div class="block">
+                    <p>Field maxZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lookup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">lookup</span>
+                </div>
+                <div class="block">
+                    <p>Field lookup.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">keepGoing</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">keepGoing</span>
+                </div>
+                <div class="block">
+                    <p>Field keepGoing.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="SpatialHashGrid">
+                <h4 class="methodName">SpatialHashGrid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">SpatialHashGrid</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">cellSize</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SpatialHashGrid.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>cellSize</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="cellFor">
+                <h4 class="methodName">cellFor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../../../protocol/Vector3i.html" class="type-link"><code>Vector3i</code></a></span>
+                    <span class="memberName">cellFor</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <span class="param-name">p</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method cellFor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <b>p</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Vector3i">
+                <h4 class="methodName">Vector3i</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Vector3i</span>
+                    <span class="arguments">(<span class="param"><code>MathUtil.floor(p.x /</code> <span class="param-name">this.cellSize</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Vector3i.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>MathUtil.floor(p.x /</code> <b>this.cellSize</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAll">
+                <h4 class="methodName">getAll</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>T></code></span>
+                    <span class="memberName">getAll</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAll.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="size">
+                <h4 class="methodName">size</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">size</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method size.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isEmpty">
+                <h4 class="methodName">isEmpty</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isEmpty</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isEmpty.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="add">
+                <h4 class="methodName">add</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">add</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <span class="param-name">pos</span></span>, <span class="param"><code>final T</code> <span class="param-name">value</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method add.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <b>pos</b></dd>
+<dd><code>final T</code> <b>value</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ObjectArrayList">
+                <h4 class="methodName">ObjectArrayList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ObjectArrayList</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ObjectArrayList.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="remove">
+                <h4 class="methodName">remove</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">remove</span>
+                    <span class="arguments">(<span class="param"><code>final T</code> <span class="param-name">value</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method remove.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final T</code> <b>value</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeIf">
+                <h4 class="methodName">removeIf</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">removeIf</span>
+                    <span class="arguments">(<span class="param"><code>final Predicate<T></code> <span class="param-name">predicate</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removeIf.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Predicate<T></code> <b>predicate</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="move">
+                <h4 class="methodName">move</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">move</span>
+                    <span class="arguments">(<span class="param"><code>final T</code> <span class="param-name">value</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <span class="param-name">newPos</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method move.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final T</code> <b>value</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <b>newPos</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="queryRange">
+                <h4 class="methodName">queryRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Vector3d></code></span>
+                    <span class="memberName">queryRange</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <span class="param-name">center</span></span>, <span class="param"><code>final double</code> <span class="param-name">radius</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method queryRange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <b>center</b></dd>
+<dd><code>final double</code> <b>radius</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="findClosest">
+                <h4 class="methodName">findClosest</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>T</code></span>
+                    <span class="memberName">findClosest</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <span class="param-name">center</span></span>, <span class="param"><code>final double</code> <span class="param-name">searchRadius</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method findClosest.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <b>center</b></dd>
+<dd><code>final double</code> <b>searchRadius</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="visit">
+                <h4 class="methodName">visit</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">visit</span>
+                    <span class="arguments">(<span class="param"><code>final List<Entry<T>></code> <span class="param-name">bucket</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method visit.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final List<Entry<T>></code> <b>bucket</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="hasAnyWithin">
+                <h4 class="methodName">hasAnyWithin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">hasAnyWithin</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <span class="param-name">center</span></span>, <span class="param"><code>final double</code> <span class="param-name">radius</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method hasAnyWithin.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <b>center</b></dd>
+<dd><code>final double</code> <b>radius</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="query">
+                <h4 class="methodName">query</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">query</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <span class="param-name">center</span></span>, <span class="param"><code>final double</code> <span class="param-name">radius</span></span>, <span class="param"><code>final CellVisitor<T></code> <span class="param-name">visitor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method query.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <b>center</b></dd>
+<dd><code>final double</code> <b>radius</b></dd>
+<dd><code>final CellVisitor<T></code> <b>visitor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Entry">
+                <h4 class="methodName">Entry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>private</code></span>
+                    <span class="memberName">Entry</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <span class="param-name">pos</span></span>, <span class="param"><a href="../../../../protocol/Vector3i.html" class="type-link"><code>final Vector3i</code></a> <span class="param-name">cell</span></span>, <span class="param"><code>final T</code> <span class="param-name">value</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Entry.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>final Vector3d</code></a> <b>pos</b></dd>
+<dd><a href="../../../../protocol/Vector3i.html" class="type-link"><code>final Vector3i</code></a> <b>cell</b></dd>
+<dd><code>final T</code> <b>value</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WorldSpawningSystem (com.hypixel.hytale.server.spawning.world.system)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/spawning/world/system/package-summary.html">com.hypixel.hytale.server.spawning.world.system</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">WorldSpawningSystem</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="WorldSpawningSystem.html" class="type-link">WorldSpawningSystem</a> extends <a href="../../../../component/system/tick/TickingSystem.html" class="type-link" data-class="TickingSystem"><code>TickingSystem</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>System for handling worldspawning mechanics. Systems contain game logic that operates on entities with specific component types.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; TickingSystem &gt; WorldSpawningSystem</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">gameplayConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">GameplayConfig</span>
+                    <span class="memberName">gameplayConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field gameplayConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<EntityStore></span>
+                    <span class="memberName">entityStore</span>
+                </div>
+                <div class="block">
+                    <p>Field entityStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldSpawnDataResource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldSpawnData</span>
+                    <span class="memberName">worldSpawnDataResource</span>
+                </div>
+                <div class="block">
+                    <p>Field worldSpawnDataResource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldTimeResource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldTimeResource</span>
+                    <span class="memberName">worldTimeResource</span>
+                </div>
+                <div class="block">
+                    <p>Field worldTimeResource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldSpawnData.UnspawnableEntry</span>
+                    <span class="memberName">entry</span>
+                </div>
+                <div class="block">
+                    <p>Field entry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<ChunkStore></span>
+                    <span class="memberName">chunkRef</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environmentIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">environmentIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field environmentIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkSpawnDataComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkSpawnData</span>
+                    <span class="memberName">chunkSpawnDataComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkSpawnDataComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environmentSpawnData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkEnvironmentSpawnData</span>
+                    <span class="memberName">environmentSpawnData</span>
+                </div>
+                <div class="block">
+                    <p>Field environmentSpawnData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">segmentCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">segmentCount</span>
+                </div>
+                <div class="block">
+                    <p>Field segmentCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldEnvironmentSpawnData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldEnvironmentSpawnData</span>
+                    <span class="memberName">worldEnvironmentSpawnData</span>
+                </div>
+                <div class="block">
+                    <p>Field worldEnvironmentSpawnData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">expectedNPCs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">expectedNPCs</span>
+                </div>
+                <div class="block">
+                    <p>Field expectedNPCs.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">context</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HytaleLogger.Api</span>
+                    <span class="memberName">context</span>
+                </div>
+                <div class="block">
+                    <p>Field context.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environmentAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Environment</span>
+                    <span class="memberName">environmentAsset</span>
+                </div>
+                <div class="block">
+                    <p>Field environmentAsset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environment</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">environment</span>
+                </div>
+                <div class="block">
+                    <p>Field environment.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environmentDataKeySet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">environmentDataKeySet</span>
+                </div>
+                <div class="block">
+                    <p>Field environmentDataKeySet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">availableSlots</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">availableSlots</span>
+                </div>
+                <div class="block">
+                    <p>Field availableSlots.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldChunkComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">worldChunkComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field worldChunkComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">roleName</span>
+                </div>
+                <div class="block">
+                    <p>Field roleName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnJobDataComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SpawnJobData</span>
+                    <span class="memberName">spawnJobDataComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnJobDataComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">flockDefinition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">FlockAsset</span>
+                    <span class="memberName">flockDefinition</span>
+                </div>
+                <div class="block">
+                    <p>Field flockDefinition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">roleIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field roleIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldSpawnData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldSpawnData</span>
+                    <span class="memberName">worldSpawnData</span>
+                </div>
+                <div class="block">
+                    <p>Field worldSpawnData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">finestContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HytaleLogger.Api</span>
+                    <span class="memberName">finestContext</span>
+                </div>
+                <div class="block">
+                    <p>Field finestContext.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldChunkComponent2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">worldChunkComponent2</span>
+                </div>
+                <div class="block">
+                    <p>Field worldChunkComponent2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">keyReference2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">keyReference2</span>
+                </div>
+                <div class="block">
+                    <p>Field keyReference2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">wasFullyPopulated</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">wasFullyPopulated</span>
+                </div>
+                <div class="block">
+                    <p>Field wasFullyPopulated.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkRefSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set<Ref<ChunkStore>></span>
+                    <span class="memberName">chunkRefSet</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkRefSet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iterator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Iterator<Ref<ChunkStore>></span>
+                    <span class="memberName">iterator</span>
+                </div>
+                <div class="block">
+                    <p>Field iterator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkSpawnedNPCDataComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkSpawnedNPCData</span>
+                    <span class="memberName">chunkSpawnedNPCDataComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkSpawnedNPCDataComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkEnvironmentSpawnData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkEnvironmentSpawnData</span>
+                    <span class="memberName">chunkEnvironmentSpawnData</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkEnvironmentSpawnData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iterator2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Iterator<Ref<ChunkStore>></span>
+                    <span class="memberName">iterator2</span>
+                </div>
+                <div class="block">
+                    <p>Field iterator2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">spawnCount</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkSpawnDataComponent2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkSpawnData</span>
+                    <span class="memberName">chunkSpawnDataComponent2</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkSpawnDataComponent2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkEnvironmentSpawnData2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkEnvironmentSpawnData</span>
+                    <span class="memberName">chunkEnvironmentSpawnData2</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkEnvironmentSpawnData2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnChunkDataComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkSpawnData</span>
+                    <span class="memberName">spawnChunkDataComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnChunkDataComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkSpawnDataComponent3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkSpawnData</span>
+                    <span class="memberName">chunkSpawnDataComponent3</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkSpawnDataComponent3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkSpawnedNPCDataComponent2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkSpawnedNPCData</span>
+                    <span class="memberName">chunkSpawnedNPCDataComponent2</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkSpawnedNPCDataComponent2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkEnvironmentSpawnData3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkEnvironmentSpawnData</span>
+                    <span class="memberName">chunkEnvironmentSpawnData3</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkEnvironmentSpawnData3.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="WorldSpawningSystem">
+                <h4 class="methodName">WorldSpawningSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">WorldSpawningSystem</span>
+                    <span class="arguments">(<span class="param"><a href="../../../core/asset/type/item/config/ResourceType.html" class="type-link"><code>@Nonnull final ResourceType<EntityStore, WorldSpawnData></code></a> <span class="param-name">worldSpawnDataResourceType</span></span>, <span class="param"><a href="../../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<ChunkStore, ChunkSpawnData></code></a> <span class="param-name">chunkSpawnDataComponentType</span></span>, <span class="param"><a href="../../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<ChunkStore, ChunkSpawnedNPCData></code></a> <span class="param-name">chunkSpawnedNPCDataComponentType</span></span>, <span class="param"><a href="../../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<ChunkStore, SpawnJobData></code></a> <span class="param-name">spawnJobDataComponentType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method WorldSpawningSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../core/asset/type/item/config/ResourceType.html" class="type-link"><code>@Nonnull final ResourceType<EntityStore, WorldSpawnData></code></a> <b>worldSpawnDataResourceType</b></dd>
+<dd><a href="../../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<ChunkStore, ChunkSpawnData></code></a> <b>chunkSpawnDataComponentType</b></dd>
+<dd><a href="../../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<ChunkStore, ChunkSpawnedNPCData></code></a> <b>chunkSpawnedNPCDataComponentType</b></dd>
+<dd><a href="../../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<ChunkStore, SpawnJobData></code></a> <b>spawnJobDataComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tick">
+                <h4 class="methodName">tick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tick</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>, <span class="param"><code>final int</code> <span class="param-name">systemIndex</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+<dd><code>final int</code> <b>systemIndex</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createRandomSpawnJob">
+                <h4 class="methodName">createRandomSpawnJob</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">createRandomSpawnJob</span>
+                    <span class="arguments">(<span class="param"><a href="../component/WorldSpawnData.html" class="type-link"><code>@Nonnull final WorldSpawnData</code></a> <span class="param-name">worldData</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <span class="param-name">chunkStore</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createRandomSpawnJob.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../component/WorldSpawnData.html" class="type-link"><code>@Nonnull final WorldSpawnData</code></a> <b>worldData</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <b>chunkStore</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="env">
+                <h4 class="methodName">env</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>s]</code></span>
+                    <span class="memberName">env</span>
+                    <span class="arguments">(<span class="param">exp/act</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method env.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>exp/act</code> <b>exp/act</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="npc">
+                <h4 class="methodName">npc</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>s</code></span>
+                    <span class="memberName">npc</span>
+                    <span class="arguments">(<span class="param">exp/act</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method npc.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>exp/act</code> <b>exp/act</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAndConsumeNextEnvironmentIndex">
+                <h4 class="methodName">getAndConsumeNextEnvironmentIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getAndConsumeNextEnvironmentIndex</span>
+                    <span class="arguments">(<span class="param"><a href="../component/WorldSpawnData.html" class="type-link"><code>@Nonnull final WorldSpawnData</code></a> <span class="param-name">worldSpawnData</span></span>, <span class="param"><code>@Nonnull final int[]</code> <span class="param-name">environmentKeySet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getAndConsumeNextEnvironmentIndex.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../component/WorldSpawnData.html" class="type-link"><code>@Nonnull final WorldSpawnData</code></a> <b>worldSpawnData</b></dd>
+<dd><code>@Nonnull final int[]</code> <b>environmentKeySet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="pickRandomChunk">
+                <h4 class="methodName">pickRandomChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../../../component/Ref.html" class="type-link"><code>Ref<ChunkStore></code></a></span>
+                    <span class="memberName">pickRandomChunk</span>
+                    <span class="arguments">(<span class="param"><a href="..//WorldEnvironmentSpawnData.html" class="type-link"><code>@Nonnull final WorldEnvironmentSpawnData</code></a> <span class="param-name">spawnData</span></span>, <span class="param"><a href="..//WorldNPCSpawnStat.html" class="type-link"><code>@Nonnull final WorldNPCSpawnStat</code></a> <span class="param-name">stat</span></span>, <span class="param"><a href="../component/WorldSpawnData.html" class="type-link"><code>@Nonnull final WorldSpawnData</code></a> <span class="param-name">worldSpawnData</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method pickRandomChunk.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="..//WorldEnvironmentSpawnData.html" class="type-link"><code>@Nonnull final WorldEnvironmentSpawnData</code></a> <b>spawnData</b></dd>
+<dd><a href="..//WorldNPCSpawnStat.html" class="type-link"><code>@Nonnull final WorldNPCSpawnStat</code></a> <b>stat</b></dd>
+<dd><a href="../component/WorldSpawnData.html" class="type-link"><code>@Nonnull final WorldSpawnData</code></a> <b>worldSpawnData</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAndUpdateSpawnCooldown">
+                <h4 class="methodName">getAndUpdateSpawnCooldown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">getAndUpdateSpawnCooldown</span>
+                    <span class="arguments">(<span class="param"><a href="../component/ChunkSpawnData.html" class="type-link"><code>@Nonnull final ChunkSpawnData</code></a> <span class="param-name">chunkSpawnData</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getAndUpdateSpawnCooldown.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../component/ChunkSpawnData.html" class="type-link"><code>@Nonnull final ChunkSpawnData</code></a> <b>chunkSpawnData</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

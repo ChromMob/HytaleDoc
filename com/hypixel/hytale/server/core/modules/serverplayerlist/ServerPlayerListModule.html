@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ServerPlayerListModule (com.hypixel.hytale.server.core.modules.serverplayerlist)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/core/modules/serverplayerlist/package-summary.html">com.hypixel.hytale.server.core.modules.serverplayerlist</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">ServerPlayerListModule</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="ServerPlayerListModule.html" class="type-link">ServerPlayerListModule</a> extends <a href="../../plugin/JavaPlugin.html" class="type-link" data-class="JavaPlugin"><code>JavaPlugin</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class ServerPlayerListModule. Provides serverplayerlistmodule functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; JavaPlugin &gt; ServerPlayerListModule</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">eventRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EventRegistry</span>
+                    <span class="memberName">eventRegistry</span>
+                </div>
+                <div class="block">
+                    <p>Field eventRegistry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">joiningPlayerRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">joiningPlayerRef</span>
+                </div>
+                <div class="block">
+                    <p>Field joiningPlayerRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">joiningPlayerUuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">joiningPlayerUuid</span>
+                </div>
+                <div class="block">
+                    <p>Field joiningPlayerUuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allPlayers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<PlayerRef></span>
+                    <span class="memberName">allPlayers</span>
+                </div>
+                <div class="block">
+                    <p>Field allPlayers.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">serverListPlayers</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ServerPlayerListPlayer[]</span>
+                    <span class="memberName">serverListPlayers</span>
+                </div>
+                <div class="block">
+                    <p>Field serverListPlayers.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fullListPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AddToServerPlayerList</span>
+                    <span class="memberName">fullListPacket</span>
+                </div>
+                <div class="block">
+                    <p>Field fullListPacket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">newPlayerPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AddToServerPlayerList</span>
+                    <span class="memberName">newPlayerPacket</span>
+                </div>
+                <div class="block">
+                    <p>Field newPlayerPacket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">leavingPlayerRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">leavingPlayerRef</span>
+                </div>
+                <div class="block">
+                    <p>Field leavingPlayerRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">leavingPlayerUuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">leavingPlayerUuid</span>
+                </div>
+                <div class="block">
+                    <p>Field leavingPlayerUuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">removePacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RemoveFromServerPlayerList</span>
+                    <span class="memberName">removePacket</span>
+                </div>
+                <div class="block">
+                    <p>Field removePacket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">holder</span>
+                </div>
+                <div class="block">
+                    <p>Field holder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRefComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">playerRefComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRefComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerUuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">playerUuid</span>
+                </div>
+                <div class="block">
+                    <p>Field playerUuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldUuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">worldUuid</span>
+                </div>
+                <div class="block">
+                    <p>Field worldUuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">updatePacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UpdateServerPlayerList</span>
+                    <span class="memberName">updatePacket</span>
+                </div>
+                <div class="block">
+                    <p>Field updatePacket.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pingMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object2IntOpenHashMap<UUID></span>
+                    <span class="memberName">pingMap</span>
+                </div>
+                <div class="block">
+                    <p>Field pingMap.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UpdateServerPlayerListPing</span>
+                    <span class="memberName">packet</span>
+                </div>
+                <div class="block">
+                    <p>Field packet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">historicMetric</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HistoricMetric</span>
+                    <span class="memberName">historicMetric</span>
+                </div>
+                <div class="block">
+                    <p>Field historicMetric.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">average</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">average</span>
+                </div>
+                <div class="block">
+                    <p>Field average.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="get">
+                <h4 class="methodName">get</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="ServerPlayerListModule.html" class="type-link"><code>ServerPlayerListModule</code></a></span>
+                    <span class="memberName">get</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method get.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ServerPlayerListModule">
+                <h4 class="methodName">ServerPlayerListModule</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">ServerPlayerListModule</span>
+                    <span class="arguments">(<span class="param"><a href="../../plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <span class="param-name">init</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ServerPlayerListModule.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <b>init</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onPlayerConnect">
+                <h4 class="methodName">onPlayerConnect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onPlayerConnect</span>
+                    <span class="arguments">(<span class="param"><a href="../../event/events/player/PlayerConnectEvent.html" class="type-link"><code>@Nonnull final PlayerConnectEvent</code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onPlayerConnect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../event/events/player/PlayerConnectEvent.html" class="type-link"><code>@Nonnull final PlayerConnectEvent</code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onPlayerDisconnect">
+                <h4 class="methodName">onPlayerDisconnect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onPlayerDisconnect</span>
+                    <span class="arguments">(<span class="param"><a href="../../event/events/player/PlayerDisconnectEvent.html" class="type-link"><code>@Nonnull final PlayerDisconnectEvent</code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onPlayerDisconnect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../event/events/player/PlayerDisconnectEvent.html" class="type-link"><code>@Nonnull final PlayerDisconnectEvent</code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onPlayerAddedToWorld">
+                <h4 class="methodName">onPlayerAddedToWorld</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onPlayerAddedToWorld</span>
+                    <span class="arguments">(<span class="param"><a href="../../event/events/player/AddPlayerToWorldEvent.html" class="type-link"><code>@Nonnull final AddPlayerToWorldEvent</code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onPlayerAddedToWorld.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../event/events/player/AddPlayerToWorldEvent.html" class="type-link"><code>@Nonnull final AddPlayerToWorldEvent</code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="UpdateServerPlayerList">
+                <h4 class="methodName">UpdateServerPlayerList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">UpdateServerPlayerList</span>
+                    <span class="arguments">(<span class="param"><code>new ServerPlayerListUpdate[] { new</code> <span class="param-name">ServerPlayerListUpdate(playerUuid</span></span>, <span class="param">worldUuid</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method UpdateServerPlayerList.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>new ServerPlayerListUpdate[] { new</code> <b>ServerPlayerListUpdate(playerUuid</b></dd>
+<dd><code>worldUuid</code> <b>worldUuid</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="broadcastPingUpdates">
+                <h4 class="methodName">broadcastPingUpdates</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">broadcastPingUpdates</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method broadcastPingUpdates.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPingValue">
+                <h4 class="methodName">getPingValue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getPingValue</span>
+                    <span class="arguments">(<span class="param"><a href="../../io/PacketHandler.html" class="type-link"><code>@Nonnull final PacketHandler</code></a> <span class="param-name">handler</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getPingValue.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../io/PacketHandler.html" class="type-link"><code>@Nonnull final PacketHandler</code></a> <b>handler</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createServerPlayerListPlayer">
+                <h4 class="methodName">createServerPlayerListPlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../../../protocol/packets/interface_/ServerPlayerListPlayer.html" class="type-link"><code>ServerPlayerListPlayer</code></a></span>
+                    <span class="memberName">createServerPlayerListPlayer</span>
+                    <span class="arguments">(<span class="param"><a href="../../universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <span class="param-name">playerRef</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createServerPlayerListPlayer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <b>playerRef</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ServerPlayerListPlayer">
+                <h4 class="methodName">ServerPlayerListPlayer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ServerPlayerListPlayer</span>
+                    <span class="arguments">(<span class="param">playerRef.getUuid(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ServerPlayerListPlayer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>playerRef.getUuid(</code> <b>playerRef.getUuid(</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

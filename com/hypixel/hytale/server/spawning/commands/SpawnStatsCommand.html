@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpawnStatsCommand (com.hypixel.hytale.server.spawning.commands)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/spawning/commands/package-summary.html">com.hypixel.hytale.server.spawning.commands</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">SpawnStatsCommand</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="SpawnStatsCommand.html" class="type-link">SpawnStatsCommand</a> extends <a href="../../core/command/system/basecommands/AbstractWorldCommand.html" class="type-link" data-class="AbstractWorldCommand"><code>AbstractWorldCommand</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Command for spawnstat operations. Registered with the command system and callable by players.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; AbstractWorldCommand &gt; SpawnStatsCommand</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldSpawnData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldSpawnData</span>
+                    <span class="memberName">worldSpawnData</span>
+                </div>
+                <div class="block">
+                    <p>Field worldSpawnData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">filtered</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AtomicInteger</span>
+                    <span class="memberName">filtered</span>
+                </div>
+                <div class="block">
+                    <p>Field filtered.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">verbose</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">verbose</span>
+                </div>
+                <div class="block">
+                    <p>Field verbose.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">environmentIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">environmentIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field environmentIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">name</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">name</span>
+                </div>
+                <div class="block">
+                    <p>Field name.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<ChunkStore></span>
+                    <span class="memberName">chunkStore</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkExpected</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double[]</span>
+                    <span class="memberName">chunkExpected</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkExpected.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkEnvironmentSpawnData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChunkEnvironmentSpawnData</span>
+                    <span class="memberName">chunkEnvironmentSpawnData</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkEnvironmentSpawnData.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">n</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">n</span>
+                </div>
+                <div class="block">
+                    <p>Field n.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">message2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">message2</span>
+                </div>
+                <div class="block">
+                    <p>Field message2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">all</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">all</span>
+                </div>
+                <div class="block">
+                    <p>Field all.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">failPercent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">failPercent</span>
+                </div>
+                <div class="block">
+                    <p>Field failPercent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">successfulJobCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">successfulJobCount</span>
+                </div>
+                <div class="block">
+                    <p>Field successfulJobCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">successfulBudget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">successfulBudget</span>
+                </div>
+                <div class="block">
+                    <p>Field successfulBudget.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">failedJobCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">failedJobCount</span>
+                </div>
+                <div class="block">
+                    <p>Field failedJobCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">failedBudget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">failedBudget</span>
+                </div>
+                <div class="block">
+                    <p>Field failedBudget.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">trackedNPC</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AtomicInteger</span>
+                    <span class="memberName">trackedNPC</span>
+                </div>
+                <div class="block">
+                    <p>Field trackedNPC.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">totalNPC</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AtomicInteger</span>
+                    <span class="memberName">totalNPC</span>
+                </div>
+                <div class="block">
+                    <p>Field totalNPC.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">npc</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NPCEntity</span>
+                    <span class="memberName">npc</span>
+                </div>
+                <div class="block">
+                    <p>Field npc.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnJobsCompleted</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">spawnJobsCompleted</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnJobsCompleted.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">message</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">message</span>
+                </div>
+                <div class="block">
+                    <p>Field message.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnMarkerCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AtomicInteger</span>
+                    <span class="memberName">spawnMarkerCount</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnMarkerCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">inactiveSpawnMarkerCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AtomicInteger</span>
+                    <span class="memberName">inactiveSpawnMarkerCount</span>
+                </div>
+                <div class="block">
+                    <p>Field inactiveSpawnMarkerCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnMarkerTypeCounts</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object2IntOpenHashMap<String></span>
+                    <span class="memberName">spawnMarkerTypeCounts</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnMarkerTypeCounts.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SpawnMarkerEntity</span>
+                    <span class="memberName">entity</span>
+                </div>
+                <div class="block">
+                    <p>Field entity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnMarkerNPCCount</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">AtomicInteger</span>
+                    <span class="memberName">spawnMarkerNPCCount</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnMarkerNPCCount.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleCounts</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object2IntOpenHashMap<String></span>
+                    <span class="memberName">roleCounts</span>
+                </div>
+                <div class="block">
+                    <p>Field roleCounts.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entity2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NPCEntity</span>
+                    <span class="memberName">entity2</span>
+                </div>
+                <div class="block">
+                    <p>Field entity2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnMarkerReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SpawnMarkerReference</span>
+                    <span class="memberName">spawnMarkerReference</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnMarkerReference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">roleName</span>
+                </div>
+                <div class="block">
+                    <p>Field roleName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">markerRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">markerRef</span>
+                </div>
+                <div class="block">
+                    <p>Field markerRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">marker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SpawnMarkerEntity</span>
+                    <span class="memberName">marker</span>
+                </div>
+                <div class="block">
+                    <p>Field marker.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnedRoles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object2IntMap<String></span>
+                    <span class="memberName">spawnedRoles</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnedRoles.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sb</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">StringBuilder</span>
+                    <span class="memberName">sb</span>
+                </div>
+                <div class="block">
+                    <p>Field sb.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="SpawnStatsCommand">
+                <h4 class="methodName">SpawnStatsCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">SpawnStatsCommand</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method SpawnStatsCommand.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="execute">
+                <h4 class="methodName">execute</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">execute</span>
+                    <span class="arguments">(<span class="param"><a href="../../core/command/system/CommandContext.html" class="type-link"><code>@Nonnull final CommandContext</code></a> <span class="param-name">context</span></span>, <span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method execute.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../core/command/system/CommandContext.html" class="type-link"><code>@Nonnull final CommandContext</code></a> <b>context</b></dd>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Object2IntOpenHashMap">
+                <h4 class="methodName">Object2IntOpenHashMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Object2IntOpenHashMap</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method Object2IntOpenHashMap.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

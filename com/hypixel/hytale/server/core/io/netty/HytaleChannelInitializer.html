@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HytaleChannelInitializer (com.hypixel.hytale.server.core.io.netty)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/core/io/netty/package-summary.html">com.hypixel.hytale.server.core.io.netty</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">HytaleChannelInitializer</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="HytaleChannelInitializer.html" class="type-link">HytaleChannelInitializer</a> extends <code>ChannelInitializer</code></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class HytaleChannelInitializer. Provides hytalechannelinitializer functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; ChannelInitializer &gt; HytaleChannelInitializer</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">parentChannel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">QuicChannel</span>
+                    <span class="memberName">parentChannel</span>
+                </div>
+                <div class="block">
+                    <p>Field parentChannel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">clientCert</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">X509Certificate</span>
+                    <span class="memberName">clientCert</span>
+                </div>
+                <div class="block">
+                    <p>Field clientCert.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">statsRecorder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PacketStatsRecorderImpl</span>
+                    <span class="memberName">statsRecorder</span>
+                </div>
+                <div class="block">
+                    <p>Field statsRecorder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">initialTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Duration</span>
+                    <span class="memberName">initialTimeout</span>
+                </div>
+                <div class="block">
+                    <p>Field initialTimeout.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rateLimitConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HytaleServerConfig.RateLimitConfig</span>
+                    <span class="memberName">rateLimitConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field rateLimitConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerConnection</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InitialPacketHandler</span>
+                    <span class="memberName">playerConnection</span>
+                </div>
+                <div class="block">
+                    <p>Field playerConnection.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">handler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ChannelHandler</span>
+                    <span class="memberName">handler</span>
+                </div>
+                <div class="block">
+                    <p>Field handler.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">message</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">message</span>
+                </div>
+                <div class="block">
+                    <p>Field message.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">readTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">readTimeout</span>
+                </div>
+                <div class="block">
+                    <p>Field readTimeout.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">writeTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">writeTimeout</span>
+                </div>
+                <div class="block">
+                    <p>Field writeTimeout.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">msg</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">msg</span>
+                </div>
+                <div class="block">
+                    <p>Field msg.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="initChannel">
+                <h4 class="methodName">initChannel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">initChannel</span>
+                    <span class="arguments">(<span class="param"><code>final Channel</code> <span class="param-name">channel</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initChannel.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Channel</code> <b>channel</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ReadTimeoutHandler">
+                <h4 class="methodName">ReadTimeoutHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ReadTimeoutHandler</span>
+                    <span class="arguments">(<span class="param">initialTimeout.toMillis(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ReadTimeoutHandler.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>initialTimeout.toMillis(</code> <b>initialTimeout.toMillis(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PacketDecoder">
+                <h4 class="methodName">PacketDecoder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PacketDecoder</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PacketDecoder.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="RateLimitHandler">
+                <h4 class="methodName">RateLimitHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">RateLimitHandler</span>
+                    <span class="arguments">(<span class="param">rateLimitConfig.getBurstCapacity(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method RateLimitHandler.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>rateLimitConfig.getBurstCapacity(</code> <b>rateLimitConfig.getBurstCapacity(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PacketEncoder">
+                <h4 class="methodName">PacketEncoder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PacketEncoder</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PacketEncoder.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlayerChannelHandler">
+                <h4 class="methodName">PlayerChannelHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PlayerChannelHandler</span>
+                    <span class="arguments">(<span class="param">playerConnection</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PlayerChannelHandler.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>playerConnection</code> <b>playerConnection</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ExceptionHandler">
+                <h4 class="methodName">ExceptionHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ExceptionHandler</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ExceptionHandler.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="exceptionCaught">
+                <h4 class="methodName">exceptionCaught</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">exceptionCaught</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ChannelHandlerContext</code> <span class="param-name">ctx</span></span>, <span class="param"><code>final Throwable</code> <span class="param-name">cause</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method exceptionCaught.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ChannelHandlerContext</code> <b>ctx</b></dd>
+<dd><code>final Throwable</code> <b>cause</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Disconnect">
+                <h4 class="methodName">Disconnect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Disconnect</span>
+                    <span class="arguments">(<span class="param"><code>"Internal server</code> <span class="param-name">error!"</span></span>, <span class="param">DisconnectType.Crash</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Disconnect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Internal server</code> <b>error!"</b></dd>
+<dd><code>DisconnectType.Crash</code> <b>DisconnectType.Crash</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="channelInactive">
+                <h4 class="methodName">channelInactive</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">channelInactive</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ChannelHandlerContext</code> <span class="param-name">ctx</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method channelInactive.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ChannelHandlerContext</code> <b>ctx</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EffectControllerComponent (com.hypixel.hytale.server.core.entity.effect)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/core/entity/effect/package-summary.html">com.hypixel.hytale.server.core.entity.effect</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">EffectControllerComponent</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="EffectControllerComponent.html" class="type-link">EffectControllerComponent</a> implements <a href="../../../../component/Component.html" class="type-link" data-class="Component"><code>Component<EntityStore></code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Component for tracking effectcontroller state. Attach this component to entities that need to track effectcontroller data.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; EffectControllerComponent</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">cachedActiveEffectIndexes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int[]</span>
+                    <span class="memberName">cachedActiveEffectIndexes</span>
+                </div>
+                <div class="block">
+                    <p>Field cachedActiveEffectIndexes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">changes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">ObjectList<EntityEffectUpdate></span>
+                    <span class="memberName">changes</span>
+                </div>
+                <div class="block">
+                    <p>Field changes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isNetworkOutdated</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isNetworkOutdated</span>
+                </div>
+                <div class="block">
+                    <p>Field isNetworkOutdated.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">originalModel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">Model</span>
+                    <span class="memberName">originalModel</span>
+                </div>
+                <div class="block">
+                    <p>Field originalModel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">activeModelChangeEntityEffectIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">activeModelChangeEntityEffectIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field activeModelChangeEntityEffectIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isInvulnerable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isInvulnerable</span>
+                </div>
+                <div class="block">
+                    <p>Field isInvulnerable.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">activeEntityEffects</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ActiveEntityEffect[]</span>
+                    <span class="memberName">activeEntityEffects</span>
+                </div>
+                <div class="block">
+                    <p>Field activeEntityEffects.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityEffectIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">entityEffectIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field entityEffectIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">infinite</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">infinite</span>
+                </div>
+                <div class="block">
+                    <p>Field infinite.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">duration</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">duration</span>
+                </div>
+                <div class="block">
+                    <p>Field duration.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">overlapBehavior</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">OverlapBehavior</span>
+                    <span class="memberName">overlapBehavior</span>
+                </div>
+                <div class="block">
+                    <p>Field overlapBehavior.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentActiveEntityEffectEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ActiveEntityEffect</span>
+                    <span class="memberName">currentActiveEntityEffectEntry</span>
+                </div>
+                <div class="block">
+                    <p>Field currentActiveEntityEffectEntry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">activeEntityEffect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ActiveEntityEffect</span>
+                    <span class="memberName">activeEntityEffect</span>
+                </div>
+                <div class="block">
+                    <p>Field activeEntityEffect.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">activeEntityEffectEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ActiveEntityEffect</span>
+                    <span class="memberName">activeEntityEffectEntry</span>
+                </div>
+                <div class="block">
+                    <p>Field activeEntityEffectEntry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ownerEntity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Entity</span>
+                    <span class="memberName">ownerEntity</span>
+                </div>
+                <div class="block">
+                    <p>Field ownerEntity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ModelComponent</span>
+                    <span class="memberName">modelComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field modelComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ModelAsset</span>
+                    <span class="memberName">modelAsset</span>
+                </div>
+                <div class="block">
+                    <p>Field modelAsset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">scaledModel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Model</span>
+                    <span class="memberName">scaledModel</span>
+                </div>
+                <div class="block">
+                    <p>Field scaledModel.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerSkinComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerSkinComponent</span>
+                    <span class="memberName">playerSkinComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerSkinComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityEffect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EntityEffect</span>
+                    <span class="memberName">entityEffect</span>
+                </div>
+                <div class="block">
+                    <p>Field entityEffect.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">activeEffectEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ActiveEntityEffect</span>
+                    <span class="memberName">activeEffectEntry</span>
+                </div>
+                <div class="block">
+                    <p>Field activeEffectEntry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">keys</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntSet</span>
+                    <span class="memberName">keys</span>
+                </div>
+                <div class="block">
+                    <p>Field keys.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">temp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">temp</span>
+                </div>
+                <div class="block">
+                    <p>Field temp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">changeArray</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EntityEffectUpdate[]</span>
+                    <span class="memberName">changeArray</span>
+                </div>
+                <div class="block">
+                    <p>Field changeArray.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iterator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ObjectIterator<Int2ObjectMap.Entry<ActiveEntityEffect>></span>
+                    <span class="memberName">iterator</span>
+                </div>
+                <div class="block">
+                    <p>Field iterator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Int2ObjectMap.Entry<ActiveEntityEffect></span>
+                    <span class="memberName">entry</span>
+                </div>
+                <div class="block">
+                    <p>Field entry.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="getComponentType">
+                <h4 class="methodName">getComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EffectControllerComponent></code></span>
+                    <span class="memberName">getComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="EffectControllerComponent">
+                <h4 class="methodName">EffectControllerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">EffectControllerComponent</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method EffectControllerComponent.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isInvulnerable">
+                <h4 class="methodName">isInvulnerable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isInvulnerable</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isInvulnerable.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setInvulnerable">
+                <h4 class="methodName">setInvulnerable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setInvulnerable</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">invulnerable</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setInvulnerable.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>invulnerable</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addEffect">
+                <h4 class="methodName">addEffect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">addEffect</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ownerRef</span></span>, <span class="param"><a href="../../asset/type/entityeffect/config/EntityEffect.html" class="type-link"><code>@Nonnull final EntityEffect</code></a> <span class="param-name">entityEffect</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addEffect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ownerRef</b></dd>
+<dd><a href="../../asset/type/entityeffect/config/EntityEffect.html" class="type-link"><code>@Nonnull final EntityEffect</code></a> <b>entityEffect</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="EntityEffectUpdate">
+                <h4 class="methodName">EntityEffectUpdate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">EntityEffectUpdate</span>
+                    <span class="arguments">(<span class="param">EffectOp.Add</span>, <span class="param">entityEffectIndex</span>, <span class="param">currentActiveEntityEffectEntry.remainingDuration</span>, <span class="param">false</span>, <span class="param">currentActiveEntityEffectEntry.debuff</span>, <span class="param">currentActiveEntityEffectEntry.statusEffectIcon</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method EntityEffectUpdate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>EffectOp.Add</code> <b>EffectOp.Add</b></dd>
+<dd><code>entityEffectIndex</code> <b>entityEffectIndex</b></dd>
+<dd><code>currentActiveEntityEffectEntry.remainingDuration</code> <b>currentActiveEntityEffectEntry.remainingDuration</b></dd>
+<dd><code>false</code> <b>false</b></dd>
+<dd><code>currentActiveEntityEffectEntry.debuff</code> <b>currentActiveEntityEffectEntry.debuff</b></dd>
+<dd><code>currentActiveEntityEffectEntry.statusEffectIcon</code> <b>currentActiveEntityEffectEntry.statusEffectIcon</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ActiveEntityEffect">
+                <h4 class="methodName">ActiveEntityEffect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ActiveEntityEffect</span>
+                    <span class="arguments">(<span class="param">entityEffect.getId(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ActiveEntityEffect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>entityEffect.getId(</code> <b>entityEffect.getId(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addInfiniteEffect">
+                <h4 class="methodName">addInfiniteEffect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">addInfiniteEffect</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ownerRef</span></span>, <span class="param"><code>final int</code> <span class="param-name">entityEffectIndex</span></span>, <span class="param"><a href="../../asset/type/entityeffect/config/EntityEffect.html" class="type-link"><code>@Nonnull final EntityEffect</code></a> <span class="param-name">entityEffect</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addInfiniteEffect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ownerRef</b></dd>
+<dd><code>final int</code> <b>entityEffectIndex</b></dd>
+<dd><a href="../../asset/type/entityeffect/config/EntityEffect.html" class="type-link"><code>@Nonnull final EntityEffect</code></a> <b>entityEffect</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">!currentActiveEntityEffectEntry.isInfinite(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>!currentActiveEntityEffectEntry.isInfinite(</code> <b>!currentActiveEntityEffectEntry.isInfinite(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setModelChange">
+                <h4 class="methodName">setModelChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setModelChange</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ownerRef</span></span>, <span class="param"><a href="../../asset/type/entityeffect/config/EntityEffect.html" class="type-link"><code>@Nonnull final EntityEffect</code></a> <span class="param-name">entityEffect</span></span>, <span class="param"><code>final int</code> <span class="param-name">entityEffectIndex</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setModelChange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ownerRef</b></dd>
+<dd><a href="../../asset/type/entityeffect/config/EntityEffect.html" class="type-link"><code>@Nonnull final EntityEffect</code></a> <b>entityEffect</b></dd>
+<dd><code>final int</code> <b>entityEffectIndex</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ModelComponent">
+                <h4 class="methodName">ModelComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ModelComponent</span>
+                    <span class="arguments">(<span class="param">scaledModel</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ModelComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>scaledModel</code> <b>scaledModel</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="tryResetModelChange">
+                <h4 class="methodName">tryResetModelChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tryResetModelChange</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ownerRef</span></span>, <span class="param"><code>final int</code> <span class="param-name">activeEffectIndex</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tryResetModelChange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ownerRef</b></dd>
+<dd><code>final int</code> <b>activeEffectIndex</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addActiveEntityEffects">
+                <h4 class="methodName">addActiveEntityEffects</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addActiveEntityEffects</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final ActiveEntityEffect[]</code> <span class="param-name">activeEntityEffects</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addActiveEntityEffects.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final ActiveEntityEffect[]</code> <b>activeEntityEffects</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="removeEffect">
+                <h4 class="methodName">removeEffect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">removeEffect</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ownerRef</span></span>, <span class="param"><code>final int</code> <span class="param-name">entityEffectIndex</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method removeEffect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ownerRef</b></dd>
+<dd><code>final int</code> <b>entityEffectIndex</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="IllegalArgumentException">
+                <h4 class="methodName">IllegalArgumentException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IllegalArgumentException</span>
+                    <span class="arguments">(<span class="param"><code>String.format("Unknown EntityEffect with index</code> <span class="param-name">\"%s\""</span></span>, <span class="param">entityEffectIndex</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IllegalArgumentException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>String.format("Unknown EntityEffect with index</code> <b>\"%s\""</b></dd>
+<dd><code>entityEffectIndex</code> <b>entityEffectIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addChange">
+                <h4 class="methodName">addChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">addChange</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/EntityEffectUpdate.html" class="type-link"><code>@Nonnull final EntityEffectUpdate</code></a> <span class="param-name">update</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addChange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/EntityEffectUpdate.html" class="type-link"><code>@Nonnull final EntityEffectUpdate</code></a> <b>update</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearEffects">
+                <h4 class="methodName">clearEffects</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearEffects</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ownerRef</span></span>, <span class="param"><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method clearEffects.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ownerRef</b></dd>
+<dd><a href="../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="IntArraySet">
+                <h4 class="methodName">IntArraySet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IntArraySet</span>
+                    <span class="arguments">(<span class="param">this.activeEffects.keySet(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IntArraySet.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.activeEffects.keySet(</code> <b>this.activeEffects.keySet(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="invalidateCache">
+                <h4 class="methodName">invalidateCache</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">invalidateCache</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method invalidateCache.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getActiveEffects">
+                <h4 class="methodName">getActiveEffects</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Int2ObjectMap<ActiveEntityEffect></code></span>
+                    <span class="memberName">getActiveEffects</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getActiveEffects.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getActiveEffectIndexes">
+                <h4 class="methodName">getActiveEffectIndexes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int[]</code></span>
+                    <span class="memberName">getActiveEffectIndexes</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getActiveEffectIndexes.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="consumeNetworkOutdated">
+                <h4 class="methodName">consumeNetworkOutdated</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">consumeNetworkOutdated</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method consumeNetworkOutdated.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="consumeChanges">
+                <h4 class="methodName">consumeChanges</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EntityEffectUpdate[]</code></span>
+                    <span class="memberName">consumeChanges</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method consumeChanges.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearChanges">
+                <h4 class="methodName">clearChanges</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearChanges</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clearChanges.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="createInitUpdates">
+                <h4 class="methodName">createInitUpdates</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EntityEffectUpdate[]</code></span>
+                    <span class="memberName">createInitUpdates</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method createInitUpdates.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAllActiveEntityEffects">
+                <h4 class="methodName">getAllActiveEntityEffects</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ActiveEntityEffect[]</code></span>
+                    <span class="memberName">getAllActiveEntityEffects</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAllActiveEntityEffects.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="toString">
+                <h4 class="methodName">toString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">toString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toString.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clone">
+                <h4 class="methodName">clone</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="EffectControllerComponent.html" class="type-link"><code>EffectControllerComponent</code></a></span>
+                    <span class="memberName">clone</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clone.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

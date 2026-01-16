@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StandardDataSource (com.hypixel.hytale.builtin.asseteditor.datasource)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/builtin/asseteditor/datasource/package-summary.html">com.hypixel.hytale.builtin.asseteditor.datasource</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">StandardDataSource</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="StandardDataSource.html" class="type-link">StandardDataSource</a> implements <a href="DataSource.html" class="type-link" data-class="DataSource"><code>DataSource</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class StandardDataSource. Provides standarddatasource functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; StandardDataSource</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">saveSchedule</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ScheduledFuture<?></span>
+                    <span class="memberName">saveSchedule</span>
+                </div>
+                <div class="block">
+                    <p>Field saveSchedule.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isAssetPackBeDeleteable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isAssetPackBeDeleteable</span>
+                </div>
+                <div class="block">
+                    <p>Field isAssetPackBeDeleteable.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">doc</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BsonDocument</span>
+                    <span class="memberName">doc</span>
+                </div>
+                <div class="block">
+                    <p>Field doc.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">assets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BsonArray</span>
+                    <span class="memberName">assets</span>
+                </div>
+                <div class="block">
+                    <p>Field assets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modifiedAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ModifiedAsset</span>
+                    <span class="memberName">modifiedAsset</span>
+                </div>
+                <div class="block">
+                    <p>Field modifiedAsset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">assetsArray</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BsonArray</span>
+                    <span class="memberName">assetsArray</span>
+                </div>
+                <div class="block">
+                    <p>Field assetsArray.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">path</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Path</span>
+                    <span class="memberName">path</span>
+                </div>
+                <div class="block">
+                    <p>Field path.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hash</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">hash</span>
+                </div>
+                <div class="block">
+                    <p>Field hash.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fileSaveInfos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Deque<EditorFileSaveInfo></span>
+                    <span class="memberName">fileSaveInfos</span>
+                </div>
+                <div class="block">
+                    <p>Field fileSaveInfos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">bytes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">byte[]</span>
+                    <span class="memberName">bytes</span>
+                </div>
+                <div class="block">
+                    <p>Field bytes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">now</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">now</span>
+                </div>
+                <div class="block">
+                    <p>Field now.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iterator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Iterator<EditorFileSaveInfo></span>
+                    <span class="memberName">iterator</span>
+                </div>
+                <div class="block">
+                    <p>Field iterator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fileSaves</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Deque<EditorFileSaveInfo></span>
+                    <span class="memberName">fileSaves</span>
+                </div>
+                <div class="block">
+                    <p>Field fileSaves.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="StandardDataSource">
+                <h4 class="methodName">StandardDataSource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">StandardDataSource</span>
+                    <span class="arguments">(<span class="param"><code>final String</code> <span class="param-name">packKey</span></span>, <span class="param"><code>final Path</code> <span class="param-name">rootPath</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">isImmutable</span></span>, <span class="param"><a href="../../../common/plugin/PluginManifest.html" class="type-link"><code>final PluginManifest</code></a> <span class="param-name">manifest</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method StandardDataSource.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final String</code> <b>packKey</b></dd>
+<dd><code>final Path</code> <b>rootPath</b></dd>
+<dd><code>final boolean</code> <b>isImmutable</b></dd>
+<dd><a href="../../../common/plugin/PluginManifest.html" class="type-link"><code>final PluginManifest</code></a> <b>manifest</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isInModsDirectory">
+                <h4 class="methodName">isInModsDirectory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isInModsDirectory</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">path</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isInModsDirectory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>path</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="start">
+                <h4 class="methodName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">start</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method start.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdown">
+                <h4 class="methodName">shutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">shutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadRecentModifications">
+                <h4 class="methodName">loadRecentModifications</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">loadRecentModifications</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method loadRecentModifications.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ExtraInfo">
+                <h4 class="methodName">ExtraInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ExtraInfo</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ExtraInfo.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="saveRecentModifications">
+                <h4 class="methodName">saveRecentModifications</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">saveRecentModifications</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method saveRecentModifications.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="canAssetPackBeDeleted">
+                <h4 class="methodName">canAssetPackBeDeleted</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">canAssetPackBeDeleted</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method canAssetPackBeDeleted.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="resolveAbsolutePath">
+                <h4 class="methodName">resolveAbsolutePath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Path</code></span>
+                    <span class="memberName">resolveAbsolutePath</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">path</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method resolveAbsolutePath.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>path</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFullPathToAssetData">
+                <h4 class="methodName">getFullPathToAssetData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Path</code></span>
+                    <span class="memberName">getFullPathToAssetData</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">assetPath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getFullPathToAssetData.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>assetPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAssetTree">
+                <h4 class="methodName">getAssetTree</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="..//AssetTree.html" class="type-link"><code>AssetTree</code></a></span>
+                    <span class="memberName">getAssetTree</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAssetTree.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isImmutable">
+                <h4 class="methodName">isImmutable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isImmutable</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isImmutable.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRootPath">
+                <h4 class="methodName">getRootPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Path</code></span>
+                    <span class="memberName">getRootPath</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRootPath.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getManifest">
+                <h4 class="methodName">getManifest</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../common/plugin/PluginManifest.html" class="type-link"><code>PluginManifest</code></a></span>
+                    <span class="memberName">getManifest</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getManifest.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="doesDirectoryExist">
+                <h4 class="methodName">doesDirectoryExist</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">doesDirectoryExist</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">folderPath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method doesDirectoryExist.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>folderPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createDirectory">
+                <h4 class="methodName">createDirectory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">createDirectory</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">dirPath</span></span>, <span class="param"><a href="..//EditorClient.html" class="type-link"><code>final EditorClient</code></a> <span class="param-name">editorClient</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createDirectory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>dirPath</b></dd>
+<dd><a href="..//EditorClient.html" class="type-link"><code>final EditorClient</code></a> <b>editorClient</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="deleteDirectory">
+                <h4 class="methodName">deleteDirectory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">deleteDirectory</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">dirPath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method deleteDirectory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>dirPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="moveDirectory">
+                <h4 class="methodName">moveDirectory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">moveDirectory</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">oldDirPath</span></span>, <span class="param"><code>final Path</code> <span class="param-name">newDirPath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method moveDirectory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>oldDirPath</b></dd>
+<dd><code>final Path</code> <b>newDirPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="doesAssetExist">
+                <h4 class="methodName">doesAssetExist</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">doesAssetExist</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">assetPath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method doesAssetExist.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>assetPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAssetBytes">
+                <h4 class="methodName">getAssetBytes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>byte[]</code></span>
+                    <span class="memberName">getAssetBytes</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">assetPath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getAssetBytes.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>assetPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateAsset">
+                <h4 class="methodName">updateAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">updateAsset</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">assetPath</span></span>, <span class="param"><code>final byte[]</code> <span class="param-name">bytes</span></span>, <span class="param"><a href="..//EditorClient.html" class="type-link"><code>final EditorClient</code></a> <span class="param-name">editorClient</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateAsset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>assetPath</b></dd>
+<dd><code>final byte[]</code> <b>bytes</b></dd>
+<dd><a href="..//EditorClient.html" class="type-link"><code>final EditorClient</code></a> <b>editorClient</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createAsset">
+                <h4 class="methodName">createAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">createAsset</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">assetPath</span></span>, <span class="param"><code>final byte[]</code> <span class="param-name">bytes</span></span>, <span class="param"><a href="..//EditorClient.html" class="type-link"><code>final EditorClient</code></a> <span class="param-name">editorClient</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createAsset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>assetPath</b></dd>
+<dd><code>final byte[]</code> <b>bytes</b></dd>
+<dd><a href="..//EditorClient.html" class="type-link"><code>final EditorClient</code></a> <b>editorClient</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="deleteAsset">
+                <h4 class="methodName">deleteAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">deleteAsset</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">assetPath</span></span>, <span class="param"><a href="..//EditorClient.html" class="type-link"><code>final EditorClient</code></a> <span class="param-name">editorClient</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method deleteAsset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>assetPath</b></dd>
+<dd><a href="..//EditorClient.html" class="type-link"><code>final EditorClient</code></a> <b>editorClient</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="shouldReloadAssetFromDisk">
+                <h4 class="methodName">shouldReloadAssetFromDisk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">shouldReloadAssetFromDisk</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">assetPath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method shouldReloadAssetFromDisk.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>assetPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getLastModificationTimestamp">
+                <h4 class="methodName">getLastModificationTimestamp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Instant</code></span>
+                    <span class="memberName">getLastModificationTimestamp</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">assetPath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getLastModificationTimestamp.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>assetPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="moveAsset">
+                <h4 class="methodName">moveAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">moveAsset</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">oldAssetPath</span></span>, <span class="param"><code>final Path</code> <span class="param-name">newAssetPath</span></span>, <span class="param"><a href="..//EditorClient.html" class="type-link"><code>final EditorClient</code></a> <span class="param-name">editorClient</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method moveAsset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>oldAssetPath</b></dd>
+<dd><code>final Path</code> <b>newAssetPath</b></dd>
+<dd><a href="..//EditorClient.html" class="type-link"><code>final EditorClient</code></a> <b>editorClient</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="loadAssetTree">
+                <h4 class="methodName">loadAssetTree</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="..//AssetTree.html" class="type-link"><code>AssetTree</code></a></span>
+                    <span class="memberName">loadAssetTree</span>
+                    <span class="arguments">(<span class="param"><code>final Collection<AssetTypeHandler></code> <span class="param-name">assetTypes</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method loadAssetTree.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Collection<AssetTypeHandler></code> <b>assetTypes</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="putModifiedAsset">
+                <h4 class="methodName">putModifiedAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">putModifiedAsset</span>
+                    <span class="arguments">(<span class="param"><a href="../data/ModifiedAsset.html" class="type-link"><code>final ModifiedAsset</code></a> <span class="param-name">modifiedAsset</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method putModifiedAsset.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../data/ModifiedAsset.html" class="type-link"><code>final ModifiedAsset</code></a> <b>modifiedAsset</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRecentlyModifiedAssets">
+                <h4 class="methodName">getRecentlyModifiedAssets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ModifiedAsset></code></span>
+                    <span class="memberName">getRecentlyModifiedAssets</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRecentlyModifiedAssets.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="trackEditorFileSave">
+                <h4 class="methodName">trackEditorFileSave</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">trackEditorFileSave</span>
+                    <span class="arguments">(<span class="param"><code>final Path</code> <span class="param-name">path</span></span>, <span class="param"><code>final String</code> <span class="param-name">hash</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method trackEditorFileSave.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Path</code> <b>path</b></dd>
+<dd><code>final String</code> <b>hash</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ArrayDeque">
+                <h4 class="methodName">ArrayDeque</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ArrayDeque</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ArrayDeque.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="EditorFileSaveInfo">
+                <h4 class="methodName">EditorFileSaveInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">EditorFileSaveInfo</span>
+                    <span class="arguments">(<span class="param">hash</span>, <span class="param">System.currentTimeMillis(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method EditorFileSaveInfo.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>hash</code> <b>hash</b></dd>
+<dd><code>System.currentTimeMillis(</code> <b>System.currentTimeMillis(</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

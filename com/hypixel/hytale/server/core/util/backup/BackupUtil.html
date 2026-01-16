@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BackupUtil (com.hypixel.hytale.server.core.util.backup)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/core/util/backup/package-summary.html">com.hypixel.hytale.server.core.util.backup</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">BackupUtil</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="BackupUtil.html" class="type-link">BackupUtil</a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class BackupUtil. Provides backuputil functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; BackupUtil</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">zipOutputStream</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ZipOutputStream</span>
+                    <span class="memberName">zipOutputStream</span>
+                </div>
+                <div class="block">
+                    <p>Field zipOutputStream.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">files</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<Path></span>
+                    <span class="memberName">files</span>
+                </div>
+                <div class="block">
+                    <p>Field files.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">size</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">size</span>
+                </div>
+                <div class="block">
+                    <p>Field size.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">crc</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CRC32</span>
+                    <span class="memberName">crc</span>
+                </div>
+                <div class="block">
+                    <p>Field crc.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">buffer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">byte[]</span>
+                    <span class="memberName">buffer</span>
+                </div>
+                <div class="block">
+                    <p>Field buffer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zipEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ZipEntry</span>
+                    <span class="memberName">zipEntry</span>
+                </div>
+                <div class="block">
+                    <p>Field zipEntry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">message</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Message</span>
+                    <span class="memberName">message</span>
+                </div>
+                <div class="block">
+                    <p>Field message.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hasPermission</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasPermission</span>
+                </div>
+                <div class="block">
+                    <p>Field hasPermission.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zipFiles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<Path></span>
+                    <span class="memberName">zipFiles</span>
+                </div>
+                <div class="block">
+                    <p>Field zipFiles.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">subList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<Path></span>
+                    <span class="memberName">subList</span>
+                </div>
+                <div class="block">
+                    <p>Field subList.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="walkFileTreeAndZip">
+                <h4 class="methodName">walkFileTreeAndZip</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">walkFileTreeAndZip</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Path</code> <span class="param-name">sourceDir</span></span>, <span class="param"><code>@Nonnull final Path</code> <span class="param-name">zipPath</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method walkFileTreeAndZip.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Path</code> <b>sourceDir</b></dd>
+<dd><code>@Nonnull final Path</code> <b>zipPath</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ZipOutputStream">
+                <h4 class="methodName">ZipOutputStream</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ZipOutputStream</span>
+                    <span class="arguments">(<span class="param">Files.newOutputStream(zipPath</span>, <span class="param"><code>new</code> <span class="param-name">OpenOption[0]</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ZipOutputStream.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Files.newOutputStream(zipPath</code> <b>Files.newOutputStream(zipPath</b></dd>
+<dd><code>new</code> <b>OpenOption[0]</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ZipEntry">
+                <h4 class="methodName">ZipEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ZipEntry</span>
+                    <span class="arguments">(<span class="param">sourceDir.relativize(path</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ZipEntry.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>sourceDir.relativize(path</code> <b>sourceDir.relativize(path</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="broadcastBackupStatus">
+                <h4 class="methodName">broadcastBackupStatus</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">broadcastBackupStatus</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">isWorldSaving</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method broadcastBackupStatus.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>isWorldSaving</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="WorldSavingStatus">
+                <h4 class="methodName">WorldSavingStatus</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">WorldSavingStatus</span>
+                    <span class="arguments">(<span class="param">isWorldSaving</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method WorldSavingStatus.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>isWorldSaving</code> <b>isWorldSaving</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="broadcastBackupError">
+                <h4 class="methodName">broadcastBackupError</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">broadcastBackupError</span>
+                    <span class="arguments">(<span class="param"><code>final Throwable</code> <span class="param-name">cause</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method broadcastBackupError.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Throwable</code> <b>cause</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="findOldBackups">
+                <h4 class="methodName">findOldBackups</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>List<Path></code></span>
+                    <span class="memberName">findOldBackups</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Path</code> <span class="param-name">backupDirectory</span></span>, <span class="param"><code>final int</code> <span class="param-name">maxBackupCount</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method findOldBackups.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Path</code> <b>backupDirectory</b></dd>
+<dd><code>final int</code> <b>maxBackupCount</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

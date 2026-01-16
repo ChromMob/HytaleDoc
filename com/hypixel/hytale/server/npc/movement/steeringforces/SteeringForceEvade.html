@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SteeringForceEvade (com.hypixel.hytale.server.npc.movement.steeringforces)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/npc/movement/steeringforces/package-summary.html">com.hypixel.hytale.server.npc.movement.steeringforces</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">SteeringForceEvade</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="SteeringForceEvade.html" class="type-link">SteeringForceEvade</a> extends <a href="SteeringForceWithTarget.html" class="type-link" data-class="SteeringForceWithTarget"><code>SteeringForceWithTarget</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class SteeringForceEvade. Provides steeringforceevade functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; SteeringForceWithTarget &gt; SteeringForceEvade</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">slowdownDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">slowdownDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field slowdownDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">stopDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">stopDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field stopDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">falloff</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">falloff</span>
+                </div>
+                <div class="block">
+                    <p>Field falloff.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">squaredSlowdownDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">squaredSlowdownDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field squaredSlowdownDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">squaredStopDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">squaredStopDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field squaredStopDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">distanceDelta</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">distanceDelta</span>
+                </div>
+                <div class="block">
+                    <p>Field distanceDelta.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">directionHint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">directionHint</span>
+                </div>
+                <div class="block">
+                    <p>Field directionHint.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">adhereToDirectionHint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">adhereToDirectionHint</span>
+                </div>
+                <div class="block">
+                    <p>Field adhereToDirectionHint.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">distanceSquared</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">distanceSquared</span>
+                </div>
+                <div class="block">
+                    <p>Field distanceSquared.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">scale</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">scale</span>
+                </div>
+                <div class="block">
+                    <p>Field scale.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="SteeringForceEvade">
+                <h4 class="methodName">SteeringForceEvade</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">SteeringForceEvade</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method SteeringForceEvade.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDistances">
+                <h4 class="methodName">setDistances</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDistances</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">min</span></span>, <span class="param"><code>final double</code> <span class="param-name">max</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setDistances.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>min</b></dd>
+<dd><code>final double</code> <b>max</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setDirectionHint">
+                <h4 class="methodName">setDirectionHint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setDirectionHint</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">heading</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setDirectionHint.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>heading</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setAdhereToDirectionHint">
+                <h4 class="methodName">setAdhereToDirectionHint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setAdhereToDirectionHint</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">adhereToDirectionHint</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setAdhereToDirectionHint.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>adhereToDirectionHint</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="compute">
+                <h4 class="methodName">compute</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">compute</span>
+                    <span class="arguments">(<span class="param"><a href="..//Steering.html" class="type-link"><code>@Nonnull final Steering</code></a> <span class="param-name">output</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method compute.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="..//Steering.html" class="type-link"><code>@Nonnull final Steering</code></a> <b>output</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSlowdownDistance">
+                <h4 class="methodName">getSlowdownDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getSlowdownDistance</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSlowdownDistance.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setSlowdownDistance">
+                <h4 class="methodName">setSlowdownDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setSlowdownDistance</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">slowdownDistance</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setSlowdownDistance.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>slowdownDistance</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getStopDistance">
+                <h4 class="methodName">getStopDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getStopDistance</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getStopDistance.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setStopDistance">
+                <h4 class="methodName">setStopDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setStopDistance</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">stopDistance</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setStopDistance.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>stopDistance</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFalloff">
+                <h4 class="methodName">getFalloff</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">getFalloff</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getFalloff.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setFalloff">
+                <h4 class="methodName">setFalloff</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setFalloff</span>
+                    <span class="arguments">(<span class="param"><code>final double</code> <span class="param-name">falloff</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setFalloff.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final double</code> <b>falloff</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

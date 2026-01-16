@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CreateWarpWhenTeleporterPlacedSystem (com.hypixel.hytale.builtin.adventure.teleporter.system)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/builtin/adventure/teleporter/system/package-summary.html">com.hypixel.hytale.builtin.adventure.teleporter.system</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">CreateWarpWhenTeleporterPlacedSystem</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="CreateWarpWhenTeleporterPlacedSystem.html" class="type-link">CreateWarpWhenTeleporterPlacedSystem</a> extends <a href="../../../../component/system/RefChangeSystem.html" class="type-link" data-class="RefChangeSystem"><code>RefChangeSystem</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>System for handling createwarpwhenteleporterplaced mechanics. Systems contain game logic that operates on entities with specific component types.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; RefChangeSystem &gt; CreateWarpWhenTeleporterPlacedSystem</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityStore</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EntityStore</span>
+                    <span class="memberName">entityStore</span>
+                </div>
+                <div class="block">
+                    <p>Field entityStore.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">whoPlacedUuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">whoPlacedUuid</span>
+                </div>
+                <div class="block">
+                    <p>Field whoPlacedUuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">whoPlacedRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">whoPlacedRef</span>
+                </div>
+                <div class="block">
+                    <p>Field whoPlacedRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRefComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">playerRefComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRefComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">language</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">language</span>
+                </div>
+                <div class="block">
+                    <p>Field language.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockStateInfoComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockModule.BlockStateInfo</span>
+                    <span class="memberName">blockStateInfoComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field blockStateInfoComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<ChunkStore></span>
+                    <span class="memberName">chunkRef</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">worldChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">WorldChunk</span>
+                    <span class="memberName">worldChunk</span>
+                </div>
+                <div class="block">
+                    <p>Field worldChunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">cannedName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">cannedName</span>
+                </div>
+                <div class="block">
+                    <p>Field cannedName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">teleporterComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Teleporter</span>
+                    <span class="memberName">teleporterComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field teleporterComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkBlockX</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkBlockX</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkBlockX.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">chunkBlockZ</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">chunkBlockZ</span>
+                </div>
+                <div class="block">
+                    <p>Field chunkBlockZ.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">index</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">index</span>
+                </div>
+                <div class="block">
+                    <p>Field index.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">x</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">x</span>
+                </div>
+                <div class="block">
+                    <p>Field x.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">y</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">y</span>
+                </div>
+                <div class="block">
+                    <p>Field y.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">z</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">z</span>
+                </div>
+                <div class="block">
+                    <p>Field z.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockChunkComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockChunk</span>
+                    <span class="memberName">blockChunkComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field blockChunkComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">section</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockSection</span>
+                    <span class="memberName">section</span>
+                </div>
+                <div class="block">
+                    <p>Field section.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotationIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">rotationIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field rotationIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotationTuple</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RotationTuple</span>
+                    <span class="memberName">rotationTuple</span>
+                </div>
+                <div class="block">
+                    <p>Field rotationTuple.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotationYaw</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Rotation</span>
+                    <span class="memberName">rotationYaw</span>
+                </div>
+                <div class="block">
+                    <p>Field rotationYaw.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotationTupleAxis</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">rotationTupleAxis</span>
+                </div>
+                <div class="block">
+                    <p>Field rotationTupleAxis.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">offset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">offset</span>
+                </div>
+                <div class="block">
+                    <p>Field offset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">warpRotationYaw</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">warpRotationYaw</span>
+                </div>
+                <div class="block">
+                    <p>Field warpRotationYaw.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">warpPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">warpPosition</span>
+                </div>
+                <div class="block">
+                    <p>Field warpPosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">warpId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">warpId</span>
+                </div>
+                <div class="block">
+                    <p>Field warpId.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="onComponentAdded">
+                <h4 class="methodName">onComponentAdded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onComponentAdded</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<ChunkStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../server/core/modules/interaction/components/PlacedByInteractionComponent.html" class="type-link"><code>@Nonnull final PlacedByInteractionComponent</code></a> <span class="param-name">placedBy</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <span class="param-name">chunkStore</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<ChunkStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onComponentAdded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<ChunkStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../server/core/modules/interaction/components/PlacedByInteractionComponent.html" class="type-link"><code>@Nonnull final PlacedByInteractionComponent</code></a> <b>placedBy</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <b>chunkStore</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<ChunkStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createWarp">
+                <h4 class="methodName">createWarp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">createWarp</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../server/core/universe/world/chunk/WorldChunk.html" class="type-link"><code>@Nonnull final WorldChunk</code></a> <span class="param-name">worldChunk</span></span>, <span class="param"><code>@Nonnull final BlockModule.BlockStateInfo</code> <span class="param-name">blockStateInfo</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">name</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createWarp.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../server/core/universe/world/chunk/WorldChunk.html" class="type-link"><code>@Nonnull final WorldChunk</code></a> <b>worldChunk</b></dd>
+<dd><code>@Nonnull final BlockModule.BlockStateInfo</code> <b>blockStateInfo</b></dd>
+<dd><code>@Nonnull final String</code> <b>name</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Vector3d">
+                <h4 class="methodName">Vector3d</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Vector3d</span>
+                    <span class="arguments">(<span class="param">CreateWarpWhenTeleporterPlacedSystem.WARP_OFFSET.getX(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Vector3d.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>CreateWarpWhenTeleporterPlacedSystem.WARP_OFFSET.getX(</code> <b>CreateWarpWhenTeleporterPlacedSystem.WARP_OFFSET.getX(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Warp">
+                <h4 class="methodName">Warp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Warp</span>
+                    <span class="arguments">(<span class="param">warpPosition.getX(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Warp.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>warpPosition.getX(</code> <b>warpPosition.getX(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onComponentSet">
+                <h4 class="methodName">onComponentSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onComponentSet</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<ChunkStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../server/core/modules/interaction/components/PlacedByInteractionComponent.html" class="type-link"><code>@Nullable final PlacedByInteractionComponent</code></a> <span class="param-name">oldComponent</span></span>, <span class="param"><a href="../../../../server/core/modules/interaction/components/PlacedByInteractionComponent.html" class="type-link"><code>@Nonnull final PlacedByInteractionComponent</code></a> <span class="param-name">newComponent</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<ChunkStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onComponentSet.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<ChunkStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../server/core/modules/interaction/components/PlacedByInteractionComponent.html" class="type-link"><code>@Nullable final PlacedByInteractionComponent</code></a> <b>oldComponent</b></dd>
+<dd><a href="../../../../server/core/modules/interaction/components/PlacedByInteractionComponent.html" class="type-link"><code>@Nonnull final PlacedByInteractionComponent</code></a> <b>newComponent</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<ChunkStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onComponentRemoved">
+                <h4 class="methodName">onComponentRemoved</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onComponentRemoved</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<ChunkStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../server/core/modules/interaction/components/PlacedByInteractionComponent.html" class="type-link"><code>@Nonnull final PlacedByInteractionComponent</code></a> <span class="param-name">component</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<ChunkStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onComponentRemoved.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<ChunkStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../server/core/modules/interaction/components/PlacedByInteractionComponent.html" class="type-link"><code>@Nonnull final PlacedByInteractionComponent</code></a> <b>component</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<ChunkStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<ChunkStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="componentType">
+                <h4 class="methodName">componentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PlacedByInteractionComponent></code></span>
+                    <span class="memberName">componentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method componentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getQuery">
+                <h4 class="methodName">getQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../component/query/Query.html" class="type-link"><code>Query<ChunkStore></code></a></span>
+                    <span class="memberName">getQuery</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getQuery.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

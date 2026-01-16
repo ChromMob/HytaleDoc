@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BlockSetModule (com.hypixel.hytale.server.core.modules.blockset)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/core/modules/blockset/package-summary.html">com.hypixel.hytale.server.core.modules.blockset</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">BlockSetModule</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="BlockSetModule.html" class="type-link">BlockSetModule</a> extends <a href="../../plugin/JavaPlugin.html" class="type-link" data-class="JavaPlugin"><code>JavaPlugin</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class BlockSetModule. Provides blocksetmodule functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; JavaPlugin &gt; BlockSetModule</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">flattenedBlockSets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Int2ObjectMap<IntSet></span>
+                    <span class="memberName">flattenedBlockSets</span>
+                </div>
+                <div class="block">
+                    <p>Field flattenedBlockSets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">unmodifiableFlattenedBlockSets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Int2ObjectMap<IntSet></span>
+                    <span class="memberName">unmodifiableFlattenedBlockSets</span>
+                </div>
+                <div class="block">
+                    <p>Field unmodifiableFlattenedBlockSets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockSetLookupTable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">BlockSetLookupTable</span>
+                    <span class="memberName">blockSetLookupTable</span>
+                </div>
+                <div class="block">
+                    <p>Field blockSetLookupTable.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">flattenedSets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Int2ObjectOpenHashMap<IntSet></span>
+                    <span class="memberName">flattenedSets</span>
+                </div>
+                <div class="block">
+                    <p>Field flattenedSets.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">index</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">index</span>
+                </div>
+                <div class="block">
+                    <p>Field index.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tIntSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntSet</span>
+                    <span class="memberName">tIntSet</span>
+                </div>
+                <div class="block">
+                    <p>Field tIntSet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">set</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntOpenHashSet</span>
+                    <span class="memberName">set</span>
+                </div>
+                <div class="block">
+                    <p>Field set.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">result</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntOpenHashSet</span>
+                    <span class="memberName">result</span>
+                </div>
+                <div class="block">
+                    <p>Field result.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">parent</span>
+                </div>
+                <div class="block">
+                    <p>Field parent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">parentIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">parentIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field parentIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">includeBlockTypes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">includeBlockTypes</span>
+                </div>
+                <div class="block">
+                    <p>Field includeBlockTypes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">typeString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">typeString</span>
+                </div>
+                <div class="block">
+                    <p>Field typeString.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">obj</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntOpenHashSet</span>
+                    <span class="memberName">obj</span>
+                </div>
+                <div class="block">
+                    <p>Field obj.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">includeBlockGroups</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">includeBlockGroups</span>
+                </div>
+                <div class="block">
+                    <p>Field includeBlockGroups.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">typeString2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">typeString2</span>
+                </div>
+                <div class="block">
+                    <p>Field typeString2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">obj2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntOpenHashSet</span>
+                    <span class="memberName">obj2</span>
+                </div>
+                <div class="block">
+                    <p>Field obj2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">includeHitboxTypes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">includeHitboxTypes</span>
+                </div>
+                <div class="block">
+                    <p>Field includeHitboxTypes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">typeString3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">typeString3</span>
+                </div>
+                <div class="block">
+                    <p>Field typeString3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">obj3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntOpenHashSet</span>
+                    <span class="memberName">obj3</span>
+                </div>
+                <div class="block">
+                    <p>Field obj3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">excludeBlockTypes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">excludeBlockTypes</span>
+                </div>
+                <div class="block">
+                    <p>Field excludeBlockTypes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">typeString4</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">typeString4</span>
+                </div>
+                <div class="block">
+                    <p>Field typeString4.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">obj4</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntOpenHashSet</span>
+                    <span class="memberName">obj4</span>
+                </div>
+                <div class="block">
+                    <p>Field obj4.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">excludeBlockGroups</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">excludeBlockGroups</span>
+                </div>
+                <div class="block">
+                    <p>Field excludeBlockGroups.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">typeString5</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">typeString5</span>
+                </div>
+                <div class="block">
+                    <p>Field typeString5.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">obj5</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntOpenHashSet</span>
+                    <span class="memberName">obj5</span>
+                </div>
+                <div class="block">
+                    <p>Field obj5.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">excludeHitboxTypes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[]</span>
+                    <span class="memberName">excludeHitboxTypes</span>
+                </div>
+                <div class="block">
+                    <p>Field excludeHitboxTypes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">typeString6</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">typeString6</span>
+                </div>
+                <div class="block">
+                    <p>Field typeString6.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">obj6</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntOpenHashSet</span>
+                    <span class="memberName">obj6</span>
+                </div>
+                <div class="block">
+                    <p>Field obj6.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">includeCategories</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[][]</span>
+                    <span class="memberName">includeCategories</span>
+                </div>
+                <div class="block">
+                    <p>Field includeCategories.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">obj7</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntOpenHashSet</span>
+                    <span class="memberName">obj7</span>
+                </div>
+                <div class="block">
+                    <p>Field obj7.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">excludeCategories</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String[][]</span>
+                    <span class="memberName">excludeCategories</span>
+                </div>
+                <div class="block">
+                    <p>Field excludeCategories.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">obj8</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntOpenHashSet</span>
+                    <span class="memberName">obj8</span>
+                </div>
+                <div class="block">
+                    <p>Field obj8.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockSet</span>
+                    <span class="memberName">blockSet</span>
+                </div>
+                <div class="block">
+                    <p>Field blockSet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">andSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntSet</span>
+                    <span class="memberName">andSet</span>
+                </div>
+                <div class="block">
+                    <p>Field andSet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">found</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean[]</span>
+                    <span class="memberName">found</span>
+                </div>
+                <div class="block">
+                    <p>Field found.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ids</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntSet</span>
+                    <span class="memberName">ids</span>
+                </div>
+                <div class="block">
+                    <p>Field ids.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">s</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntSet</span>
+                    <span class="memberName">s</span>
+                </div>
+                <div class="block">
+                    <p>Field s.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="BlockSetModule">
+                <h4 class="methodName">BlockSetModule</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">BlockSetModule</span>
+                    <span class="arguments">(<span class="param"><a href="../../plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <span class="param-name">module</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BlockSetModule.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <b>module</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="BlockSetCommand">
+                <h4 class="methodName">BlockSetCommand</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BlockSetCommand</span>
+                    <span class="arguments">(<span class="param">this</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BlockSetCommand.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this</code> <b>this</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onBlockTypesChanged">
+                <h4 class="methodName">onBlockTypesChanged</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onBlockTypesChanged</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, BlockType, BlockTypeAssetMap<String, BlockType>></code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onBlockTypesChanged.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, BlockType, BlockTypeAssetMap<String, BlockType>></code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BlockSetLookupTable">
+                <h4 class="methodName">BlockSetLookupTable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BlockSetLookupTable</span>
+                    <span class="arguments">(<span class="param">event.getAssetMap(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BlockSetLookupTable.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>event.getAssetMap(</code> <b>event.getAssetMap(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onBlockSetsChanged">
+                <h4 class="methodName">onBlockSetsChanged</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onBlockSetsChanged</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>final LoadedAssetsEvent<String, BlockSet, DefaultAssetMap<String, BlockSet>></code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onBlockSetsChanged.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>final LoadedAssetsEvent<String, BlockSet, DefaultAssetMap<String, BlockSet>></code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="flattenBlockSets">
+                <h4 class="methodName">flattenBlockSets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>Int2ObjectMap<IntSet></code></span>
+                    <span class="memberName">flattenBlockSets</span>
+                    <span class="arguments">(<span class="param"><a href="BlockSetLookupTable.html" class="type-link"><code>@Nonnull final BlockSetLookupTable</code></a> <span class="param-name">lookupTable</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method flattenBlockSets.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="BlockSetLookupTable.html" class="type-link"><code>@Nonnull final BlockSetLookupTable</code></a> <b>lookupTable</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createSet">
+                <h4 class="methodName">createSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>IntOpenHashSet</code></span>
+                    <span class="memberName">createSet</span>
+                    <span class="arguments">(<span class="param"><a href="../../asset/type/blockset/config/BlockSet.html" class="type-link"><code>@Nonnull final BlockSet</code></a> <span class="param-name">blockSet</span></span>, <span class="param"><a href="BlockSetLookupTable.html" class="type-link"><code>@Nonnull final BlockSetLookupTable</code></a> <span class="param-name">lookupTable</span></span>, <span class="param"><code>@Nonnull final Int2ObjectMap<IntSet></code> <span class="param-name">flattenedSets</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createSet.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../asset/type/blockset/config/BlockSet.html" class="type-link"><code>@Nonnull final BlockSet</code></a> <b>blockSet</b></dd>
+<dd><a href="BlockSetLookupTable.html" class="type-link"><code>@Nonnull final BlockSetLookupTable</code></a> <b>lookupTable</b></dd>
+<dd><code>@Nonnull final Int2ObjectMap<IntSet></code> <b>flattenedSets</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="consume">
+                <h4 class="methodName">consume</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">consume</span>
+                    <span class="arguments">(<span class="param"><code>@Nullable final String[]</code> <span class="param-name">values</span></span>, <span class="param"><code>@Nonnull final Map<String, IntSet></code> <span class="param-name">map</span></span>, <span class="param"><code>final String</code> <span class="param-name">typeString</span></span>, <span class="param"><code>@Nonnull final Consumer<IntSet></code> <span class="param-name">addAll</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method consume.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nullable final String[]</code> <b>values</b></dd>
+<dd><code>@Nonnull final Map<String, IntSet></code> <b>map</b></dd>
+<dd><code>final String</code> <b>typeString</b></dd>
+<dd><code>@Nonnull final Consumer<IntSet></code> <b>addAll</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="consumeCategory">
+                <h4 class="methodName">consumeCategory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">consumeCategory</span>
+                    <span class="arguments">(<span class="param"><code>@Nullable final String[]</code> <span class="param-name">categories</span></span>, <span class="param"><code>@Nonnull final Consumer<IntSet></code> <span class="param-name">predicate</span></span>, <span class="param"><a href="BlockSetLookupTable.html" class="type-link"><code>@Nonnull final BlockSetLookupTable</code></a> <span class="param-name">lookupTable</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method consumeCategory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nullable final String[]</code> <b>categories</b></dd>
+<dd><code>@Nonnull final Consumer<IntSet></code> <b>predicate</b></dd>
+<dd><a href="BlockSetLookupTable.html" class="type-link"><code>@Nonnull final BlockSetLookupTable</code></a> <b>lookupTable</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="consumeEntry">
+                <h4 class="methodName">consumeEntry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">consumeEntry</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">name</span></span>, <span class="param"><code>@Nonnull final Consumer<IntSet></code> <span class="param-name">predicate</span></span>, <span class="param"><code>@Nonnull final Map<String, IntSet></code> <span class="param-name">nameIdMap</span></span>, <span class="param"><code>final String</code> <span class="param-name">typeString</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method consumeEntry.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>name</b></dd>
+<dd><code>@Nonnull final Consumer<IntSet></code> <b>predicate</b></dd>
+<dd><code>@Nonnull final Map<String, IntSet></code> <b>nameIdMap</b></dd>
+<dd><code>final String</code> <b>typeString</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlockSets">
+                <h4 class="methodName">getBlockSets</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Int2ObjectMap<IntSet></code></span>
+                    <span class="memberName">getBlockSets</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlockSets.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="blockInSet">
+                <h4 class="methodName">blockInSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">blockInSet</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">set</span></span>, <span class="param"><code>final int</code> <span class="param-name">blockId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method blockInSet.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>set</b></dd>
+<dd><code>final int</code> <b>blockId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInstance">
+                <h4 class="methodName">getInstance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="BlockSetModule.html" class="type-link"><code>BlockSetModule</code></a></span>
+                    <span class="memberName">getInstance</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getInstance.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

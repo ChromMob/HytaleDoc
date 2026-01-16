@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ItemComponent (com.hypixel.hytale.server.core.modules.entity.item)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../../com/hypixel/hytale/server/core/modules/entity/item/package-summary.html">com.hypixel.hytale.server.core.modules.entity.item</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">ItemComponent</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="ItemComponent.html" class="type-link">ItemComponent</a> implements <a href="../../../../../component/Component.html" class="type-link" data-class="Component"><code>Component<EntityStore></code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Component for tracking item state. Attach this component to entities that need to track item data.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; ItemComponent</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">itemStack</span>
+                </div>
+                <div class="block">
+                    <p>Field itemStack.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">isNetworkOutdated</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">isNetworkOutdated</span>
+                </div>
+                <div class="block">
+                    <p>Field isNetworkOutdated.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">mergeDelay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">mergeDelay</span>
+                </div>
+                <div class="block">
+                    <p>Field mergeDelay.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pickupDelay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">pickupDelay</span>
+                </div>
+                <div class="block">
+                    <p>Field pickupDelay.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pickupThrottle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">pickupThrottle</span>
+                </div>
+                <div class="block">
+                    <p>Field pickupThrottle.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">removedByPlayerPickup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">removedByPlayerPickup</span>
+                </div>
+                <div class="block">
+                    <p>Field removedByPlayerPickup.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pickupRange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">pickupRange</span>
+                </div>
+                <div class="block">
+                    <p>Field pickupRange.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">defaultConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemEntityConfig</span>
+                    <span class="memberName">defaultConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field defaultConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">config</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemEntityConfig</span>
+                    <span class="memberName">config</span>
+                </div>
+                <div class="block">
+                    <p>Field config.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemEntityConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemEntityConfig</span>
+                    <span class="memberName">itemEntityConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field itemEntityConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ttl</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Float</span>
+                    <span class="memberName">ttl</span>
+                </div>
+                <div class="block">
+                    <p>Field ttl.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">item</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Item</span>
+                    <span class="memberName">item</span>
+                </div>
+                <div class="block">
+                    <p>Field item.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockType</span>
+                    <span class="memberName">blockType</span>
+                </div>
+                <div class="block">
+                    <p>Field blockType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">temp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">temp</span>
+                </div>
+                <div class="block">
+                    <p>Field temp.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">randomAngleOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">randomAngleOffset</span>
+                </div>
+                <div class="block">
+                    <p>Field randomAngleOffset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">iterator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CircleIterator</span>
+                    <span class="memberName">iterator</span>
+                </div>
+                <div class="block">
+                    <p>Field iterator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">circlePos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">circlePos</span>
+                </div>
+                <div class="block">
+                    <p>Field circlePos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemEntityHolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">itemEntityHolder</span>
+                </div>
+                <div class="block">
+                    <p>Field itemEntityHolder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">holder</span>
+                </div>
+                <div class="block">
+                    <p>Field holder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemComponent</span>
+                    <span class="memberName">itemComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field itemComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempTtl</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">tempTtl</span>
+                </div>
+                <div class="block">
+                    <p>Field tempTtl.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">timeResource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TimeResource</span>
+                    <span class="memberName">timeResource</span>
+                </div>
+                <div class="block">
+                    <p>Field timeResource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemTransformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">itemTransformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field itemTransformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemItemComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemComponent</span>
+                    <span class="memberName">itemItemComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field itemItemComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemHeadRotationComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HeadRotation</span>
+                    <span class="memberName">itemHeadRotationComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field itemHeadRotationComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pickupItemComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PickupItemComponent</span>
+                    <span class="memberName">pickupItemComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field pickupItemComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transaction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStackTransaction</span>
+                    <span class="memberName">transaction</span>
+                </div>
+                <div class="block">
+                    <p>Field transaction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">remainder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">remainder</span>
+                </div>
+                <div class="block">
+                    <p>Field remainder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">quantity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">quantity</span>
+                </div>
+                <div class="block">
+                    <p>Field quantity.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="getComponentType">
+                <h4 class="methodName">getComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ItemComponent></code></span>
+                    <span class="memberName">getComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ItemComponent">
+                <h4 class="methodName">ItemComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">ItemComponent</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ItemComponent.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getItemStack">
+                <h4 class="methodName">getItemStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../inventory/ItemStack.html" class="type-link"><code>ItemStack</code></a></span>
+                    <span class="memberName">getItemStack</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getItemStack.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setItemStack">
+                <h4 class="methodName">setItemStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setItemStack</span>
+                    <span class="arguments">(<span class="param"><a href="../../../inventory/ItemStack.html" class="type-link"><code>@Nullable final ItemStack</code></a> <span class="param-name">itemStack</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setItemStack.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../inventory/ItemStack.html" class="type-link"><code>@Nullable final ItemStack</code></a> <b>itemStack</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setPickupDelay">
+                <h4 class="methodName">setPickupDelay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setPickupDelay</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">pickupDelay</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setPickupDelay.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>pickupDelay</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPickupRadius">
+                <h4 class="methodName">getPickupRadius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">getPickupRadius</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getPickupRadius.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="computeLifetimeSeconds">
+                <h4 class="methodName">computeLifetimeSeconds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">computeLifetimeSeconds</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method computeLifetimeSeconds.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="computeDynamicLight">
+                <h4 class="methodName">computeDynamicLight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../../protocol/ColorLight.html" class="type-link"><code>ColorLight</code></a></span>
+                    <span class="memberName">computeDynamicLight</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method computeDynamicLight.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">item.getLight(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>item.getLight(</code> <b>item.getLight(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="pollPickupDelay">
+                <h4 class="methodName">pollPickupDelay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">pollPickupDelay</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method pollPickupDelay.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="pollPickupThrottle">
+                <h4 class="methodName">pollPickupThrottle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">pollPickupThrottle</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method pollPickupThrottle.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="pollMergeDelay">
+                <h4 class="methodName">pollMergeDelay</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">pollMergeDelay</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method pollMergeDelay.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="canPickUp">
+                <h4 class="methodName">canPickUp</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">canPickUp</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method canPickUp.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="isRemovedByPlayerPickup">
+                <h4 class="methodName">isRemovedByPlayerPickup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isRemovedByPlayerPickup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method isRemovedByPlayerPickup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="setRemovedByPlayerPickup">
+                <h4 class="methodName">setRemovedByPlayerPickup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setRemovedByPlayerPickup</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">removedByPlayerPickup</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setRemovedByPlayerPickup.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>removedByPlayerPickup</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="consumeNetworkOutdated">
+                <h4 class="methodName">consumeNetworkOutdated</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">consumeNetworkOutdated</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method consumeNetworkOutdated.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clone">
+                <h4 class="methodName">clone</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="ItemComponent.html" class="type-link"><code>ItemComponent</code></a></span>
+                    <span class="memberName">clone</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clone.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateItemDrops">
+                <h4 class="methodName">generateItemDrops</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../../../../component/Holder.html" class="type-link"><code>Holder<EntityStore>[]</code></a></span>
+                    <span class="memberName">generateItemDrops</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">accessor</span></span>, <span class="param"><code>@Nonnull final List<ItemStack></code> <span class="param-name">itemStacks</span></span>, <span class="param"><a href="../../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../../protocol/Vector3f.html" class="type-link"><code>@Nonnull final Vector3f</code></a> <span class="param-name">rotation</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateItemDrops.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>accessor</b></dd>
+<dd><code>@Nonnull final List<ItemStack></code> <b>itemStacks</b></dd>
+<dd><a href="../../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../../../protocol/Vector3f.html" class="type-link"><code>@Nonnull final Vector3f</code></a> <b>rotation</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="CircleIterator">
+                <h4 class="methodName">CircleIterator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">CircleIterator</span>
+                    <span class="arguments">(<span class="param">Vector3d.ZERO</span>, <span class="param">3.0</span>, <span class="param">itemStacks.size(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method CircleIterator.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Vector3d.ZERO</code> <b>Vector3d.ZERO</b></dd>
+<dd><code>3.0</code> <b>3.0</b></dd>
+<dd><code>itemStacks.size(</code> <b>itemStacks.size(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateItemDrop">
+                <h4 class="methodName">generateItemDrop</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>return</code></span>
+                    <span class="memberName">generateItemDrop</span>
+                    <span class="arguments">(<span class="param">accessor</span>, <span class="param">item</span>, <span class="param">position</span>, <span class="param">rotation</span>, <span class="param">(float</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateItemDrop.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>accessor</code> <b>accessor</b></dd>
+<dd><code>item</code> <b>item</b></dd>
+<dd><code>position</code> <b>position</b></dd>
+<dd><code>rotation</code> <b>rotation</b></dd>
+<dd><code>(float</code> <b>(float</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="TransformComponent">
+                <h4 class="methodName">TransformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">TransformComponent</span>
+                    <span class="arguments">(<span class="param">position</span>, <span class="param">rotation</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method TransformComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>position</code> <b>position</b></dd>
+<dd><code>rotation</code> <b>rotation</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generatePickedUpItem">
+                <h4 class="methodName">generatePickedUpItem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../../../../component/Holder.html" class="type-link"><code>Holder<EntityStore></code></a></span>
+                    <span class="memberName">generatePickedUpItem</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <span class="param-name">componentAccessor</span></span>, <span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">targetRef</span></span>, <span class="param"><a href="../../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">targetPosition</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generatePickedUpItem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../../component/ComponentAccessor.html" class="type-link"><code>@Nonnull final ComponentAccessor<EntityStore></code></a> <b>componentAccessor</b></dd>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>targetRef</b></dd>
+<dd><a href="../../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>targetPosition</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PickupItemComponent">
+                <h4 class="methodName">PickupItemComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PickupItemComponent</span>
+                    <span class="arguments">(<span class="param">targetRef</span>, <span class="param">targetPosition.clone(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PickupItemComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>targetRef</code> <b>targetRef</b></dd>
+<dd><code>targetPosition.clone(</code> <b>targetPosition.clone(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NetworkId">
+                <h4 class="methodName">NetworkId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NetworkId</span>
+                    <span class="arguments">(<span class="param">ref.getStore(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NetworkId.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>ref.getStore(</code> <b>ref.getStore(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="addToItemContainer">
+                <h4 class="methodName">addToItemContainer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../../inventory/ItemStack.html" class="type-link"><code>ItemStack</code></a></span>
+                    <span class="memberName">addToItemContainer</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">itemRef</span></span>, <span class="param"><a href="../../../inventory/container/ItemContainer.html" class="type-link"><code>@Nonnull final ItemContainer</code></a> <span class="param-name">itemContainer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method addToItemContainer.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>itemRef</b></dd>
+<dd><a href="../../../inventory/container/ItemContainer.html" class="type-link"><code>@Nonnull final ItemContainer</code></a> <b>itemContainer</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

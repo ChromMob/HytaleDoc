@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HandshakeHandler (com.hypixel.hytale.server.core.io.handlers.login)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../../com/hypixel/hytale/server/core/io/handlers/login/package-summary.html">com.hypixel.hytale.server.core.io.handlers.login</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">HandshakeHandler</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">abstract class <a href="HandshakeHandler.html" class="type-link">HandshakeHandler</a> extends <a href="..//GenericConnectionPacketHandler.html" class="type-link" data-class="GenericConnectionPacketHandler"><code>GenericConnectionPacketHandler</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class HandshakeHandler. Provides handshakehandler functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; GenericConnectionPacketHandler &gt; HandshakeHandler</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">authTimeout</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Duration</span>
+                    <span class="memberName">authTimeout</span>
+                </div>
+                <div class="block">
+                    <p>Field authTimeout.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">identityClaims</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JWTValidator.IdentityTokenClaims</span>
+                    <span class="memberName">identityClaims</span>
+                </div>
+                <div class="block">
+                    <p>Field identityClaims.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tokenUuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">tokenUuid</span>
+                </div>
+                <div class="block">
+                    <p>Field tokenUuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">requiredScope</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">requiredScope</span>
+                </div>
+                <div class="block">
+                    <p>Field requiredScope.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">serverSessionToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">serverSessionToken</span>
+                </div>
+                <div class="block">
+                    <p>Field serverSessionToken.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">serverIdentityToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">serverIdentityToken</span>
+                </div>
+                <div class="block">
+                    <p>Field serverIdentityToken.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">finalServerIdentityToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">finalServerIdentityToken</span>
+                </div>
+                <div class="block">
+                    <p>Field finalServerIdentityToken.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">accessToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">accessToken</span>
+                </div>
+                <div class="block">
+                    <p>Field accessToken.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">serverAuthGrant</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">serverAuthGrant</span>
+                </div>
+                <div class="block">
+                    <p>Field serverAuthGrant.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">clientCert</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">X509Certificate</span>
+                    <span class="memberName">clientCert</span>
+                </div>
+                <div class="block">
+                    <p>Field clientCert.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">claims</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">JWTValidator.JWTClaims</span>
+                    <span class="memberName">claims</span>
+                </div>
+                <div class="block">
+                    <p>Field claims.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tokenUsername</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">tokenUsername</span>
+                </div>
+                <div class="block">
+                    <p>Field tokenUsername.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">serverAuthManager</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ServerAuthManager</span>
+                    <span class="memberName">serverAuthManager</span>
+                </div>
+                <div class="block">
+                    <p>Field serverAuthManager.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">serverCertFingerprint</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">serverCertFingerprint</span>
+                </div>
+                <div class="block">
+                    <p>Field serverCertFingerprint.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">passwordChallenge</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">byte[]</span>
+                    <span class="memberName">passwordChallenge</span>
+                </div>
+                <div class="block">
+                    <p>Field passwordChallenge.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">passwordChallenge2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">byte[]</span>
+                    <span class="memberName">passwordChallenge2</span>
+                </div>
+                <div class="block">
+                    <p>Field passwordChallenge2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">password</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">password</span>
+                </div>
+                <div class="block">
+                    <p>Field password.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ownerUuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">ownerUuid</span>
+                </div>
+                <div class="block">
+                    <p>Field ownerUuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">challenge</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">byte[]</span>
+                    <span class="memberName">challenge</span>
+                </div>
+                <div class="block">
+                    <p>Field challenge.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="HandshakeHandler">
+                <h4 class="methodName">HandshakeHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">HandshakeHandler</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final Channel</code> <span class="param-name">channel</span></span>, <span class="param"><a href="../..//ProtocolVersion.html" class="type-link"><code>@Nonnull final ProtocolVersion</code></a> <span class="param-name">protocolVersion</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">language</span></span>, <span class="param"><a href="../../../../../protocol/packets/connection/ClientType.html" class="type-link"><code>@Nonnull final ClientType</code></a> <span class="param-name">clientType</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">identityToken</span></span>, <span class="param"><code>@Nonnull final UUID</code> <span class="param-name">playerUuid</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">username</span></span>, <span class="param"><code>@Nullable final byte[]</code> <span class="param-name">referralData</span></span>, <span class="param"><a href="../../../../../protocol/HostAddress.html" class="type-link"><code>@Nullable final HostAddress</code></a> <span class="param-name">referralSource</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method HandshakeHandler.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final Channel</code> <b>channel</b></dd>
+<dd><a href="../..//ProtocolVersion.html" class="type-link"><code>@Nonnull final ProtocolVersion</code></a> <b>protocolVersion</b></dd>
+<dd><code>@Nonnull final String</code> <b>language</b></dd>
+<dd><a href="../../../../../protocol/packets/connection/ClientType.html" class="type-link"><code>@Nonnull final ClientType</code></a> <b>clientType</b></dd>
+<dd><code>@Nonnull final String</code> <b>identityToken</b></dd>
+<dd><code>@Nonnull final UUID</code> <b>playerUuid</b></dd>
+<dd><code>@Nonnull final String</code> <b>username</b></dd>
+<dd><code>@Nullable final byte[]</code> <b>referralData</b></dd>
+<dd><a href="../../../../../protocol/HostAddress.html" class="type-link"><code>@Nullable final HostAddress</code></a> <b>referralSource</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSessionServiceClient">
+                <h4 class="methodName">getSessionServiceClient</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../../auth/SessionServiceClient.html" class="type-link"><code>SessionServiceClient</code></a></span>
+                    <span class="memberName">getSessionServiceClient</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSessionServiceClient.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getJwtValidator">
+                <h4 class="methodName">getJwtValidator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="../../../auth/JWTValidator.html" class="type-link"><code>JWTValidator</code></a></span>
+                    <span class="memberName">getJwtValidator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getJwtValidator.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="JWTValidator">
+                <h4 class="methodName">JWTValidator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">JWTValidator</span>
+                    <span class="arguments">(<span class="param">getSessionServiceClient(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method JWTValidator.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>getSessionServiceClient(</code> <b>getSessionServiceClient(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="accept">
+                <h4 class="methodName">accept</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">accept</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <span class="param-name">packet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method accept.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../protocol/Packet.html" class="type-link"><code>@Nonnull final Packet</code></a> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="registered0">
+                <h4 class="methodName">registered0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">registered0</span>
+                    <span class="arguments">(<span class="param"><a href="../..//PacketHandler.html" class="type-link"><code>final PacketHandler</code></a> <span class="param-name">oldHandler</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registered0.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../..//PacketHandler.html" class="type-link"><code>final PacketHandler</code></a> <b>oldHandler</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ReadTimeoutHandler">
+                <h4 class="methodName">ReadTimeoutHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ReadTimeoutHandler</span>
+                    <span class="arguments">(<span class="param">authTimeout.toMillis(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ReadTimeoutHandler.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>authTimeout.toMillis(</code> <b>authTimeout.toMillis(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="requestAuthGrant">
+                <h4 class="methodName">requestAuthGrant</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">requestAuthGrant</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method requestAuthGrant.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="AuthGrant">
+                <h4 class="methodName">AuthGrant</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">AuthGrant</span>
+                    <span class="arguments">(<span class="param">authGrant</span>, <span class="param">finalServerIdentityToken</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method AuthGrant.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>authGrant</code> <b>authGrant</b></dd>
+<dd><code>finalServerIdentityToken</code> <b>finalServerIdentityToken</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handle">
+                <h4 class="methodName">handle</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handle</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../../protocol/packets/connection/Disconnect.html" class="type-link"><code>@Nonnull final Disconnect</code></a> <span class="param-name">packet</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handle.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../../protocol/packets/connection/Disconnect.html" class="type-link"><code>@Nonnull final Disconnect</code></a> <b>packet</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="JWT">
+                <h4 class="methodName">JWT</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>validating</code></span>
+                    <span class="memberName">JWT</span>
+                    <span class="arguments">(<span class="param"><code>mTLS cert present:</code> <span class="param-name">%s</span></span>, <span class="param"><code>server auth grant:</code> <span class="param-name">%s</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method JWT.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>server auth grant:</code> <b>%s</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="exchangeServerAuthGrant">
+                <h4 class="methodName">exchangeServerAuthGrant</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">exchangeServerAuthGrant</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">serverAuthGrant</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method exchangeServerAuthGrant.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>serverAuthGrant</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="token">
+                <h4 class="methodName">token</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>session</code></span>
+                    <span class="memberName">token</span>
+                    <span class="arguments">(<span class="param"><code>first 20</code> <span class="param-name">chars</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method token.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>first 20</code> <b>chars</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param"><code>serverAccessToken ==</code> <span class="param-name">null</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>serverAccessToken ==</code> <b>null</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ServerAuthToken">
+                <h4 class="methodName">ServerAuthToken</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ServerAuthToken</span>
+                    <span class="arguments">(<span class="param">serverAccessToken</span>, <span class="param">passwordChallenge</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ServerAuthToken.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>serverAccessToken</code> <b>serverAccessToken</b></dd>
+<dd><code>passwordChallenge</code> <b>passwordChallenge</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generatePasswordChallengeIfNeeded">
+                <h4 class="methodName">generatePasswordChallengeIfNeeded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>byte[]</code></span>
+                    <span class="memberName">generatePasswordChallengeIfNeeded</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method generatePasswordChallengeIfNeeded.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="SecureRandom">
+                <h4 class="methodName">SecureRandom</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SecureRandom</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method SecureRandom.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="completeAuthentication">
+                <h4 class="methodName">completeAuthentication</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">completeAuthentication</span>
+                    <span class="arguments">(<span class="param"><code>final byte[]</code> <span class="param-name">passwordChallenge</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method completeAuthentication.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final byte[]</code> <b>passwordChallenge</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

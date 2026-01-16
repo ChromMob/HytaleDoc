@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChunkGenerator (com.hypixel.hytale.server.worldgen.chunk)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/worldgen/chunk/package-summary.html">com.hypixel.hytale.server.worldgen.chunk</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">ChunkGenerator</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="ChunkGenerator.html" class="type-link">ChunkGenerator</a> implements <a href="../../core/universe/world/worldgen/IBenchmarkableWorldGen.html" class="type-link" data-class="IBenchmarkableWorldGen"><code>IBenchmarkableWorldGen</code></a>, <a href="../../core/universe/world/worldgen/ValidatableWorldGen.html" class="type-link" data-class="ValidatableWorldGen"><code>ValidatableWorldGen</code></a>, <a href="../../../metrics/MetricProvider.html" class="type-link" data-class="MetricProvider"><code>MetricProvider</code></a>, <a href="../../core/universe/world/worldmap/provider/IWorldMapProvider.html" class="type-link" data-class="IWorldMapProvider"><code>IWorldMapProvider</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class ChunkGenerator. Provides chunkgenerator functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; ChunkGenerator</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">list</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ArrayList</span>
+                    <span class="memberName">list</span>
+                </div>
+                <div class="block">
+                    <p>Field list.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">spawnPosition</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnPosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3f</span>
+                    <span class="memberName">spawnRotation</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnRotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">array</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Transform[]</span>
+                    <span class="memberName">array</span>
+                </div>
+                <div class="block">
+                    <p>Field array.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">random</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Random</span>
+                    <span class="memberName">random</span>
+                </div>
+                <div class="block">
+                    <p>Field random.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">start</span>
+                </div>
+                <div class="block">
+                    <p>Field start.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">generatedChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">GeneratedChunk</span>
+                    <span class="memberName">generatedChunk</span>
+                </div>
+                <div class="block">
+                    <p>Field generatedChunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">GeneratedBlockChunk</span>
+                    <span class="memberName">blockChunk</span>
+                </div>
+                <div class="block">
+                    <p>Field blockChunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockStateChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">GeneratedBlockStateChunk</span>
+                    <span class="memberName">blockStateChunk</span>
+                </div>
+                <div class="block">
+                    <p>Field blockStateChunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityChunk</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">GeneratedEntityChunk</span>
+                    <span class="memberName">entityChunk</span>
+                </div>
+                <div class="block">
+                    <p>Field entityChunk.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sections</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<ChunkStore>[]</span>
+                    <span class="memberName">sections</span>
+                </div>
+                <div class="block">
+                    <p>Field sections.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">end</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">end</span>
+                </div>
+                <div class="block">
+                    <p>Field end.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">time</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">time</span>
+                </div>
+                <div class="block">
+                    <p>Field time.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">avg</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">avg</span>
+                </div>
+                <div class="block">
+                    <p>Field avg.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zonePatternGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ZonePatternGenerator</span>
+                    <span class="memberName">zonePatternGenerator</span>
+                </div>
+                <div class="block">
+                    <p>Field zonePatternGenerator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tempZoneResult</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ZoneGeneratorResult</span>
+                    <span class="memberName">tempZoneResult</span>
+                </div>
+                <div class="block">
+                    <p>Field tempZoneResult.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zoneResult</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ZoneGeneratorResult</span>
+                    <span class="memberName">zoneResult</span>
+                </div>
+                <div class="block">
+                    <p>Field zoneResult.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">biome</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Biome</span>
+                    <span class="memberName">biome</span>
+                </div>
+                <div class="block">
+                    <p>Field biome.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">heightThresholdContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">heightThresholdContext</span>
+                </div>
+                <div class="block">
+                    <p>Field heightThresholdContext.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fadeContainer</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">FadeContainer</span>
+                    <span class="memberName">fadeContainer</span>
+                </div>
+                <div class="block">
+                    <p>Field fadeContainer.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">factor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">factor</span>
+                </div>
+                <div class="block">
+                    <p>Field factor.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">center</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ZoneBiomeResult</span>
+                    <span class="memberName">center</span>
+                </div>
+                <div class="block">
+                    <p>Field center.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">radius</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">radius</span>
+                </div>
+                <div class="block">
+                    <p>Field radius.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">radius2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">radius2</span>
+                </div>
+                <div class="block">
+                    <p>Field radius2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">distance2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">distance2</span>
+                </div>
+                <div class="block">
+                    <p>Field distance2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">biomeResult</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ZoneBiomeResult</span>
+                    <span class="memberName">biomeResult</span>
+                </div>
+                <div class="block">
+                    <p>Field biomeResult.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">result</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InterpolatedBiomeCountList.BiomeCountResult</span>
+                    <span class="memberName">result</span>
+                </div>
+                <div class="block">
+                    <p>Field result.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">biomes</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">IntList</span>
+                    <span class="memberName">biomes</span>
+                </div>
+                <div class="block">
+                    <p>Field biomes.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">id</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">id</span>
+                </div>
+                <div class="block">
+                    <p>Field id.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">v</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">v</span>
+                </div>
+                <div class="block">
+                    <p>Field v.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">r</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InterpolatedBiomeCountList.BiomeCountResult</span>
+                    <span class="memberName">r</span>
+                </div>
+                <div class="block">
+                    <p>Field r.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CoreDataCacheEntry</span>
+                    <span class="memberName">entry</span>
+                </div>
+                <div class="block">
+                    <p>Field entry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">biomeCounts</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">InterpolatedBiomeCountList</span>
+                    <span class="memberName">biomeCounts</span>
+                </div>
+                <div class="block">
+                    <p>Field biomeCounts.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">heightNoise</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">heightNoise</span>
+                </div>
+                <div class="block">
+                    <p>Field heightNoise.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">threshold</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">threshold</span>
+                </div>
+                <div class="block">
+                    <p>Field threshold.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zoneBiomeResult</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ZoneBiomeResult</span>
+                    <span class="memberName">zoneBiomeResult</span>
+                </div>
+                <div class="block">
+                    <p>Field zoneBiomeResult.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">caveGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">CaveGenerator</span>
+                    <span class="memberName">caveGenerator</span>
+                </div>
+                <div class="block">
+                    <p>Field caveGenerator.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">height</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">height</span>
+                </div>
+                <div class="block">
+                    <p>Field height.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entries</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ArrayList<UniquePrefabContainer.UniquePrefabEntry></span>
+                    <span class="memberName">entries</span>
+                </div>
+                <div class="block">
+                    <p>Field entries.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">visited</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BitSet</span>
+                    <span class="memberName">visited</span>
+                </div>
+                <div class="block">
+                    <p>Field visited.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zoneEntries</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UniquePrefabContainer.UniquePrefabEntry[]</span>
+                    <span class="memberName">zoneEntries</span>
+                </div>
+                <div class="block">
+                    <p>Field zoneEntries.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">zoneEntries2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UniquePrefabContainer.UniquePrefabEntry[]</span>
+                    <span class="memberName">zoneEntries2</span>
+                </div>
+                <div class="block">
+                    <p>Field zoneEntries2.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="ChunkGenerator">
+                <h4 class="methodName">ChunkGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">ChunkGenerator</span>
+                    <span class="arguments">(<span class="param"><a href="../zone/ZonePatternProvider.html" class="type-link"><code>final ZonePatternProvider</code></a> <span class="param-name">zonePatternProvider</span></span>, <span class="param"><code>final Path</code> <span class="param-name">dataFolder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ChunkGenerator.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../zone/ZonePatternProvider.html" class="type-link"><code>final ZonePatternProvider</code></a> <b>zonePatternProvider</b></dd>
+<dd><code>final Path</code> <b>dataFolder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ChunkThreadPoolExecutor">
+                <h4 class="methodName">ChunkThreadPoolExecutor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ChunkThreadPoolExecutor</span>
+                    <span class="arguments">(<span class="param">ChunkGenerator.POOL_SIZE</span>, <span class="param">ChunkGenerator.POOL_SIZE</span>, <span class="param">60L</span>, <span class="param">TimeUnit.SECONDS</span>, <span class="param"><code>new</code> <span class="param-name">LinkedBlockingQueue<Runnable>(</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ChunkThreadPoolExecutor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>ChunkGenerator.POOL_SIZE</code> <b>ChunkGenerator.POOL_SIZE</b></dd>
+<dd><code>60L</code> <b>60L</b></dd>
+<dd><code>TimeUnit.SECONDS</code> <b>TimeUnit.SECONDS</b></dd>
+<dd><code>new</code> <b>LinkedBlockingQueue<Runnable>(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ChunkWorkerThreadFactory">
+                <h4 class="methodName">ChunkWorkerThreadFactory</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ChunkWorkerThreadFactory</span>
+                    <span class="arguments">(<span class="param">this</span>, <span class="param">"ChunkGenerator-%d-Worker-%d"</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ChunkWorkerThreadFactory.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this</code> <b>this</b></dd>
+<dd><code>"ChunkGenerator-%d-Worker-%d"</code> <b>"ChunkGenerator-%d-Worker-%d"</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getZonePatternProvider">
+                <h4 class="methodName">getZonePatternProvider</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../zone/ZonePatternProvider.html" class="type-link"><code>ZonePatternProvider</code></a></span>
+                    <span class="memberName">getZonePatternProvider</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getZonePatternProvider.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTimings">
+                <h4 class="methodName">getTimings</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../core/universe/world/worldgen/WorldGenTimingsCollector.html" class="type-link"><code>WorldGenTimingsCollector</code></a></span>
+                    <span class="memberName">getTimings</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTimings.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getGenerator">
+                <h4 class="methodName">getGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../core/universe/world/worldmap/IWorldMap.html" class="type-link"><code>IWorldMap</code></a></span>
+                    <span class="memberName">getGenerator</span>
+                    <span class="arguments">(<span class="param"><code>final World</code> <span class="param-name">world</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getGenerator.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final World</code> <b>world</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSpawnPoints">
+                <h4 class="methodName">getSpawnPoints</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Transform[]</code></span>
+                    <span class="memberName">getSpawnPoints</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getSpawnPoints.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Vector3d">
+                <h4 class="methodName">Vector3d</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Vector3d</span>
+                    <span class="arguments">(<span class="param">entry.getSpawnOffset(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Vector3d.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>entry.getSpawnOffset(</code> <b>entry.getSpawnOffset(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Transform">
+                <h4 class="methodName">Transform</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Transform</span>
+                    <span class="arguments">(<span class="param">spawnPosition.add(position</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Transform.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>spawnPosition.add(position</code> <b>spawnPosition.add(position</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBenchmark">
+                <h4 class="methodName">getBenchmark</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../benchmark/ChunkWorldgenBenchmark.html" class="type-link"><code>ChunkWorldgenBenchmark</code></a></span>
+                    <span class="memberName">getBenchmark</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBenchmark.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDataFolder">
+                <h4 class="methodName">getDataFolder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Path</code></span>
+                    <span class="memberName">getDataFolder</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDataFolder.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCoreData">
+                <h4 class="methodName">getCoreData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../cache/CoreDataCacheEntry.html" class="type-link"><code>CoreDataCacheEntry</code></a></span>
+                    <span class="memberName">getCoreData</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getCoreData.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getZonePatternGenerator">
+                <h4 class="methodName">getZonePatternGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../zone/ZonePatternGenerator.html" class="type-link"><code>ZonePatternGenerator</code></a></span>
+                    <span class="memberName">getZonePatternGenerator</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getZonePatternGenerator.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getZoneBiomeResultAt">
+                <h4 class="methodName">getZoneBiomeResultAt</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="ZoneBiomeResult.html" class="type-link"><code>ZoneBiomeResult</code></a></span>
+                    <span class="memberName">getZoneBiomeResultAt</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getZoneBiomeResultAt.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getHeight">
+                <h4 class="methodName">getHeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">getHeight</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getHeight.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="putHeight">
+                <h4 class="methodName">putHeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">putHeight</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method putHeight.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInterpolatedBiomeCountAt">
+                <h4 class="methodName">getInterpolatedBiomeCountAt</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../cache/InterpolatedBiomeCountList.html" class="type-link"><code>InterpolatedBiomeCountList</code></a></span>
+                    <span class="memberName">getInterpolatedBiomeCountAt</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getInterpolatedBiomeCountAt.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCave">
+                <h4 class="methodName">getCave</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../cave/Cave.html" class="type-link"><code>Cave</code></a></span>
+                    <span class="memberName">getCave</span>
+                    <span class="arguments">(<span class="param"><a href="../cave/CaveType.html" class="type-link"><code>@Nonnull final CaveType</code></a> <span class="param-name">caveType</span></span>, <span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getCave.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../cave/CaveType.html" class="type-link"><code>@Nonnull final CaveType</code></a> <b>caveType</b></dd>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPrefabLoadingCache">
+                <h4 class="methodName">getPrefabLoadingCache</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../prefab/PrefabLoadingCache.html" class="type-link"><code>PrefabLoadingCache</code></a></span>
+                    <span class="memberName">getPrefabLoadingCache</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPrefabLoadingCache.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getUniquePrefabs">
+                <h4 class="methodName">getUniquePrefabs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>UniquePrefabContainer.UniquePrefabEntry[]</code></span>
+                    <span class="memberName">getUniquePrefabs</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getUniquePrefabs.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generate">
+                <h4 class="methodName">generate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>CompletableFuture<GeneratedChunk></code></span>
+                    <span class="memberName">generate</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final long</code> <span class="param-name">index</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>@Nullable final LongPredicate</code> <span class="param-name">stillNeeded</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generate.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final long</code> <b>index</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>@Nullable final LongPredicate</code> <b>stillNeeded</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ChunkGeneratorExecution">
+                <h4 class="methodName">ChunkGeneratorExecution</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ChunkGeneratorExecution</span>
+                    <span class="arguments">(<span class="param">seed</span>, <span class="param">this</span>, <span class="param">blockChunk</span>, <span class="param">blockStateChunk</span>, <span class="param">entityChunk</span>, <span class="param">sections</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ChunkGeneratorExecution.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>seed</code> <b>seed</b></dd>
+<dd><code>this</code> <b>this</b></dd>
+<dd><code>blockChunk</code> <b>blockChunk</b></dd>
+<dd><code>blockStateChunk</code> <b>blockStateChunk</b></dd>
+<dd><code>entityChunk</code> <b>entityChunk</b></dd>
+<dd><code>sections</code> <b>sections</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="shutdown">
+                <h4 class="methodName">shutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">shutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method shutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateZoneBiomeResultAt">
+                <h4 class="methodName">generateZoneBiomeResultAt</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="ZoneBiomeResult.html" class="type-link"><code>ZoneBiomeResult</code></a></span>
+                    <span class="memberName">generateZoneBiomeResultAt</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateZoneBiomeResultAt.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ZoneBiomeResult">
+                <h4 class="methodName">ZoneBiomeResult</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ZoneBiomeResult</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ZoneBiomeResult.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="ZoneGeneratorResult">
+                <h4 class="methodName">ZoneGeneratorResult</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ZoneGeneratorResult</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ZoneGeneratorResult.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateInterpolatedBiomeCountAt">
+                <h4 class="methodName">generateInterpolatedBiomeCountAt</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">generateInterpolatedBiomeCountAt</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><a href="../cache/InterpolatedBiomeCountList.html" class="type-link"><code>@Nonnull final InterpolatedBiomeCountList</code></a> <span class="param-name">biomeCountList</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateInterpolatedBiomeCountAt.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><a href="../cache/InterpolatedBiomeCountList.html" class="type-link"><code>@Nonnull final InterpolatedBiomeCountList</code></a> <b>biomeCountList</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateLowestThresholdDependent">
+                <h4 class="methodName">generateLowestThresholdDependent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">generateLowestThresholdDependent</span>
+                    <span class="arguments">(<span class="param"><a href="../cache/InterpolatedBiomeCountList.html" class="type-link"><code>@Nonnull final InterpolatedBiomeCountList</code></a> <span class="param-name">biomeCounts</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateLowestThresholdDependent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../cache/InterpolatedBiomeCountList.html" class="type-link"><code>@Nonnull final InterpolatedBiomeCountList</code></a> <b>biomeCounts</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateHighestThresholdDependent">
+                <h4 class="methodName">generateHighestThresholdDependent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">generateHighestThresholdDependent</span>
+                    <span class="arguments">(<span class="param"><a href="../cache/InterpolatedBiomeCountList.html" class="type-link"><code>@Nonnull final InterpolatedBiomeCountList</code></a> <span class="param-name">biomeCounts</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateHighestThresholdDependent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../cache/InterpolatedBiomeCountList.html" class="type-link"><code>@Nonnull final InterpolatedBiomeCountList</code></a> <b>biomeCounts</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateInterpolatedThreshold">
+                <h4 class="methodName">generateInterpolatedThreshold</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>float</code></span>
+                    <span class="memberName">generateInterpolatedThreshold</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><code>final int</code> <span class="param-name">y</span></span>, <span class="param"><a href="../cache/InterpolatedBiomeCountList.html" class="type-link"><code>@Nonnull final InterpolatedBiomeCountList</code></a> <span class="param-name">biomeCounts</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateInterpolatedThreshold.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><code>final int</code> <b>y</b></dd>
+<dd><a href="../cache/InterpolatedBiomeCountList.html" class="type-link"><code>@Nonnull final InterpolatedBiomeCountList</code></a> <b>biomeCounts</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateInterpolatedHeightNoise">
+                <h4 class="methodName">generateInterpolatedHeightNoise</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>double</code></span>
+                    <span class="memberName">generateInterpolatedHeightNoise</span>
+                    <span class="arguments">(<span class="param"><a href="../cache/InterpolatedBiomeCountList.html" class="type-link"><code>@Nonnull final InterpolatedBiomeCountList</code></a> <span class="param-name">biomeCounts</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateInterpolatedHeightNoise.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../cache/InterpolatedBiomeCountList.html" class="type-link"><code>@Nonnull final InterpolatedBiomeCountList</code></a> <b>biomeCounts</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateHeight">
+                <h4 class="methodName">generateHeight</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">generateHeight</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateHeight.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateHeightBetween">
+                <h4 class="methodName">generateHeightBetween</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>int</code></span>
+                    <span class="memberName">generateHeightBetween</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>, <span class="param"><a href="../../../procedurallib/condition/IHeightThresholdInterpreter.html" class="type-link"><code>@Nonnull final IHeightThresholdInterpreter</code></a> <span class="param-name">interpreter</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateHeightBetween.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+<dd><a href="../../../procedurallib/condition/IHeightThresholdInterpreter.html" class="type-link"><code>@Nonnull final IHeightThresholdInterpreter</code></a> <b>interpreter</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateCave">
+                <h4 class="methodName">generateCave</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../cave/Cave.html" class="type-link"><code>Cave</code></a></span>
+                    <span class="memberName">generateCave</span>
+                    <span class="arguments">(<span class="param"><a href="../cave/CaveType.html" class="type-link"><code>@Nonnull final CaveType</code></a> <span class="param-name">caveType</span></span>, <span class="param"><code>final int</code> <span class="param-name">seed</span></span>, <span class="param"><code>final int</code> <span class="param-name">x</span></span>, <span class="param"><code>final int</code> <span class="param-name">z</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateCave.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../cave/CaveType.html" class="type-link"><code>@Nonnull final CaveType</code></a> <b>caveType</b></dd>
+<dd><code>final int</code> <b>seed</b></dd>
+<dd><code>final int</code> <b>x</b></dd>
+<dd><code>final int</code> <b>z</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="generateUniquePrefabs">
+                <h4 class="methodName">generateUniquePrefabs</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>UniquePrefabContainer.UniquePrefabEntry[]</code></span>
+                    <span class="memberName">generateUniquePrefabs</span>
+                    <span class="arguments">(<span class="param"><code>final int</code> <span class="param-name">seed</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method generateUniquePrefabs.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final int</code> <b>seed</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BitSet">
+                <h4 class="methodName">BitSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BitSet</span>
+                    <span class="arguments">(<span class="param">zonePatternGenerator.getZones(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BitSet.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>zonePatternGenerator.getZones(</code> <b>zonePatternGenerator.getZones(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onExecutorShutdown">
+                <h4 class="methodName">onExecutorShutdown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onExecutorShutdown</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method onExecutorShutdown.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getResource">
+                <h4 class="methodName">getResource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="..//ChunkGeneratorResource.html" class="type-link"><code>ChunkGeneratorResource</code></a></span>
+                    <span class="memberName">getResource</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getResource.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="validate">
+                <h4 class="methodName">validate</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">validate</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method validate.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="toMetricResults">
+                <h4 class="methodName">toMetricResults</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../metrics/MetricResults.html" class="type-link"><code>MetricResults</code></a></span>
+                    <span class="memberName">toMetricResults</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toMetricResults.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="toString">
+                <h4 class="methodName">toString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">toString</span>
+                    <span class="arguments">(<span class="param"><code>final boolean</code> <span class="param-name">timings</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">zonePatternGenerator</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method toString.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final boolean</code> <b>timings</b></dd>
+<dd><code>final boolean</code> <b>zonePatternGenerator</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

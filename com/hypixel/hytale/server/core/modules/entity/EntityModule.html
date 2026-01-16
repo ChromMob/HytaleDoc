@@ -1,0 +1,2566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EntityModule (com.hypixel.hytale.server.core.modules.entity)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/server/core/modules/entity/package-summary.html">com.hypixel.hytale.server.core.modules.entity</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">EntityModule</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="EntityModule.html" class="type-link">EntityModule</a> extends <a href="../../plugin/JavaPlugin.html" class="type-link" data-class="JavaPlugin"><code>JavaPlugin</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class EntityModule. Provides entitymodule functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; JavaPlugin &gt; EntityModule</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">preClearMarkersGroup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">SystemGroup<EntityStore></span>
+                    <span class="memberName">preClearMarkersGroup</span>
+                </div>
+                <div class="block">
+                    <p>Field preClearMarkersGroup.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityRef</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">entityRef</span>
+                </div>
+                <div class="block">
+                    <p>Field entityRef.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">store</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Store<EntityStore></span>
+                    <span class="memberName">store</span>
+                </div>
+                <div class="block">
+                    <p>Field store.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Player</span>
+                    <span class="memberName">playerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hotbarManager</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HotbarManager</span>
+                    <span class="memberName">hotbarManager</span>
+                </div>
+                <div class="block">
+                    <p>Field hotbarManager.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityStoreRegistry</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ComponentRegistryProxy<EntityStore></span>
+                    <span class="memberName">entityStoreRegistry</span>
+                </div>
+                <div class="block">
+                    <p>Field entityStoreRegistry.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">_trackerGroup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SystemGroup<EntityStore></span>
+                    <span class="memberName">_trackerGroup</span>
+                </div>
+                <div class="block">
+                    <p>Field _trackerGroup.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">gameplayMovementConfigId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">gameplayMovementConfigId</span>
+                </div>
+                <div class="block">
+                    <p>Field gameplayMovementConfigId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">ref</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">ref</span>
+                </div>
+                <div class="block">
+                    <p>Field ref.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerRefComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PlayerRef</span>
+                    <span class="memberName">playerRefComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field playerRefComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packetHandler</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">PacketHandler</span>
+                    <span class="memberName">packetHandler</span>
+                </div>
+                <div class="block">
+                    <p>Field packetHandler.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">movementManagerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MovementManager</span>
+                    <span class="memberName">movementManagerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field movementManagerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">gameplayMovementConfigIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">gameplayMovementConfigIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field gameplayMovementConfigIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">movConfig</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">MovementConfig</span>
+                    <span class="memberName">movConfig</span>
+                </div>
+                <div class="block">
+                    <p>Field movConfig.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">id</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">id</span>
+                </div>
+                <div class="block">
+                    <p>Field id.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entityComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">T</span>
+                    <span class="memberName">entityComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field entityComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">displayName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">displayName</span>
+                </div>
+                <div class="block">
+                    <p>Field displayName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">entity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">T</span>
+                    <span class="memberName">entity</span>
+                </div>
+                <div class="block">
+                    <p>Field entity.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">uuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUIDComponent</span>
+                    <span class="memberName">uuid</span>
+                </div>
+                <div class="block">
+                    <p>Field uuid.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">legacyUuid</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUID</span>
+                    <span class="memberName">legacyUuid</span>
+                </div>
+                <div class="block">
+                    <p>Field legacyUuid.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="get">
+                <h4 class="methodName">get</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><a href="EntityModule.html" class="type-link"><code>EntityModule</code></a></span>
+                    <span class="memberName">get</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method get.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="EntityModule">
+                <h4 class="methodName">EntityModule</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">EntityModule</span>
+                    <span class="arguments">(<span class="param"><a href="../../plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <span class="param-name">init</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method EntityModule.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../plugin/JavaPluginInit.html" class="type-link"><code>@Nonnull final JavaPluginInit</code></a> <b>init</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup">
+                <h4 class="methodName">setup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method setup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="TangiableEntitySpatialSystem">
+                <h4 class="methodName">TangiableEntitySpatialSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">TangiableEntitySpatialSystem</span>
+                    <span class="arguments">(<span class="param">CollisionModule.get(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method TangiableEntitySpatialSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>CollisionModule.get(</code> <b>CollisionModule.get(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="RotateObjectSystem">
+                <h4 class="methodName">RotateObjectSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">RotateObjectSystem</span>
+                    <span class="arguments">(<span class="param">this.transformComponentType</span>, <span class="param">this.rotateObjectComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method RotateObjectSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.transformComponentType</code> <b>this.transformComponentType</b></dd>
+<dd><code>this.rotateObjectComponentType</code> <b>this.rotateObjectComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="UpdateEntitySeedSystem">
+                <h4 class="methodName">UpdateEntitySeedSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">UpdateEntitySeedSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method UpdateEntitySeedSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="LegacyTransformSystem">
+                <h4 class="methodName">LegacyTransformSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">LegacyTransformSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method LegacyTransformSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="LegacyUUIDSystem">
+                <h4 class="methodName">LegacyUUIDSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">LegacyUUIDSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method LegacyUUIDSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="LegacyUUIDUpdateSystem">
+                <h4 class="methodName">LegacyUUIDUpdateSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">LegacyUUIDUpdateSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method LegacyUUIDUpdateSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlayerCollisionResultAddSystem">
+                <h4 class="methodName">PlayerCollisionResultAddSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PlayerCollisionResultAddSystem</span>
+                    <span class="arguments">(<span class="param">this.playerComponentType</span>, <span class="param">this.collisionResultComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PlayerCollisionResultAddSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.playerComponentType</code> <b>this.playerComponentType</b></dd>
+<dd><code>this.collisionResultComponentType</code> <b>this.collisionResultComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlayerCameraAddSystem">
+                <h4 class="methodName">PlayerCameraAddSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PlayerCameraAddSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PlayerCameraAddSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="KDTree">
+                <h4 class="methodName">KDTree</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">KDTree</span>
+                    <span class="arguments">(<span class="param">Ref::isValid</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method KDTree.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Ref::isValid</code> <b>Ref::isValid</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlayerSpatialSystem">
+                <h4 class="methodName">PlayerSpatialSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PlayerSpatialSystem</span>
+                    <span class="arguments">(<span class="param">this.playerSpatialResourceType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PlayerSpatialSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.playerSpatialResourceType</code> <b>this.playerSpatialResourceType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="EntitySpatialSystem">
+                <h4 class="methodName">EntitySpatialSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">EntitySpatialSystem</span>
+                    <span class="arguments">(<span class="param">this.entitySpatialResourceType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method EntitySpatialSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.entitySpatialResourceType</code> <b>this.entitySpatialResourceType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="DespawnSystem">
+                <h4 class="methodName">DespawnSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">DespawnSystem</span>
+                    <span class="arguments">(<span class="param">this.despawnComponentComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method DespawnSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.despawnComponentComponentType</code> <b>this.despawnComponentComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ItemSpatialSystem">
+                <h4 class="methodName">ItemSpatialSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ItemSpatialSystem</span>
+                    <span class="arguments">(<span class="param">this.itemSpatialResourceType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ItemSpatialSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.itemSpatialResourceType</code> <b>this.itemSpatialResourceType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ItemMergeSystem">
+                <h4 class="methodName">ItemMergeSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ItemMergeSystem</span>
+                    <span class="arguments">(<span class="param">this.itemComponentType</span>, <span class="param">this.interactableComponentType</span>, <span class="param">this.itemSpatialResourceType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ItemMergeSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.itemComponentType</code> <b>this.itemComponentType</b></dd>
+<dd><code>this.interactableComponentType</code> <b>this.interactableComponentType</b></dd>
+<dd><code>this.itemSpatialResourceType</code> <b>this.itemSpatialResourceType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlayerItemEntityPickupSystem">
+                <h4 class="methodName">PlayerItemEntityPickupSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PlayerItemEntityPickupSystem</span>
+                    <span class="arguments">(<span class="param">this.itemComponentType</span>, <span class="param">this.playerComponentType</span>, <span class="param">this.playerSpatialResourceType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PlayerItemEntityPickupSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.itemComponentType</code> <b>this.itemComponentType</b></dd>
+<dd><code>this.playerComponentType</code> <b>this.playerComponentType</b></dd>
+<dd><code>this.playerSpatialResourceType</code> <b>this.playerSpatialResourceType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ItemPrePhysicsSystem">
+                <h4 class="methodName">ItemPrePhysicsSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ItemPrePhysicsSystem</span>
+                    <span class="arguments">(<span class="param">this.itemComponentType</span>, <span class="param">this.boundingBoxComponentType</span>, <span class="param">this.velocityComponentType</span>, <span class="param">this.transformComponentType</span>, <span class="param">this.physicsValuesComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ItemPrePhysicsSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.itemComponentType</code> <b>this.itemComponentType</b></dd>
+<dd><code>this.boundingBoxComponentType</code> <b>this.boundingBoxComponentType</b></dd>
+<dd><code>this.velocityComponentType</code> <b>this.velocityComponentType</b></dd>
+<dd><code>this.transformComponentType</code> <b>this.transformComponentType</b></dd>
+<dd><code>this.physicsValuesComponentType</code> <b>this.physicsValuesComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ItemPhysicsSystem">
+                <h4 class="methodName">ItemPhysicsSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ItemPhysicsSystem</span>
+                    <span class="arguments">(<span class="param">this.itemPhysicsComponentType</span>, <span class="param">this.velocityComponentType</span>, <span class="param">this.boundingBoxComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ItemPhysicsSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.itemPhysicsComponentType</code> <b>this.itemPhysicsComponentType</b></dd>
+<dd><code>this.velocityComponentType</code> <b>this.velocityComponentType</b></dd>
+<dd><code>this.boundingBoxComponentType</code> <b>this.boundingBoxComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PickupItemSystem">
+                <h4 class="methodName">PickupItemSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PickupItemSystem</span>
+                    <span class="arguments">(<span class="param">this.pickupItemComponentType</span>, <span class="param">this.transformComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PickupItemSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.pickupItemComponentType</code> <b>this.pickupItemComponentType</b></dd>
+<dd><code>this.transformComponentType</code> <b>this.transformComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="LivingEntityEffectSystem">
+                <h4 class="methodName">LivingEntityEffectSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">LivingEntityEffectSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method LivingEntityEffectSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlayerProcessMovementSystem">
+                <h4 class="methodName">PlayerProcessMovementSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PlayerProcessMovementSystem</span>
+                    <span class="arguments">(<span class="param">this.playerComponentType</span>, <span class="param">this.velocityComponentType</span>, <span class="param">this.collisionResultComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PlayerProcessMovementSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.playerComponentType</code> <b>this.playerComponentType</b></dd>
+<dd><code>this.velocityComponentType</code> <b>this.velocityComponentType</b></dd>
+<dd><code>this.collisionResultComponentType</code> <b>this.collisionResultComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NetworkSendableSpatialSystem">
+                <h4 class="methodName">NetworkSendableSpatialSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NetworkSendableSpatialSystem</span>
+                    <span class="arguments">(<span class="param">this.networkSendableSpatialResourceType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NetworkSendableSpatialSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.networkSendableSpatialResourceType</code> <b>this.networkSendableSpatialResourceType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="LivingEntityEffectClearChangesSystem">
+                <h4 class="methodName">LivingEntityEffectClearChangesSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">LivingEntityEffectClearChangesSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method LivingEntityEffectClearChangesSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlayerSendInventorySystem">
+                <h4 class="methodName">PlayerSendInventorySystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PlayerSendInventorySystem</span>
+                    <span class="arguments">(<span class="param">this.playerComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PlayerSendInventorySystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.playerComponentType</code> <b>this.playerComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="DamageDataSetupSystem">
+                <h4 class="methodName">DamageDataSetupSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">DamageDataSetupSystem</span>
+                    <span class="arguments">(<span class="param">this.damageDataComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method DamageDataSetupSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.damageDataComponentType</code> <b>this.damageDataComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="TangibleMigrationSystem">
+                <h4 class="methodName">TangibleMigrationSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">TangibleMigrationSystem</span>
+                    <span class="arguments">(<span class="param">ProjectileComponent.getComponentType(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method TangibleMigrationSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>ProjectileComponent.getComponentType(</code> <b>ProjectileComponent.getComponentType(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PhysicsValuesAddSystem">
+                <h4 class="methodName">PhysicsValuesAddSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PhysicsValuesAddSystem</span>
+                    <span class="arguments">(<span class="param">this.physicsValuesComponentType</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PhysicsValuesAddSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.physicsValuesComponentType</code> <b>this.physicsValuesComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="GenericVelocityInstructionSystem">
+                <h4 class="methodName">GenericVelocityInstructionSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">GenericVelocityInstructionSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method GenericVelocityInstructionSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="PlayerVelocityInstructionSystem">
+                <h4 class="methodName">PlayerVelocityInstructionSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PlayerVelocityInstructionSystem</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method PlayerVelocityInstructionSystem.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="IndexedLookupTableAssetMap">
+                <h4 class="methodName">IndexedLookupTableAssetMap</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IndexedLookupTableAssetMap</span>
+                    <span class="arguments">(<span class="param">HitboxCollisionConfig[]::new</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IndexedLookupTableAssetMap.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>HitboxCollisionConfig[]::new</code> <b>HitboxCollisionConfig[]::new</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="HitboxCollisionConfigPacketGenerator">
+                <h4 class="methodName">HitboxCollisionConfigPacketGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">HitboxCollisionConfigPacketGenerator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method HitboxCollisionConfigPacketGenerator.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="RepulsionConfigPacketGenerator">
+                <h4 class="methodName">RepulsionConfigPacketGenerator</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">RepulsionConfigPacketGenerator</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method RepulsionConfigPacketGenerator.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="start">
+                <h4 class="methodName">start</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">start</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method start.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMigrationSystemType">
+                <h4 class="methodName">getMigrationSystemType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>MigrationSystem></code></span>
+                    <span class="memberName">getMigrationSystemType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMigrationSystemType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getVelocityModifyingSystemType">
+                <h4 class="methodName">getVelocityModifyingSystemType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../component/system/ISystem.html" class="type-link"><code>ISystem<EntityStore>></code></a></span>
+                    <span class="memberName">getVelocityModifyingSystemType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getVelocityModifyingSystemType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayerComponentType">
+                <h4 class="methodName">getPlayerComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Player></code></span>
+                    <span class="memberName">getPlayerComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayerComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFrozenComponentType">
+                <h4 class="methodName">getFrozenComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Frozen></code></span>
+                    <span class="memberName">getFrozenComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getFrozenComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getChunkTrackerComponentType">
+                <h4 class="methodName">getChunkTrackerComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ChunkTracker></code></span>
+                    <span class="memberName">getChunkTrackerComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getChunkTrackerComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayerSkinComponentType">
+                <h4 class="methodName">getPlayerSkinComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PlayerSkinComponent></code></span>
+                    <span class="memberName">getPlayerSkinComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayerSkinComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDisplayNameComponentType">
+                <h4 class="methodName">getDisplayNameComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>DisplayNameComponent></code></span>
+                    <span class="memberName">getDisplayNameComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDisplayNameComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getApplyRandomSkinPersistedComponent">
+                <h4 class="methodName">getApplyRandomSkinPersistedComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ApplyRandomSkinPersistedComponent></code></span>
+                    <span class="memberName">getApplyRandomSkinPersistedComponent</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getApplyRandomSkinPersistedComponent.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEntityGroupComponentType">
+                <h4 class="methodName">getEntityGroupComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EntityGroup></code></span>
+                    <span class="memberName">getEntityGroupComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEntityGroupComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayerSpatialResourceType">
+                <h4 class="methodName">getPlayerSpatialResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EntityStore>></code></span>
+                    <span class="memberName">getPlayerSpatialResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayerSpatialResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getItemSpatialResourceType">
+                <h4 class="methodName">getItemSpatialResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EntityStore>></code></span>
+                    <span class="memberName">getItemSpatialResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getItemSpatialResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNetworkSendableSpatialResourceType">
+                <h4 class="methodName">getNetworkSendableSpatialResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EntityStore>></code></span>
+                    <span class="memberName">getNetworkSendableSpatialResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNetworkSendableSpatialResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCollisionResultComponentType">
+                <h4 class="methodName">getCollisionResultComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>CollisionResultComponent></code></span>
+                    <span class="memberName">getCollisionResultComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCollisionResultComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEntityViewerComponentType">
+                <h4 class="methodName">getEntityViewerComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EntityTrackerSystems.EntityViewer></code></span>
+                    <span class="memberName">getEntityViewerComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEntityViewerComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getVisibleComponentType">
+                <h4 class="methodName">getVisibleComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EntityTrackerSystems.Visible></code></span>
+                    <span class="memberName">getVisibleComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getVisibleComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDamageDataComponentType">
+                <h4 class="methodName">getDamageDataComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>DamageDataComponent></code></span>
+                    <span class="memberName">getDamageDataComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDamageDataComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getKnockbackComponentType">
+                <h4 class="methodName">getKnockbackComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>KnockbackComponent></code></span>
+                    <span class="memberName">getKnockbackComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getKnockbackComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDespawnComponentType">
+                <h4 class="methodName">getDespawnComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>DespawnComponent></code></span>
+                    <span class="memberName">getDespawnComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDespawnComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSnapshotWorldInfoResourceType">
+                <h4 class="methodName">getSnapshotWorldInfoResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>SnapshotSystems.SnapshotWorldInfo></code></span>
+                    <span class="memberName">getSnapshotWorldInfoResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSnapshotWorldInfoResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getSnapshotBufferComponentType">
+                <h4 class="methodName">getSnapshotBufferComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>SnapshotBuffer></code></span>
+                    <span class="memberName">getSnapshotBufferComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getSnapshotBufferComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInteractableComponentType">
+                <h4 class="methodName">getInteractableComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Interactable></code></span>
+                    <span class="memberName">getInteractableComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getInteractableComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getIntangibleComponentType">
+                <h4 class="methodName">getIntangibleComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Intangible></code></span>
+                    <span class="memberName">getIntangibleComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getIntangibleComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPreventPickupComponentType">
+                <h4 class="methodName">getPreventPickupComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PreventPickup></code></span>
+                    <span class="memberName">getPreventPickupComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPreventPickupComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInvulnerableComponentType">
+                <h4 class="methodName">getInvulnerableComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Invulnerable></code></span>
+                    <span class="memberName">getInvulnerableComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getInvulnerableComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRespondToHitComponentType">
+                <h4 class="methodName">getRespondToHitComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>RespondToHit></code></span>
+                    <span class="memberName">getRespondToHitComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRespondToHitComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInteractableQueueResourceType">
+                <h4 class="methodName">getInteractableQueueResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EntityInteractableSystems.QueueResource></code></span>
+                    <span class="memberName">getInteractableQueueResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getInteractableQueueResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getIntangibleQueueResourceType">
+                <h4 class="methodName">getIntangibleQueueResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>IntangibleSystems.QueueResource></code></span>
+                    <span class="memberName">getIntangibleQueueResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getIntangibleQueueResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getInvulnerableQueueResourceType">
+                <h4 class="methodName">getInvulnerableQueueResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>InvulnerableSystems.QueueResource></code></span>
+                    <span class="memberName">getInvulnerableQueueResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getInvulnerableQueueResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRespondToHitQueueResourceType">
+                <h4 class="methodName">getRespondToHitQueueResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>RespondToHitSystems.QueueResource></code></span>
+                    <span class="memberName">getRespondToHitQueueResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRespondToHitQueueResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getHiddenFromAdventurePlayerComponentType">
+                <h4 class="methodName">getHiddenFromAdventurePlayerComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>HiddenFromAdventurePlayers></code></span>
+                    <span class="memberName">getHiddenFromAdventurePlayerComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getHiddenFromAdventurePlayerComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFromPrefabComponentType">
+                <h4 class="methodName">getFromPrefabComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>FromPrefab></code></span>
+                    <span class="memberName">getFromPrefabComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getFromPrefabComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getFromWorldGenComponentType">
+                <h4 class="methodName">getFromWorldGenComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>FromWorldGen></code></span>
+                    <span class="memberName">getFromWorldGenComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getFromWorldGenComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getWorldGenIdComponentType">
+                <h4 class="methodName">getWorldGenIdComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>WorldGenId></code></span>
+                    <span class="memberName">getWorldGenIdComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getWorldGenIdComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMovementManagerComponentType">
+                <h4 class="methodName">getMovementManagerComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>MovementManager></code></span>
+                    <span class="memberName">getMovementManagerComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMovementManagerComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNameplateComponentType">
+                <h4 class="methodName">getNameplateComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Nameplate></code></span>
+                    <span class="memberName">getNameplateComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNameplateComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPreClearMarkersGroup">
+                <h4 class="methodName">getPreClearMarkersGroup</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../component/SystemGroup.html" class="type-link"><code>SystemGroup<EntityStore></code></a></span>
+                    <span class="memberName">getPreClearMarkersGroup</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPreClearMarkersGroup.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPersistentRefCountComponentType">
+                <h4 class="methodName">getPersistentRefCountComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PersistentRefCount></code></span>
+                    <span class="memberName">getPersistentRefCountComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPersistentRefCountComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTransformComponentType">
+                <h4 class="methodName">getTransformComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>TransformComponent></code></span>
+                    <span class="memberName">getTransformComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTransformComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getHeadRotationComponentType">
+                <h4 class="methodName">getHeadRotationComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>HeadRotation></code></span>
+                    <span class="memberName">getHeadRotationComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getHeadRotationComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNetworkIdComponentType">
+                <h4 class="methodName">getNetworkIdComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>NetworkId></code></span>
+                    <span class="memberName">getNetworkIdComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNetworkIdComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEffectControllerComponentType">
+                <h4 class="methodName">getEffectControllerComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EffectControllerComponent></code></span>
+                    <span class="memberName">getEffectControllerComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEffectControllerComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMovementStatesComponentType">
+                <h4 class="methodName">getMovementStatesComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>MovementStatesComponent></code></span>
+                    <span class="memberName">getMovementStatesComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMovementStatesComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBlockEntityComponentType">
+                <h4 class="methodName">getBlockEntityComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>BlockEntity></code></span>
+                    <span class="memberName">getBlockEntityComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBlockEntityComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEntityScaleComponentType">
+                <h4 class="methodName">getEntityScaleComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EntityScaleComponent></code></span>
+                    <span class="memberName">getEntityScaleComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEntityScaleComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCameraManagerComponentType">
+                <h4 class="methodName">getCameraManagerComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>CameraManager></code></span>
+                    <span class="memberName">getCameraManagerComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getCameraManagerComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getUuidComponentType">
+                <h4 class="methodName">getUuidComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>UUIDComponent></code></span>
+                    <span class="memberName">getUuidComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getUuidComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayerInputComponentType">
+                <h4 class="methodName">getPlayerInputComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PlayerInput></code></span>
+                    <span class="memberName">getPlayerInputComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayerInputComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getKnockbackSimulationComponentType">
+                <h4 class="methodName">getKnockbackSimulationComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>KnockbackSimulation></code></span>
+                    <span class="memberName">getKnockbackSimulationComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getKnockbackSimulationComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getTeleportComponentType">
+                <h4 class="methodName">getTeleportComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Teleport></code></span>
+                    <span class="memberName">getTeleportComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getTeleportComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getProjectileComponentType">
+                <h4 class="methodName">getProjectileComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ProjectileComponent></code></span>
+                    <span class="memberName">getProjectileComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getProjectileComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPendingTeleportComponentType">
+                <h4 class="methodName">getPendingTeleportComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PendingTeleport></code></span>
+                    <span class="memberName">getPendingTeleportComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPendingTeleportComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getModelComponentType">
+                <h4 class="methodName">getModelComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ModelComponent></code></span>
+                    <span class="memberName">getModelComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getModelComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPersistentModelComponentType">
+                <h4 class="methodName">getPersistentModelComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PersistentModel></code></span>
+                    <span class="memberName">getPersistentModelComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPersistentModelComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPropComponentType">
+                <h4 class="methodName">getPropComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PropComponent></code></span>
+                    <span class="memberName">getPropComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPropComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getBoundingBoxComponentType">
+                <h4 class="methodName">getBoundingBoxComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>BoundingBox></code></span>
+                    <span class="memberName">getBoundingBoxComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getBoundingBoxComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getHitboxCollisionComponentType">
+                <h4 class="methodName">getHitboxCollisionComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>HitboxCollision></code></span>
+                    <span class="memberName">getHitboxCollisionComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getHitboxCollisionComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getVelocityComponentType">
+                <h4 class="methodName">getVelocityComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Velocity></code></span>
+                    <span class="memberName">getVelocityComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getVelocityComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPhysicsValuesComponentType">
+                <h4 class="methodName">getPhysicsValuesComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PhysicsValues></code></span>
+                    <span class="memberName">getPhysicsValuesComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPhysicsValuesComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRepulsionComponentType">
+                <h4 class="methodName">getRepulsionComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Repulsion></code></span>
+                    <span class="memberName">getRepulsionComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRepulsionComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getEntitySpatialResourceType">
+                <h4 class="methodName">getEntitySpatialResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>EntityStore>></code></span>
+                    <span class="memberName">getEntitySpatialResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getEntitySpatialResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getItemComponentType">
+                <h4 class="methodName">getItemComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ItemComponent></code></span>
+                    <span class="memberName">getItemComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getItemComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPickupItemComponentType">
+                <h4 class="methodName">getPickupItemComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PickupItemComponent></code></span>
+                    <span class="memberName">getPickupItemComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPickupItemComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPreventItemMergingType">
+                <h4 class="methodName">getPreventItemMergingType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PreventItemMerging></code></span>
+                    <span class="memberName">getPreventItemMergingType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPreventItemMergingType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getItemPhysicsComponentType">
+                <h4 class="methodName">getItemPhysicsComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ItemPhysicsComponent></code></span>
+                    <span class="memberName">getItemPhysicsComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getItemPhysicsComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDynamicLightComponentType">
+                <h4 class="methodName">getDynamicLightComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>DynamicLight></code></span>
+                    <span class="memberName">getDynamicLightComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDynamicLightComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPersistentDynamicLightComponentType">
+                <h4 class="methodName">getPersistentDynamicLightComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PersistentDynamicLight></code></span>
+                    <span class="memberName">getPersistentDynamicLightComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPersistentDynamicLightComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPrefabCopyableComponentType">
+                <h4 class="methodName">getPrefabCopyableComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PrefabCopyableComponent></code></span>
+                    <span class="memberName">getPrefabCopyableComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPrefabCopyableComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getRotateObjectComponentType">
+                <h4 class="methodName">getRotateObjectComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>RotateObjectComponent></code></span>
+                    <span class="memberName">getRotateObjectComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getRotateObjectComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNewSpawnComponentType">
+                <h4 class="methodName">getNewSpawnComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>NewSpawnComponent></code></span>
+                    <span class="memberName">getNewSpawnComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNewSpawnComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onMovementConfigLoadedAssetsEvent">
+                <h4 class="methodName">onMovementConfigLoadedAssetsEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onMovementConfigLoadedAssetsEvent</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, MovementConfig, DefaultAssetMap<String, MovementConfig>></code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onMovementConfigLoadedAssetsEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>@Nonnull final LoadedAssetsEvent<String, MovementConfig, DefaultAssetMap<String, MovementConfig>></code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="UpdateMovementSettings">
+                <h4 class="methodName">UpdateMovementSettings</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">UpdateMovementSettings</span>
+                    <span class="arguments">(<span class="param">movementConfig.toPacket(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method UpdateMovementSettings.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>movementConfig.toPacket(</code> <b>movementConfig.toPacket(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">!gameplayMovementConfigId.equals(movementConfig.getId(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>!gameplayMovementConfigId.equals(movementConfig.getId(</code> <b>!gameplayMovementConfigId.equals(movementConfig.getId(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onGameplayConfigLoadedAssetsEvent">
+                <h4 class="methodName">onGameplayConfigLoadedAssetsEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onGameplayConfigLoadedAssetsEvent</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>final LoadedAssetsEvent<String, GameplayConfig, DefaultAssetMap<String, GameplayConfig>></code></a> <span class="param-name">event</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onGameplayConfigLoadedAssetsEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../assetstore/event/LoadedAssetsEvent.html" class="type-link"><code>final LoadedAssetsEvent<String, GameplayConfig, DefaultAssetMap<String, GameplayConfig>></code></a> <b>event</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAudioComponentType">
+                <h4 class="methodName">getAudioComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>AudioComponent></code></span>
+                    <span class="memberName">getAudioComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAudioComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMovementAudioComponentType">
+                <h4 class="methodName">getMovementAudioComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>MovementAudioComponent></code></span>
+                    <span class="memberName">getMovementAudioComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getMovementAudioComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPositionDataComponentType">
+                <h4 class="methodName">getPositionDataComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PositionDataComponent></code></span>
+                    <span class="memberName">getPositionDataComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPositionDataComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getPlayerSettingsComponentType">
+                <h4 class="methodName">getPlayerSettingsComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>PlayerSettings></code></span>
+                    <span class="memberName">getPlayerSettingsComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getPlayerSettingsComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getUniqueItemUsagesComponentType">
+                <h4 class="methodName">getUniqueItemUsagesComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>UniqueItemUsagesComponent></code></span>
+                    <span class="memberName">getUniqueItemUsagesComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getUniqueItemUsagesComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getActiveAnimationComponentType">
+                <h4 class="methodName">getActiveAnimationComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>ActiveAnimationComponent></code></span>
+                    <span class="memberName">getActiveAnimationComponentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getActiveAnimationComponentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="registerEntity">
+                <h4 class="methodName">registerEntity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="EntityRegistration.html" class="type-link"><code>EntityRegistration</code></a></span>
+                    <span class="memberName">registerEntity</span>
+                    <span class="arguments">(<span class="param"><code>@Nonnull final String</code> <span class="param-name">id</span></span>, <span class="param"><code>@Nonnull final Class<T></code> <span class="param-name">clazz</span></span>, <span class="param"><code>final Function<World, T></code> <span class="param-name">entityConstructor</span></span>, <span class="param"><a href="../../../../codec/DirectDecodeCodec.html" class="type-link"><code>@Nullable final DirectDecodeCodec<T></code></a> <span class="param-name">codec</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method registerEntity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nonnull final String</code> <b>id</b></dd>
+<dd><code>@Nonnull final Class<T></code> <b>clazz</b></dd>
+<dd><code>final Function<World, T></code> <b>entityConstructor</b></dd>
+<dd><a href="../../../../codec/DirectDecodeCodec.html" class="type-link"><code>@Nullable final DirectDecodeCodec<T></code></a> <b>codec</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="EntityRegistration">
+                <h4 class="methodName">EntityRegistration</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">EntityRegistration</span>
+                    <span class="arguments">(<span class="param">clazz</span>, <span class="param">(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method EntityRegistration.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>clazz</code> <b>clazz</b></dd>
+<dd><code>(</code> <b>(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="unregisterEntity">
+                <h4 class="methodName">unregisterEntity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">unregisterEntity</span>
+                    <span class="arguments">(<span class="param"><code>final Class<T></code> <span class="param-name">clazz</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method unregisterEntity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final Class<T></code> <b>clazz</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getConstructor">
+                <h4 class="methodName">getConstructor</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>T></code></span>
+                    <span class="memberName">getConstructor</span>
+                    <span class="arguments">(<span class="param"><code>@Nullable final Class<T></code> <span class="param-name">entityClass</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getConstructor.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nullable final Class<T></code> <b>entityClass</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getCodec">
+                <h4 class="methodName">getCodec</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../codec/DirectDecodeCodec.html" class="type-link"><code>DirectDecodeCodec<T></code></a></span>
+                    <span class="memberName">getCodec</span>
+                    <span class="arguments">(<span class="param"><code>@Nullable final Class<T></code> <span class="param-name">entityClass</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getCodec.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nullable final Class<T></code> <b>entityClass</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getClass">
+                <h4 class="methodName">getClass</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Entity></code></span>
+                    <span class="memberName">getClass</span>
+                    <span class="arguments">(<span class="param"><code>@Nullable final String</code> <span class="param-name">name</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getClass.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nullable final String</code> <b>name</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getIdentifier">
+                <h4 class="methodName">getIdentifier</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getIdentifier</span>
+                    <span class="arguments">(<span class="param"><code>@Nullable final Class<? extends Entity></code> <span class="param-name">entityClass</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getIdentifier.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nullable final Class<? extends Entity></code> <b>entityClass</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getComponentType">
+                <h4 class="methodName">getComponentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>T></code></span>
+                    <span class="memberName">getComponentType</span>
+                    <span class="arguments">(<span class="param"><code>@Nullable final Class<T></code> <span class="param-name">entityClass</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getComponentType.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>@Nullable final Class<T></code> <b>entityClass</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="IllegalArgumentException">
+                <h4 class="methodName">IllegalArgumentException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">IllegalArgumentException</span>
+                    <span class="arguments">(<span class="param"><code>"Get player component type via</code> <span class="param-name">#getPlayerComponentType(</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method IllegalArgumentException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"Get player component type via</code> <b>#getPlayerComponentType(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="isKnown">
+                <h4 class="methodName">isKnown</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">isKnown</span>
+                    <span class="arguments">(<span class="param"><a href="../../entity/Entity.html" class="type-link"><code>@Nullable final Entity</code></a> <span class="param-name">entity</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method isKnown.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../entity/Entity.html" class="type-link"><code>@Nullable final Entity</code></a> <b>entity</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="LegacyEntityHolderSystem">
+                <h4 class="methodName">LegacyEntityHolderSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">LegacyEntityHolderSystem</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/ComponentType.html" class="type-link"><code>final ComponentType<EntityStore, T></code></a> <span class="param-name">componentType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method LegacyEntityHolderSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/ComponentType.html" class="type-link"><code>final ComponentType<EntityStore, T></code></a> <b>componentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDependencies">
+                <h4 class="methodName">getDependencies</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Set<Dependency<EntityStore>></code></span>
+                    <span class="memberName">getDependencies</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDependencies.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getQuery">
+                <h4 class="methodName">getQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../../component/query/Query.html" class="type-link"><code>Query<EntityStore></code></a></span>
+                    <span class="memberName">getQuery</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getQuery.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEntityAdd">
+                <h4 class="methodName">onEntityAdd</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEntityAdd</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<EntityStore></code></a> <span class="param-name">holder</span></span>, <span class="param"><a href="../../../../component/AddReason.html" class="type-link"><code>@Nonnull final AddReason</code></a> <span class="param-name">reason</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEntityAdd.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<EntityStore></code></a> <b>holder</b></dd>
+<dd><a href="../../../../component/AddReason.html" class="type-link"><code>@Nonnull final AddReason</code></a> <b>reason</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NetworkId">
+                <h4 class="methodName">NetworkId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NetworkId</span>
+                    <span class="arguments">(<span class="param">entityComponent.getNetworkId(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NetworkId.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>entityComponent.getNetworkId(</code> <b>entityComponent.getNetworkId(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="DisplayNameComponent">
+                <h4 class="methodName">DisplayNameComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">DisplayNameComponent</span>
+                    <span class="arguments">(<span class="param">Message.raw(displayName</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method DisplayNameComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Message.raw(displayName</code> <b>Message.raw(displayName</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEntityRemoved">
+                <h4 class="methodName">onEntityRemoved</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEntityRemoved</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<EntityStore></code></a> <span class="param-name">holder</span></span>, <span class="param"><a href="../../../../component/RemoveReason.html" class="type-link"><code>@Nonnull final RemoveReason</code></a> <span class="param-name">reason</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEntityRemoved.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Holder.html" class="type-link"><code>@Nonnull final Holder<EntityStore></code></a> <b>holder</b></dd>
+<dd><a href="../../../../component/RemoveReason.html" class="type-link"><code>@Nonnull final RemoveReason</code></a> <b>reason</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="toString">
+                <h4 class="methodName">toString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">toString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toString.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="LegacyEntityRefSystem">
+                <h4 class="methodName">LegacyEntityRefSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">LegacyEntityRefSystem</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/ComponentType.html" class="type-link"><code>final ComponentType<EntityStore, T></code></a> <span class="param-name">componentType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method LegacyEntityRefSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/ComponentType.html" class="type-link"><code>final ComponentType<EntityStore, T></code></a> <b>componentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEntityAdded">
+                <h4 class="methodName">onEntityAdded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEntityAdded</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/AddReason.html" class="type-link"><code>@Nonnull final AddReason</code></a> <span class="param-name">reason</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEntityAdded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/AddReason.html" class="type-link"><code>@Nonnull final AddReason</code></a> <b>reason</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onEntityRemove">
+                <h4 class="methodName">onEntityRemove</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onEntityRemove</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../../component/RemoveReason.html" class="type-link"><code>@Nonnull final RemoveReason</code></a> <span class="param-name">reason</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onEntityRemove.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../../component/RemoveReason.html" class="type-link"><code>@Nonnull final RemoveReason</code></a> <b>reason</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="HiddenFromPlayerMigrationSystem">
+                <h4 class="methodName">HiddenFromPlayerMigrationSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">HiddenFromPlayerMigrationSystem</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/query/Query.html" class="type-link"><code>final Query<EntityStore></code></a> <span class="param-name">query</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method HiddenFromPlayerMigrationSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/query/Query.html" class="type-link"><code>final Query<EntityStore></code></a> <b>query</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SystemDependency">
+                <h4 class="methodName">SystemDependency</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SystemDependency</span>
+                    <span class="arguments">(<span class="param">Order.BEFORE</span>, <span class="param">(Class<ISystem></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SystemDependency.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Order.BEFORE</code> <b>Order.BEFORE</b></dd>
+<dd><code>(Class<ISystem></code> <b>(Class<ISystem></b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="UUIDComponent">
+                <h4 class="methodName">UUIDComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">UUIDComponent</span>
+                    <span class="arguments">(<span class="param">legacyUuid</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method UUIDComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>legacyUuid</code> <b>legacyUuid</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="componentType">
+                <h4 class="methodName">componentType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>UUIDComponent></code></span>
+                    <span class="memberName">componentType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method componentType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="onComponentAdded">
+                <h4 class="methodName">onComponentAdded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onComponentAdded</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../entity/UUIDComponent.html" class="type-link"><code>@Nonnull final UUIDComponent</code></a> <span class="param-name">component</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onComponentAdded.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../entity/UUIDComponent.html" class="type-link"><code>@Nonnull final UUIDComponent</code></a> <b>component</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onComponentSet">
+                <h4 class="methodName">onComponentSet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onComponentSet</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../entity/UUIDComponent.html" class="type-link"><code>final UUIDComponent</code></a> <span class="param-name">oldComponent</span></span>, <span class="param"><a href="../../entity/UUIDComponent.html" class="type-link"><code>@Nonnull final UUIDComponent</code></a> <span class="param-name">newComponent</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onComponentSet.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../entity/UUIDComponent.html" class="type-link"><code>final UUIDComponent</code></a> <b>oldComponent</b></dd>
+<dd><a href="../../entity/UUIDComponent.html" class="type-link"><code>@Nonnull final UUIDComponent</code></a> <b>newComponent</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onComponentRemoved">
+                <h4 class="methodName">onComponentRemoved</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onComponentRemoved</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../entity/UUIDComponent.html" class="type-link"><code>@Nonnull final UUIDComponent</code></a> <span class="param-name">component</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onComponentRemoved.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../entity/UUIDComponent.html" class="type-link"><code>@Nonnull final UUIDComponent</code></a> <b>component</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RoleChangeSystem (com.hypixel.hytale.server.npc.systems)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/npc/systems/package-summary.html">com.hypixel.hytale.server.npc.systems</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">RoleChangeSystem</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="RoleChangeSystem.html" class="type-link">RoleChangeSystem</a> extends <a href="../../../component/system/tick/TickingSystem.html" class="type-link" data-class="TickingSystem"><code>TickingSystem</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>System for handling rolechange mechanics. Systems contain game logic that operates on entities with specific component types.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; TickingSystem &gt; RoleChangeSystem</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleChangeQueueResource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RoleChangeQueue</span>
+                    <span class="memberName">roleChangeQueueResource</span>
+                </div>
+                <div class="block">
+                    <p>Field roleChangeQueueResource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">requests</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Deque<RoleChangeRequest></span>
+                    <span class="memberName">requests</span>
+                </div>
+                <div class="block">
+                    <p>Field requests.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">request</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RoleChangeRequest</span>
+                    <span class="memberName">request</span>
+                </div>
+                <div class="block">
+                    <p>Field request.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">holder</span>
+                </div>
+                <div class="block">
+                    <p>Field holder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">npcComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NPCEntity</span>
+                    <span class="memberName">npcComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field npcComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">role</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Role</span>
+                    <span class="memberName">role</span>
+                </div>
+                <div class="block">
+                    <p>Field role.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleChangeResource</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RoleChangeQueue</span>
+                    <span class="memberName">roleChangeResource</span>
+                </div>
+                <div class="block">
+                    <p>Field roleChangeResource.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">queue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Deque<RoleChangeRequest></span>
+                    <span class="memberName">queue</span>
+                </div>
+                <div class="block">
+                    <p>Field queue.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleChangeQueue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">RoleChangeQueue</span>
+                    <span class="memberName">roleChangeQueue</span>
+                </div>
+                <div class="block">
+                    <p>Field roleChangeQueue.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="RoleChangeSystem">
+                <h4 class="methodName">RoleChangeSystem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">RoleChangeSystem</span>
+                    <span class="arguments">(<span class="param"><a href="../../core/asset/type/item/config/ResourceType.html" class="type-link"><code>@Nonnull final ResourceType<EntityStore, RoleChangeQueue></code></a> <span class="param-name">roleChangeQueueResourceType</span></span>, <span class="param"><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, BeaconSupport></code></a> <span class="param-name">beaconSupportComponentType</span></span>, <span class="param"><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, PlayerBlockEventSupport></code></a> <span class="param-name">playerBlockEventSupportComponentType</span></span>, <span class="param"><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, NPCBlockEventSupport></code></a> <span class="param-name">npcBlockEventSupportComponentType</span></span>, <span class="param"><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, PlayerEntityEventSupport></code></a> <span class="param-name">playerEntityEventSupportComponentType</span></span>, <span class="param"><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, NPCEntityEventSupport></code></a> <span class="param-name">npcEntityEventSupportComponentType</span></span>, <span class="param"><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, Timers></code></a> <span class="param-name">timersComponentType</span></span>, <span class="param"><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, StateEvaluator></code></a> <span class="param-name">stateEvaluatorComponentType</span></span>, <span class="param"><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, ValueStore></code></a> <span class="param-name">valueStoreComponentType</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method RoleChangeSystem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../core/asset/type/item/config/ResourceType.html" class="type-link"><code>@Nonnull final ResourceType<EntityStore, RoleChangeQueue></code></a> <b>roleChangeQueueResourceType</b></dd>
+<dd><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, BeaconSupport></code></a> <b>beaconSupportComponentType</b></dd>
+<dd><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, PlayerBlockEventSupport></code></a> <b>playerBlockEventSupportComponentType</b></dd>
+<dd><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, NPCBlockEventSupport></code></a> <b>npcBlockEventSupportComponentType</b></dd>
+<dd><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, PlayerEntityEventSupport></code></a> <b>playerEntityEventSupportComponentType</b></dd>
+<dd><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, NPCEntityEventSupport></code></a> <b>npcEntityEventSupportComponentType</b></dd>
+<dd><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, Timers></code></a> <b>timersComponentType</b></dd>
+<dd><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, StateEvaluator></code></a> <b>stateEvaluatorComponentType</b></dd>
+<dd><a href="../../../component/ComponentType.html" class="type-link"><code>@Nonnull final ComponentType<EntityStore, ValueStore></code></a> <b>valueStoreComponentType</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="SystemDependency">
+                <h4 class="methodName">SystemDependency</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">SystemDependency</span>
+                    <span class="arguments">(<span class="param">Order.AFTER</span>, <span class="param">NewSpawnStartTickingSystem.class</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method SystemDependency.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Order.AFTER</code> <b>Order.AFTER</b></dd>
+<dd><code>NewSpawnStartTickingSystem.class</code> <b>NewSpawnStartTickingSystem.class</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getDependencies">
+                <h4 class="methodName">getDependencies</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>Set<Dependency<EntityStore>></code></span>
+                    <span class="memberName">getDependencies</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getDependencies.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="tick">
+                <h4 class="methodName">tick</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">tick</span>
+                    <span class="arguments">(<span class="param"><code>final float</code> <span class="param-name">dt</span></span>, <span class="param"><code>final int</code> <span class="param-name">systemIndex</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method tick.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>final float</code> <b>dt</b></dd>
+<dd><code>final int</code> <b>systemIndex</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="requestRoleChange">
+                <h4 class="methodName">requestRoleChange</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">static</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">requestRoleChange</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <span class="param-name">role</span></span>, <span class="param"><code>final int</code> <span class="param-name">roleIndex</span></span>, <span class="param"><code>final boolean</code> <span class="param-name">changeAppearance</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method requestRoleChange.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../role/Role.html" class="type-link"><code>@Nonnull final Role</code></a> <b>role</b></dd>
+<dd><code>final int</code> <b>roleIndex</b></dd>
+<dd><code>final boolean</code> <b>changeAppearance</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="RoleChangeRequest">
+                <h4 class="methodName">RoleChangeRequest</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">RoleChangeRequest</span>
+                    <span class="arguments">(<span class="param">ref</span>, <span class="param">roleIndex</span>, <span class="param">changeAppearance</span>, <span class="param">state</span>, <span class="param">subState</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method RoleChangeRequest.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>ref</code> <b>ref</b></dd>
+<dd><code>roleIndex</code> <b>roleIndex</b></dd>
+<dd><code>changeAppearance</code> <b>changeAppearance</b></dd>
+<dd><code>state</code> <b>state</b></dd>
+<dd><code>subState</code> <b>subState</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="RoleChangeQueue">
+                <h4 class="methodName">RoleChangeQueue</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">RoleChangeQueue</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method RoleChangeQueue.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getResourceType">
+                <h4 class="methodName">getResourceType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>RoleChangeQueue></code></span>
+                    <span class="memberName">getResourceType</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getResourceType.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="clone">
+                <h4 class="methodName">clone</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../../../component/Resource.html" class="type-link"><code>Resource<EntityStore></code></a></span>
+                    <span class="memberName">clone</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method clone.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

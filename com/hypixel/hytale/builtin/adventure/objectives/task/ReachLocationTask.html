@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReachLocationTask (com.hypixel.hytale.builtin.adventure.objectives.task)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../../com/hypixel/hytale/builtin/adventure/objectives/task/package-summary.html">com.hypixel.hytale.builtin.adventure.objectives.task</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">ReachLocationTask</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="ReachLocationTask.html" class="type-link">ReachLocationTask</a> extends <a href="../../../../protocol/ObjectiveTask.html" class="type-link" data-class="ObjectiveTask"><code>ObjectiveTask</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class ReachLocationTask. Provides reachlocationtask functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; ObjectiveTask &gt; ReachLocationTask</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">completed</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">completed</span>
+                </div>
+                <div class="block">
+                    <p>Field completed.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">markerLoaded</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">markerLoaded</span>
+                </div>
+                <div class="block">
+                    <p>Field markerLoaded.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">targetLocationId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">targetLocationId</span>
+                </div>
+                <div class="block">
+                    <p>Field targetLocationId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">reachLocationMarkerEntities</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<Ref<EntityStore>></span>
+                    <span class="memberName">reachLocationMarkerEntities</span>
+                </div>
+                <div class="block">
+                    <p>Field reachLocationMarkerEntities.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">reachLocationMarkerComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ReachLocationMarker</span>
+                    <span class="memberName">reachLocationMarkerComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field reachLocationMarkerComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentLocation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">currentLocation</span>
+                </div>
+                <div class="block">
+                    <p>Field currentLocation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">closestMarker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">closestMarker</span>
+                </div>
+                <div class="block">
+                    <p>Field closestMarker.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">closestMarkerTransformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">closestMarkerTransformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field closestMarkerTransformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">closestMarkerReachComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ReachLocationMarker</span>
+                    <span class="memberName">closestMarkerReachComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field closestMarkerReachComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">markerEntityReference</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">markerEntityReference</span>
+                </div>
+                <div class="block">
+                    <p>Field markerEntityReference.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">markerTransformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">markerTransformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field markerTransformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">markerReachLocationComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ReachLocationMarker</span>
+                    <span class="memberName">markerReachLocationComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field markerReachLocationComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">pos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">pos</span>
+                </div>
+                <div class="block">
+                    <p>Field pos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">distance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">double</span>
+                    <span class="memberName">distance</span>
+                </div>
+                <div class="block">
+                    <p>Field distance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">locationName</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">locationName</span>
+                </div>
+                <div class="block">
+                    <p>Field locationName.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">markerId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">markerId</span>
+                </div>
+                <div class="block">
+                    <p>Field markerId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">packet</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">com.hypixel.hytale.protocol.ObjectiveTask</span>
+                    <span class="memberName">packet</span>
+                </div>
+                <div class="block">
+                    <p>Field packet.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">uuidComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UUIDComponent</span>
+                    <span class="memberName">uuidComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field uuidComponent.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="ReachLocationTask">
+                <h4 class="methodName">ReachLocationTask</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">ReachLocationTask</span>
+                    <span class="arguments">(<span class="param"><a href="../config/task/ObjectiveTaskAsset.html" class="type-link"><code>@Nonnull final ObjectiveTaskAsset</code></a> <span class="param-name">asset</span></span>, <span class="param"><code>final int</code> <span class="param-name">taskSetIndex</span></span>, <span class="param"><code>final int</code> <span class="param-name">taskIndex</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ReachLocationTask.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../config/task/ObjectiveTaskAsset.html" class="type-link"><code>@Nonnull final ObjectiveTaskAsset</code></a> <b>asset</b></dd>
+<dd><code>final int</code> <b>taskSetIndex</b></dd>
+<dd><code>final int</code> <b>taskIndex</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="checkCompletion">
+                <h4 class="methodName">checkCompletion</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>boolean</code></span>
+                    <span class="memberName">checkCompletion</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method checkCompletion.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getAsset">
+                <h4 class="methodName">getAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><a href="../config/task/ReachLocationTaskAsset.html" class="type-link"><code>ReachLocationTaskAsset</code></a></span>
+                    <span class="memberName">getAsset</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getAsset.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="getMarkerId">
+                <h4 class="methodName">getMarkerId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getMarkerId</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Objective.html" class="type-link"><code>@Nonnull final Objective</code></a> <span class="param-name">objective</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getMarkerId.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Objective.html" class="type-link"><code>@Nonnull final Objective</code></a> <b>objective</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setup0">
+                <h4 class="methodName">setup0</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">protected</span>
+                    <span class="returnType"><code>TransactionRecord[]</code></span>
+                    <span class="memberName">setup0</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Objective.html" class="type-link"><code>@Nonnull final Objective</code></a> <span class="param-name">objective</span></span>, <span class="param"><code>@Nonnull final World</code> <span class="param-name">world</span></span>, <span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setup0.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Objective.html" class="type-link"><code>@Nonnull final Objective</code></a> <b>objective</b></dd>
+<dd><code>@Nonnull final World</code> <b>world</b></dd>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="MapMarker">
+                <h4 class="methodName">MapMarker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">MapMarker</span>
+                    <span class="arguments">(<span class="param">this.getMarkerId(objective</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method MapMarker.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.getMarkerId(objective</code> <b>this.getMarkerId(objective</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="Transform">
+                <h4 class="methodName">Transform</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">Transform</span>
+                    <span class="arguments">(<span class="param">closestPosition</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method Transform.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>closestPosition</code> <b>closestPosition</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="setupMarker">
+                <h4 class="methodName">setupMarker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">setupMarker</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Objective.html" class="type-link"><code>@Nonnull final Objective</code></a> <span class="param-name">objective</span></span>, <span class="param"><a href="../markers/reachlocation/ReachLocationMarker.html" class="type-link"><code>@Nonnull final ReachLocationMarker</code></a> <span class="param-name">locationMarkerEntity</span></span>, <span class="param"><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <span class="param-name">position</span></span>, <span class="param"><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <span class="param-name">commandBuffer</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method setupMarker.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Objective.html" class="type-link"><code>@Nonnull final Objective</code></a> <b>objective</b></dd>
+<dd><a href="../markers/reachlocation/ReachLocationMarker.html" class="type-link"><code>@Nonnull final ReachLocationMarker</code></a> <b>locationMarkerEntity</b></dd>
+<dd><a href="../../../../protocol/Vector3d.html" class="type-link"><code>@Nonnull final Vector3d</code></a> <b>position</b></dd>
+<dd><a href="../../../../component/CommandBuffer.html" class="type-link"><code>@Nonnull final CommandBuffer<EntityStore></code></a> <b>commandBuffer</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="toPacket">
+                <h4 class="methodName">toPacket</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>com.hypixel.hytale.protocol.ObjectiveTask</code></span>
+                    <span class="memberName">toPacket</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../protocol/Objective.html" class="type-link"><code>@Nonnull final Objective</code></a> <span class="param-name">objective</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method toPacket.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../protocol/Objective.html" class="type-link"><code>@Nonnull final Objective</code></a> <b>objective</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onPlayerReachLocationMarker">
+                <h4 class="methodName">onPlayerReachLocationMarker</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onPlayerReachLocationMarker</span>
+                    <span class="arguments">(<span class="param"><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">locationMarkerId</span></span>, <span class="param"><a href="../../../../protocol/Objective.html" class="type-link"><code>@Nonnull final Objective</code></a> <span class="param-name">objective</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onPlayerReachLocationMarker.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><code>@Nonnull final String</code> <b>locationMarkerId</b></dd>
+<dd><a href="../../../../protocol/Objective.html" class="type-link"><code>@Nonnull final Objective</code></a> <b>objective</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="toString">
+                <h4 class="methodName">toString</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">toString</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method toString.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="KeyedCodec">
+                <h4 class="methodName">KeyedCodec</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">KeyedCodec</span>
+                    <span class="arguments">(<span class="param">"MarkerLoaded"</span>, <span class="param">Codec.BOOLEAN</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method KeyedCodec.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>"MarkerLoaded"</code> <b>"MarkerLoaded"</b></dd>
+<dd><code>Codec.BOOLEAN</code> <b>Codec.BOOLEAN</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EntitySpawnPage (com.hypixel.hytale.server.npc.pages)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <script type="text/javascript" src="../../../../../../script.js"></script>
+</head>
+<body>
+    <nav class="navHeader">
+        <span class="navBar">
+            <a href="../../../../../../overview.html">Overview</a> &gt;
+            <a href="../../../../../../com/hypixel/hytale/server/npc/pages/package-summary.html">com.hypixel.hytale.server.npc.pages</a> &gt; Class
+        </span>
+    </nav>
+    
+    <div class="searchBox">
+        <input type="text" id="searchBox" placeholder="Search classes, methods, fields... (Ctrl+F)" autocomplete="off">
+        <div id="searchResults" class="searchResults"></div>
+    </div>
+    
+    <div class="header">
+        <h2 class="title">EntitySpawnPage</h2>
+    </div>
+    
+    <div class="content">
+        <pre class="signature">public class <a href="EntitySpawnPage.html" class="type-link">EntitySpawnPage</a> extends <a href="../../core/entity/entities/player/pages/InteractiveCustomUIPage.html" class="type-link" data-class="InteractiveCustomUIPage"><code>InteractiveCustomUIPage</code></a></pre>
+        
+        <div class="description">
+            <div class="block">
+                <p>Class EntitySpawnPage. Provides entityspawnpage functionality for the Hytale server.</p>
+            </div>
+        </div>
+        
+        <div class="inheritance">
+            <h3>java.lang.Object &gt; InteractiveCustomUIPage &gt; EntitySpawnPage</h3>
+        </div>
+        
+        <div class="summary">
+            <h3>Field Summary</h3>
+            
+            <div class="fieldDetail">
+                <h4 class="fieldName">activeTab</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">activeTab</span>
+                </div>
+                <div class="block">
+                    <p>Field activeTab.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">searchQuery</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">searchQuery</span>
+                </div>
+                <div class="block">
+                    <p>Field searchQuery.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">npcRoles</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">List<String></span>
+                    <span class="memberName">npcRoles</span>
+                </div>
+                <div class="block">
+                    <p>Field npcRoles.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">selectedNpcRole</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">selectedNpcRole</span>
+                </div>
+                <div class="block">
+                    <p>Field selectedNpcRole.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelIds</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">List<String></span>
+                    <span class="memberName">modelIds</span>
+                </div>
+                <div class="block">
+                    <p>Field modelIds.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">selectedModelId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">selectedModelId</span>
+                </div>
+                <div class="block">
+                    <p>Field selectedModelId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">selectedItemId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">selectedItemId</span>
+                </div>
+                <div class="block">
+                    <p>Field selectedItemId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelPreview</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Ref<EntityStore></span>
+                    <span class="memberName">modelPreview</span>
+                </div>
+                <div class="block">
+                    <p>Field modelPreview.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">position</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">position</span>
+                </div>
+                <div class="block">
+                    <p>Field position.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Vector3f</span>
+                    <span class="memberName">rotation</span>
+                </div>
+                <div class="block">
+                    <p>Field rotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentRotationOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">currentRotationOffset</span>
+                </div>
+                <div class="block">
+                    <p>Field currentRotationOffset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">currentScale</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">currentScale</span>
+                </div>
+                <div class="block">
+                    <p>Field currentScale.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastPreviewScale</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">lastPreviewScale</span>
+                </div>
+                <div class="block">
+                    <p>Field lastPreviewScale.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lastScaleUpdateTime</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">lastScaleUpdateTime</span>
+                </div>
+                <div class="block">
+                    <p>Field lastScaleUpdateTime.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">commandBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UICommandBuilder</span>
+                    <span class="memberName">commandBuilder</span>
+                </div>
+                <div class="block">
+                    <p>Field commandBuilder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">eventBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UIEventBuilder</span>
+                    <span class="memberName">eventBuilder</span>
+                </div>
+                <div class="block">
+                    <p>Field eventBuilder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">type</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">type</span>
+                </div>
+                <div class="block">
+                    <p>Field type.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">commandBuilder2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UICommandBuilder</span>
+                    <span class="memberName">commandBuilder2</span>
+                </div>
+                <div class="block">
+                    <p>Field commandBuilder2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">eventBuilder2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UIEventBuilder</span>
+                    <span class="memberName">eventBuilder2</span>
+                </div>
+                <div class="block">
+                    <p>Field eventBuilder2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transform</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transform</span>
+                </div>
+                <div class="block">
+                    <p>Field transform.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">headRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HeadRotation</span>
+                    <span class="memberName">headRotation</span>
+                </div>
+                <div class="block">
+                    <p>Field headRotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">now</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">long</span>
+                    <span class="memberName">now</span>
+                </div>
+                <div class="block">
+                    <p>Field now.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelAsset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ModelAsset</span>
+                    <span class="memberName">modelAsset</span>
+                </div>
+                <div class="block">
+                    <p>Field modelAsset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">commandBuilder3</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UICommandBuilder</span>
+                    <span class="memberName">commandBuilder3</span>
+                </div>
+                <div class="block">
+                    <p>Field commandBuilder3.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">item</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Item</span>
+                    <span class="memberName">item</span>
+                </div>
+                <div class="block">
+                    <p>Field item.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">model</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Model</span>
+                    <span class="memberName">model</span>
+                </div>
+                <div class="block">
+                    <p>Field model.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">commandBuilder4</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">UICommandBuilder</span>
+                    <span class="memberName">commandBuilder4</span>
+                </div>
+                <div class="block">
+                    <p>Field commandBuilder4.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3f</span>
+                    <span class="memberName">spawnRotation</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnRotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">holder</span>
+                </div>
+                <div class="block">
+                    <p>Field holder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleTemplateNames</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">List<String></span>
+                    <span class="memberName">roleTemplateNames</span>
+                </div>
+                <div class="block">
+                    <p>Field roleTemplateNames.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">map</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object2IntMap<String></span>
+                    <span class="memberName">map</span>
+                </div>
+                <div class="block">
+                    <p>Field map.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">fuzzyDistance</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">fuzzyDistance</span>
+                </div>
+                <div class="block">
+                    <p>Field fuzzyDistance.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">sorted</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Stream<Object></span>
+                    <span class="memberName">sorted</span>
+                </div>
+                <div class="block">
+                    <p>Field sorted.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">obj</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Object2IntMap<String></span>
+                    <span class="memberName">obj</span>
+                </div>
+                <div class="block">
+                    <p>Field obj.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">id</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">id</span>
+                </div>
+                <div class="block">
+                    <p>Field id.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">selector</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">selector</span>
+                </div>
+                <div class="block">
+                    <p>Field selector.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemAndBlockModelPaths</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set<String></span>
+                    <span class="memberName">itemAndBlockModelPaths</span>
+                </div>
+                <div class="block">
+                    <p>Field itemAndBlockModelPaths.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">allModels</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Set<String></span>
+                    <span class="memberName">allModels</span>
+                </div>
+                <div class="block">
+                    <p>Field allModels.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelPath</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">modelPath</span>
+                </div>
+                <div class="block">
+                    <p>Field modelPath.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">modelId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">modelId</span>
+                </div>
+                <div class="block">
+                    <p>Field modelId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemStack</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">itemStack</span>
+                </div>
+                <div class="block">
+                    <p>Field itemStack.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">holder2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Holder<EntityStore></span>
+                    <span class="memberName">holder2</span>
+                </div>
+                <div class="block">
+                    <p>Field holder2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemStack2</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ItemStack</span>
+                    <span class="memberName">itemStack2</span>
+                </div>
+                <div class="block">
+                    <p>Field itemStack2.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">blockType</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BlockType</span>
+                    <span class="memberName">blockType</span>
+                </div>
+                <div class="block">
+                    <p>Field blockType.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">transformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">TransformComponent</span>
+                    <span class="memberName">transformComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field transformComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">headRotationComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">HeadRotation</span>
+                    <span class="memberName">headRotationComponent</span>
+                </div>
+                <div class="block">
+                    <p>Field headRotationComponent.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">playerPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">playerPosition</span>
+                </div>
+                <div class="block">
+                    <p>Field playerPosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">direction</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">direction</span>
+                </div>
+                <div class="block">
+                    <p>Field direction.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">lookTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">lookTarget</span>
+                </div>
+                <div class="block">
+                    <p>Field lookTarget.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">aheadPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">aheadPosition</span>
+                </div>
+                <div class="block">
+                    <p>Field aheadPosition.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">world</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">World</span>
+                    <span class="memberName">world</span>
+                </div>
+                <div class="block">
+                    <p>Field world.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">groundTarget</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3i</span>
+                    <span class="memberName">groundTarget</span>
+                </div>
+                <div class="block">
+                    <p>Field groundTarget.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">relativePos</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3d</span>
+                    <span class="memberName">relativePos</span>
+                </div>
+                <div class="block">
+                    <p>Field relativePos.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">previewRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Vector3f</span>
+                    <span class="memberName">previewRotation</span>
+                </div>
+                <div class="block">
+                    <p>Field previewRotation.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">existingScale</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">EntityScaleComponent</span>
+                    <span class="memberName">existingScale</span>
+                </div>
+                <div class="block">
+                    <p>Field existingScale.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">hasBlock</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">boolean</span>
+                    <span class="memberName">hasBlock</span>
+                </div>
+                <div class="block">
+                    <p>Field hasBlock.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">npcPlugin</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">NPCPlugin</span>
+                    <span class="memberName">npcPlugin</span>
+                </div>
+                <div class="block">
+                    <p>Field npcPlugin.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleIndex</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">roleIndex</span>
+                </div>
+                <div class="block">
+                    <p>Field roleIndex.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleBuilderInfo</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">BuilderInfo</span>
+                    <span class="memberName">roleBuilderInfo</span>
+                </div>
+                <div class="block">
+                    <p>Field roleBuilderInfo.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">roleBuilder</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">Builder<Role></span>
+                    <span class="memberName">roleBuilder</span>
+                </div>
+                <div class="block">
+                    <p>Field roleBuilder.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawnable</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">ISpawnableWithModel</span>
+                    <span class="memberName">spawnable</span>
+                </div>
+                <div class="block">
+                    <p>Field spawnable.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">spawningContext</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">final</span>
+                    <span class="returnType">SpawningContext</span>
+                    <span class="memberName">spawningContext</span>
+                </div>
+                <div class="block">
+                    <p>Field spawningContext.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">npcRole</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">npcRole</span>
+                </div>
+                <div class="block">
+                    <p>Field npcRole.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">itemId</span>
+                </div>
+                <div class="block">
+                    <p>Field itemId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">itemStackId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">itemStackId</span>
+                </div>
+                <div class="block">
+                    <p>Field itemStackId.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">tab</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">String</span>
+                    <span class="memberName">tab</span>
+                </div>
+                <div class="block">
+                    <p>Field tab.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">count</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">int</span>
+                    <span class="memberName">count</span>
+                </div>
+                <div class="block">
+                    <p>Field count.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">rotationOffset</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">float</span>
+                    <span class="memberName">rotationOffset</span>
+                </div>
+                <div class="block">
+                    <p>Field rotationOffset.</p>
+                </div>
+            </div>
+            <div class="fieldDetail">
+                <h4 class="fieldName">scale</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType">Float</span>
+                    <span class="memberName">scale</span>
+                </div>
+                <div class="block">
+                    <p>Field scale.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="details">
+            <h3>Method Detail</h3>
+            
+            <div class="methodDetail" id="EntitySpawnPage">
+                <h4 class="methodName">EntitySpawnPage</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>public</code></span>
+                    <span class="memberName">EntitySpawnPage</span>
+                    <span class="arguments">(<span class="param"><a href="../../core/universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <span class="param-name">playerRef</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method EntitySpawnPage.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../core/universe/PlayerRef.html" class="type-link"><code>@Nonnull final PlayerRef</code></a> <b>playerRef</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="build">
+                <h4 class="methodName">build</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">build</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <span class="param-name">commandBuilder</span></span>, <span class="param"><a href="../../core/ui/builder/UIEventBuilder.html" class="type-link"><code>@Nonnull final UIEventBuilder</code></a> <span class="param-name">eventBuilder</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method build.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <b>commandBuilder</b></dd>
+<dd><a href="../../core/ui/builder/UIEventBuilder.html" class="type-link"><code>@Nonnull final UIEventBuilder</code></a> <b>eventBuilder</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="EventData">
+                <h4 class="methodName">EventData</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">EventData</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method EventData.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleDataEvent">
+                <h4 class="methodName">handleDataEvent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleDataEvent</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>@Nonnull final EntitySpawnPageEventData</code> <span class="param-name">data</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleDataEvent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>@Nonnull final EntitySpawnPageEventData</code> <b>data</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="if">
+                <h4 class="methodName">if</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>else</code></span>
+                    <span class="memberName">if</span>
+                    <span class="arguments">(<span class="param">item.hasBlockType(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method if.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>item.hasBlockType(</code> <b>item.hasBlockType(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleSelect">
+                <h4 class="methodName">handleSelect</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleSelect</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>@Nonnull final EntitySpawnPageEventData</code> <span class="param-name">data</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleSelect.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>@Nonnull final EntitySpawnPageEventData</code> <b>data</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleSetItemMaterial">
+                <h4 class="methodName">handleSetItemMaterial</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleSetItemMaterial</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>@Nonnull final EntitySpawnPageEventData</code> <span class="param-name">data</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleSetItemMaterial.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>@Nonnull final EntitySpawnPageEventData</code> <b>data</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearSelectedItem">
+                <h4 class="methodName">clearSelectedItem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearSelectedItem</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method clearSelectedItem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ItemGridSlot">
+                <h4 class="methodName">ItemGridSlot</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ItemGridSlot</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method ItemGridSlot.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="handleSpawn">
+                <h4 class="methodName">handleSpawn</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">handleSpawn</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>@Nonnull final EntitySpawnPageEventData</code> <span class="param-name">data</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method handleSpawn.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>@Nonnull final EntitySpawnPageEventData</code> <b>data</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="spawnNPC">
+                <h4 class="methodName">spawnNPC</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">spawnNPC</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>final int</code> <span class="param-name">count</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method spawnNPC.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>final int</code> <b>count</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="spawnModel">
+                <h4 class="methodName">spawnModel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">spawnModel</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>final int</code> <span class="param-name">count</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method spawnModel.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>final int</code> <b>count</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="NetworkId">
+                <h4 class="methodName">NetworkId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">NetworkId</span>
+                    <span class="arguments">(<span class="param">store.getExternalData(</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method NetworkId.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>store.getExternalData(</code> <b>store.getExternalData(</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="TransformComponent">
+                <h4 class="methodName">TransformComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">TransformComponent</span>
+                    <span class="arguments">(<span class="param">this.position</span>, <span class="param">spawnRotation</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method TransformComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.position</code> <b>this.position</b></dd>
+<dd><code>spawnRotation</code> <b>spawnRotation</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ModelComponent">
+                <h4 class="methodName">ModelComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ModelComponent</span>
+                    <span class="arguments">(<span class="param">model</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ModelComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>model</code> <b>model</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="PersistentModel">
+                <h4 class="methodName">PersistentModel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">PersistentModel</span>
+                    <span class="arguments">(<span class="param"><code>new</code> <span class="param-name">Model.ModelReference(this.selectedModelId</span></span>, <span class="param">this.currentScale</span>, <span class="param">null</span>, <span class="param">true</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method PersistentModel.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>new</code> <b>Model.ModelReference(this.selectedModelId</b></dd>
+<dd><code>this.currentScale</code> <b>this.currentScale</b></dd>
+<dd><code>null</code> <b>null</b></dd>
+<dd><code>true</code> <b>true</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="HeadRotation">
+                <h4 class="methodName">HeadRotation</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">HeadRotation</span>
+                    <span class="arguments">(<span class="param">spawnRotation</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method HeadRotation.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>spawnRotation</code> <b>spawnRotation</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="onDismiss">
+                <h4 class="methodName">onDismiss</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">onDismiss</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method onDismiss.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="clearPreview">
+                <h4 class="methodName">clearPreview</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">clearPreview</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method clearPreview.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updateTabVisibility">
+                <h4 class="methodName">updateTabVisibility</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updateTabVisibility</span>
+                    <span class="arguments">(<span class="param"><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <span class="param-name">commandBuilder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updateTabVisibility.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <b>commandBuilder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="buildList">
+                <h4 class="methodName">buildList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">buildList</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <span class="param-name">commandBuilder</span></span>, <span class="param"><a href="../../core/ui/builder/UIEventBuilder.html" class="type-link"><code>@Nonnull final UIEventBuilder</code></a> <span class="param-name">eventBuilder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method buildList.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <b>commandBuilder</b></dd>
+<dd><a href="../../core/ui/builder/UIEventBuilder.html" class="type-link"><code>@Nonnull final UIEventBuilder</code></a> <b>eventBuilder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="buildNPCList">
+                <h4 class="methodName">buildNPCList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">buildNPCList</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <span class="param-name">commandBuilder</span></span>, <span class="param"><a href="../../core/ui/builder/UIEventBuilder.html" class="type-link"><code>@Nonnull final UIEventBuilder</code></a> <span class="param-name">eventBuilder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method buildNPCList.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <b>commandBuilder</b></dd>
+<dd><a href="../../core/ui/builder/UIEventBuilder.html" class="type-link"><code>@Nonnull final UIEventBuilder</code></a> <b>eventBuilder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="buildModelList">
+                <h4 class="methodName">buildModelList</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">buildModelList</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <span class="param-name">commandBuilder</span></span>, <span class="param"><a href="../../core/ui/builder/UIEventBuilder.html" class="type-link"><code>@Nonnull final UIEventBuilder</code></a> <span class="param-name">eventBuilder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method buildModelList.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <b>commandBuilder</b></dd>
+<dd><a href="../../core/ui/builder/UIEventBuilder.html" class="type-link"><code>@Nonnull final UIEventBuilder</code></a> <b>eventBuilder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="buildItemsContent">
+                <h4 class="methodName">buildItemsContent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">buildItemsContent</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <span class="param-name">commandBuilder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method buildItemsContent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <b>commandBuilder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="selectItem">
+                <h4 class="methodName">selectItem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">selectItem</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">itemId</span></span>, <span class="param"><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <span class="param-name">commandBuilder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method selectItem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>@Nonnull final String</code> <b>itemId</b></dd>
+<dd><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <b>commandBuilder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="spawnItem">
+                <h4 class="methodName">spawnItem</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">spawnItem</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>final int</code> <span class="param-name">count</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method spawnItem.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>final int</code> <b>count</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="ItemComponent">
+                <h4 class="methodName">ItemComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">ItemComponent</span>
+                    <span class="arguments">(<span class="param">itemStack</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method ItemComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>itemStack</code> <b>itemStack</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="BlockEntity">
+                <h4 class="methodName">BlockEntity</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">BlockEntity</span>
+                    <span class="arguments">(<span class="param">this.selectedItemId</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method BlockEntity.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.selectedItemId</code> <b>this.selectedItemId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="EntityScaleComponent">
+                <h4 class="methodName">EntityScaleComponent</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">EntityScaleComponent</span>
+                    <span class="arguments">(<span class="param"><code>this.currentScale *</code> <span class="param-name">2.0f</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method EntityScaleComponent.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>this.currentScale *</code> <b>2.0f</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getItemModelId">
+                <h4 class="methodName">getItemModelId</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>String</code></span>
+                    <span class="memberName">getItemModelId</span>
+                    <span class="arguments">(<span class="param"><a href="../../core/asset/type/item/config/Item.html" class="type-link"><code>@Nonnull final Item</code></a> <span class="param-name">item</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getItemModelId.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../core/asset/type/item/config/Item.html" class="type-link"><code>@Nonnull final Item</code></a> <b>item</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getItemModel">
+                <h4 class="methodName">getItemModel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../core/asset/type/model/config/Model.html" class="type-link"><code>Model</code></a></span>
+                    <span class="memberName">getItemModel</span>
+                    <span class="arguments">(<span class="param"><a href="../../core/asset/type/item/config/Item.html" class="type-link"><code>@Nonnull final Item</code></a> <span class="param-name">item</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method getItemModel.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../core/asset/type/item/config/Item.html" class="type-link"><code>@Nonnull final Item</code></a> <b>item</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="selectNPCRole">
+                <h4 class="methodName">selectNPCRole</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">selectNPCRole</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">npcRole</span></span>, <span class="param"><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <span class="param-name">commandBuilder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method selectNPCRole.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>@Nonnull final String</code> <b>npcRole</b></dd>
+<dd><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <b>commandBuilder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="selectModel">
+                <h4 class="methodName">selectModel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">selectModel</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">modelId</span></span>, <span class="param"><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <span class="param-name">commandBuilder</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method selectModel.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>@Nonnull final String</code> <b>modelId</b></dd>
+<dd><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <b>commandBuilder</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="initPosition">
+                <h4 class="methodName">initPosition</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">initPosition</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method initPosition.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createOrUpdatePreview">
+                <h4 class="methodName">createOrUpdatePreview</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">createOrUpdatePreview</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <span class="param-name">commandBuilder</span></span>, <span class="param"><a href="../../core/asset/type/model/config/Model.html" class="type-link"><code>@Nullable final Model</code></a> <span class="param-name">model</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createOrUpdatePreview.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><a href="../../core/ui/builder/UICommandBuilder.html" class="type-link"><code>@Nonnull final UICommandBuilder</code></a> <b>commandBuilder</b></dd>
+<dd><a href="../../core/asset/type/model/config/Model.html" class="type-link"><code>@Nullable final Model</code></a> <b>model</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="updatePreviewScale">
+                <h4 class="methodName">updatePreviewScale</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">updatePreviewScale</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method updatePreviewScale.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createOrUpdateBlockPreview">
+                <h4 class="methodName">createOrUpdateBlockPreview</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">createOrUpdateBlockPreview</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">blockTypeKey</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createOrUpdateBlockPreview.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>@Nonnull final String</code> <b>blockTypeKey</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="createOrUpdateItemPreview">
+                <h4 class="methodName">createOrUpdateItemPreview</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><code>void</code></span>
+                    <span class="memberName">createOrUpdateItemPreview</span>
+                    <span class="arguments">(<span class="param"><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <span class="param-name">ref</span></span>, <span class="param"><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <span class="param-name">store</span></span>, <span class="param"><code>@Nonnull final String</code> <span class="param-name">itemId</span></span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method createOrUpdateItemPreview.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><a href="../../../component/Ref.html" class="type-link"><code>@Nonnull final Ref<EntityStore></code></a> <b>ref</b></dd>
+<dd><a href="../../../component/Store.html" class="type-link"><code>@Nonnull final Store<EntityStore></code></a> <b>store</b></dd>
+<dd><code>@Nonnull final String</code> <b>itemId</b></dd>
+
+                </dl>
+            </div>
+            <div class="methodDetail" id="getNPCModel">
+                <h4 class="methodName">getNPCModel</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">private</span>
+                    <span class="returnType"><a href="../../core/asset/type/model/config/Model.html" class="type-link"><code>Model</code></a></span>
+                    <span class="memberName">getNPCModel</span>
+                    <span class="arguments">()</span>
+                </div>
+                <div class="block">
+                    <p>Method getNPCModel.</p>
+                </div>
+                <dl class="notes">
+                    
+                </dl>
+            </div>
+            <div class="methodDetail" id="GeneralCommandException">
+                <h4 class="methodName">GeneralCommandException</h4>
+                <div class="memberSignature">
+                    <span class="modifiers">public</span>
+                    <span class="returnType"><code>new</code></span>
+                    <span class="memberName">GeneralCommandException</span>
+                    <span class="arguments">(<span class="param">Message.translation("server.commands.npc.spawn.validation_failed"</span>)</span>
+                </div>
+                <div class="block">
+                    <p>Method GeneralCommandException.</p>
+                </div>
+                <dl class="notes">
+                    <dt>Parameters:</dt>
+<dd><code>Message.translation("server.commands.npc.spawn.validation_failed"</code> <b>Message.translation("server.commands.npc.spawn.validation_failed"</b></dd>
+
+                </dl>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <small>This project is not affiliated with Hytale. Generated by Hytale Javadoc Generator.</small>
+    </footer>
+</body>
+</html>
